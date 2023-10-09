@@ -1,17 +1,14 @@
 version: "3.8"
 
 services:
-  app:
-    container_name: reviewed_app
-    image: reviewed_app
-    build:
-      context: ./frontend/
-      dockerfile: ./Dockerfile
+  frontend:
+    container_name: reviewed_app_frontend
+    image: reviewed_app_frontend
+    build: ./frontend
     volumes:
       - ./frontend/src:/app/src
       - ./frontend/public:/app/public
       - ./frontend/index.html:/app/index.html
       - ./frontend/tailwind.config.cjs:/app/tailwind.config.cjs
     ports:
-      - 5173:5173
-
+      - "5173:5173"

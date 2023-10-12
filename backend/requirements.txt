@@ -1,3 +1,6 @@
+# Making requests
+requests~=2.31.0
+
 # Data models and validation
 pydantic~=2.4.2
 

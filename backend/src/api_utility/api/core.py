@@ -40,7 +40,7 @@ class BaseRestService:
     @staticmethod
     def _request_endpoint(method: str, url: str, **kwargs) -> dict:
         # TODO: set up ssl verification (verify=True)
-        response = requests.request(method, url, verify=False, **kwargs)
+        response = requests.request(method, url, verify=True, **kwargs)
         if response.status_code >= 400:
             raise RequestResponseError(response.status_code, response.text)
         return response.json()

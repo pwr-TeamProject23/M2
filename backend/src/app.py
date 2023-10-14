@@ -1,8 +1,10 @@
-from fastapi import FastAPI
-
-app = FastAPI(title="FastAPI")
+from backend.src.services.dblp import Dblp
 
 
-@app.get("/")
-def read_root():
-    return {"hello": "world"}
+def main():
+    dblp = Dblp()
+    print(dblp.get_authors(query="Lech Madeyski"))
+
+
+if __name__ == "__main__":
+    main()

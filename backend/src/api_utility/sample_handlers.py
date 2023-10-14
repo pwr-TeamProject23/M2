@@ -5,7 +5,7 @@ from backend.src.api_utility.sample_api import SAMPLE_API
 
 class BaseSampleHandler(BaseHandler):
     def __init__(self, auth: BaseTokenAuth, service: str, root_url: str | None = None):
-        super().__init__(auth, SAMPLE_API[service], root_url)
+        super().__init__(SAMPLE_API[service], root_url)
 
 
 class SampleHandler(BaseSampleHandler):

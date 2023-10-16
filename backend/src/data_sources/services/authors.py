@@ -1,8 +1,8 @@
-from backend.src.authors.handlers.abstract_handler import AuthorsHandler
+from backend.src.data_sources.handlers.abstract import AbstractHandler
 
 
 class AuthorsService:
-    def __init__(self, *handlers: list[AuthorsHandler]) -> None:
+    def __init__(self, *handlers: list[AbstractHandler]) -> None:
         self.handlers = handlers
 
     def get_authors(self):

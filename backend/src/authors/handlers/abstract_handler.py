@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 
-class AuthorsHandler:
+
+class AuthorsHandler(ABC):
     @abstractmethod
-    def get_authors():
+    def get_authors(self):
         raise NotImplemented

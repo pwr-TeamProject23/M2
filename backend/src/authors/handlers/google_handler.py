@@ -1,5 +1,5 @@
-from authors.connectors.web_connector import WebConnector
-from authors.handlers.abstract_handler import AuthorsHandler
+from backend.src.authors.connectors.web_connector import WebConnector
+from backend.src.authors.handlers.abstract_handler import AuthorsHandler
 
 
 class GoogleScholarHandler(AuthorsHandler):

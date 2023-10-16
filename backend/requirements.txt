@@ -4,3 +4,9 @@ pydantic~=2.4.2
 # Communication with the front-end
 fastapi~=0.103.2
 uvicorn[standard]~=0.23.2
+
+# Sending requests
+requests~=2.31.0
+
+# Web scraping
+beautifulsoup4~=4.12.2

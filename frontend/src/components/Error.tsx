@@ -3,9 +3,9 @@ import { ErrorIcon } from "./Icons";
 export default function Error(props: { isError: Boolean }) {
   if (props.isError) {
     return (
-      <div className="text-red text-xs p-1 w-fit flex space-x-2">
+      <div className="text-white text-xs p-1 w-fit flex space-x-2">
         <ErrorIcon />
-        <div>Uploaded file should be in PDF format</div>
+        <div>Uploaded file is required to be in PDF format</div>
       </div>
     );
   }

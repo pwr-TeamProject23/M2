@@ -4,7 +4,6 @@ import Error from "./Error";
 import { CheckmarkIcon, UploadIcon } from "./Icons";
 import { FileUploadProps } from "../types/FileUploadTypes";
 
-
 function FileUploadPrompt(props: FileUploadProps) {
   const { inputFileRef, handleFileChange, onButtonClick, isOver } = props;
 
@@ -14,8 +13,10 @@ function FileUploadPrompt(props: FileUploadProps) {
         <UploadIcon />
       </div>
 
-      <div className="flex space-x-1">
-        <div className="font-roboto text-gray-300 text-s">Select file to</div>
+      <div className="flex space-x-1 mb-4">
+        <div className="font-roboto text-gray-300 text-s">
+          Drag & drop files
+        </div>
         <input
           type="file"
           id="article-upload"
@@ -26,7 +27,7 @@ function FileUploadPrompt(props: FileUploadProps) {
           maxLength={1}
         />
         <button className="text-accent text-s" onClick={onButtonClick}>
-          Upload
+          Browse
         </button>
       </div>
 
@@ -66,10 +67,9 @@ export default function FileUpload() {
   });
 
   return (
-    <>
-      <Error isError={isFileUploadError} />
+    <div className="w-1/2">
       <div
-        className="border border-dashed border-accent bg-light-grey rounded-md w-64 h-48 flex items-center justify-center"
+        className="border border-dashed border-accent bg-light-grey rounded-md h-48 flex items-center justify-center"
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
@@ -87,6 +87,7 @@ export default function FileUpload() {
           )}
         </div>
       </div>
-    </>
+      <Error isError={isFileUploadError} />
+    </div>
   );
 }

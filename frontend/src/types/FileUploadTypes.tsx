@@ -11,7 +11,4 @@ export type useFileUploadProps = Pick<
   "inputFileRef" | "acceptedFileExtension"
 >;
 
-export type FileUploadProps = Omit<
-  FileUpload,
-  "acceptedFileExtension"
->;
+export type FileUploadProps = Omit<FileUpload, "acceptedFileExtension">;

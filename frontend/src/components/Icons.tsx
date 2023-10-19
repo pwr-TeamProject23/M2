@@ -3,6 +3,7 @@ import {
   faCircleUp,
   faXmarkCircle,
   faCheckCircle,
+  faUser,
 } from "@fortawesome/free-regular-svg-icons";
 
 const accentColour = "#088586";
@@ -38,5 +39,11 @@ export function CheckmarkIcon() {
         size="xl"
       />
     </div>
+  );
+}
+
+export function PersonIcon() {
+  return (
+    <FontAwesomeIcon icon={faUser} style={{ color: accentColour }} size="xl" />
   );
 }

@@ -3,6 +3,7 @@ import useFileUpload from "../hooks/useDragAndDropFile";
 import Error from "./Error";
 import { CheckmarkIcon, UploadIcon } from "./Icons";
 import { FileUploadProps } from "../types/FileUploadTypes";
+import { useFileUploadStore } from "../../store/FileUploadStore";
 
 function FileUploadPrompt(props: FileUploadProps) {
   const { inputFileRef, handleFileChange, onButtonClick, isOver } = props;
@@ -38,13 +39,14 @@ function FileUploadPrompt(props: FileUploadProps) {
   );
 }
 
-function FileUploaded(props: { filename: string }) {
+function FileUploaded() {
+  const file = useFileUploadStore((state) => state.file);
   return (
     <div className="grid justify-items-center">
       <CheckmarkIcon />
       <div className="text-gray-300 text-s">Upload was successful</div>
       <div className="text-accent text-m mx-4 text-center">
-        {props.filename}
+        {file?.name}
       </div>
     </div>
   );
@@ -52,6 +54,7 @@ function FileUploaded(props: { filename: string }) {
 
 export default function FileUpload() {
   const inputFileRef = useRef<HTMLInputElement | null>(null);
+  const file = useFileUploadStore((state) => state.file);
   const [
     handleFileChange,
     onButtonClick,
@@ -59,7 +62,6 @@ export default function FileUpload() {
     handleDragLeave,
     handleDrop,
     isOver,
-    file,
     isFileUploadError,
   ] = useFileUpload({
     inputFileRef: inputFileRef,
@@ -75,7 +77,7 @@ export default function FileUpload() {
         onDrop={handleDrop}
       >
         <div className="grid">
-          {file === null ? (
+          {file === undefined ? (
             <FileUploadPrompt
               handleFileChange={handleFileChange}
               onButtonClick={onButtonClick}
@@ -83,7 +85,7 @@ export default function FileUpload() {
               isOver={isOver}
             />
           ) : (
-            <FileUploaded filename={file.name} />
+            <FileUploaded />
           )}
         </div>
       </div>

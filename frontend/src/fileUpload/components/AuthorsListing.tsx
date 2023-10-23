@@ -1,3 +1,4 @@
+import { useFileUploadStore } from "../../store/FileUploadStore";
 import { PersonIcon } from "./Icons";
 
 interface Author {
@@ -38,6 +39,7 @@ function Author(props: Author) {
 }
 
 export default function AuthorsListing() {
+  const file = useFileUploadStore((state) => state.file);
   const authors = [
     {
       name: "Lech",
@@ -83,10 +85,15 @@ export default function AuthorsListing() {
     },
   ];
 
+  if (file == undefined) {
+    return <div className="bg-background flex-1 h-full">
+    </div>;
+  }
+
   return (
-    <div className="bg-light-grey m-8">
+    <div className="bg-light-grey">
       <div className="text-white text-2xl font-extralight pb-4 bg-background">
-        Suggested reviewers for "pdf name"
+        {`Suggested reviewers for ${file?.name}`}
       </div>
       {authors.map((author) => (
         <Author {...author} />

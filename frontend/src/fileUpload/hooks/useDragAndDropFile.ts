@@ -1,10 +1,11 @@
 import { DragEvent, useState } from "react";
 import { useFileUploadProps } from "../types/FileUploadTypes";
+import { useFileUploadStore } from "../../store/FileUploadStore";
 
 export default function useFileUpload(props: useFileUploadProps): Array<any> {
   const { inputFileRef, acceptedFileExtension } = props;
   const [isOver, setIsOver] = useState(false);
-  const [file, setFile] = useState<File | null>(null);
+  const setFile = useFileUploadStore((state) => state.setFile);
   const [isFileUploadError, setError] = useState(false);
 
   const validateExtension = (file: File) => {
@@ -53,7 +54,6 @@ export default function useFileUpload(props: useFileUploadProps): Array<any> {
     handleDragLeave,
     handleDrop,
     isOver,
-    file,
     isFileUploadError,
   ];
 }

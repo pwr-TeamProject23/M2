@@ -1,4 +1,5 @@
 import re
+import os
 from pdfminer.high_level import extract_text
 
 
@@ -12,9 +13,9 @@ def format_text(text, leave_paragraphs=True):
 
 
 class ArticleParser:
-    def __init__(self, pdf_name):
-        self.filename = pdf_name
-        self.text = extract_text(self.filename, maxpages=2)
+    def __init__(self, pdf_path):
+        self.pdf_path = pdf_path
+        self.text = extract_text(self.pdf_path, maxpages=2)
 
     def get_abstract(self) -> str:
         abstract = re.findall("(?i)abstract((?:.|\n)(?:.+\n)+)", self.text)
@@ -38,7 +39,7 @@ class ArticleParser:
 
     # from file name?
     def get_title_filename(self) -> str:
-        title = self.filename.split("_")
+        title = os.path.basename(self.pdf_path).split("_")
         title = title[1].split(".")
         return title[0]
 

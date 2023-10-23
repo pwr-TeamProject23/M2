@@ -5,12 +5,16 @@ export default {
   theme: {
     colors: {
       accent: "#088586",
-      "light-grey": "#333333",
+      "light-grey": "#181c1c",
+      background: "#101010",
     },
     extend: {
       colors: {
         ...colors,
       },
+    },
+    fontFamily: {
+      body: ["Roboto"],
     },
   },
   plugins: [],

@@ -1,7 +1,6 @@
 import { DragEvent, useState } from "react";
 import { useFileUploadProps } from "../types/FileUploadTypes";
 
-
 export default function useFileUpload(props: useFileUploadProps): Array<any> {
   const { inputFileRef, acceptedFileExtension } = props;
   const [isOver, setIsOver] = useState(false);

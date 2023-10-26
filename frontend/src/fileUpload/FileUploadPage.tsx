@@ -2,7 +2,7 @@ import AuthorsListing from "./components/AuthorsListing";
 import FileUpload from "./components/FileUpload";
 import Title from "./components/Title";
 
-export default function FileUploadPage() {
+export default function HomePage() {
   return (
     <div className="bg-background w-screen min-h-screen max-h-fit flex flex-col">
       <div className="flex h-8 w-full bg-light-grey" />

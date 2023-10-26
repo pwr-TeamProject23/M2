@@ -6,7 +6,7 @@ import {
   faUser,
 } from "@fortawesome/free-regular-svg-icons";
 
-const accentColour = "#088586";
+const accentColour = "#1E453E";
 const red = "#FF0000";
 const green = "#008000";
 

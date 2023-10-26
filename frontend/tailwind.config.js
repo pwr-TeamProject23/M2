@@ -4,7 +4,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
-      accent: "#088586",
+      accent: "#1E453E",
       "light-grey": "#181c1c",
       background: "#101010",
     },
@@ -17,5 +17,8 @@ export default {
       body: ["Roboto"],
     },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/forms"),
+    // ...
+  ],
 };

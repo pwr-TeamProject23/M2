@@ -45,9 +45,7 @@ function FileUploaded() {
     <div className="grid justify-items-center">
       <CheckmarkIcon />
       <div className="text-gray-300 text-s">Upload was successful</div>
-      <div className="text-accent text-m mx-4 text-center">
-        {file?.name}
-      </div>
+      <div className="text-accent text-m mx-4 text-center">{file?.name}</div>
     </div>
   );
 }

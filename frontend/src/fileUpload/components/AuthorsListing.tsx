@@ -86,8 +86,7 @@ export default function AuthorsListing() {
   ];
 
   if (file == undefined) {
-    return <div className="bg-background flex-1 h-full">
-    </div>;
+    return <div className="bg-background flex-1 h-full"></div>;
   }
 
   return (

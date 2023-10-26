@@ -13,28 +13,24 @@ def format_text(text, leave_paragraphs=True):
 
 
 class ArticleParsingError(Exception):
-
     def __init__(self, message="Couldn't parse the pdf file"):
         self.message = message
         super().__init__(self.message)
 
 
 class AbstractParsingError(ArticleParsingError):
-
     def __init__(self, message="Couldn't retrieve the abstract from the pdf file"):
         self.message = message
         super().__init__(self.message)
 
 
 class KeywordParsingError(ArticleParsingError):
-
     def __init__(self, message="Couldn't retrieve the keywords from the pdf file"):
         self.message = message
         super().__init__(self.message)
 
 
 class AuthorParsingError(ArticleParsingError):
-
     def __init__(self, message="Couldn't retrieve the authors list from the pdf file"):
         self.message = message
         super().__init__(self.message)

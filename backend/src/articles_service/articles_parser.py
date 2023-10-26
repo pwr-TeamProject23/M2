@@ -48,10 +48,11 @@ class ArticleParser:
         raise AbstractParsingError()
 
     def get_keywords(self) -> list[str]:
-        keywords = re.findall("(?i)keywords:((?:.|\n)(?:.+\n)+)", self.text)
+        keywords = re.findall("(?i)keywords:\n?((?:.|\n)(?:.+\n)+)", self.text)
         if len(keywords) > 0:
-            keywords[0] = keywords[0].strip()
-            keywords = keywords[0].split(", ")
+            for i in range(len(keywords)):
+                keywords[i] = keywords[i].strip()
+                keywords[i] = keywords[i].split(", ")
             return keywords
         raise KeywordParsingError()
 
@@ -61,7 +62,6 @@ class ArticleParser:
             return emails
         return []
 
-    # from file name?
     def get_title_filename(self) -> str:
         title = os.path.basename(self.pdf_path).split("_")
         title = title[1].split(".")

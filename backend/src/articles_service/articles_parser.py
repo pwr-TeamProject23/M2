@@ -12,6 +12,34 @@ def format_text(text, leave_paragraphs=True):
     return text
 
 
+class ArticleParsingError(Exception):
+
+    def __init__(self, message="Couldn't parse the pdf file"):
+        self.message = message
+        super().__init__(self.message)
+
+
+class AbstractParsingError(ArticleParsingError):
+
+    def __init__(self, message="Couldn't retrieve the abstract from the pdf file"):
+        self.message = message
+        super().__init__(self.message)
+
+
+class KeywordParsingError(ArticleParsingError):
+
+    def __init__(self, message="Couldn't retrieve the keywords from the pdf file"):
+        self.message = message
+        super().__init__(self.message)
+
+
+class AuthorParsingError(ArticleParsingError):
+
+    def __init__(self, message="Couldn't retrieve the authors list from the pdf file"):
+        self.message = message
+        super().__init__(self.message)
+
+
 class ArticleParser:
     def __init__(self, pdf_path):
         self.pdf_path = pdf_path
@@ -21,7 +49,7 @@ class ArticleParser:
         abstract = re.findall("(?i)abstract((?:.|\n)(?:.+\n)+)", self.text)
         if len(abstract) > 0:
             return format_text(abstract[0], False)
-        raise ValueError("couldn't find the abstract")
+        raise AbstractParsingError()
 
     def get_keywords(self) -> list[str]:
         keywords = re.findall("(?i)keywords:((?:.|\n)(?:.+\n)+)", self.text)
@@ -29,13 +57,13 @@ class ArticleParser:
             keywords[0] = keywords[0].strip()
             keywords = keywords[0].split(", ")
             return keywords
-        raise ValueError("couldn't find the keywords")
+        raise KeywordParsingError()
 
     def get_emails(self) -> list[str]:
         emails = re.findall("[a-zA-Z]\S+@\S+[a-zA-Z]", self.text)
         if len(emails) > 0:
             return emails
-        return ""
+        return []
 
     # from file name?
     def get_title_filename(self) -> str:
@@ -43,10 +71,12 @@ class ArticleParser:
         title = title[1].split(".")
         return title[0]
 
-    def get_authors(self) -> str:
+    def get_authors(self) -> list[str]:
         authors = re.findall(
-            "(?i)complete list of authors:((?:.|\n)*)keywords", self.text
+            "(?i)complete list of authors:((?:.|\n)*?)keywords", self.text
         )
         if len(authors) > 0:
-            return format_text(authors[0], False)
-        return ""
+            authors = format_text(authors[0], False)
+            authors = re.findall("^(.*?);", authors, flags=re.MULTILINE)
+            return authors
+        raise AuthorParsingError()

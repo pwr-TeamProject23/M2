@@ -4,9 +4,10 @@ import {
   faXmarkCircle,
   faCheckCircle,
   faUser,
+  faClock,
 } from "@fortawesome/free-regular-svg-icons";
 
-const accentColour = "#1E453E";
+const accentColor = "#042F2E";
 const red = "#FF0000";
 const green = "#008000";
 
@@ -15,7 +16,7 @@ export function UploadIcon() {
     <div className="flex justify-center">
       <FontAwesomeIcon
         icon={faCircleUp}
-        style={{ color: accentColour }}
+        style={{ color: accentColor }}
         size="xl"
       />
     </div>
@@ -42,8 +43,20 @@ export function CheckmarkIcon() {
   );
 }
 
+export function PendingIcon() {
+  return (
+    <div className="flex justify-center">
+      <FontAwesomeIcon
+        icon={faClock}
+        style={{ color: accentColor }}
+        size="xl"
+      />
+    </div>
+  );
+}
+
 export function PersonIcon() {
   return (
-    <FontAwesomeIcon icon={faUser} style={{ color: accentColour }} size="xl" />
+    <FontAwesomeIcon icon={faUser} style={{ color: accentColor }} size="xl" />
   );
 }

@@ -4,8 +4,8 @@ const reviewedBanner =
 export default function Title() {
   return (
     <div className="">
-      <div className="text-white text-7xl">Reviewed</div>
-      <div className="text-white text-s font-extralight w-2/3">
+      <div className="text-stone-900 text-7xl">Reviewed</div>
+      <div className="text-stone-900 text-s font-extralight w-2/3">
         {reviewedBanner}
       </div>
     </div>

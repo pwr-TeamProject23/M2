@@ -1,4 +1,4 @@
-import { ErrorIcon } from "./Icons";
+import { ErrorIcon } from "../../components/Icons";
 
 export default function Error(props: { isError: Boolean }) {
   if (props.isError) {

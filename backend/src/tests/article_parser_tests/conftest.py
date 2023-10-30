@@ -30,14 +30,14 @@ def encrypt_file(filename, k):
 
 
 def pytest_sessionstart(session):
-    key = os.environ['ARTICLE_KEY']
+    key = os.environ["ARTICLE_KEY"]
     for file in os.listdir("articles"):
-        decrypt("articles/"+file, key)
+        decrypt("articles/" + file, key)
 
 
 @pytest.fixture(params=os.listdir("articles"))
 def article(request):
-    return articles_parser.ArticleParser("articles/"+request.param)
+    return articles_parser.ArticleParser("articles/" + request.param)
 
 
 def pytest_sessionfinish(session, exitstatus):
@@ -45,6 +45,6 @@ def pytest_sessionfinish(session, exitstatus):
     Called after whole test run finished, right before
     returning the exit status to the system.
     """
-    key = os.environ['ARTICLE_KEY']
+    key = os.environ["ARTICLE_KEY"]
     for file in os.listdir("articles"):
-        encrypt_file("articles/"+file, key)
+        encrypt_file("articles/" + file, key)

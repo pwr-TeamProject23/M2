@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import useFileUpload from "../hooks/useDragAndDropFile";
 import Error from "./Error";
-import { CheckmarkIcon, UploadIcon } from "./Icons";
+import { CheckmarkIcon, UploadIcon } from "../../components/Icons";
 import { FileUploadProps } from "../types/FileUploadTypes";
 import { useFileUploadStore } from "../../store/FileUploadStore";
 
@@ -15,8 +15,8 @@ function FileUploadPrompt(props: FileUploadProps) {
       </div>
 
       <div className="flex space-x-1 mb-4">
-        <div className="font-roboto text-gray-300 text-s">
-          Drag & drop files
+        <div className="font-roboto text-gray-900 text-s">
+          Drag & drop files or
         </div>
         <input
           type="file"
@@ -27,7 +27,7 @@ function FileUploadPrompt(props: FileUploadProps) {
           accept=".pdf"
           maxLength={1}
         />
-        <button className="text-accent text-s" onClick={onButtonClick}>
+        <button className="text-stone-950 text-s" onClick={onButtonClick}>
           Browse
         </button>
       </div>
@@ -44,8 +44,8 @@ function FileUploaded() {
   return (
     <div className="grid justify-items-center">
       <CheckmarkIcon />
-      <div className="text-gray-300 text-s">Upload was successful</div>
-      <div className="text-accent text-m mx-4 text-center">{file?.name}</div>
+      <div className="text-gray-900 text-s">Upload was successful</div>
+      <div className="text-teal-950 text-m mx-4 text-center">{file?.name}</div>
     </div>
   );
 }
@@ -67,9 +67,9 @@ export default function FileUpload() {
   });
 
   return (
-    <div className="w-1/2">
+    <div className="w-4/5">
       <div
-        className="border border-dashed border-accent bg-light-grey rounded-md h-48 flex items-center justify-center"
+        className="border border-dashed border-teal-950 bg-stone-100 rounded-md h-48 flex items-center justify-center"
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}

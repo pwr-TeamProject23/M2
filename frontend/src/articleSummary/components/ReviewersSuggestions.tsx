@@ -1,5 +1,4 @@
-import { useFileUploadStore } from "../../store/FileUploadStore";
-import { PersonIcon } from "./Icons";
+import { PersonIcon } from "../../components/Icons";
 
 interface Author {
   name: string;
@@ -14,7 +13,7 @@ function Sources(props: Pick<Author, "sources">) {
   return (
     <div className="p-4">
       {sources.map((source) => (
-        <div className="text-white font-thin text-sm">{`\u2022 ${source}`}</div>
+        <div className="text-stone-600 font-thin text-sm">{`\u2022 ${source}`}</div>
       ))}
     </div>
   );
@@ -24,12 +23,12 @@ function Author(props: Author) {
   const { name, surname, affiliation, email, sources } = props;
   return (
     <>
-      <div className="flex space-x-28 items-center px-24 h-min border-b border-accent p-4">
+      <div className="flex space-x-24 items-center px-24 h-min border-t border-stone-300 py-4">
         <PersonIcon />
         <div className="m-6">
-          <div className="text-3xl text-white">{`${name} ${surname}`}</div>
-          <div className="text-sm text-white font-thin">{email}</div>
-          <div className="text-sm text-white font-thin">{affiliation}</div>
+          <div className="text-3xl text-stone-800">{`${name} ${surname}`}</div>
+          <div className="text-sm text-stone-800 font-thin">{email}</div>
+          <div className="text-sm text-stone-800 font-thin">{affiliation}</div>
         </div>
 
         <Sources sources={sources} />
@@ -38,8 +37,9 @@ function Author(props: Author) {
   );
 }
 
-export default function AuthorsListing() {
-  const file = useFileUploadStore((state) => state.file);
+export default function ReviewersSuggestions() {
+  const getFileName = () => "some.pdf";
+
   const authors = [
     {
       name: "Lech",
@@ -85,14 +85,10 @@ export default function AuthorsListing() {
     },
   ];
 
-  if (file == undefined) {
-    return <div className="bg-background flex-1 h-full"></div>;
-  }
-
   return (
-    <div className="bg-light-grey">
-      <div className="text-white text-2xl font-extralight pb-4 bg-background">
-        {`Suggested reviewers for ${file?.name}`}
+    <div className="">
+      <div className="pb-4 text-stone-900 font-light">
+        {`Suggested reviewers for ${getFileName()}`}
       </div>
       {authors.map((author) => (
         <Author {...author} />

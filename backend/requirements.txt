@@ -10,3 +10,6 @@ requests~=2.31.0
 
 # Web scraping
 beautifulsoup4~=4.12.2
+
+# Uploading files
+python-multipart~=0.0.6

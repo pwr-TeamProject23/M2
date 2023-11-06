@@ -40,12 +40,14 @@ function FileUploadPrompt(props: FileUploadProps) {
 }
 
 function FileUploaded() {
+  const unsetFile = useFileUploadStore((state) => state.unsetFile);
   const file = useFileUploadStore((state) => state.file);
   return (
     <div className="grid justify-items-center">
       <CheckmarkIcon />
       <div className="text-gray-900 text-s">Upload was successful</div>
       <div className="text-teal-950 text-m mx-4 text-center">{file?.name}</div>
+      <button className="text-gray-600 text-s text-thin" onClick={unsetFile}> Upload new </button>
     </div>
   );
 }

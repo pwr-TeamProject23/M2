@@ -1,18 +1,18 @@
 def test_get_keywords(article):
-    keywords = article.get_keywords()
-    assert len(keywords) >= 1
+    keywords = article["pdf"].get_keywords()
+    assert keywords == article["data"]["keywords"]
 
 
 def test_get_abstract(article):
-    abstract = article.get_abstract()
-    assert len(abstract) >= 100
+    abstract = article["pdf"].get_abstract()
+    assert abstract == article["data"]["abstract"]
 
 
 def test_get_authors(article):
-    authors = article.get_authors()
-    assert len(authors) >= 1
+    authors = article["pdf"].get_authors()
+    assert authors == article["data"]["authors"]
 
 
 def test_get_emails(article):
-    emails = article.get_emails()
-    assert len(emails) >= 1
+    emails = article["pdf"].get_emails()
+    assert emails == article["data"]["emails"]

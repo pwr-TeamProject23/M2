@@ -1,3 +1,5 @@
+import json
+
 import pytest
 import os
 from cryptography.fernet import Fernet
@@ -33,11 +35,23 @@ def pytest_sessionstart(session):
     key = os.environ["ARTICLE_KEY"]
     for file in os.listdir("articles"):
         decrypt("articles/" + file, key)
+    for file in os.listdir("articles_data"):
+        decrypt("articles_data/" + file, key)
 
 
 @pytest.fixture(params=os.listdir("articles"))
-def article(request):
-    return articles_parser.ArticleParser("articles/" + request.param)
+def article(request, articles_data):
+    for elem in articles_data:
+        if elem["name"] == request.param:
+            return {"pdf": articles_parser.ArticleParser("articles/" + request.param), "data": elem}
+    return None
+
+
+@pytest.fixture()
+def articles_data():
+    with open("articles_data/Article_test_data.json") as f:
+        data = json.load(f)
+    return data
 
 
 def pytest_sessionfinish(session, exitstatus):
@@ -48,3 +62,5 @@ def pytest_sessionfinish(session, exitstatus):
     key = os.environ["ARTICLE_KEY"]
     for file in os.listdir("articles"):
         encrypt_file("articles/" + file, key)
+    for file in os.listdir("articles_data"):
+        encrypt_file("articles_data/" + file, key)

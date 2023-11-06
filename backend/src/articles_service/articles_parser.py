@@ -9,7 +9,7 @@ def format_text(text, leave_paragraphs=True):
         text = re.sub("^\n$", "", text, flags=re.MULTILINE)
         return text
     text = re.sub("\n$", "", text, flags=re.MULTILINE)
-    return text
+    return text.strip()
 
 
 class ArticleParsingError(Exception):
@@ -42,7 +42,7 @@ class ArticleParser:
         self.text = extract_text(self.pdf_path, maxpages=2)
 
     def get_abstract(self) -> str:
-        abstract = re.findall("(?i)abstract((?:.|\n)(?:.+\n)+)", self.text)
+        abstract = re.findall("(?i)abstract:?\n?((?:.|\n)(?:.+\n)+)", self.text)
         if len(abstract) > 0:
             return format_text(abstract[0], False)
         raise AbstractParsingError()
@@ -51,8 +51,10 @@ class ArticleParser:
         keywords = re.findall("(?i)keywords:\n?((?:.|\n)(?:.+\n)+)", self.text)
         if len(keywords) > 0:
             for i in range(len(keywords)):
-                keywords[i] = keywords[i].strip()
+                keywords[i] = format_text(keywords[i], False)
                 keywords[i] = keywords[i].split(", ")
+                for a in range(len(keywords[i])):
+                    keywords[i][a] = keywords[i][a].strip()
             return keywords
         raise KeywordParsingError()
 
@@ -74,5 +76,7 @@ class ArticleParser:
         if len(authors) > 0:
             authors = format_text(authors[0], False)
             authors = re.findall("^(.*?);", authors, flags=re.MULTILINE)
+            for i in range(len(authors)):
+                authors[i] = authors[i].strip()
             return authors
         raise AuthorParsingError()

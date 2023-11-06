@@ -1,6 +1,4 @@
 from fastapi import FastAPI, UploadFile, HTTPException
-from typing import Annotated
-import os
 
 app = FastAPI(title="ZRECENZOWANE")
 
@@ -15,7 +13,7 @@ async def upload_pdf(file: UploadFile):
     if file.content_type != "application/pdf":
         raise HTTPException(400, detail="Invalid document type.")
     try:
-        file_content = file.file
+        file_content = file.file    # file object same as returned by open()
     except Exception:
         raise HTTPException(500, detail="Internal server error.")
     return {"message": "successful upload", "filename": file.filename}
@@ -26,7 +24,7 @@ async def retrieve_results():
     pass
 
 
-@app.get("user_history/")
+@app.get("/user_history/")
 async def user_history():
     pass
 

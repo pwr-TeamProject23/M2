@@ -12,16 +12,23 @@ function Styled(props: { children: React.ReactNode }) {
 
 function Title() {
   return (
-    <div className="text-3xl text-accent justify-self-center font-light pb-8">
+    <div className="text-3xl text-teal-950 justify-self-center font-light pb-8">
       Log in to Reviewed
     </div>
   );
 }
 
 function SubmitButton() {
-    return <div className="w-full grid p-8">
-        <button type="submit" className="bg-accent px-4 py-2 text-light justify-self-center text-white">Submit</button>
+  return (
+    <div className="w-full grid p-8">
+      <button
+        type="submit"
+        className="bg-teal-950 px-4 py-2 text-light justify-self-center text-white"
+      >
+        Submit
+      </button>
     </div>
+  );
 }
 
 export default function LoginPage() {
@@ -60,7 +67,7 @@ export default function LoginPage() {
                 type="password"
               />
             </Styled>
-            <SubmitButton/>
+            <SubmitButton />
           </Form>
         </Formik>
       </div>

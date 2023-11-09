@@ -13,6 +13,7 @@ services:
       - REDIS_PASSWORD=my-password
       - REDIS_PORT=6379
       - REDIS_DATABASES=16
+
   backend:
     container_name: reviewed_app_backend
     image: reviewed_app_backend
@@ -23,6 +24,8 @@ services:
       - "8000:8000"
     depends_on:
       - cache
+      - db
+
   frontend:
     container_name: reviewed_app_frontend
     image: reviewed_app_frontend
@@ -37,3 +40,15 @@ services:
     depends_on:
       - cache
       - backend
+
+  db:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

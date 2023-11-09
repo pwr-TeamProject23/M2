@@ -1,20 +1,20 @@
-import AuthorsListing from "./components/AuthorsListing";
 import FileUpload from "./components/FileUpload";
 import Title from "./components/Title";
+import PageContainer from "../components/PageContainer";
+import History from "./components/History";
 
 export default function HomePage() {
   return (
-    <div className="bg-background w-screen min-h-screen max-h-fit flex flex-col">
-      <div className="flex h-8 w-full bg-light-grey" />
-      <div className="p-8 flex-1">
+    <PageContainer>
+      <div className="flex-1">
         <div className="flex w-full pb-8">
           <Title />
           <FileUpload />
         </div>
-        <div className="w-full bg-background">
-          <AuthorsListing />
+        <div className="w-full">
+          <History />
         </div>
       </div>
-    </div>
+    </PageContainer>
   );
 }

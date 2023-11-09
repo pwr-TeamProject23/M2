@@ -6,6 +6,16 @@ BASE_DIR = dirname(dirname(abspath(__file__)))
 SRC_DIR = dirname(abspath(__file__))
 BASE_NAME = basename(BASE_DIR)
 
+API_RETRY_AFTER_THRESHOLD = 60
+
+# DBLP
+DBLP_PAGE_SIZE = 1000
+
+# SCOPUS
+SCOPUS_API_KEY = environ.get("SCOPUS_API_KEY")
+SCOPUS_LONG_PAGE_SIZE = 200
+SCOPUS_SHORT_PAGE_SIZE = 25
+
 # LOGGING
 LOGGING_FILE = join(environ.get("LOGGING_DIR", BASE_DIR), f"{BASE_NAME}.log")
 LOGGING_LEVEL = environ.get("LOGGING_LEVEL", "WARNING")

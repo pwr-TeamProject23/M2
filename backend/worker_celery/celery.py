@@ -1,8 +1,8 @@
 from celery import Celery
 
 
-app = Celery('proj',
-             broker='redis://localhost:6379',
+app = Celery('worker_celery',
+             broker='redis://cache:6379',
              include=['worker_celery.tasks'])
 
 # Optional configuration, see the application user guide.

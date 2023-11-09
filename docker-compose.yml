@@ -29,11 +29,9 @@ services:
   celery:
     build: ./backend
     volumes:
-      - ./backend/src:/app/src
+      - ./backend:/app
     container_name: cl01
     command: celery -A worker_celery worker -l info
-    environment:
-      - CELERY_BROKER=redis://redis:6379/0
     depends_on:
       - cache
 

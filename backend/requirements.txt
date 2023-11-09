@@ -13,3 +13,7 @@ beautifulsoup4~=4.12.2
 
 # PDF parsing
 pdfminer.six
+
+# Uploading files
+python-multipart~=0.0.6
+

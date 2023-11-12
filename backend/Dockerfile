@@ -3,11 +3,33 @@ FROM python:3.11-slim
 # Add a work directory
 WORKDIR /app
 
+# install psycopg2 dependencies
+RUN apt-get update \
+    && apt-get -y install libpq-dev gcc \
+    && pip install psycopg2
+
 # Install dependencies
 COPY ./requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
+# Setup wait for it 
+COPY ./scripts/wait-for-it.sh /wait-for-it.sh
+RUN chmod +x /wait-for-it.sh
+
+# # Setup entrypoint
+COPY ./scripts/launch_dev.sh /launch_dev.sh
+RUN chmod +x /launch_dev.sh
+
+
+# # Setup entrypoint
+COPY ./manage.py /manage.py
+RUN chmod +x /manage.py
+
 # Copy app files
 COPY . /app/
 
-CMD ["uvicorn", "src.app:app", "--host", "0.0.0.0", "--port", "8000"]
+ARG PYTHONPATH=/src:$PYTHONPATH
+
+ENTRYPOINT ["bash", "scripts/launch_dev.sh"]
+
+CMD ["uvicorn", "src.app:app", "--port=8000", "--host=0.0.0.0", "--reload"]

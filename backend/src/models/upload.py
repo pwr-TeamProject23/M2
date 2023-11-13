@@ -10,7 +10,7 @@ class Upload(BaseModel):
     file_name: Mapped[int]
     user_id: Mapped[int]
     error: Mapped[bool]
-    results: Mapped["Results"] = relationship(back_populates="upload")
+    reviewers: Mapped["Reviewer"] = relationship(back_populates="upload")
 
     def __repr__(self) -> str:
         return f"Upload<{self.file_name}>"

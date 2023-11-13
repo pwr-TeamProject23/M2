@@ -53,5 +53,15 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
+  worker:
+    build: ./worker
+    environment:
+      REDISSERVER: redis://cache:6379
+      C_FORCE_ROOT: "true"
+    volumes:
+      - ./worker/src:/celery_worker/src
+    depends_on:
+      - cache
+
 volumes:
   pgdata:

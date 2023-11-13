@@ -1,7 +1,7 @@
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import mapped_column, Mapped, relationship
 
-from ..models import BaseModel
+from src.models import BaseModel
 import enum
 
 

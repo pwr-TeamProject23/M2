@@ -2,10 +2,10 @@ from datetime import datetime
 import bcrypt
 from sqlalchemy.orm import Session
 
-from ..models.user import User
-from ..common.model_manager import BaseModelManager
-from ..settings import Settings
-from ..common.postgres import SessionLocal
+from src.models.user import User
+from src.common.model_manager import BaseModelManager
+from src.settings import Settings
+from src.common.postgres import SessionLocal
 
 
 class UserManager(BaseModelManager[User]):

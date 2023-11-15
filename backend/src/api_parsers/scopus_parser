@@ -1,5 +1,7 @@
+from requests.exceptions import HTTPError
 from src.api_handlers.scopus.handler import ScopusHandler
 from src.api_parsers.models import Source, Publication, Author
+import requests
 import json
 
 
@@ -8,51 +10,69 @@ class ScopusParser:
         self.keywords = keywords
         self.handler = ScopusHandler()
 
+    def _get_author_affiliation(self, author_id: str) -> str:
+        params = {'view': 'ENHANCED'}
+        author_response = self.handler.get_author_by_id(author_id=author_id, params=params)
+        affiliation = _extract_affiliation(author_response)
+        return affiliation
+
     def get_authors(self):
         pub_params = {
             'query': f'TITLE-ABS-KEY({self.keywords})',
             'view': 'COMPLETE',
         }
-        pub_response = self.handler.get_abstracts_and_citations(params=pub_params)
-        # TODO: handle a case with no results
+        try:
+            pub_response = self.handler.get_abstracts_and_citations(params=pub_params)
+            if 'error' in pub_response:
+                return []
+            authors: list[Author] = []
+            for page in pub_response:
+                page_authors = self._parse_publications_page(page)
+                authors.extend(page_authors)
+            return authors
+        except HTTPError:
+            return []
+
+    def _parse_entry_dict(self, entry: dict):
         authors: list[Author] = []
-        for page in pub_response:
-            authors.extend(_parse_publications_page(page))
-        print('\n\n', authors)
-
-
-def _parse_publications_page(page: dict):
-    authors: list[Author] = []
-    entries = page['search-results']['entry']
-    for entry in entries:
-        authors.extend(_parse_entry_dict(entry))
-    return authors
-
-
-def _parse_entry_dict(entry: dict):
-    authors: list[Author] = []
-    pub_data = {
-        'title': entry['dc:title'],
-        'abstract': entry['dc:description'],
-        'citations': entry['citedby-count'],
-        'source_api': Source.SCOPUS,
-    }
-    publication = Publication(**pub_data)
-    if 'author' not in entry:
-        return []
-    authors_list = entry['author']
-    for author in authors_list:
-        auth_data = {
-            'name': author['given-name'] + ' ' + author['surname'],
-            'api_id': author['authid'],
-            'publication': publication,
+        pub_data = {
+            'title': entry['dc:title'],
+            'abstract': entry['dc:description'] if 'dc:description' in entry else '',
+            'citations': entry['citedby-count'] if 'citedby-count' in entry else 0,
+            'source_api': Source.SCOPUS,
         }
-        a = Author(**auth_data)
-        print(a)
-        authors.append(a)
-    return authors
+        publication = Publication(**pub_data)
+        if 'author' not in entry:
+            return []
+        authors_list = entry['author']
+        for author in authors_list:
+            author_id = author['authid']
+            auth_data = {
+                'name': (author['given-name'] or '') + ' ' + (author['surname'] or ''),
+                'api_id': author_id,
+                'publication': publication,
+            }
+            if auth_data['name'] == ' ':
+                continue
+            affiliation = self._get_author_affiliation(author_id=author_id)
+            auth_data['affiliation'] = affiliation
+            authors.append(Author(**auth_data))
+        return authors
+
+    def _parse_publications_page(self, page: dict):
+        authors: list[Author] = []
+        entries = page['search-results']['entry']
+        for entry in entries:
+            authors.extend(self._parse_entry_dict(entry))
+        return authors
 
 
+def _extract_affiliation(author_response: dict) -> str:
+    profile = author_response['author-retrieval-response'][0]['author-profile']
+    affiliation = profile['affiliation-current']['affiliation']
+    if type(affiliation) == list:
+        affiliation_name = affiliation[0]['ip-doc']['afdispname']
+    else:
+        affiliation_name = affiliation['ip-doc']['afdispname']
+    return affiliation_name
 
-scopus = ScopusParser('code smells')
-scopus.get_authors()

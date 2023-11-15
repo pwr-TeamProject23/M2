@@ -35,7 +35,7 @@ class OffsetPagination:
 
         while True:
             if page_count > 0:
-                start = parse_qs(urlparse(next_page_url).query)
+                start = parse_qs(urlparse(next_page_url).query).get('start')[0]
             response = self._get_page(
                 params, method, url_path, start, page_size, **kwargs
             ).json()

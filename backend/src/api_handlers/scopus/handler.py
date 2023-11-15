@@ -1,17 +1,12 @@
 from collections.abc import Iterator
 from http import HTTPMethod
 from logging import getLogger
-
 from requests import Response
 
-from backend.src.api_handlers.core import BaseRestHandler
-from backend.src.api_handlers.scopus.pagination import OffsetPagination
-from backend.src.api_handlers.core.throttling import Throttling
-from backend.src.config import (
-    SCOPUS_API_KEY,
-    SCOPUS_LONG_PAGE_SIZE,
-    SCOPUS_SHORT_PAGE_SIZE,
-)
+from src.api_handlers.core import BaseRestHandler
+from src.api_handlers.scopus.pagination import OffsetPagination
+from src.api_handlers.core.throttling import Throttling
+from src.config import SCOPUS_API_KEY, SCOPUS_LONG_PAGE_SIZE, SCOPUS_SHORT_PAGE_SIZE
 
 
 class ScopusHandler:

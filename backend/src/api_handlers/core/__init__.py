@@ -1,2 +1,2 @@
-from backend.src.api_handlers.core.handler import BaseRestHandler
-from backend.src.api_handlers.core.throttling import Throttling
+from src.api_handlers.core.handler import BaseRestHandler
+from src.api_handlers.core.throttling import Throttling

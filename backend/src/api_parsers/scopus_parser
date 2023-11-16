@@ -23,10 +23,10 @@ class ScopusParser:
         }
         try:
             pub_response = self.handler.get_abstracts_and_citations(params=pub_params)
-            if 'error' in pub_response:
-                return []
             authors: list[Author] = []
             for page in pub_response:
+                if 'error' in page:
+                    continue
                 page_authors = self._parse_publications_page(page)
                 authors.extend(page_authors)
             return authors
@@ -39,6 +39,7 @@ class ScopusParser:
             'title': entry['dc:title'],
             'abstract': entry['dc:description'] if 'dc:description' in entry else '',
             'citations': entry['citedby-count'] if 'citedby-count' in entry else 0,
+            'year': entry['prism:coverDate'].split('-')[0],
             'source_api': Source.SCOPUS,
         }
         publication = Publication(**pub_data)
@@ -56,7 +57,9 @@ class ScopusParser:
                 continue
             affiliation = self._get_author_affiliation(author_id=author_id)
             auth_data['affiliation'] = affiliation
-            authors.append(Author(**auth_data))
+            a = Author(**auth_data)
+            print(a)
+            authors.append(a)
         return authors
 
     def _parse_publications_page(self, page: dict):
@@ -75,4 +78,3 @@ def _extract_affiliation(author_response: dict) -> str:
     else:
         affiliation_name = affiliation['ip-doc']['afdispname']
     return affiliation_name
-

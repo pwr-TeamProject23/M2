@@ -10,8 +10,9 @@ class Source(str, Enum):
 
 class Publication(BaseModel):
     title: str
-    abstract: str
+    year: int
     citations: int
+    abstract: str
     source_api: Source
 
 
@@ -20,4 +21,3 @@ class Author(BaseModel):
     api_id: str
     affiliation: str
     publication: Publication
-

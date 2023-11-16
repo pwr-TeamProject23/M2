@@ -6,9 +6,9 @@ import enum
 
 
 class Source(enum.Enum):
-    DBLP = 1
-    GoogleScholar = 2
-    Scopus = 3
+    DBLP = "DBLP"
+    GoogleScholar = "GoogleScholar"
+    Scopus = "Scopus"
 
 
 class Reviewer(BaseModel):

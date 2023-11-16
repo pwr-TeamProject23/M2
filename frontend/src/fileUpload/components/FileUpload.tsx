@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import useFileUpload from "../hooks/useDragAndDropFile";
-import Error from "./Error";
+import UploadError from "./Error";
 import { CheckmarkIcon, UploadIcon } from "../../components/Icons";
 import { FileUploadProps } from "../types/FileUploadTypes";
 import { useFileUploadStore } from "../../store/FileUploadStore";
@@ -47,7 +47,9 @@ function FileUploaded() {
       <CheckmarkIcon />
       <div className="text-gray-900 text-s">Upload was successful</div>
       <div className="text-teal-950 text-m mx-4 text-center">{file?.name}</div>
-      <button className="text-gray-600 text-s text-thin" onClick={unsetFile}> Upload new </button>
+      <button className="text-gray-600 text-s text-thin" onClick={unsetFile}>
+        Upload new
+      </button>
     </div>
   );
 }
@@ -55,6 +57,7 @@ function FileUploaded() {
 export default function FileUpload() {
   const inputFileRef = useRef<HTMLInputElement | null>(null);
   const file = useFileUploadStore((state) => state.file);
+  const errorMessage = useFileUploadStore((state) => state.errorMessage);
   const [
     handleFileChange,
     onButtonClick,
@@ -62,7 +65,6 @@ export default function FileUpload() {
     handleDragLeave,
     handleDrop,
     isOver,
-    isFileUploadError,
   ] = useFileUpload({
     inputFileRef: inputFileRef,
     acceptedFileExtension: "pdf",
@@ -89,7 +91,7 @@ export default function FileUpload() {
           )}
         </div>
       </div>
-      <Error isError={isFileUploadError} />
+      <UploadError />
     </div>
   );
 }

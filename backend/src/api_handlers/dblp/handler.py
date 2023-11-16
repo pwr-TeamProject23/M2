@@ -1,9 +1,9 @@
 from collections.abc import Iterator
 from logging import getLogger
 
-from backend.src.api_handlers.core import BaseRestHandler
-from backend.src.api_handlers.dblp.pagination import OffsetPagination
-from backend.src.config import DBLP_PAGE_SIZE
+from src.api_handlers.core import BaseRestHandler
+from src.api_handlers.dblp.pagination import OffsetPagination
+from src.config import DBLP_PAGE_SIZE
 
 
 class DblpHandler:
@@ -18,7 +18,7 @@ class DblpHandler:
 
     def get_authors(self, query: str | None) -> Iterator:
         return self.offset_pagination.paginate(
-            query=query, url_path="/search/author/api", max_requests=1, time_units=10
+            query=query, url_path="/search/author/api"
         )
 
     def get_venues(self, query: str | None) -> Iterator:

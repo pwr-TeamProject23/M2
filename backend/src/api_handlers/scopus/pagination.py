@@ -4,9 +4,8 @@ from logging import getLogger
 from urllib.parse import parse_qs, urlparse
 
 from requests import Response
-
-from backend.src.api_handlers.core import BaseRestHandler
-from backend.src.api_handlers.core.throttling import Throttling
+from src.api_handlers.core import BaseRestHandler
+from src.api_handlers.core.throttling import Throttling
 
 
 class OffsetPagination:

@@ -6,9 +6,8 @@ from logging import getLogger
 
 from requests import Response
 from requests.exceptions import HTTPError
-
-from backend.src.api_handlers.core.exceptions import QuotaExceededException
-from backend.src.config import API_RETRY_AFTER_THRESHOLD
+from src.api_handlers.core.exceptions import QuotaExceededException
+from src.config import API_RETRY_AFTER_THRESHOLD
 
 
 class Throttling:

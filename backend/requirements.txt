@@ -1,7 +1,8 @@
 # Data models and validation
 pydantic~=2.4.2
+pydantic-settings==2.0.3
 
-# Communication with the front-end
+# API layer
 fastapi~=0.103.2
 uvicorn[standard]~=0.23.2
 
@@ -13,3 +14,11 @@ beautifulsoup4~=4.12.2
 
 # PDF parsing
 pdfminer.six
+
+# Uploading files
+python-multipart~=0.0.6
+
+sqlalchemy~=2.0.21
+psycopg2~=2.9.9
+bcrypt~=4.0.1
+alembic~=1.12.1

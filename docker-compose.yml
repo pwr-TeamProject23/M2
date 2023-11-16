@@ -20,7 +20,8 @@ services:
       - ./backend/src:/app/src
       - ./backend/alembic:/app/alembic
     env_file:
-      - .env
+      - ./env/.env.postgres
+      - ./env/.env.redis
     ports:
       - "8000:8000"
     depends_on:

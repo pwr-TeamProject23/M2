@@ -18,6 +18,7 @@ pdfminer.six
 # Uploading files
 python-multipart~=0.0.6
 
+# Database
 sqlalchemy~=2.0.21
 psycopg2~=2.9.9
 bcrypt~=4.0.1

@@ -12,7 +12,7 @@ RUN apt-get update \
 COPY ./requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
-# Setup wait for it 
+# Setup wait for it
 COPY ./scripts/wait-for-it.sh /wait-for-it.sh
 RUN chmod +x /wait-for-it.sh
 
@@ -32,4 +32,4 @@ ARG PYTHONPATH=/src:$PYTHONPATH
 
 ENTRYPOINT ["bash", "scripts/launch_dev.sh"]
 
-CMD ["uvicorn", "src.app:app", "--port=8000", "--host=0.0.0.0", "--reload"]
+CMD ["uvicorn", "src.__main__:app", "--port=8000", "--host=0.0.0.0", "--reload"]

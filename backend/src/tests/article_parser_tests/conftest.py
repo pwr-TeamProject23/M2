@@ -1,9 +1,9 @@
 import json
+import os
 
 import pytest
-import os
 from cryptography.fernet import Fernet
-from backend.src.articles_service import articles_parser
+from src.articles_service import articles_parser
 
 
 def decrypt(filename, k):
@@ -43,7 +43,10 @@ def pytest_sessionstart(session):
 def article(request, articles_data):
     for elem in articles_data:
         if elem["name"] == request.param:
-            return {"pdf": articles_parser.ArticleParser("articles/" + request.param), "data": elem}
+            return {
+                "pdf": articles_parser.ArticleParser("articles/" + request.param),
+                "data": elem,
+            }
     return None
 
 

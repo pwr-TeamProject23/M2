@@ -8,11 +8,9 @@ services:
     ports:
       - "6379:6379"
     volumes:
-    - ./cache/dаta:/root/redis
-    environment:
-      - REDIS_PASSWORD=my-password
-      - REDIS_PORT=6379
-      - REDIS_DATABASES=16
+      - ./cache/dаta:/root/redis
+    env_file:
+      - ./env/.env.redis
 
   backend:
     container_name: reviewed_app_backend
@@ -22,7 +20,8 @@ services:
       - ./backend/src:/app/src
       - ./backend/alembic:/app/alembic
     env_file:
-      - .env
+      - ./env/.env.postgres
+      - ./env/.env.redis
     ports:
       - "8000:8000"
     depends_on:
@@ -49,7 +48,7 @@ services:
     ports:
       - "5432:5432"
     env_file:
-      - .env
+      - ./env/.env.postgres
     volumes:
       - pgdata:/var/lib/postgresql/data
 

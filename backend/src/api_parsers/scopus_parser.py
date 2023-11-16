@@ -1,4 +1,4 @@
-from src.api_parsers.exceptions import NoAuthorsException, RetrievalFailedException
+from src.api_parsers.exceptions import NoAuthorsException
 from src.api_handlers.scopus.handler import ScopusHandler
 from src.api_parsers.models import Source, Publication, Author
 from requests.exceptions import HTTPError
@@ -24,7 +24,7 @@ class ScopusParser:
         try:
             pub_response = self.handler.get_abstracts_and_citations(params=pub_params)
         except HTTPError:
-            raise RetrievalFailedException(self.keywords)
+            raise NoAuthorsException(self.keywords)
         authors: list[Author] = []
         for page in pub_response:
             if 'error' in page:
@@ -49,7 +49,7 @@ class ScopusParser:
         for author in authors_list:
             first_name = author.get('given-name')
             last_name = author.get('surname')
-            if first_name is None or last_name is None:
+            if first_name is None and last_name is None:
                 continue
             author_id = author['authid']
             auth_data = {

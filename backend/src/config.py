@@ -1,12 +1,19 @@
 from os import environ
 from os.path import abspath, basename, dirname, join
+from zoneinfo import ZoneInfo
 
 # CONFIG VARIABLES
 BASE_DIR = dirname(dirname(abspath(__file__)))
 SRC_DIR = dirname(abspath(__file__))
 BASE_NAME = basename(BASE_DIR)
 
+TZ_INFO = ZoneInfo("Europe/Warsaw")
+
 API_RETRY_AFTER_THRESHOLD = 60
+USER_SESSION_DURATION_DAYS = 30
+
+# FASTAPI
+ALLOWED_ORIGINS = ["*"]
 
 # DBLP
 DBLP_PAGE_SIZE = 1000

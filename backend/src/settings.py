@@ -1,7 +1,7 @@
 from pydantic_settings import BaseSettings
 
 
-class Settings(BaseSettings):
+class PostgresSettings(BaseSettings):
     postgres_password: str
     postgres_user: str
     postgres_db: str
@@ -9,4 +9,3 @@ class Settings(BaseSettings):
     postgres_uri: str
     admin_email: str
     admin_password: str
-    

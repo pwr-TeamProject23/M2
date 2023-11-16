@@ -57,9 +57,7 @@ class ScopusParser:
                 continue
             affiliation = self._get_author_affiliation(author_id=author_id)
             auth_data['affiliation'] = affiliation
-            a = Author(**auth_data)
-            print(a)
-            authors.append(a)
+            authors.append(Author(**auth_data))
         return authors
 
     def _parse_publications_page(self, page: dict):

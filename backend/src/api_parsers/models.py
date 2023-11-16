@@ -17,7 +17,8 @@ class Publication(BaseModel):
 
 
 class Author(BaseModel):
-    name: str
+    first_name: str
+    last_name: str
     api_id: str
     affiliation: str
     publication: Publication

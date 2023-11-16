@@ -1,7 +1,7 @@
-from requests.exceptions import HTTPError
+from src.api_parsers.exceptions import NoAuthorsException, RetrievalFailedException
 from src.api_handlers.scopus.handler import ScopusHandler
 from src.api_parsers.models import Source, Publication, Author
-import requests
+from requests.exceptions import HTTPError
 import json
 
 
@@ -16,29 +16,29 @@ class ScopusParser:
         affiliation = _extract_affiliation(author_response)
         return affiliation
 
-    def get_authors(self):
+    def get_authors(self) -> list[Author]:
         pub_params = {
             'query': f'TITLE-ABS-KEY({self.keywords})',
             'view': 'COMPLETE',
         }
         try:
             pub_response = self.handler.get_abstracts_and_citations(params=pub_params)
-            authors: list[Author] = []
-            for page in pub_response:
-                if 'error' in page:
-                    continue
-                page_authors = self._parse_publications_page(page)
-                authors.extend(page_authors)
-            return authors
         except HTTPError:
-            return []
+            raise RetrievalFailedException(self.keywords)
+        authors: list[Author] = []
+        for page in pub_response:
+            if 'error' in page:
+                raise NoAuthorsException(self.keywords)
+            page_authors = self._parse_publications_page(page)
+            authors.extend(page_authors)
+        return authors
 
-    def _parse_entry_dict(self, entry: dict):
+    def _parse_entry_dict(self, entry: dict) -> list[Author]:
         authors: list[Author] = []
         pub_data = {
             'title': entry['dc:title'],
-            'abstract': entry['dc:description'] if 'dc:description' in entry else '',
-            'citations': entry['citedby-count'] if 'citedby-count' in entry else 0,
+            'abstract': entry.get('dc:description'),
+            'citations': entry.get('citedby-count'),
             'year': entry['prism:coverDate'].split('-')[0],
             'source_api': Source.SCOPUS,
         }
@@ -47,20 +47,22 @@ class ScopusParser:
             return []
         authors_list = entry['author']
         for author in authors_list:
+            first_name = author.get('given-name')
+            last_name = author.get('surname')
+            if first_name is None or last_name is None:
+                continue
             author_id = author['authid']
             auth_data = {
-                'name': (author['given-name'] or '') + ' ' + (author['surname'] or ''),
+                'first_name': first_name,
+                'last_name': last_name,
                 'api_id': author_id,
                 'publication': publication,
+                'affiliation': self._get_author_affiliation(author_id=author_id),
             }
-            if auth_data['name'] == ' ':
-                continue
-            affiliation = self._get_author_affiliation(author_id=author_id)
-            auth_data['affiliation'] = affiliation
             authors.append(Author(**auth_data))
         return authors
 
-    def _parse_publications_page(self, page: dict):
+    def _parse_publications_page(self, page: dict) -> list[Author]:
         authors: list[Author] = []
         entries = page['search-results']['entry']
         for entry in entries:
@@ -72,7 +74,5 @@ def _extract_affiliation(author_response: dict) -> str:
     profile = author_response['author-retrieval-response'][0]['author-profile']
     affiliation = profile['affiliation-current']['affiliation']
     if type(affiliation) == list:
-        affiliation_name = affiliation[0]['ip-doc']['afdispname']
-    else:
-        affiliation_name = affiliation['ip-doc']['afdispname']
-    return affiliation_name
+        return affiliation[0]['ip-doc']['afdispname']
+    return affiliation['ip-doc']['afdispname']

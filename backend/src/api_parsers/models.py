@@ -3,9 +3,9 @@ from enum import Enum
 
 
 class Source(str, Enum):
-    SCOPUS = 'SCOPUS'
-    DBLP = 'DBLP'
-    SCHOLAR = 'SCHOLAR'
+    SCOPUS = "SCOPUS"
+    DBLP = "DBLP"
+    SCHOLAR = "SCHOLAR"
 
 
 class Publication(BaseModel):
@@ -17,7 +17,8 @@ class Publication(BaseModel):
 
 
 class Author(BaseModel):
-    name: str
+    first_name: str
+    last_name: str
     api_id: str
     affiliation: str
     publication: Publication

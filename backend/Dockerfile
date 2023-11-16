@@ -32,4 +32,4 @@ ARG PYTHONPATH=/src:$PYTHONPATH
 
 ENTRYPOINT ["bash", "scripts/launch_dev.sh"]
 
-CMD ["uvicorn", "src.app:app", "--port=8000", "--host=0.0.0.0", "--reload"]
+CMD ["uvicorn", "src.__main__:app", "--port=8000", "--host=0.0.0.0", "--reload"]

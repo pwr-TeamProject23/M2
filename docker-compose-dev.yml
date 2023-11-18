@@ -1,0 +1,70 @@
+version: "3.8"
+
+services:
+  cache:
+    container_name: reviewed_app_cache
+    image: redis:7.2
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./cache/dаta:/root/redis
+    env_file:
+      - ./env/.env.redis
+
+  backend:
+    container_name: reviewed_app_backend
+    image: reviewed_app_backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile-dev
+    volumes:
+      - ./backend/src:/app/src
+      - ./backend/alembic:/app/alembic
+    env_file:
+      - ./env/.env.postgres
+      - ./env/.env.redis
+    ports:
+      - "8000:8000"
+    depends_on:
+      - cache
+      - db
+
+  frontend:
+    container_name: reviewed_app_frontend
+    image: reviewed_app_frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile-dev
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+      - ./frontend/index.html:/app/index.html
+      - ./frontend/tailwind.config.cjs:/app/tailwind.config.cjs
+    ports:
+      - "5173:5173"
+    depends_on:
+      - cache
+      - backend
+
+  db:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    env_file:
+      - ./env/.env.postgres
+    volumes:
+      - pgdata-dev:/var/lib/postgresql/data
+
+  worker:
+    build: ./worker
+    environment:
+      REDISSERVER: redis://cache:6379
+      C_FORCE_ROOT: "true"
+    volumes:
+      - ./worker/src:/celery_worker/src
+    depends_on:
+      - cache
+
+volumes:
+  pgdata-dev:

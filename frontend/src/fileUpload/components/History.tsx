@@ -1,4 +1,3 @@
-import { Children } from "react";
 import { ErrorIcon, PendingIcon, CheckmarkIcon } from "../../components/Icons";
 
 enum Status {

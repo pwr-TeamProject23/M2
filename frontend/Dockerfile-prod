@@ -11,7 +11,7 @@ RUN yarn
 COPY . /app
 
 # Set startup
-CMD ["yarn", "build"]
+RUN yarn build
 
 FROM nginx:latest
 

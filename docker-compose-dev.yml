@@ -57,6 +57,7 @@ services:
       - pgdata-dev:/var/lib/postgresql/data
 
   worker:
+    container_name: reviewed_app_worker
     build: ./worker
     environment:
       REDISSERVER: redis://cache:6379

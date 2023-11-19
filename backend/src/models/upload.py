@@ -10,7 +10,6 @@ class Upload(BaseModel):
     id: Mapped[int] = mapped_column(primary_key=True)
     user_id: Mapped[int] = mapped_column(ForeignKey("user.id"))
     file_name: Mapped[int]
-    user_id: Mapped[int]
     error: Mapped[bool]
     reviewers: Mapped["Reviewer"] = relationship(back_populates="upload")
     user: Mapped["User"] = relationship(back_populates="uploads")

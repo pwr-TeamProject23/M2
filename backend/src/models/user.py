@@ -10,6 +10,7 @@ class User(BaseModel):
     email: Mapped[str]
     password: Mapped[str]
     is_admin: Mapped[bool]
+    sessions: Mapped[list["UserSession"]] = relationship()
     uploads: Mapped["Upload"] = relationship(back_populates="user")
 
     def __repr__(self) -> str:

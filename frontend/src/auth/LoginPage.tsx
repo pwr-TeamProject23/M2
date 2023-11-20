@@ -1,5 +1,11 @@
 import { Formik, Field, Form } from "formik";
-import React from "react";
+import React, { useEffect } from "react";
+import useLogin from "./useLogin";
+
+interface Values {
+  email: string;
+  password: string;
+}
 
 function Styled(props: { children: React.ReactNode }) {
   return <div className="bg-stone-900">{props.children}</div>;
@@ -27,7 +33,9 @@ function SubmitButton() {
 }
 
 export default function LoginPage() {
-  const onLoginSubmit = () => {};
+  const { onLoginSubmit, errorMessage } = useLogin();
+
+  useEffect(() => {}, [errorMessage]);
   return (
     <div className="h-screen w-screen flex justify-center items-center bg-stone-100">
       <div className="flex-col grid items-center">
@@ -59,6 +67,7 @@ export default function LoginPage() {
                 type="password"
               />
             </Styled>
+            <div className="text-red-700 text-sm text-thin">{errorMessage}</div>
             <SubmitButton />
           </Form>
         </Formik>

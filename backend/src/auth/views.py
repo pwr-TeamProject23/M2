@@ -25,7 +25,7 @@ async def login(
     user_id = validate_credentials(db_session, credentials.email, credentials.password)
     if not user_id:
         raise UnauthorizedException
-
+    
     session_id = str(uuid4())
     create_user_session(db_session, user_id, session_id)
     response = JSONResponse(
@@ -40,6 +40,7 @@ async def logout(
     request: Request, db_session: Session = Depends(get_db_session)
 ) -> JSONResponse:
     session_id = request.cookies.get("session_id")
+
     if not session_id:
         raise ForbiddenException
     if not close_user_session(db_session, session_id):
@@ -52,12 +53,18 @@ async def logout(
     return response
 
 
-@router.get("/my_account", dependencies=[Depends(is_authorized)])
+@router.get("/who_am_i", dependencies=[Depends(is_authorized)])
 async def my_account(
     request: Request, db_session: Session = Depends(get_db_session)
 ) -> UserDetailsResponse:
     session_id = request.cookies.get("session_id")
     if not session_id:
         raise ForbiddenException
+
     current_user = get_authorized_user_details(db_session, session_id)
-    return UserDetailsResponse(email=current_user.email, is_admin=current_user.is_admin)
+
+    return UserDetailsResponse(
+        email=current_user.email,
+        is_admin=current_user.is_admin,
+        user_id=current_user.id,
+    )

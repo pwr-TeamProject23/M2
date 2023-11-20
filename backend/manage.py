@@ -1,10 +1,10 @@
 import argparse
 
-from src.auth.database import UserManager
+from src.auth.repositories import UserRepository
 
 
 def create_admin():
-    UserManager.create_super_user()
+    UserRepository.create_super_user()
     print("Created admin user")
 
 def main():

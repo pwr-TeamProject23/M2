@@ -10,7 +10,7 @@ export const uploadArticle = async (file: File): Promise<string | null> => {
     },
   };
   try {
-    await axios.post("http://localhost:8000/upload/file", formData, headers);
+    await axios.post("/upload/file", formData, headers);
   } catch (err: unknown) {
     if (err instanceof AxiosError) {
       if (err.response) {

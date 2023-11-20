@@ -21,8 +21,8 @@ async def upload_pdf(file: UploadFile) -> dict:
     return {"message": "successful upload", "filename": file.filename}
 
 
-@router.get("/upload/results/", status_code=200, dependencies=[Depends(is_authorized)])
-async def retrieve_results() -> dict:
+@router.get("/upload/results/", status_code=200) #, dependencies=[Depends(is_authorized)])
+async def retrieve_results() -> list[dict[str, str|int]]:
     result = [
         {
             "name": "Wolfram Fenske",

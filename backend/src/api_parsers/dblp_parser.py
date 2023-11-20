@@ -91,16 +91,15 @@ def _extract_affiliation(author_id: str, page: dict) -> str | None:
         info = hit["info"]
         if not info["url"].endswith(author_id):
             continue
-        elif info.get("notes") is None:
+        if info.get("notes") is None:
             raise NoAffiliationException(author_id=author_id)
-        else:
-            notes = info["notes"]["note"]
-            if type(notes) != list:
-                if notes["@type"] == "affiliation":
-                    return notes["text"]
-                raise NoAffiliationException(author_id=author_id)
-            for note in notes:
-                if note["@type"] == "affiliation":
-                    return note["text"]
+        notes = info["notes"]["note"]
+        if type(notes) != list:
+            if notes["@type"] == "affiliation":
+                return notes["text"]
             raise NoAffiliationException(author_id=author_id)
+        for note in notes:
+            if note["@type"] == "affiliation":
+                return note["text"]
+        raise NoAffiliationException(author_id=author_id)
     return None

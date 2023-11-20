@@ -1,4 +1,5 @@
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.orm import mapped_column, Mapped, relationship
+
 from src.models import BaseModel
 
 
@@ -10,6 +11,7 @@ class User(BaseModel):
     password: Mapped[str]
     is_admin: Mapped[bool]
     sessions: Mapped[list["UserSession"]] = relationship()
+    uploads: Mapped["Upload"] = relationship(back_populates="user")
 
     def __repr__(self) -> str:
         return f"User<{self.email}>"

@@ -17,9 +17,8 @@ COPY ./scripts/wait-for-it.sh /wait-for-it.sh
 RUN chmod +x /wait-for-it.sh
 
 # # Setup entrypoint
-COPY ./scripts/launch_dev.sh /launch_dev.sh
-RUN chmod +x /launch_dev.sh
-
+COPY scripts/launch.sh /launch.sh
+RUN chmod +x /launch.sh
 
 # # Setup entrypoint
 COPY ./manage.py /manage.py
@@ -30,6 +29,6 @@ COPY . /app/
 
 ARG PYTHONPATH=/src:$PYTHONPATH
 
-ENTRYPOINT ["bash", "scripts/launch_dev.sh"]
+ENTRYPOINT ["bash", "scripts/launch.sh"]
 
-CMD ["uvicorn", "src.__main__:app", "--port=8000", "--host=0.0.0.0", "--reload"]
+CMD ["uvicorn", "src.__main__:app", "--port=8000", "--host=0.0.0.0", "--proxy-headers"]

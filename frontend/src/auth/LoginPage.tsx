@@ -1,10 +1,5 @@
-import { Formik, Field, Form, FormikHelpers } from "formik";
+import { Formik, Field, Form } from "formik";
 import React from "react";
-
-interface Values {
-  email: string;
-  password: string;
-}
 
 function Styled(props: { children: React.ReactNode }) {
   return <div className="bg-stone-900">{props.children}</div>;
@@ -32,10 +27,7 @@ function SubmitButton() {
 }
 
 export default function LoginPage() {
-  const onLoginSubmit = (
-    values: Values,
-    { setSubmitting }: FormikHelpers<Values>,
-  ) => {};
+  const onLoginSubmit = () => {};
   return (
     <div className="h-screen w-screen flex justify-center items-center bg-stone-100">
       <div className="flex-col grid items-center">

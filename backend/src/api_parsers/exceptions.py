@@ -3,7 +3,7 @@ class NoAuthorsException(Exception):
         self.query = query
         super().__init__(f"There are no results for keywords: {query}.")
 
-        
+
 class NoAffiliationException(Exception):
     def __init__(self, author_id: str):
         self.author_id = author_id
@@ -12,5 +12,9 @@ class NoAffiliationException(Exception):
 
 class DBLPQuotaExceededException(Exception):
     def __init__(self):
-        super().__init__(f"Quota exceeded.")
+        super().__init__("Quota exceeded.")
 
+
+class MaxAuthorsReachedException(Exception):
+    def __init__(self):
+        super().__init__("Max number of authors reached.")

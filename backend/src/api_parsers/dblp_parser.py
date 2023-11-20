@@ -6,11 +6,12 @@ from src.api_parsers.exceptions import (
     NoAuthorsException,
     NoAffiliationException,
     DBLPQuotaExceededException,
+    MaxAuthorsReachedException,
 )
 
 
 class DBLPParser:
-    def __init__(self, keywords: str, min_year: int = 2010, max_authors: int = 100):
+    def __init__(self, keywords: str, min_year: int = 2010, max_authors: int = 10):
         self.keywords = keywords
         self.handler = DblpHandler()
         self.authors = []
@@ -22,7 +23,7 @@ class DBLPParser:
             pub_response = self.handler.get_publications(self.keywords)
             for page in pub_response:
                 self._parse_publications_page(page)
-        except DBLPQuotaExceededException:
+        except (DBLPQuotaExceededException, MaxAuthorsReachedException):
             return self.authors
         except (HTTPError, QuotaExceededException):
             raise NoAuthorsException(self.keywords)
@@ -70,7 +71,8 @@ class DBLPParser:
                 "affiliation": affiliation,
             }
             self.authors.append(Author(**auth_data))
-            print(Author(**auth_data))
+            if len(self.authors) >= self.max_authors:
+                raise MaxAuthorsReachedException()
 
     def _get_author_affiliation(self, author_name: str, author_id: str) -> str:
         author_response = self.handler.get_authors(author_name)
@@ -99,6 +101,3 @@ def _extract_affiliation(author_id: str, page: dict) -> str | None:
                 return note["text"]
         raise NoAffiliationException(author_id=author_id)
     return None
-
-a = DBLPParser('code smells').get_authors()
-print(len(a))

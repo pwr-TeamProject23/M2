@@ -7,5 +7,3 @@ class PostgresSettings(BaseSettings):
     postgres_db: str
     postgres_port: int
     postgres_uri: str
-    admin_email: str
-    admin_password: str

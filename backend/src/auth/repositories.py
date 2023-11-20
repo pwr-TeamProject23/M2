@@ -32,13 +32,13 @@ class UserRepository(BaseRepository[User]):
         return cls.create(db_session, user)
 
     @classmethod
-    def create_super_user(cls) -> User:
+    def create_super_user(cls, password: str, email: str) -> User:
         settings = PostgresSettings()
         db_session = SessionLocal()
         return cls.create_user(
             db_session,
-            settings.admin_email,
-            settings.admin_password,
+            password,
+            email,
             is_admin=True,
         )
 

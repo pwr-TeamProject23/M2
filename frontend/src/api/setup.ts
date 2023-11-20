@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const setupAxios = () => {
-  axios.defaults.baseURL = "http://localhost:8000/";
+  axios.defaults.baseURL = window.location.origin + "/api";
   axios.defaults.withCredentials = true;
 };
 

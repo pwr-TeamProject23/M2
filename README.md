@@ -4,10 +4,14 @@ TeamProject23/M2
 # How to
 
 ## Running the project
-- Copy .env.sample into .env and populate it with custom entries
-- Run the project
+- Copy .env.sample file fom /env into .env files and populate it with custom entries
+- Run the dev instance
 
-    `docker compose up --build`
+    `sudo docker compose -f docker-compose-dev.yml up --build`
+
+- Run prod instance
+
+    `sudo docker compose -f docker-compose-prod.yml up --build`
 
 ## Database
 

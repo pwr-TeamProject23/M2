@@ -2,11 +2,6 @@ import { Formik, Field, Form } from "formik";
 import React, { useEffect } from "react";
 import useLogin from "./useLogin";
 
-interface Values {
-  email: string;
-  password: string;
-}
-
 function Styled(props: { children: React.ReactNode }) {
   return <div className="bg-stone-900">{props.children}</div>;
 }

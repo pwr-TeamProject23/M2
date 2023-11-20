@@ -57,7 +57,6 @@ function FileUploaded() {
 export default function FileUpload() {
   const inputFileRef = useRef<HTMLInputElement | null>(null);
   const file = useFileUploadStore((state) => state.file);
-  const errorMessage = useFileUploadStore((state) => state.errorMessage);
   const [
     handleFileChange,
     onButtonClick,

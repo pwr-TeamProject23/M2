@@ -1,4 +1,5 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
+import { logout } from "./api";
 
 function StyledLink({ to, display }: { to: string; display: string }) {
   return (
@@ -9,10 +10,22 @@ function StyledLink({ to, display }: { to: string; display: string }) {
 }
 
 export default function Navbar() {
+  const navigate = useNavigate();
+  function logoutAndRedirect() {
+    navigate("/login");
+    logout();
+  }
+
   return (
     <>
-      <div className="flex h-8 w-full bg-teal-950 px-8">
+      <div className="flex h-8 w-full bg-teal-950 px-8 justify-between">
         <StyledLink to="/" display="Home" />
+        <button
+          className="text-stone-100 font-extralight"
+          onClick={logoutAndRedirect}
+        >
+          Log out
+        </button>
       </div>
       <Outlet />
     </>

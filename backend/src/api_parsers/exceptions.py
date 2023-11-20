@@ -11,7 +11,6 @@ class NoAffiliationException(Exception):
 
 
 class DBLPQuotaExceededException(Exception):
-    def __init__(self, authors: list):
-        self.authors = authors
-        super().__init__(f"Quota exceeded. Gathered {len(authors)} authors.")
+    def __init__(self):
+        super().__init__(f"Quota exceeded.")
 

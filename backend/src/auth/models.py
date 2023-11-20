@@ -9,3 +9,4 @@ class Credentials(BaseModel):
 class UserDetailsResponse(BaseModel):
     email: str
     is_admin: bool
+    user_id: int

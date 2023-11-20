@@ -1,10 +1,6 @@
-import { Formik, Field, Form, FormikHelpers } from "formik";
-import React from "react";
-
-interface Values {
-  email: string;
-  password: string;
-}
+import { Formik, Field, Form } from "formik";
+import React, { useEffect } from "react";
+import useLogin from "./useLogin";
 
 function Styled(props: { children: React.ReactNode }) {
   return <div className="bg-stone-900">{props.children}</div>;
@@ -32,10 +28,9 @@ function SubmitButton() {
 }
 
 export default function LoginPage() {
-  const onLoginSubmit = (
-    values: Values,
-    { setSubmitting }: FormikHelpers<Values>,
-  ) => {};
+  const { onLoginSubmit, errorMessage } = useLogin();
+
+  useEffect(() => {}, [errorMessage]);
   return (
     <div className="h-screen w-screen flex justify-center items-center bg-stone-100">
       <div className="flex-col grid items-center">
@@ -67,6 +62,7 @@ export default function LoginPage() {
                 type="password"
               />
             </Styled>
+            <div className="text-red-700 text-sm text-thin">{errorMessage}</div>
             <SubmitButton />
           </Form>
         </Formik>

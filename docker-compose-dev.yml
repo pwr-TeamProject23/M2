@@ -41,6 +41,8 @@ services:
       - ./frontend/public:/app/public
       - ./frontend/index.html:/app/index.html
       - ./frontend/tailwind.config.cjs:/app/tailwind.config.cjs
+    environment:
+      - API_URL="localhost:8000"
     ports:
       - "5173:5173"
     depends_on:

@@ -56,7 +56,7 @@ services:
     env_file:
       - ./env/.env.postgres
     volumes:
-      - pgdata-dev:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
 
   worker:
     container_name: reviewed_app_worker
@@ -70,4 +70,4 @@ services:
       - cache
 
 volumes:
-  pgdata-dev:
+  pgdata:

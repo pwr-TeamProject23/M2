@@ -1,7 +1,7 @@
 import FileUpload from "./components/FileUpload";
 import Title from "./components/Title";
 import PageContainer from "../components/PageContainer";
-import History from "./components/History";
+import ReviewersSuggestions from "../articleSummary/components/ReviewersSuggestions";
 
 export default function HomePage() {
   return (
@@ -12,7 +12,7 @@ export default function HomePage() {
           <FileUpload />
         </div>
         <div className="w-full">
-          <History />
+          <ReviewersSuggestions />
         </div>
       </div>
     </PageContainer>

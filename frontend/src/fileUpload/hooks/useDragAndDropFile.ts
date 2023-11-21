@@ -2,8 +2,10 @@ import { DragEvent, useEffect, useState } from "react";
 import { useFileUploadProps } from "../types/FileUploadTypes";
 import { useFileUploadStore } from "../../store/FileUploadStore";
 import { uploadArticle } from "./api";
+import { useSuggestionsStore } from "../../store/ResultsStore";
 
 export default function useFileUpload(props: useFileUploadProps): Array<any> {
+  const setSuggestions = useSuggestionsStore((state) => state.setSuggestions);
   const { inputFileRef, acceptedFileExtension } = props;
   const [isOver, setIsOver] = useState(false);
   const setFile = useFileUploadStore((state) => state.setFile);
@@ -12,7 +14,7 @@ export default function useFileUpload(props: useFileUploadProps): Array<any> {
 
   useEffect(() => {
     if (file != undefined) {
-      uploadArticle(file).then(setErrorName);
+      uploadArticle(file, setSuggestions).then(setErrorName);
     }
   }, [file]);
 

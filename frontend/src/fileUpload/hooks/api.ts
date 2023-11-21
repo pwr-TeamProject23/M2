@@ -1,6 +1,7 @@
 import axios, { AxiosError } from "axios";
+import { Author } from "../../articleSummary/models";
 
-export const uploadArticle = async (file: File): Promise<string | null> => {
+export const uploadArticle = async (file: File, setSuggestions: (authors: Author[]) => void): Promise<string | null> => {
   let formData = new FormData();
   formData.append("file", file);
   const headers = {
@@ -10,7 +11,8 @@ export const uploadArticle = async (file: File): Promise<string | null> => {
     },
   };
   try {
-    await axios.post("/upload/file", formData, headers);
+    const response = await axios.post("/get_authors", formData, headers);
+    setSuggestions(response.data);
   } catch (err: unknown) {
     if (err instanceof AxiosError) {
       if (err.response) {

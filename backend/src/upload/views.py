@@ -82,4 +82,4 @@ async def get_authors(file: UploadFile):
         raise HTTPException(500, detail="An error occurred whilst parsing the article.")
     except Exception:
         raise HTTPException(500, detail="Internal server error.")
-    return {"keywords": keywords, "authors": authors_dicts}
+    return authors_dicts

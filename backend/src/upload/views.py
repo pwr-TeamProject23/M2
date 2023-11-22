@@ -62,13 +62,13 @@ async def get_authors(file: UploadFile):
         file_content: BinaryIO = file.file
         article_parser = ArticleParser(file_content)
         keywords = article_parser.get_keywords()
-        # for keyword in keywords[0]:
-        #     parser = ScopusParser(keywords=keyword.replace('\n', ' '))
-        #     try:
-        #         scopus_authors = parser.get_authors()
-        #     except NoAuthorsException:
-        #         continue
-        #     authors.extend(scopus_authors)
+        for keyword in keywords[0]:
+            parser = ScopusParser(keywords=keyword.replace('\n', ' '))
+            try:
+                scopus_authors = parser.get_authors()
+            except NoAuthorsException:
+                continue
+            authors.extend(scopus_authors)
         for keyword in keywords[1]:
             parser = DBLPParser(keywords=keyword.replace('\n', ' '))
             try:

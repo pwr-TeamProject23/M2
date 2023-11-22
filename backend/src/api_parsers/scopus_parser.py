@@ -1,14 +1,16 @@
-from src.api_parsers.exceptions import NoAuthorsException
+from src.api_parsers.exceptions import NoAuthorsException, MaxAuthorsReachedException
 from src.api_handlers.scopus.handler import ScopusHandler
 from src.api_parsers.models import Source, Publication, Author
 from requests.exceptions import HTTPError
-import json
 
 
 class ScopusParser:
-    def __init__(self, keywords: str):
+    def __init__(self, keywords: str, min_year: int = 2010, max_authors: int = 10):
         self.keywords = keywords
         self.handler = ScopusHandler()
+        self.authors = []
+        self.min_year = min_year
+        self.max_authors = max_authors
 
     def _get_author_affiliation(self, author_id: str) -> str:
         params = {"view": "ENHANCED"}
@@ -27,26 +29,29 @@ class ScopusParser:
             pub_response = self.handler.get_abstracts_and_citations(params=pub_params)
         except HTTPError:
             raise NoAuthorsException(self.keywords)
-        authors: list[Author] = []
         for page in pub_response:
             if "error" in page:
                 raise NoAuthorsException(self.keywords)
-            page_authors = self._parse_publications_page(page)
-            authors.extend(page_authors)
-        return authors
+            try:
+                self._parse_publications_page(page)
+            except MaxAuthorsReachedException:
+                return self.authors
+        return self.authors
 
-    def _parse_entry_dict(self, entry: dict) -> list[Author]:
-        authors: list[Author] = []
+    def _parse_entry_dict(self, entry: dict) -> None:
+        year = int(entry["prism:coverDate"].split("-")[0])
+        if year < self.min_year:
+            return
         pub_data = {
             "title": entry["dc:title"],
             "abstract": entry.get("dc:description"),
             "citations": entry.get("citedby-count"),
-            "year": entry["prism:coverDate"].split("-")[0],
+            "year": year,
             "source_api": Source.SCOPUS,
         }
         publication = Publication(**pub_data)
         if "author" not in entry:
-            return []
+            return
         authors_list = entry["author"]
         for author in authors_list:
             first_name = author.get("given-name")
@@ -61,15 +66,14 @@ class ScopusParser:
                 "publication": publication,
                 "affiliation": self._get_author_affiliation(author_id=author_id),
             }
-            authors.append(Author(**auth_data))
-        return authors
+            self.authors.append(Author(**auth_data))
+            if len(self.authors) >= self.max_authors:
+                raise MaxAuthorsReachedException()
 
-    def _parse_publications_page(self, page: dict) -> list[Author]:
-        authors: list[Author] = []
+    def _parse_publications_page(self, page: dict) -> None:
         entries = page["search-results"]["entry"]
         for entry in entries:
-            authors.extend(self._parse_entry_dict(entry))
-        return authors
+            self._parse_entry_dict(entry)
 
 
 def _extract_affiliation(author_response: dict) -> str:

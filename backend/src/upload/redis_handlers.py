@@ -1,5 +1,5 @@
 from src.redis_handler import RedisHandler
-from src.upload.status import UploadStatus
+from src.common.models import UploadStatus
 
 
 class UploadStatusRedisHandler:

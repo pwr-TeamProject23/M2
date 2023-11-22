@@ -13,11 +13,9 @@ export default function useFileUpload(props: useFileUploadProps): Array<any> {
   const user = useAuthStore((state) => state.user);
 
   useEffect(() => {
-    if (file != undefined && user!=null) {
+    if (file != undefined && user != null) {
       uploadArticle(file, user.user_id).then(setErrorName);
     }
-
-    console.log(user);
   }, [file, user]);
 
   const validateExtension = (file: File) => {

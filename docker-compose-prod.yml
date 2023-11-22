@@ -31,6 +31,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile-prod
+    command: ["uvicorn", "src.__main__:app", "--port=8000", "--host=0.0.0.0", "--proxy-headers"]
     volumes:
       - ./backend/src:/app/src
       - ./backend/alembic:/app/alembic
@@ -68,9 +69,15 @@ services:
 
   worker:
     container_name: reviewed_app_worker
-    build: ./worker
+    build:
+      context: ./backend
+      dockerfile: Dockerfile-prod
+    command: ["celery", "-A", "src.worker.tasks", "worker"]
+    env_file:
+      - ./env/.env.postgres
+      - ./env/.env.redis
     environment:
-      REDISSERVER: redis://cache:6379
+      REDIS_SERVER: redis://cache:6379
       C_FORCE_ROOT: "true"
     volumes:
       - ./worker/src:/celery_worker/src

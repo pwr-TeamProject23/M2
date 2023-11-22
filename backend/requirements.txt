@@ -26,3 +26,6 @@ alembic~=1.12.1
 
 # Redis
 redis~=4.6.0
+
+# Worker
+celery~=5.3.5

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { PersonIcon } from "../../components/Icons";
 import { getSuggestions } from "../api";
 import { Author } from "../models";
+import { useAuthStore } from "../../store/AuthStore";
 
 function AuthorRow(props: Author) {
   const { name, affiliation, email, src } = props;
@@ -23,10 +24,12 @@ function AuthorRow(props: Author) {
 export default function ReviewersSuggestions() {
   const getFileName = () => "some.pdf";
   const [authors, setAuthors] = useState<Author[]>([]);
+  const user = useAuthStore((state)=> state.user)
 
   useEffect(() => {
-    getSuggestions().then(setAuthors);
-    console.log("!");
+    if (user != null) {
+      getSuggestions(user?.user_id).then(setAuthors);
+    };
   }, []);
 
   return (

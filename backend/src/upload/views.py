@@ -2,6 +2,9 @@ from fastapi import APIRouter, Depends, HTTPException, UploadFile
 from src.auth import is_authorized
 from typing_extensions import BinaryIO
 
+from src.upload.models import HistoryResponseModel
+from src.common.models import UploadStatus
+
 router = APIRouter()
 
 
@@ -52,3 +55,24 @@ async def retrieve_results(user_id: int) -> list[dict[str, str|int]]:
         },
     ]
     return result
+
+@router.get("/upload/history/{user_id}", status_code=200, dependencies=[Depends(is_authorized)])
+async def get_history(user_id: int) -> HistoryResponseModel:
+    return [
+        {
+            "id": 1,
+            "filename": "article about machine learning",
+            "status": UploadStatus.READY
+        },
+        {
+            "id": 2,
+            "filename": "article about cloud computing",
+            "status": UploadStatus.PENDING
+        },
+        {
+            "id": 3,
+            "filename": "article about something else",
+            "status": UploadStatus.ERROR
+        }
+        
+    ]

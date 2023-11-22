@@ -1,6 +1,9 @@
 import axios, { AxiosError } from "axios";
 
-export const uploadArticle = async (file: File, user_id: number): Promise<string | null> => {
+export const uploadArticle = async (
+  file: File,
+  user_id: number,
+): Promise<string | null> => {
   let formData = new FormData();
   formData.append("file", file);
   const headers = {

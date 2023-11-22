@@ -1,10 +1,8 @@
+import { useEffect, useState } from "react";
 import { ErrorIcon, PendingIcon, CheckmarkIcon } from "../../components/Icons";
-
-enum Status {
-  pending = "pending",
-  error = "error",
-  ready = "ready",
-}
+import { Upload, UploadStatus } from "./models";
+import { getHistory } from "./api";
+import { useAuthStore } from "../../store/AuthStore";
 
 const CursorStyle = {
   pending: "cursor-progress",
@@ -13,32 +11,25 @@ const CursorStyle = {
   default: "cursor-default",
 };
 
-type Upload = {
-  index: number;
-  uploadId: number;
-  fileName: string;
-  status: string;
-};
-
 function StatusIcon(props: Pick<Upload, "status">) {
   const status = props.status;
 
-  if (status == Status.error) return <ErrorIcon />;
-  if (status == Status.pending) return <PendingIcon />;
-  if (status == Status.ready) return <CheckmarkIcon />;
+  if (status == UploadStatus.error) return <ErrorIcon />;
+  if (status == UploadStatus.pending) return <PendingIcon />;
+  if (status == UploadStatus.ready) return <CheckmarkIcon />;
 }
 
 const getCursor = (status: string) => {
-  if (status == Status.error) return CursorStyle.error;
-  if (status == Status.ready) return CursorStyle.ready;
-  if (status == Status.pending) return CursorStyle.pending;
+  if (status == UploadStatus.error) return CursorStyle.error;
+  if (status == UploadStatus.ready) return CursorStyle.ready;
+  if (status == UploadStatus.pending) return CursorStyle.pending;
   return CursorStyle.default;
 };
 
-function Upload(props: Pick<Upload, "status" | "fileName">) {
+function UploadRow(props: Pick<Upload, "status" | "filename">) {
   return (
     <div className="flex items-center justify-between h-full w-full ">
-      <div>{props.fileName}</div>
+      <div>{props.filename}</div>
       <StatusIcon status={props.status} />
     </div>
   );
@@ -49,7 +40,7 @@ type RowContainerProps = {
 } & Pick<Upload, "index" | "status">;
 
 function ArticleRedirect(props: RowContainerProps) {
-  if (props.status == Status.ready) {
+  if (props.status == UploadStatus.ready) {
     const link = `/article/${props.index}`;
     return (
       <a href={link} target="_self">
@@ -63,7 +54,7 @@ function ArticleRedirect(props: RowContainerProps) {
 
 function RowContainer(props: RowContainerProps) {
   const background = props.index % 2 == 0 ? "bg-stone-100" : "bg-stone-200";
-  const hover = props.status == Status.ready ? "hover:bg-stone-300" : "";
+  const hover = props.status == UploadStatus.ready ? "hover:bg-stone-300" : "";
   const cursorStyle = getCursor(props.status);
 
   return (
@@ -76,35 +67,19 @@ function RowContainer(props: RowContainerProps) {
 }
 
 export default function History() {
-  const uploads = [
-    {
-      uploadId: 1,
-      index: 0,
-      fileName: "pendingupload.pdf",
-      status: "pending",
-    },
-    {
-      uploadId: 2,
-      index: 1,
-      fileName: "errorupload.pdf",
-      status: "error",
-    },
-    {
-      uploadId: 4,
-      index: 2,
-      fileName: "readyupload.pdf",
-      status: "ready",
-    },
-    {
-      uploadId: 8,
-      index: 3,
-      fileName: "readyupload.pdf",
-      status: "ready",
-    },
-  ];
+  const [uploads, setUploads] = useState<Upload[]>([]);
+  const user = useAuthStore((state) => state.user);
+
+  useEffect(() => {
+    if (user!=null) {
+      getHistory(user?.user_id).then(setUploads);
+    }
+    
+  },[])
+  
   return uploads.map((upload: Upload) => (
     <RowContainer index={upload.index} status={upload.status}>
-      <Upload status={upload.status} fileName={upload.fileName} />
+      <UploadRow status={upload.status} filename={upload.filename} />
     </RowContainer>
   ));
 }

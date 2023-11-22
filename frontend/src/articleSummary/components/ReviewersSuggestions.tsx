@@ -24,12 +24,12 @@ function AuthorRow(props: Author) {
 export default function ReviewersSuggestions() {
   const getFileName = () => "some.pdf";
   const [authors, setAuthors] = useState<Author[]>([]);
-  const user = useAuthStore((state)=> state.user)
+  const user = useAuthStore((state) => state.user);
 
   useEffect(() => {
     if (user != null) {
       getSuggestions(user?.user_id).then(setAuthors);
-    };
+    }
   }, []);
 
   return (

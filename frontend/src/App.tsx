@@ -38,7 +38,7 @@ function App() {
         }
       >
         <Route path="/" element={<HomePage />} />
-        <Route path="/article/:articleId" element={<ArticleSummaryPage />} />
+        <Route path="/upload/:uploadId" element={<ArticleSummaryPage />} />
       </Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="*" element={<>404 not found</>} />

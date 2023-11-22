@@ -4,7 +4,7 @@ import ArticleSummaryPage from "./articleSummary/ArticleSummaryPage";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import React, { useEffect } from "react";
-import { useAuthStore } from "./auth/store";
+import { useAuthStore } from "./store/AuthStore";
 
 const Protected = (props: { children: React.ReactNode }) => {
   const { authenticate: authenticate, user } = useAuthStore();

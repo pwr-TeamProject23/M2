@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 
-export const uploadArticle = async (file: File): Promise<string | null> => {
+export const uploadArticle = async (file: File, user_id: number): Promise<string | null> => {
   let formData = new FormData();
   formData.append("file", file);
   const headers = {
@@ -10,7 +10,7 @@ export const uploadArticle = async (file: File): Promise<string | null> => {
     },
   };
   try {
-    await axios.post("/upload/file", formData, headers);
+    await axios.post(`/upload/file/${user_id}`, formData, headers);
   } catch (err: unknown) {
     if (err instanceof AxiosError) {
       if (err.response) {

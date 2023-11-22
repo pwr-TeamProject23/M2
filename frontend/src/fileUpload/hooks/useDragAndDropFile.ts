@@ -2,6 +2,7 @@ import { DragEvent, useEffect, useState } from "react";
 import { useFileUploadProps } from "../types/FileUploadTypes";
 import { useFileUploadStore } from "../../store/FileUploadStore";
 import { uploadArticle } from "./api";
+import { useAuthStore } from "../../store/AuthStore";
 
 export default function useFileUpload(props: useFileUploadProps): Array<any> {
   const { inputFileRef, acceptedFileExtension } = props;
@@ -9,12 +10,15 @@ export default function useFileUpload(props: useFileUploadProps): Array<any> {
   const setFile = useFileUploadStore((state) => state.setFile);
   const file = useFileUploadStore((state) => state.file);
   const setErrorName = useFileUploadStore((state) => state.setErrorMessage);
+  const user = useAuthStore((state) => state.user);
 
   useEffect(() => {
-    if (file != undefined) {
-      uploadArticle(file).then(setErrorName);
+    if (file != undefined && user!=null) {
+      uploadArticle(file, user.user_id).then(setErrorName);
     }
-  }, [file]);
+
+    console.log(user);
+  }, [file, user]);
 
   const validateExtension = (file: File) => {
     const extension = file.name.split(".").pop();

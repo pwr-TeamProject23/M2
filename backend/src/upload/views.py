@@ -10,21 +10,24 @@ async def root() -> dict:
     return {"greeting": "hello"}
 
 
-@router.post("/upload/file/", status_code=200)
-async def upload_pdf(file: UploadFile) -> dict:
+@router.post("/upload/file/{user_id}", status_code=200, dependencies=[Depends(is_authorized)])
+async def upload_pdf(file: UploadFile, user_id: int) -> dict:
     if file.content_type != "application/pdf":
         raise HTTPException(400, detail="Invalid document type.")
+
     try:
         file_content: BinaryIO = file.file
     except Exception:
         raise HTTPException(500, detail="Internal server error.")
+
     return {"message": "successful upload", "filename": file.filename}
 
 
-@router.get("/upload/results/", status_code=200) #, dependencies=[Depends(is_authorized)])
-async def retrieve_results() -> list[dict[str, str|int]]:
+@router.get("/upload/results/{user_id}", status_code=200, dependencies=[Depends(is_authorized)])
+async def retrieve_results(user_id: int) -> list[dict[str, str|int]]:
     result = [
         {
+            "id": 1,
             "name": "Wolfram Fenske",
             "src": "DBLP",
             "date": 2015,
@@ -32,6 +35,7 @@ async def retrieve_results() -> list[dict[str, str|int]]:
             "affiliation": "Otto von Guericke University of Magdeburg, Germany",
         },
         {
+            "id": 2,
             "name": "Yang Zhang",
             "src": "Scopus",
             "date": 2023,
@@ -39,6 +43,7 @@ async def retrieve_results() -> list[dict[str, str|int]]:
             "affiliation": "Hebei University of Science and Technology",
         },
         {
+            "id": 3,
             "name": "Francesca Arcelli Fontana",
             "src": "Google Scholar",
             "date": 2012,

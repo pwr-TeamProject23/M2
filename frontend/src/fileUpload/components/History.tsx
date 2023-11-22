@@ -41,7 +41,7 @@ type RowContainerProps = {
 
 function ArticleRedirect(props: RowContainerProps) {
   if (props.status == UploadStatus.ready) {
-    const link = `/article/${props.index}`;
+    const link = `/upload/${props.index}`;
     return (
       <a href={link} target="_self">
         {props.children}
@@ -71,12 +71,11 @@ export default function History() {
   const user = useAuthStore((state) => state.user);
 
   useEffect(() => {
-    if (user!=null) {
+    if (user != null) {
       getHistory(user?.user_id).then(setUploads);
     }
-    
-  },[])
-  
+  }, []);
+
   return uploads.map((upload: Upload) => (
     <RowContainer index={upload.index} status={upload.status}>
       <UploadRow status={upload.status} filename={upload.filename} />

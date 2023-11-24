@@ -11,6 +11,7 @@ class Source(str, Enum):
 class Publication(BaseModel):
     title: str
     year: int
+    venue: str
     citations: int
     abstract: str
     source_api: Source
@@ -30,4 +31,5 @@ class Author(BaseModel):
             'title': self.publication.title,
             'year': self.publication.year,
             'source': self.publication.source_api,
+            'venue': self.publication.venue
         }

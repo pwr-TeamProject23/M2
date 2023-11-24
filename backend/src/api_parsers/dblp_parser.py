@@ -37,13 +37,15 @@ class DBLPParser:
     def _parse_hit_dict(self, hit: dict) -> None:
         info = hit["info"]
         year = info["year"]
-        if "authors" not in info:
+        venue = info.get("venue")
+        if "authors" not in info or int(year) < self.min_year:
             return
-        if int(year) < self.min_year:
-            return
+        if venue is None:
+            venue = ''
         pub_data = {
             "title": info["title"],
             "abstract": "",
+            "venue": venue,
             "citations": 0,
             "year": year,
             "source_api": Source.DBLP,
@@ -72,7 +74,9 @@ class DBLPParser:
                 "publication": publication,
                 "affiliation": affiliation,
             }
-            self.authors.append(Author(**auth_data))
+            a = Author(**auth_data)
+            print(a)
+            self.authors.append(a)
             if len(self.authors) >= self.max_authors:
                 raise MaxAuthorsReachedException()
 
@@ -103,3 +107,7 @@ def _extract_affiliation(author_id: str, page: dict) -> str | None:
                 return note["text"]
         raise NoAffiliationException(author_id=author_id)
     return None
+
+
+d = DBLPParser('code smells').get_authors()
+print(len(d))

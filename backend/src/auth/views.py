@@ -25,7 +25,7 @@ async def login(
     user_id = validate_credentials(db_session, credentials.email, credentials.password)
     if not user_id:
         raise UnauthorizedException
-    
+
     session_id = str(uuid4())
     create_user_session(db_session, user_id, session_id)
     response = JSONResponse(

@@ -18,7 +18,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="flex h-8 w-full bg-teal-950 px-8 justify-between">
+      <div className="flex h-8 w-full bg-teal-950 px-8 justify-between fixed">
         <StyledLink to="/" display="Home" />
         <button
           className="text-stone-100 font-extralight"

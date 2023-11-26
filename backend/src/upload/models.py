@@ -27,3 +27,7 @@ class AuthorResponseModel(BaseModel):
 class SuggestionsResponseModel(BaseModel):
     authors: list[AuthorResponseModel]
     venues: list[Optional[str]]
+
+
+class DetailsResponseModel(BaseModel):
+    affiliation: str

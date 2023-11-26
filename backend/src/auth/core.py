@@ -20,9 +20,7 @@ def validate_credentials(db_session: Session, email: str, password: str) -> int:
 
 
 def create_user_session(db_session: Session, user_id: int, user_session_id: str) -> int:
-    expiration_datetime = datetime.now() + timedelta(
-        days=USER_SESSION_DURATION_DAYS
-    )
+    expiration_datetime = datetime.now() + timedelta(days=USER_SESSION_DURATION_DAYS)
     user_session = UserSessionRepository.create_session(
         db_session, user_id, user_session_id, expiration_datetime
     )
@@ -44,9 +42,9 @@ def get_authorized_user_details(db_session: Session, user_session_id: str) -> Us
     user_session = UserSessionRepository.find_first_by_value(
         db_session, "session_id", user_session_id
     )
-    
+
     session_expiration_datetime: datetime = user_session.expiration_datetime
-    
+
     if not user_session or session_expiration_datetime < datetime.now():
         raise UnauthorizedException
 
@@ -63,12 +61,12 @@ def is_authorized(
     user_session = UserSessionRepository.find_first_by_value(
         db_session, "session_id", session_id
     )
-    
+
     if not user_session:
         raise UnauthorizedException
-    
+
     session_expiration_datetime: datetime = user_session.expiration_datetime
-    
+
     if session_expiration_datetime < datetime.now():
         raise UnauthorizedException
     return True

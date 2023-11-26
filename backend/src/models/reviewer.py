@@ -7,7 +7,7 @@ import enum
 
 class Source(enum.Enum):
     DBLP = "DBLP"
-    GoogleScholar = "GoogleScholar"
+    GoogleScholar = "Google Scholar"
     Scopus = "Scopus"
 
 

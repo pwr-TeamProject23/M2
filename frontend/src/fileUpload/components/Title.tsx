@@ -1,11 +1,15 @@
+import { useAuthStore } from "../../store/AuthStore";
+
 const reviewedBanner =
-  "Bleeding edge support system for discovering most suitable reviewers as simple as uploading a file. To get started upload a file in PDF format.";
+  "Discover smart reviewer suggestions at a click of a button";
 
 export default function Title() {
+  const user = useAuthStore((state) => state.user);
+
   return (
-    <div className="">
-      <div className="text-stone-900 text-7xl">Reviewed</div>
-      <div className="text-stone-900 text-s font-extralight w-2/3">
+    <div className="w-1/2">
+      <div className="text-stone-900 text-3xl">{`Hello ${user?.email}!`}</div>
+      <div className="text-stone-900 text-s font-extralight">
         {reviewedBanner}
       </div>
     </div>

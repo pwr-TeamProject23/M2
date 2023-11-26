@@ -1,5 +1,6 @@
 import os
 import re
+from keybert import KeyBERT
 
 from pdfminer.high_level import extract_text
 
@@ -41,6 +42,7 @@ class ArticleParser:
     def __init__(self, pdf_path):
         self.pdf_path = pdf_path
         self.text = extract_text(self.pdf_path, maxpages=2)
+        self.text_long = extract_text(self.pdf_path)
 
     def get_abstract(self) -> str:
         abstract = re.findall("(?i)abstract:?\n?((?:.|\n)(?:.+\n)+)", self.text)
@@ -56,8 +58,13 @@ class ArticleParser:
                 keywords[i] = keywords[i].split(", ")
                 for a in range(len(keywords[i])):
                     keywords[i][a] = keywords[i][a].strip()
-            return keywords
+            return keywords[len(keywords)-1]
         raise KeywordParsingError()
+
+    def get_keywords_keybert(self) -> list[str]:
+        kw_model = KeyBERT()
+        keywords = kw_model.extract_keywords(self.text_long, keyphrase_ngram_range=(1, 3), use_mmr=True, diversity=0.7)
+        return [k[0] for k in keywords]
 
     def get_emails(self) -> list[str]:
         emails = re.findall("[a-zA-Z]\S+@\S+[a-zA-Z]", self.text)

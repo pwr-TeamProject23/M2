@@ -10,7 +10,7 @@ function StatusIcon(props: Pick<Upload, "status">) {
 
   if (status == UploadStatus.error) return <ErrorIcon />;
   if (status == UploadStatus.pending) return <PendingIcon />;
-  if (status == UploadStatus.ready) return <CheckmarkIcon />;
+  if (status == UploadStatus.ready) return null;
 }
 
 const getCursor = (status: string) => {

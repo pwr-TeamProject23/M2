@@ -14,7 +14,7 @@ class ScopusParser:
         self.min_year = min_year
         self.max_authors = max_authors
 
-    def _get_author_affiliation(self, author_id: str) -> str:
+    def get_author_affiliation(self, author_id: str) -> str:
         params = {"view": "ENHANCED"}
         author_response = self.handler.get_author_by_id(
             author_id=author_id, params=params
@@ -50,7 +50,7 @@ class ScopusParser:
             "title": entry["dc:title"],
             "abstract": entry.get("dc:description"),
             "citations": entry.get("citedby-count"),
-            "venue": '',
+            "venue": None,
             "year": year,
             "source_api": Source.SCOPUS,
             "similarity_score": None,
@@ -70,7 +70,7 @@ class ScopusParser:
                 "last_name": last_name,
                 "api_id": author_id,
                 "publication": publication,
-                "affiliation": self._get_author_affiliation(author_id=author_id),
+                "affiliation": None,
             }
             author = Author(**auth_data)
             self.authors.append(author)
@@ -83,7 +83,7 @@ class ScopusParser:
             self._parse_entry_dict(entry)
 
 
-def _extract_affiliation(author_response: dict) -> str:
+def _extract_affiliation(author_response: dict) -> str | None:
     profile = author_response["author-retrieval-response"][0]["author-profile"]
     affiliation = profile["affiliation-current"]["affiliation"]
     if type(affiliation) == list:

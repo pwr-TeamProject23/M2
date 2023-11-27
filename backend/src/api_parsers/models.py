@@ -33,3 +33,4 @@ class Author(BaseModel):
             'source': self.publication.source_api,
             'venue': self.publication.venue
         }
+

@@ -6,7 +6,7 @@ export default function PageContainer({
   children: React.ReactNode;
 }) {
   return (
-    <div className="bg-white min-h-screen max-h-fit flex flex-col py-8 px-72">
+    <div className="bg-white min-h-screen max-h-fit flex flex-col py-16 px-96">
       {children}
     </div>
   );

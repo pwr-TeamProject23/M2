@@ -12,6 +12,9 @@ export default function HomePage() {
           <FileUpload />
         </div>
         <div className="w-full">
+          <div className="text-stone-900 text-3xl pb-4 border-b border-stone-300">
+            Your uploads
+          </div>
           <History />
         </div>
       </div>

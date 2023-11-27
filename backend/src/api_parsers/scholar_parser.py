@@ -1,11 +1,12 @@
 from scholarly import scholarly
 from src.api_parsers.models import Source, Publication, Author
 from src.api_parsers.exceptions import MaxAuthorsReachedException
-
+from src.similarity_eval.similarity_eval import SimilarityEvaluator
 
 class ScholarParser:
-    def __init__(self, keywords: str, min_year: int = 2010, max_authors: int = 10):
+    def __init__(self, keywords: str, abstract: str, min_year: int = 2010, max_authors: int = 100):
         self.keywords = keywords
+        self.abstract = abstract
         self.authors = []
         self.min_year = min_year
         self.max_authors = max_authors
@@ -16,7 +17,10 @@ class ScholarParser:
             try:
                 self._parse_pub_dict(pub)
             except MaxAuthorsReachedException:
-                return self.authors
+                break
+        sim_eval = SimilarityEvaluator(self.abstract)
+        self.authors = sim_eval.update_author_similarities(self.authors)
+        return self.authors
 
     def _get_pubs(self):
         pubs = scholarly.search_pubs(query=self.keywords, year_low=self.min_year)
@@ -34,6 +38,7 @@ class ScholarParser:
             "venue": info["venue"],
             "abstract": info["abstract"],
             "source_api": Source.SCHOLAR,
+            "similiarity_score": None,
         }
         publication = Publication(**pub_data)
         for author_id in author_ids:

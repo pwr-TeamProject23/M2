@@ -1,12 +1,14 @@
 from src.api_parsers.exceptions import NoAuthorsException, MaxAuthorsReachedException
 from src.api_handlers.scopus.handler import ScopusHandler
 from src.api_parsers.models import Source, Publication, Author
+from src.similarity_eval.similarity_eval import SimilarityEvaluator
 from requests.exceptions import HTTPError
 
 
 class ScopusParser:
-    def __init__(self, keywords: str, min_year: int = 2010, max_authors: int = 10):
+    def __init__(self, keywords: str, abstract: str, min_year: int = 2010, max_authors: int = 100):
         self.keywords = keywords
+        self.abstract = abstract
         self.handler = ScopusHandler()
         self.authors = []
         self.min_year = min_year
@@ -35,7 +37,9 @@ class ScopusParser:
             try:
                 self._parse_publications_page(page)
             except MaxAuthorsReachedException:
-                return self.authors
+                break
+        sim_eval = SimilarityEvaluator(self.abstract)
+        self.authors = sim_eval.update_author_similarities(self.authors)
         return self.authors
 
     def _parse_entry_dict(self, entry: dict) -> None:
@@ -49,6 +53,7 @@ class ScopusParser:
             "venue": '',
             "year": year,
             "source_api": Source.SCOPUS,
+            "similiarity_score": None,
         }
         publication = Publication(**pub_data)
         if "author" not in entry:

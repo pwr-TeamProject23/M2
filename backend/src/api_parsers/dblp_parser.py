@@ -11,7 +11,7 @@ from src.api_parsers.exceptions import (
 
 
 class DBLPParser:
-    def __init__(self, keywords: str, min_year: int = 2010, max_authors: int = 10):
+    def __init__(self, keywords: str, min_year: int = 2010, max_authors: int = 100):
         self.keywords = keywords
         self.handler = DblpHandler()
         self.authors = []
@@ -49,6 +49,7 @@ class DBLPParser:
             "citations": 0,
             "year": year,
             "source_api": Source.DBLP,
+            "similarity_score": None,
         }
         publication = Publication(**pub_data)
         authors_list = info["authors"]["author"]

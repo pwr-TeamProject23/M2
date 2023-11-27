@@ -1,14 +1,12 @@
-from fastapi import APIRouter, Depends, HTTPException, UploadFile
-from src.auth import is_authorized
-from typing_extensions import BinaryIO
+from typing import BinaryIO
 
-from src.upload.models import (
-    HistoryResponseModel,
-    SuggestionsResponseModel,
-    DetailsResponseModel,
-)
-from src.common.models import UploadStatus
-from src.models.reviewer import Source
+from fastapi import APIRouter, Depends, HTTPException, UploadFile
+
+from src.auth import is_authorized
+from src.upload.models import DetailsResponseModel
+from src.models.author import Source
+from src.upload.models import HistoryResponseModel, SuggestionsResponseModel
+from src.models.upload import CeleryTaskStatus
 
 router = APIRouter()
 
@@ -104,19 +102,19 @@ async def get_history(user_id: int) -> HistoryResponseModel:
             "id": 1,
             "index": 1,
             "filename": "article about machine learning",
-            "status": UploadStatus.READY,
+            "status": CeleryTaskStatus.SUCCESS,
         },
         {
             "id": 5,
             "index": 2,
             "filename": "article about cloud computing",
-            "status": UploadStatus.PENDING,
+            "status": CeleryTaskStatus.PENDING,
         },
         {
             "id": 3,
             "index": 3,
             "filename": "article about something else",
-            "status": UploadStatus.ERROR,
+            "status": CeleryTaskStatus.FAILURE,
         },
     ]
 

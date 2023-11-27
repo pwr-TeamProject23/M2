@@ -6,7 +6,6 @@ from src.common.postgres import SessionLocal
 from src.common.repository import BaseRepository
 from src.models.session import UserSession
 from src.models.user import User
-from src.settings import PostgresSettings
 
 
 class UserRepository(BaseRepository[User]):
@@ -33,7 +32,6 @@ class UserRepository(BaseRepository[User]):
 
     @classmethod
     def create_super_user(cls, password: str, email: str) -> User:
-        settings = PostgresSettings()
         db_session = SessionLocal()
         return cls.create_user(
             db_session,

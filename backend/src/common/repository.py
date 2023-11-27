@@ -2,6 +2,7 @@ from typing import Generic, TypeVar
 
 from sqlalchemy import ColumnElement
 from sqlalchemy.orm import Session
+from sqlalchemy.orm.exc import NoResultFound
 from src.models import BaseModel
 
 T = TypeVar("T", bound=BaseModel)
@@ -38,6 +39,33 @@ class BaseRepository(Generic[T]):
         session.commit()
         session.refresh(instance)
         return instance
+
+    @classmethod
+    def create_all(cls, session: Session, instances: list[T]) -> list[T]:
+        session.add_all(instances)
+        session.commit()
+        for instance in instances:
+            session.refresh(instance)
+        return instances
+
+    @classmethod
+    def update(cls, session: Session, instance: T, update_data: dict) -> T:
+        try:
+            db_instance = (
+                session.query(cls.__model__)
+                .where(cls.__model__.id == instance.id)
+                .one()
+            )
+        except NoResultFound:
+            raise ValueError(
+                f"{cls.__model__.__name__} with id={instance.id} not found"
+            )
+        else:
+            for key, value in update_data.items():
+                setattr(db_instance, key, value)
+            session.commit()
+            session.refresh(db_instance)
+            return db_instance
 
     @classmethod
     def delete(cls, session: Session, instance: T) -> None:

@@ -41,7 +41,6 @@ class ScholarParser:
                 continue
             author_dict = _get_auth(author_id)
             author = _parse_author_dict(author_dict, publication)
-            print(author)
             self.authors.append(author)
             if len(self.authors) >= self.max_authors:
                 raise MaxAuthorsReachedException()
@@ -64,7 +63,3 @@ def _parse_author_dict(author_dict, publication: Publication) -> Author:
         "publication": publication,
     }
     return Author(**author_data)
-
-
-s = ScholarParser('code smells', max_authors=1000).get_authors()
-print(len(s))

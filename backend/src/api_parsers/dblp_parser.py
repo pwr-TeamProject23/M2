@@ -74,9 +74,7 @@ class DBLPParser:
                 "publication": publication,
                 "affiliation": affiliation,
             }
-            a = Author(**auth_data)
-            print(a)
-            self.authors.append(a)
+            self.authors.append(Author(**auth_data))
             if len(self.authors) >= self.max_authors:
                 raise MaxAuthorsReachedException()
 
@@ -107,7 +105,3 @@ def _extract_affiliation(author_id: str, page: dict) -> str | None:
                 return note["text"]
         raise NoAffiliationException(author_id=author_id)
     return None
-
-
-d = DBLPParser('code smells').get_authors()
-print(len(d))

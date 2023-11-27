@@ -47,12 +47,12 @@ class ScopusParser:
         if year < self.min_year:
             return
         pub_data = {
+            "doi": None,  # TODO: ADD DOI
             "title": entry["dc:title"],
-            "abstract": entry.get("dc:description"),
-            "citations": entry.get("citedby-count"),
-            "venue": None,
             "year": year,
-            "source_api": Source.SCOPUS,
+            "venue": None,
+            "abstract": entry.get("dc:description"),
+            "citation_count": entry.get("citedby-count"),
             "similarity_score": None,
         }
         publication = Publication(**pub_data)
@@ -66,11 +66,13 @@ class ScopusParser:
                 continue
             author_id = author["authid"]
             auth_data = {
+                "author_external_id": author_id,
                 "first_name": first_name,
                 "last_name": last_name,
-                "api_id": author_id,
-                "publication": publication,
                 "affiliation": None,
+                "email": None,
+                "source": Source.Scopus,
+                "publication": publication,
             }
             author = Author(**auth_data)
             self.authors.append(author)

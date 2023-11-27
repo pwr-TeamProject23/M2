@@ -33,12 +33,12 @@ class ScholarParser:
             return
         info = pub["bib"]
         pub_data = {
+            "doi": None,  # TODO ADD DOI
             "title": info["title"],
             "year": info["pub_year"],
-            "citations": pub["num_citations"],
             "venue": info["venue"],
             "abstract": info["abstract"],
-            "source_api": Source.SCHOLAR,
+            "citation_count": pub["num_citations"],
             "similarity_score": None,
         }
         publication = Publication(**pub_data)
@@ -62,10 +62,12 @@ def _parse_author_dict(author_dict, publication: Publication) -> Author:
     split_name = author_name.split()
     first_name, last_name = split_name[0], " ".join(split_name[1:])
     author_data = {
+        "author_external_id": author_dict["scholar_id"],
         "first_name": first_name,
         "last_name": last_name,
-        "api_id": author_dict["scholar_id"],
         "affiliation": author_dict["affiliation"],
+        "email": None,
+        "source": Source.GoogleScholar,
         "publication": publication,
     }
     return Author(**author_data)

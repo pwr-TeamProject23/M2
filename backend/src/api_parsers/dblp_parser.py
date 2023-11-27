@@ -41,12 +41,12 @@ class DBLPParser:
             return
         venue = info.get("venue")
         pub_data = {
+            "doi": None,
             "title": info["title"],
-            "abstract": None,
-            "venue": venue,
-            "citations": None,
             "year": year,
-            "source_api": Source.DBLP,
+            "venue": venue,
+            "abstract": None,
+            "citation_count": None,
             "similarity_score": None,
         }
         publication = Publication(**pub_data)
@@ -59,11 +59,14 @@ class DBLPParser:
             split_name = author_name.split()
             first_name, last_name = split_name[0], " ".join(split_name[1:])
             auth_data = {
+                "author_external_id": author_id,
                 "first_name": first_name,
                 "last_name": last_name,
-                "api_id": author_id,
-                "publication": publication,
                 "affiliation": None,
+                "email": None,
+                "source": Source.DBLP,
+                "publication": publication,
+
             }
             self.authors.append(Author(**auth_data))
             if len(self.authors) >= self.max_authors:

@@ -6,7 +6,9 @@ from requests.exceptions import HTTPError
 
 
 class ScopusParser:
-    def __init__(self, keywords: str, abstract: str, min_year: int = 2010, max_authors: int = 100):
+    def __init__(
+        self, keywords: str, abstract: str, min_year: int = 2010, max_authors: int = 100
+    ):
         self.keywords = keywords
         self.abstract = abstract
         self.handler = ScopusHandler()
@@ -47,7 +49,7 @@ class ScopusParser:
         if year < self.min_year:
             return
         pub_data = {
-            "doi": None,  # TODO: ADD DOI
+            "doi": entry.get("prism:doi"),
             "title": entry["dc:title"],
             "year": year,
             "venue": None,
@@ -91,4 +93,3 @@ def _extract_affiliation(author_response: dict) -> str | None:
     if type(affiliation) == list:
         return affiliation[0]["ip-doc"]["afdispname"]
     return affiliation["ip-doc"]["afdispname"]
-

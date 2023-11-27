@@ -29,11 +29,10 @@ class Author(BaseModel):
 
     def get_attrs(self) -> dict:
         return {
-            'name': f'{self.first_name} {self.last_name}',
-            'affiliation': self.affiliation,
-            'title': self.publication.title,
-            'year': self.publication.year,
-            'source': self.source,
-            'venue': self.publication.venue
+            "name": f"{self.first_name} {self.last_name}",
+            "affiliation": self.affiliation,
+            "title": self.publication.title,
+            "year": self.publication.year,
+            "source": self.source,
+            "venue": self.publication.venue,
         }
-

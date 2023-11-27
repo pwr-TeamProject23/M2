@@ -41,7 +41,7 @@ class DBLPParser:
             return
         venue = info.get("venue")
         pub_data = {
-            "doi": None,
+            "doi": info.get("doi"),
             "title": info["title"],
             "year": year,
             "venue": venue,
@@ -66,7 +66,6 @@ class DBLPParser:
                 "email": None,
                 "source": Source.DBLP,
                 "publication": publication,
-
             }
             self.authors.append(Author(**auth_data))
             if len(self.authors) >= self.max_authors:

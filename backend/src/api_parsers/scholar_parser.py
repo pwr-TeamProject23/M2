@@ -5,7 +5,9 @@ from src.similarity_eval.similarity_eval import SimilarityEvaluator
 
 
 class ScholarParser:
-    def __init__(self, keywords: str, abstract: str, min_year: int = 2010, max_authors: int = 100):
+    def __init__(
+        self, keywords: str, abstract: str, min_year: int = 2010, max_authors: int = 100
+    ):
         self.keywords = keywords
         self.abstract = abstract
         self.authors = []
@@ -33,7 +35,7 @@ class ScholarParser:
             return
         info = pub["bib"]
         pub_data = {
-            "doi": None,  # TODO ADD DOI
+            "doi": None,
             "title": info["title"],
             "year": info["pub_year"],
             "venue": info["venue"],

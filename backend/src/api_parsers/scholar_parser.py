@@ -4,7 +4,7 @@ from src.api_parsers.exceptions import MaxAuthorsReachedException
 
 
 class ScholarParser:
-    def __init__(self, keywords: str, min_year: int = 2010, max_authors: int = 10):
+    def __init__(self, keywords: str, min_year: int = 2010, max_authors: int = 100):
         self.keywords = keywords
         self.authors = []
         self.min_year = min_year

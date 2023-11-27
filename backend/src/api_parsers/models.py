@@ -11,8 +11,8 @@ class Source(str, Enum):
 class Publication(BaseModel):
     title: str
     year: int
-    venue: str
-    citations: int
+    venue: str | None
+    citations: int | None
     abstract: str
     source_api: Source
 
@@ -21,7 +21,7 @@ class Author(BaseModel):
     first_name: str
     last_name: str
     api_id: str
-    affiliation: str
+    affiliation: str | None
     publication: Publication
 
     def get_attrs(self) -> dict:

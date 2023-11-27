@@ -3,6 +3,7 @@ from src.api_parsers.models import Source, Publication, Author
 from src.api_parsers.exceptions import MaxAuthorsReachedException
 from src.similarity_eval.similarity_eval import SimilarityEvaluator
 
+
 class ScholarParser:
     def __init__(self, keywords: str, abstract: str, min_year: int = 2010, max_authors: int = 100):
         self.keywords = keywords
@@ -38,7 +39,7 @@ class ScholarParser:
             "venue": info["venue"],
             "abstract": info["abstract"],
             "source_api": Source.SCHOLAR,
-            "similiarity_score": None,
+            "similarity_score": None,
         }
         publication = Publication(**pub_data)
         for author_id in author_ids:

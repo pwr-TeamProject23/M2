@@ -1,7 +1,6 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from src.api_parsers.models import Author
-from src.api_parsers.scopus_parser import ScopusParser
 
 
 class SimilarityEvaluator:

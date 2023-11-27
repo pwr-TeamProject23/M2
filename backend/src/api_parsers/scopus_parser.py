@@ -53,7 +53,7 @@ class ScopusParser:
             "venue": '',
             "year": year,
             "source_api": Source.SCOPUS,
-            "similiarity_score": None,
+            "similarity_score": None,
         }
         publication = Publication(**pub_data)
         if "author" not in entry:
@@ -72,7 +72,9 @@ class ScopusParser:
                 "publication": publication,
                 "affiliation": self._get_author_affiliation(author_id=author_id),
             }
-            self.authors.append(Author(**auth_data))
+            author = Author(**auth_data)
+            print(author)
+            self.authors.append(author)
             if len(self.authors) >= self.max_authors:
                 raise MaxAuthorsReachedException()
 
@@ -88,3 +90,26 @@ def _extract_affiliation(author_response: dict) -> str:
     if type(affiliation) == list:
         return affiliation[0]["ip-doc"]["afdispname"]
     return affiliation["ip-doc"]["afdispname"]
+
+
+
+s = ScopusParser('code smells', "Replication of research experiments is important for establishing the validity and "
+                                 "generalizability of findings, building a cumulative body of knowledge, "
+                                 "and addressing issues of publication bias. The quest for replication led to the "
+                                 "concept of scientific workflow, a structured and systematic process for carrying "
+                                 "out research that defines a series of steps, methods, and tools needed to collect "
+                                 "and analyze data, and generate results. In this study, we propose a cloud-based "
+                                 "framework built upon open source software, which facilitates the construction and "
+                                 "execution of workflows for the replication/reproduction of software quality "
+                                 "studies. To demonstrate its feasibility, we describe the replication of a software "
+                                 "quality experiment on automatically detecting code smells with machine learning "
+                                 "techniques. The proposed framework can mitigate two types of validity threats in "
+                                 "software quality experiments: (i) internal validity threats due to instrumentation, "
+                                 "since the same measurement instruments can be used in replications, "
+                                 "thus not affecting the validity of the results, and (ii) external validity threats "
+                                 "due to reduced generalizability, since different researchers can more easily "
+                                 "replicate experiments with different settings, populations, and contexts while "
+                                 "reusing the same scientific workflow.", max_authors=10).get_authors()
+for a in s:
+    print(a)
+print(len(s))

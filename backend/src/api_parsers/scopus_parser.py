@@ -46,6 +46,7 @@ class ScopusParser:
             "title": entry["dc:title"],
             "abstract": entry.get("dc:description"),
             "citations": entry.get("citedby-count"),
+            "venue": '',
             "year": year,
             "source_api": Source.SCOPUS,
         }

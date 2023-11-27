@@ -37,11 +37,15 @@ class DBLPParser:
     def _parse_hit_dict(self, hit: dict) -> None:
         info = hit["info"]
         year = info["year"]
-        if int(year) < self.min_year:
+        venue = info.get("venue")
+        if "authors" not in info or int(year) < self.min_year:
             return
+        if venue is None:
+            venue = ''
         pub_data = {
             "title": info["title"],
             "abstract": "",
+            "venue": venue,
             "citations": 0,
             "year": year,
             "source_api": Source.DBLP,

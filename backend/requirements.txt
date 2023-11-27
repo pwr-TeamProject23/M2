@@ -32,3 +32,6 @@ celery~=5.3.5
 
 # Google Scholar
 scholarly~=1.7.11
+
+# Abstract similarity evaluation
+scikit-learn~=1.3.2

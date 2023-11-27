@@ -47,6 +47,7 @@ class DBLPParser:
             "citations": None,
             "year": year,
             "source_api": Source.DBLP,
+            "similarity_score": None,
         }
         publication = Publication(**pub_data)
         authors_list = info["authors"]["author"]

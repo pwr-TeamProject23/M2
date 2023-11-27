@@ -15,6 +15,7 @@ class Publication(BaseModel):
     citations: int | None
     abstract: str
     source_api: Source
+    similarity_score: float | None
 
 
 class Author(BaseModel):

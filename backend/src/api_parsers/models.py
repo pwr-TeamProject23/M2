@@ -3,26 +3,28 @@ from enum import Enum
 
 
 class Source(str, Enum):
-    SCOPUS = "SCOPUS"
     DBLP = "DBLP"
-    SCHOLAR = "SCHOLAR"
+    GoogleScholar = "Google Scholar"
+    Scopus = "Scopus"
 
 
 class Publication(BaseModel):
+    doi: str | None
     title: str
     year: int
     venue: str | None
-    citations: int | None
     abstract: str
-    source_api: Source
+    citation_count: int | None
     similarity_score: float | None
 
 
 class Author(BaseModel):
+    author_external_id: str
     first_name: str
     last_name: str
-    api_id: str
     affiliation: str | None
+    email: str | None
+    source: Source
     publication: Publication
 
     def get_attrs(self) -> dict:
@@ -31,7 +33,7 @@ class Author(BaseModel):
             'affiliation': self.affiliation,
             'title': self.publication.title,
             'year': self.publication.year,
-            'source': self.publication.source_api,
+            'source': self.source,
             'venue': self.publication.venue
         }
 

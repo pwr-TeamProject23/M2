@@ -1,3 +1,4 @@
+from typing import Optional
 from pydantic import BaseModel
 
 from src.common.models import UploadStatus
@@ -8,18 +9,25 @@ class HistoryEntity(BaseModel):
     index: int
     status: UploadStatus
     filename: str
-    
+
 
 HistoryResponseModel = list[HistoryEntity]
 
 
-class ResultEntity(BaseModel):
+class AuthorResponseModel(BaseModel):
     id: int
     name: str
     src: str
     year: int
     title: str
     affiliation: str
-    
-    
-SuggestionsResponseModel = list[ResultEntity]
+    venue: Optional[str]
+
+
+class SuggestionsResponseModel(BaseModel):
+    authors: list[AuthorResponseModel]
+    venues: list[Optional[str]]
+
+
+class DetailsResponseModel(BaseModel):
+    affiliation: str

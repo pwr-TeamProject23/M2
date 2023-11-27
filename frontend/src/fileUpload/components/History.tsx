@@ -3,20 +3,14 @@ import { ErrorIcon, PendingIcon, CheckmarkIcon } from "../../components/Icons";
 import { Upload, UploadStatus } from "./models";
 import { getHistory } from "./api";
 import { useAuthStore } from "../../store/AuthStore";
-
-const CursorStyle = {
-  pending: "cursor-progress",
-  error: "cursor-not-allowed",
-  ready: "cursor-pointer",
-  default: "cursor-default",
-};
+import { CursorStyle } from "../../models/styling";
 
 function StatusIcon(props: Pick<Upload, "status">) {
   const status = props.status;
 
   if (status == UploadStatus.error) return <ErrorIcon />;
   if (status == UploadStatus.pending) return <PendingIcon />;
-  if (status == UploadStatus.ready) return <CheckmarkIcon />;
+  if (status == UploadStatus.ready) return null;
 }
 
 const getCursor = (status: string) => {
@@ -30,7 +24,9 @@ function UploadRow(props: Pick<Upload, "status" | "filename">) {
   return (
     <div className="flex items-center justify-between h-full w-full ">
       <div>{props.filename}</div>
-      <StatusIcon status={props.status} />
+      <div className="pr-4">
+        <StatusIcon status={props.status} />
+      </div>
     </div>
   );
 }
@@ -53,13 +49,12 @@ function ArticleRedirect(props: RowContainerProps) {
 }
 
 function RowContainer(props: RowContainerProps) {
-  const background = props.index % 2 == 0 ? "bg-stone-100" : "bg-stone-200";
-  const hover = props.status == UploadStatus.ready ? "hover:bg-stone-300" : "";
+  const hover = props.status == UploadStatus.ready ? "hover:bg-stone-200" : "";
   const cursorStyle = getCursor(props.status);
 
   return (
     <ArticleRedirect {...props}>
-      <div className={`h-16 p-8 ${background} ${cursorStyle} ${hover}`}>
+      <div className={`h-16 border-b border-stone-300 ${cursorStyle} ${hover}`}>
         {props.children}
       </div>
     </ArticleRedirect>

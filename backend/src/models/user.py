@@ -10,7 +10,7 @@ class User(BaseModel):
     password: Mapped[str]
     is_admin: Mapped[bool]
     sessions: Mapped[list["UserSession"]] = relationship(back_populates="user")
-    uploads: Mapped["Upload"] = relationship(back_populates="user")
+    searches: Mapped[list["Search"]] = relationship(back_populates="user")
 
     def __repr__(self) -> str:
         return f"User<{self.email}>"

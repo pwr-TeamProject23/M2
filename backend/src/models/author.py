@@ -15,14 +15,14 @@ class Author(BaseModel):
     __tablename__ = "author"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    upload_id: Mapped[int] = mapped_column(ForeignKey("upload.id"))
+    search_id: Mapped[int] = mapped_column(ForeignKey("search.id"))
     author_external_id: Mapped[str]
     first_name: Mapped[str]
     last_name: Mapped[str]
     affiliation: Mapped[str]
     email: Mapped[str | None]
     source: Mapped[Source]
-    upload: Mapped["Upload"] = relationship(back_populates="authors")
+    search: Mapped["Search"] = relationship(back_populates="authors")
 
     def __repr__(self) -> str:
         return f"Author<{self.first_name} {self.last_name}>"

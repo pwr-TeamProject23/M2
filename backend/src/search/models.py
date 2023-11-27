@@ -1,13 +1,13 @@
 from typing import Optional
-from pydantic import BaseModel
 
-from src.models.upload import CeleryTaskStatus
+from pydantic import BaseModel
+from src.common.models import SearchTaskStatus
 
 
 class HistoryEntity(BaseModel):
     id: int
     index: int
-    status: CeleryTaskStatus
+    status: SearchTaskStatus
     filename: str
 
 

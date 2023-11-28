@@ -19,9 +19,9 @@ async def root() -> dict:
 
 
 @router.post(
-    "/upload/file/{user_id}", status_code=200, dependencies=[Depends(is_authorized)]
+    "/search/file/{user_id}", status_code=200, dependencies=[Depends(is_authorized)]
 )
-async def upload_pdf(file: UploadFile, user_id: int) -> dict:
+async def create_search_task(file: UploadFile, user_id: int) -> dict:
     if file.content_type != "application/pdf":
         raise HTTPException(400, detail="Invalid document type.")
 
@@ -34,7 +34,7 @@ async def upload_pdf(file: UploadFile, user_id: int) -> dict:
 
 
 @router.get(
-    "/upload/{search_id}/results",
+    "/search/{search_id}/results",
     status_code=200,
     dependencies=[Depends(is_authorized)],
 )
@@ -96,7 +96,7 @@ async def get_results(search_id: int) -> SuggestionsResponseModel:
 
 
 @router.get(
-    "/upload/history/{user_id}", status_code=200, dependencies=[Depends(is_authorized)]
+    "/search/history/{user_id}", status_code=200, dependencies=[Depends(is_authorized)]
 )
 async def get_history(user_id: int) -> HistoryResponseModel:
     return [
@@ -122,7 +122,7 @@ async def get_history(user_id: int) -> HistoryResponseModel:
 
 
 @router.get(
-    "/upload/{search_id}/source/{source}/author/{author_id}/details",
+    "/search/{search_id}/source/{source}/author/{author_id}/details",
     status_code=200,
     dependencies=[Depends(is_authorized)],
 )

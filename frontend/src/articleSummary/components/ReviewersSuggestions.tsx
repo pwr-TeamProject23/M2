@@ -12,7 +12,7 @@ enum TabOptions {
   smartSort = "Smart sort",
   scopus = "Scopus",
   dblp = "DBLP",
-  googleScolar = "Google Scholar",
+  googleScholar = "Google Scholar",
 }
 
 type DetailProps = {
@@ -34,11 +34,11 @@ function AuthorDetails(props: Author & { isModalOpen: boolean }) {
   const [details, setDetails] = useState<DetailsResponseModel | undefined>(
     undefined,
   );
-  const { uploadId } = useParams();
+  const { searchId } = useParams();
 
   useEffect(() => {
-    if (props.isModalOpen && uploadId && details === undefined)
-      getDetails(uploadId, src, id).then(setDetails);
+    if (props.isModalOpen && searchId && details === undefined)
+      getDetails(searchId, src, id).then(setDetails);
   }, [props.isModalOpen]);
 
   return (

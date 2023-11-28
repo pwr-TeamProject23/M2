@@ -1,8 +1,8 @@
 import axios from "axios";
-import { Upload } from "./models";
+import { Search } from "./models";
 
 export const getHistory = async (user_id: number) => {
-  const response = await axios.get(`/upload/history/${user_id}`);
+  const response = await axios.get(`/search/history/${user_id}`);
   console.log(response.data);
-  return response.data as Upload[];
+  return response.data as Search[];
 };

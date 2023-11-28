@@ -13,7 +13,7 @@ export const uploadArticle = async (
     },
   };
   try {
-    await axios.post(`/upload/file/${user_id}`, formData, headers);
+    await axios.post(`/search/file/${user_id}`, formData, headers);
   } catch (err: unknown) {
     if (err instanceof AxiosError) {
       if (err.response) {

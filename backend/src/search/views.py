@@ -1,14 +1,14 @@
+from typing import BinaryIO
+
 from fastapi import APIRouter, Depends, HTTPException, UploadFile
 from src.auth import is_authorized
-from typing_extensions import BinaryIO
-
-from src.upload.models import (
+from src.common.models import SearchTaskStatus
+from src.models.author import Source
+from src.search.models import (
+    DetailsResponseModel,
     HistoryResponseModel,
     SuggestionsResponseModel,
-    DetailsResponseModel,
 )
-from src.common.models import UploadStatus
-from src.models.reviewer import Source
 
 router = APIRouter()
 
@@ -34,11 +34,11 @@ async def upload_pdf(file: UploadFile, user_id: int) -> dict:
 
 
 @router.get(
-    "/upload/{upload_id}/results",
+    "/upload/{search_id}/results",
     status_code=200,
     dependencies=[Depends(is_authorized)],
 )
-async def get_results(upload_id: int) -> SuggestionsResponseModel:
+async def get_results(search_id: int) -> SuggestionsResponseModel:
     result = [
         {
             "id": 1,
@@ -104,29 +104,29 @@ async def get_history(user_id: int) -> HistoryResponseModel:
             "id": 1,
             "index": 1,
             "filename": "article about machine learning",
-            "status": UploadStatus.READY,
+            "status": SearchTaskStatus.PENDING,
         },
         {
             "id": 5,
             "index": 2,
             "filename": "article about cloud computing",
-            "status": UploadStatus.PENDING,
+            "status": SearchTaskStatus.READY,
         },
         {
             "id": 3,
             "index": 3,
             "filename": "article about something else",
-            "status": UploadStatus.ERROR,
+            "status": SearchTaskStatus.ERROR,
         },
     ]
 
 
 @router.get(
-    "/upload/{upload_id}/source/{source}/author/{author_id}/details",
+    "/upload/{search_id}/source/{source}/author/{author_id}/details",
     status_code=200,
     dependencies=[Depends(is_authorized)],
 )
-async def get_author_details(upload_id: int, source: Source, author_id: int):
+async def get_author_details(search_id: int, source: Source, author_id: int):
     affiliation = {
         1: "Otto von Guericke University of Magdeburg, Germany",
         2: "Hebei University of Science and Technology",

@@ -60,12 +60,11 @@ class BaseRepository(Generic[T]):
             raise ValueError(
                 f"{cls.__model__.__name__} with id={instance.id} not found"
             )
-        else:
-            for key, value in update_data.items():
-                setattr(db_instance, key, value)
-            session.commit()
-            session.refresh(db_instance)
-            return db_instance
+        for key, value in update_data.items():
+            setattr(db_instance, key, value)
+        session.commit()
+        session.refresh(db_instance)
+        return db_instance
 
     @classmethod
     def delete(cls, session: Session, instance: T) -> None:

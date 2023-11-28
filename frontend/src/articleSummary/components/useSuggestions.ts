@@ -7,7 +7,7 @@ import { Option } from "./Select";
 
 export default function useSuggestions() {
   const user = useAuthStore((state) => state.user);
-  const { uploadId } = useParams();
+  const { searchId } = useParams();
   const [authors, setAuthors] = useState<Author[]>([]);
   const [venueOptions, setVenueOptions] = useState<Option[]>([]);
 
@@ -17,8 +17,8 @@ export default function useSuggestions() {
   };
 
   useEffect(() => {
-    if (user != null && uploadId) {
-      getSuggestions(uploadId).then(setData);
+    if (user != null && searchId) {
+      getSuggestions(searchId).then(setData);
     }
   }, []);
 

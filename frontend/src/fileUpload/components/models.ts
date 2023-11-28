@@ -1,12 +1,12 @@
-export enum UploadStatus {
+export enum SearchStatus {
   pending = "pending",
   error = "error",
   ready = "ready",
 }
 
-export type Upload = {
+export type Search = {
   index: number;
   id: number;
   filename: string;
-  status: UploadStatus;
+  status: SearchStatus;
 };

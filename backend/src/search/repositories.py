@@ -6,6 +6,24 @@ from src.models.publication import Publication
 from src.models.search import Search
 
 
+class SearchRepository(BaseRepository[Search]):
+    __model__ = Search
+
+    @classmethod
+    def create_search(
+        cls,
+        db_session: Session,
+        user_id: int,
+        file_name: str,
+        task_id: str | None = None,
+        status: SearchTaskStatus = SearchTaskStatus.PENDING,
+    ) -> Search:
+        search = Search(
+            user_id=user_id, file_name=file_name, task_id=task_id, status=status
+        )
+        return cls.create(db_session, search)
+
+
 class AuthorRepository(BaseRepository[Author]):
     __model__ = Author
 
@@ -31,24 +49,6 @@ class AuthorRepository(BaseRepository[Author]):
             source=source,
         )
         return cls.create(db_session, author)
-
-
-class SearchRepository(BaseRepository[Search]):
-    __model__ = Search
-
-    @classmethod
-    def create_search(
-        cls,
-        db_session: Session,
-        user_id: int,
-        file_name: str,
-        task_id: str | None = None,
-        status: SearchTaskStatus = SearchTaskStatus.PENDING,
-    ) -> Search:
-        search = Search(
-            user_id=user_id, file_name=file_name, task_id=task_id, status=status
-        )
-        return cls.create(db_session, search)
 
 
 class PublicationRepository(BaseRepository[Publication]):

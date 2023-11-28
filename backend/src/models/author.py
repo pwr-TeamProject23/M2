@@ -23,6 +23,7 @@ class Author(BaseModel):
     email: Mapped[str | None]
     source: Mapped[Source]
     search: Mapped["Search"] = relationship(back_populates="authors")
+    publications: Mapped[list["Publication"]] = relationship(back_populates="author")
 
     def __repr__(self) -> str:
         return f"Author<{self.first_name} {self.last_name}>"

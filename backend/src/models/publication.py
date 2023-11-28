@@ -1,5 +1,5 @@
 from sqlalchemy import ForeignKey
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from src.models import BaseModel
 
 
@@ -15,6 +15,7 @@ class Publication(BaseModel):
     abstract: Mapped[str | None]
     citation_count: Mapped[int | None]
     similarity_score: Mapped[float | None]
+    author: Mapped["Author"] = relationship(back_populates="publications")
 
     def __repr__(self) -> str:
         return f"Publication<{self.title}>"

@@ -36,17 +36,19 @@ class DBLPParser:
 
     def _parse_hit_dict(self, hit: dict) -> None:
         info = hit["info"]
-        year = info["year"]
-        if "authors" not in info or int(year) < self.min_year:
+        year = str(info["year"])
+        if "authors" not in info or not year.isdigit() or int(year) < self.min_year:
             return
         venue = info.get("venue")
+        if type(venue) == list:
+            venue = venue[0]
         pub_data = {
+            "doi": info.get("doi"),
             "title": info["title"],
-            "abstract": None,
+            "year": int(year),
             "venue": venue,
-            "citations": None,
-            "year": year,
-            "source_api": Source.DBLP,
+            "abstract": None,
+            "citation_count": None,
             "similarity_score": None,
         }
         publication = Publication(**pub_data)
@@ -59,12 +61,15 @@ class DBLPParser:
             split_name = author_name.split()
             first_name, last_name = split_name[0], " ".join(split_name[1:])
             auth_data = {
+                "author_external_id": author_id,
                 "first_name": first_name,
                 "last_name": last_name,
-                "api_id": author_id,
-                "publication": publication,
                 "affiliation": None,
+                "email": None,
+                "source": Source.DBLP,
+                "publication": publication,
             }
+            # print(Author(**auth_data).publication.year)
             self.authors.append(Author(**auth_data))
             if len(self.authors) >= self.max_authors:
                 raise MaxAuthorsReachedException()

@@ -6,7 +6,9 @@ from requests.exceptions import HTTPError
 
 
 class ScopusParser:
-    def __init__(self, keywords: str, abstract: str, min_year: int = 2010, max_authors: int = 100):
+    def __init__(
+        self, keywords: str, abstract: str, min_year: int = 2010, max_authors: int = 100
+    ):
         self.keywords = keywords
         self.abstract = abstract
         self.handler = ScopusHandler()
@@ -47,12 +49,12 @@ class ScopusParser:
         if year < self.min_year:
             return
         pub_data = {
+            "doi": entry.get("prism:doi"),
             "title": entry["dc:title"],
-            "abstract": entry.get("dc:description"),
-            "citations": entry.get("citedby-count"),
-            "venue": None,
             "year": year,
-            "source_api": Source.SCOPUS,
+            "venue": None,
+            "abstract": entry.get("dc:description"),
+            "citation_count": entry.get("citedby-count"),
             "similarity_score": None,
         }
         publication = Publication(**pub_data)
@@ -66,11 +68,13 @@ class ScopusParser:
                 continue
             author_id = author["authid"]
             auth_data = {
+                "author_external_id": author_id,
                 "first_name": first_name,
                 "last_name": last_name,
-                "api_id": author_id,
-                "publication": publication,
                 "affiliation": None,
+                "email": None,
+                "source": Source.Scopus,
+                "publication": publication,
             }
             author = Author(**auth_data)
             self.authors.append(author)
@@ -89,4 +93,3 @@ def _extract_affiliation(author_response: dict) -> str | None:
     if type(affiliation) == list:
         return affiliation[0]["ip-doc"]["afdispname"]
     return affiliation["ip-doc"]["afdispname"]
-

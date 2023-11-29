@@ -21,4 +21,3 @@ class SimilarityEvaluator:
         tfidf = vector.fit_transform([self.input_abstract] + abstracts_unique)
         cosine = list(cosine_similarity(tfidf, tfidf)[0][1:])
         return dict(zip(abstracts, cosine))
-

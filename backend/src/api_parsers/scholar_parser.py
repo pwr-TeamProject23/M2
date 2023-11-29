@@ -5,7 +5,9 @@ from src.similarity_eval.similarity_eval import SimilarityEvaluator
 
 
 class ScholarParser:
-    def __init__(self, keywords: str, abstract: str, min_year: int = 2010, max_authors: int = 100):
+    def __init__(
+        self, keywords: str, abstract: str, min_year: int = 2010, max_authors: int = 100
+    ):
         self.keywords = keywords
         self.abstract = abstract
         self.authors = []
@@ -33,12 +35,12 @@ class ScholarParser:
             return
         info = pub["bib"]
         pub_data = {
+            "doi": None,
             "title": info["title"],
             "year": info["pub_year"],
-            "citations": pub["num_citations"],
             "venue": info["venue"],
             "abstract": info["abstract"],
-            "source_api": Source.SCHOLAR,
+            "citation_count": pub["num_citations"],
             "similarity_score": None,
         }
         publication = Publication(**pub_data)
@@ -62,10 +64,12 @@ def _parse_author_dict(author_dict, publication: Publication) -> Author:
     split_name = author_name.split()
     first_name, last_name = split_name[0], " ".join(split_name[1:])
     author_data = {
+        "author_external_id": author_dict["scholar_id"],
         "first_name": first_name,
         "last_name": last_name,
-        "api_id": author_dict["scholar_id"],
         "affiliation": author_dict["affiliation"],
+        "email": None,
+        "source": Source.GoogleScholar,
         "publication": publication,
     }
     return Author(**author_data)

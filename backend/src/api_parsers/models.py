@@ -13,7 +13,7 @@ class Publication(BaseModel):
     title: str
     year: int
     venue: str | None
-    abstract: str
+    abstract: str | None
     citation_count: int | None
     similarity_score: float | None
 
@@ -26,13 +26,3 @@ class Author(BaseModel):
     email: str | None
     source: Source
     publication: Publication
-
-    def get_attrs(self) -> dict:
-        return {
-            "name": f"{self.first_name} {self.last_name}",
-            "affiliation": self.affiliation,
-            "title": self.publication.title,
-            "year": self.publication.year,
-            "source": self.source,
-            "venue": self.publication.venue,
-        }

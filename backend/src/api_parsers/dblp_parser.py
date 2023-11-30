@@ -40,8 +40,8 @@ class DBLPParser:
         if "authors" not in info or not year.isdigit() or int(year) < self.min_year:
             return
         venue = info.get("venue")
-        if type(venue) == list:
-            venue = venue[0]
+        if type(venue) != list:
+            venue = [venue]
         pub_data = {
             "doi": info.get("doi"),
             "title": info["title"],

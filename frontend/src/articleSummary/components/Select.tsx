@@ -25,8 +25,10 @@ export default function Select(props: Props) {
         disabled={props.disabled}
       >
         <option value={undefined}>{props.label}</option>
-        {props.options.map((option: Option, i:number) => (
-          <option key={i} value={option.value}>{option.label}</option>
+        {props.options.map((option: Option, i: number) => (
+          <option key={i} value={option.value}>
+            {option.label}
+          </option>
         ))}
       </select>
     </div>

@@ -19,7 +19,7 @@ export default function Modal(props: Props) {
           onClick={close}
         >
           <div
-            className="bg-white p-8 shadow-lg w-1/3 h-2/3"
+            className="bg-white p-8 shadow-lg w-1/3 h-2/3 overflow-y-scroll"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-end">

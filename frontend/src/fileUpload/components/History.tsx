@@ -4,6 +4,7 @@ import { Search, SearchStatus } from "./models";
 import { getHistory, getSearchStatus } from "./api";
 import { useAuthStore } from "../../store/AuthStore";
 import { CursorStyle } from "../../models/styling";
+import { useHistoryStore } from "../HistoryStore";
 
 function StatusIcon(props: Pick<Search, "status">) {
   const status = props.status;
@@ -82,7 +83,10 @@ function RowContainer(props: RowContainerProps) {
 }
 
 export default function History() {
-  const [searches, setSearches] = useState<Search[]>([]);
+  const { searches, setSearches } = useHistoryStore((state) => ({
+    searches: state.searches,
+    setSearches: state.setSearches,
+  }));
   const user = useAuthStore((state) => state.user);
 
   useEffect(() => {
@@ -90,6 +94,8 @@ export default function History() {
       getHistory(user?.user_id).then(setSearches);
     }
   }, []);
+
+  useEffect(() => {}, [searches]);
 
   const updateSearches = (search_id: number, status: SearchStatus) => {
     const updated = [
@@ -104,6 +110,14 @@ export default function History() {
     ];
     setSearches(updated);
   };
+
+  if (searches.length == 0) {
+    return (
+      <div className="w-100 flex justify-center text-3xl p-24 text-stone-300">
+        There are no searches in your history
+      </div>
+    );
+  }
 
   return searches.map((upload: Search) => (
     <RowContainer key={upload.index} status={upload.status} id={upload.id}>

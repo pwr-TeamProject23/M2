@@ -19,7 +19,7 @@ class Author(BaseModel):
     author_external_id: Mapped[str]
     first_name: Mapped[str]
     last_name: Mapped[str]
-    affiliation: Mapped[str | None]
+    affiliation: Mapped[str]
     email: Mapped[str | None]
     source: Mapped[Source]
     search: Mapped["Search"] = relationship(back_populates="authors")

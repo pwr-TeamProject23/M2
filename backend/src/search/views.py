@@ -1,22 +1,13 @@
 from typing import BinaryIO
 
 from fastapi import APIRouter, Depends, HTTPException, UploadFile
-from sqlalchemy.orm import Session
-from src.common.postgres import get_db_session
 from src.auth import is_authorized
 from src.common.models import SearchTaskStatus
-from src.models.author import Source, Author
+from src.models.author import Source
 from src.search.models import (
     DetailsResponseModel,
     HistoryResponseModel,
     SuggestionsResponseModel,
-)
-from src.search.repositories import AuthorRepository
-from src.api_parsers.scopus_parser import ScopusParser
-from src.api_parsers.dblp_parser import DBLPParser
-from src.api_parsers.exceptions import (
-    NoAffiliationException,
-    DBLPQuotaExceededException,
 )
 
 router = APIRouter()
@@ -144,59 +135,4 @@ async def get_author_details(search_id: int, source: Source, author_id: int):
         5: "Example University",
     }.get(author_id)
 
-    return DetailsResponseModel(affiliation=affiliation)
-
-
-@router.get(
-    "/search/{search_id}/source/{source}/author/{author_id}/affiliation",
-    status_code=200,
-    dependencies=[Depends(is_authorized)],
-)
-async def get_author_affiliation(
-    search_id: int,
-    source: Source,
-    author_id: str,
-    author_first_name: str = None,
-    author_last_name: str = None,
-    session: Session = Depends(get_db_session),
-):
-    if source == Source.DBLP:
-        dblp_parser = DBLPParser("")
-        if author_first_name is None and author_last_name is None:
-            raise HTTPException(
-                400,
-                detail="Insufficient arguments. DBLP requires author first and last name.",
-            )
-        author_name = " ".join([author_first_name, author_last_name])
-        try:
-            affiliation = dblp_parser.get_author_affiliation(
-                author_id=author_id, author_name=author_name
-            )
-        except NoAffiliationException:
-            raise HTTPException(
-                500,
-                detail="This author is associated with no affiliation that exists in DBLP.",
-            )
-        except DBLPQuotaExceededException:
-            raise HTTPException(500, detail="DBLP quota exceeded.")
-    elif source == Source.Scopus:
-        scopus_parser = ScopusParser("", "")
-        affiliation = scopus_parser.get_author_affiliation(author_id=author_id)
-    else:
-        raise HTTPException(
-            400,
-            detail="Invalid source. Affiliation requests are available only for DBLP and Scopus.",
-        )
-    lookup = {
-        "search_id": search_id,
-        "author_external_id": author_id,
-    }
-    instance = AuthorRepository.find_first_by_values(session=session, lookup=lookup)
-    if instance is None:
-        raise HTTPException(
-            400,
-            detail="No such author found in the database.",
-        )
-    update_data = {"affiliation": affiliation}
-    AuthorRepository.update(session=session, instance=instance, update_data=update_data)
     return DetailsResponseModel(affiliation=affiliation)

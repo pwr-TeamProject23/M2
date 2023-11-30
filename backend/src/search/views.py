@@ -1,15 +1,19 @@
 from typing import BinaryIO
 
+from celery import states
+from celery.result import AsyncResult
 from fastapi import APIRouter, Depends, HTTPException, UploadFile
+from sqlalchemy.orm import Session
 from src.auth import is_authorized
 from src.common.models import SearchTaskStatus
 from src.models.author import Source
 from src.search.models import (
     DetailsResponseModel,
     HistoryResponseModel,
+    StatusResponseModel,
     SuggestionsResponseModel,
-    StatusResponseModel
 )
+from src.search.repositories import SearchRepository
 
 router = APIRouter()
 
@@ -32,6 +36,28 @@ async def create_search_task(file: UploadFile, user_id: int) -> dict:
         raise HTTPException(500, detail="Internal server error.")
 
     return {"message": "successful upload", "filename": file.filename}
+
+
+@router.get("/search/{search_id}/status")
+async def get_search_status(search_id: int, db_session: Session):
+    try:
+        search = SearchRepository.find_by_id(db_session, search_id)
+        task_status = AsyncResult(search.task_id).status
+        if (
+            search.status == SearchTaskStatus.PENDING
+            and task_status not in states.UNREADY_STATES
+        ):
+            if task_status in states.EXCEPTION_STATES:
+                search = SearchRepository.update(
+                    db_session, search, {"status": SearchTaskStatus.ERROR}
+                )
+            elif task_status == states.SUCCESS:
+                search = SearchRepository.update(
+                    db_session, search, {"status": SearchTaskStatus.READY}
+                )
+    except Exception:
+        raise HTTPException(500, detail="Internal server error.")
+    return StatusResponseModel(status=search.status)
 
 
 @router.get(
@@ -137,10 +163,3 @@ async def get_author_details(search_id: int, source: Source, author_id: int):
     }.get(author_id)
 
     return DetailsResponseModel(affiliation=affiliation)
-
-
-@router.get(
-    "/search/{search_id}/status"
-)
-async def get_search_status(search_id: int):
-    return StatusResponseModel(status=SearchTaskStatus.PENDING )

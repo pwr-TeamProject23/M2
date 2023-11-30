@@ -32,5 +32,6 @@ class SuggestionsResponseModel(BaseModel):
 class DetailsResponseModel(BaseModel):
     affiliation: str
 
+
 class StatusResponseModel(BaseModel):
     status: SearchTaskStatus

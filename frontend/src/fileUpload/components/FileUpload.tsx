@@ -7,7 +7,7 @@ import { useFileUploadStore } from "../../store/FileUploadStore";
 import { CursorStyle } from "../../models/styling";
 
 function FileUploadPrompt(props: FileUploadProps) {
-  const { inputFileRef, handleFileChange, onButtonClick, isOver } = props;
+  const { inputFileRef, handleFileChange, onButtonClick } = props;
 
   return (
     <div

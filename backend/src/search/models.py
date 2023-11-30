@@ -18,9 +18,10 @@ class AuthorResponseModel(BaseModel):
     id: int
     name: str
     src: str
-    year: int
-    title: str
-    venues: Optional[list[str]]
+    year: int | None
+    title: str | None
+    affiliation: str | None
+    venue: Optional[str]
 
 
 class SuggestionsResponseModel(BaseModel):
@@ -29,7 +30,15 @@ class SuggestionsResponseModel(BaseModel):
 
 
 class DetailsResponseModel(BaseModel):
-    affiliation: str
+    affiliation: str | None
+
+
+class SearchTaskCreationResponseModel(BaseModel):
+    filename: str
+
+
+class SearchTaskStatusResponseModel(BaseModel):
+    status: str
 
 
 class StatusResponseModel(BaseModel):

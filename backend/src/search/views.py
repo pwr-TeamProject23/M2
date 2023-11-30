@@ -89,6 +89,9 @@ async def get_search_status(search_id: int, db_session: Session):
 async def get_results(
     search_id: int, db_session: Session = Depends(get_db_session)
 ) -> SuggestionsResponseModel:
+    search = SearchRepository.find_by_id(db_session, search_id)
+    if search is None or search.status != SearchTaskStatus.READY:
+        raise HTTPException(404, detail="Page not found.")
     results = []
     authors = AuthorRepository.find_all_by_value(db_session, "search_id", search_id)
     for author in authors:

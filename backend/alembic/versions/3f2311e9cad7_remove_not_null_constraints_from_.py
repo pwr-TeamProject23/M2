@@ -1,8 +1,8 @@
-"""Make affiliation and doi fields nullable
+"""Remove not null constraints from affiliation and doi
 
-Revision ID: 56173c53474d
+Revision ID: 3f2311e9cad7
 Revises: e15d1805bb9f
-Create Date: 2023-11-29 16:18:47.478941
+Create Date: 2023-11-30 18:36:34.323561
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '56173c53474d'
+revision: str = '3f2311e9cad7'
 down_revision: Union[str, None] = 'e15d1805bb9f'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None

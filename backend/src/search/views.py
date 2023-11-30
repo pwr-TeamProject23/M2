@@ -44,20 +44,22 @@ async def get_search_status(search_id: int, db_session: Session):
         search = SearchRepository.find_by_id(db_session, search_id)
         task_status = AsyncResult(search.task_id).status
         if (
-            search.status == SearchTaskStatus.PENDING
-            and task_status not in states.UNREADY_STATES
+            search.status != SearchTaskStatus.PENDING
+            or task_status in states.UNREADY_STATES
         ):
-            if task_status in states.EXCEPTION_STATES:
-                search = SearchRepository.update(
-                    db_session, search, {"status": SearchTaskStatus.ERROR}
-                )
-            elif task_status == states.SUCCESS:
-                search = SearchRepository.update(
-                    db_session, search, {"status": SearchTaskStatus.READY}
-                )
+            return StatusResponseModel(status=search.status)
+
+        if task_status in states.EXCEPTION_STATES:
+            search = SearchRepository.update(
+                db_session, search, {"status": SearchTaskStatus.ERROR}
+            )
+        elif task_status == states.SUCCESS:
+            search = SearchRepository.update(
+                db_session, search, {"status": SearchTaskStatus.READY}
+            )
+        return StatusResponseModel(status=search.status)
     except Exception:
         raise HTTPException(500, detail="Internal server error.")
-    return StatusResponseModel(status=search.status)
 
 
 @router.get(

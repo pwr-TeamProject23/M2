@@ -8,6 +8,7 @@ from src.search.models import (
     DetailsResponseModel,
     HistoryResponseModel,
     SuggestionsResponseModel,
+    StatusResponseModel
 )
 
 router = APIRouter()
@@ -102,19 +103,19 @@ async def get_history(user_id: int) -> HistoryResponseModel:
     return [
         {
             "id": 1,
-            "index": 1,
+            "index": 0,
             "filename": "article about machine learning",
             "status": SearchTaskStatus.PENDING,
         },
         {
             "id": 5,
-            "index": 2,
+            "index": 1,
             "filename": "article about cloud computing",
             "status": SearchTaskStatus.READY,
         },
         {
             "id": 3,
-            "index": 3,
+            "index": 2,
             "filename": "article about something else",
             "status": SearchTaskStatus.ERROR,
         },
@@ -136,3 +137,10 @@ async def get_author_details(search_id: int, source: Source, author_id: int):
     }.get(author_id)
 
     return DetailsResponseModel(affiliation=affiliation)
+
+
+@router.get(
+    "/search/{search_id}/status"
+)
+async def get_search_status(search_id: int):
+    return StatusResponseModel(status=SearchTaskStatus.PENDING )

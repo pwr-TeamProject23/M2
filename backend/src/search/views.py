@@ -47,8 +47,7 @@ async def get_results(search_id: int) -> SuggestionsResponseModel:
             "src": "DBLP",
             "year": 2015,
             "title": "When code smells twice as much: Metric-based detection of variability-aware code smells.",
-            "affiliation": "Otto von Guericke University of Magdeburg, Germany",
-            "venue": "International Conference on Software Engineering (ICSE)",
+            "venues": ["International Conference on Software Engineering (ICSE)"],
         },
         {
             "id": 2,
@@ -56,8 +55,7 @@ async def get_results(search_id: int) -> SuggestionsResponseModel:
             "src": "Scopus",
             "year": 2023,
             "title": "MIRROR: multi-objective refactoring recommendation via correlation analysis",
-            "affiliation": "Hebei University of Science and Technology",
-            "venue": None,
+            "venues": None,
         },
         {
             "id": 3,
@@ -65,8 +63,7 @@ async def get_results(search_id: int) -> SuggestionsResponseModel:
             "src": "Google Scholar",
             "year": 2012,
             "title": "Evaluating the lifespan of code smells using software repository mining",
-            "affiliation": "Università degli Studi di Milano-Bicocca",
-            "venue": "IEEE/ACM International Conference on Software Engineering (ICSE)",
+            "venues": ["IEEE/ACM International Conference on Software Engineering (ICSE)"],
         },
         {
             "id": 4,
@@ -74,8 +71,7 @@ async def get_results(search_id: int) -> SuggestionsResponseModel:
             "src": "Google Scholar",
             "year": 2014,
             "title": "Evaluating the lifespan of code smells using software repository mining",
-            "affiliation": "PWr",
-            "venue": "IEEE/ACM International Conference on Software Engineering (ICSE)",
+            "venues": ["IEEE/ACM International Conference on Software Engineering (ICSE)", "Venue2"],
         },
         {
             "id": 5,
@@ -83,15 +79,25 @@ async def get_results(search_id: int) -> SuggestionsResponseModel:
             "src": "Scopus",
             "year": 2022,
             "title": "Exploring the Future of Software Development",
-            "affiliation": "Example University",
-            "venue": None,
+            "venues": None,
         },
     ]
+    
+    venues = []
+    
+    for author in result:
+        author_venues = author.get("venues")
+        
+        if author_venues == None:
+            continue
+        
+        for venue in author_venues:
+            venues.append(venue)
 
     return SuggestionsResponseModel(
         authors=result,
         venues=set(
-            [author.get("venue") for author in result if author.get("venue") != None]
+            venues
         ),
     )
 

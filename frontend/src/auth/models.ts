@@ -4,7 +4,7 @@ export type LoginCredentials = {
 };
 
 export type User = {
-  id: number;
+  user_id: number;
   email: string;
   is_admin: boolean;
 };

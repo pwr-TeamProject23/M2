@@ -3,22 +3,26 @@ from enum import Enum
 
 
 class Source(str, Enum):
-    SCOPUS = "SCOPUS"
     DBLP = "DBLP"
-    SCHOLAR = "SCHOLAR"
+    GoogleScholar = "Google Scholar"
+    Scopus = "Scopus"
 
 
 class Publication(BaseModel):
+    doi: str | None
     title: str
     year: int
-    citations: int
-    abstract: str
-    source_api: Source
+    venue: str | None
+    abstract: str | None
+    citation_count: int | None
+    similarity_score: float | None
 
 
 class Author(BaseModel):
+    author_external_id: str
     first_name: str
     last_name: str
-    api_id: str
-    affiliation: str
+    affiliation: str | None
+    email: str | None
+    source: Source
     publication: Publication

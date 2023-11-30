@@ -1,56 +1,43 @@
+import { useEffect, useState } from "react";
 import { ErrorIcon, PendingIcon, CheckmarkIcon } from "../../components/Icons";
+import { Search, SearchStatus } from "./models";
+import { getHistory } from "./api";
+import { useAuthStore } from "../../store/AuthStore";
+import { CursorStyle } from "../../models/styling";
 
-enum Status {
-  pending = "pending",
-  error = "error",
-  ready = "ready",
-}
-
-const CursorStyle = {
-  pending: "cursor-progress",
-  error: "cursor-not-allowed",
-  ready: "cursor-pointer",
-  default: "cursor-default",
-};
-
-type Upload = {
-  index: number;
-  uploadId: number;
-  fileName: string;
-  status: string;
-};
-
-function StatusIcon(props: Pick<Upload, "status">) {
+function StatusIcon(props: Pick<Search, "status">) {
   const status = props.status;
 
-  if (status == Status.error) return <ErrorIcon />;
-  if (status == Status.pending) return <PendingIcon />;
-  if (status == Status.ready) return <CheckmarkIcon />;
+  if (status == SearchStatus.error) return <ErrorIcon />;
+  if (status == SearchStatus.pending) return <PendingIcon />;
+  if (status == SearchStatus.ready) return null;
 }
 
 const getCursor = (status: string) => {
-  if (status == Status.error) return CursorStyle.error;
-  if (status == Status.ready) return CursorStyle.ready;
-  if (status == Status.pending) return CursorStyle.pending;
+  if (status == SearchStatus.error) return CursorStyle.error;
+  if (status == SearchStatus.ready) return CursorStyle.ready;
+  if (status == SearchStatus.pending) return CursorStyle.pending;
   return CursorStyle.default;
 };
 
-function Upload(props: Pick<Upload, "status" | "fileName">) {
+function SearchRow(props: Pick<Search, "status" | "filename">) {
   return (
     <div className="flex items-center justify-between h-full w-full ">
-      <div>{props.fileName}</div>
-      <StatusIcon status={props.status} />
+      <div>{props.filename}</div>
+      <div className="pr-4">
+        <StatusIcon status={props.status} />
+      </div>
     </div>
   );
 }
 
 type RowContainerProps = {
   children: React.ReactNode;
-} & Pick<Upload, "index" | "status">;
+} & Pick<Search, "index" | "status">;
 
 function ArticleRedirect(props: RowContainerProps) {
-  if (props.status == Status.ready) {
-    const link = `/article/${props.index}`;
+  if (props.status == SearchStatus.ready) {
+    const link = `/search/${props.index}`;
     return (
       <a href={link} target="_self">
         {props.children}
@@ -62,13 +49,12 @@ function ArticleRedirect(props: RowContainerProps) {
 }
 
 function RowContainer(props: RowContainerProps) {
-  const background = props.index % 2 == 0 ? "bg-stone-100" : "bg-stone-200";
-  const hover = props.status == Status.ready ? "hover:bg-stone-300" : "";
+  const hover = props.status == SearchStatus.ready ? "hover:bg-stone-200" : "";
   const cursorStyle = getCursor(props.status);
 
   return (
     <ArticleRedirect {...props}>
-      <div className={`h-16 p-8 ${background} ${cursorStyle} ${hover}`}>
+      <div className={`h-16 border-b border-stone-300 ${cursorStyle} ${hover}`}>
         {props.children}
       </div>
     </ArticleRedirect>
@@ -76,35 +62,18 @@ function RowContainer(props: RowContainerProps) {
 }
 
 export default function History() {
-  const uploads = [
-    {
-      uploadId: 1,
-      index: 0,
-      fileName: "pendingupload.pdf",
-      status: "pending",
-    },
-    {
-      uploadId: 2,
-      index: 1,
-      fileName: "errorupload.pdf",
-      status: "error",
-    },
-    {
-      uploadId: 4,
-      index: 2,
-      fileName: "readyupload.pdf",
-      status: "ready",
-    },
-    {
-      uploadId: 8,
-      index: 3,
-      fileName: "readyupload.pdf",
-      status: "ready",
-    },
-  ];
-  return uploads.map((upload: Upload) => (
+  const [searches, setSearches] = useState<Search[]>([]);
+  const user = useAuthStore((state) => state.user);
+
+  useEffect(() => {
+    if (user != null) {
+      getHistory(user?.user_id).then(setSearches);
+    }
+  }, []);
+
+  return searches.map((upload: Search) => (
     <RowContainer index={upload.index} status={upload.status}>
-      <Upload status={upload.status} fileName={upload.fileName} />
+      <SearchRow status={upload.status} filename={upload.filename} />
     </RowContainer>
   ));
 }

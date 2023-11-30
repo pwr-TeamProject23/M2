@@ -1,6 +1,6 @@
 import { create } from "zustand";
-import { getLoggedUser } from "./api";
-import { User } from "./models";
+import { getLoggedUser } from "../auth/api";
+import { User } from "../auth/models";
 
 type AuthStore = {
   user: User | null;
@@ -10,11 +10,11 @@ type AuthStore = {
 
 export const useAuthStore = create<AuthStore>((set) => ({
   user: null,
-  setUser: (user) => set({ user }),
+  setUser: (user) => set({ user: user }),
   authenticate: async () => {
     try {
       const user = await getLoggedUser();
-      set({ user });
+      set({ user: user });
     } catch (e) {
       throw e;
     }

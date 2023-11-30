@@ -4,15 +4,17 @@ import UploadError from "./Error";
 import { CheckmarkIcon, UploadIcon } from "../../components/Icons";
 import { FileUploadProps } from "../types/FileUploadTypes";
 import { useFileUploadStore } from "../../store/FileUploadStore";
+import { CursorStyle } from "../../models/styling";
 
 function FileUploadPrompt(props: FileUploadProps) {
   const { inputFileRef, handleFileChange, onButtonClick, isOver } = props;
 
   return (
-    <div className="gird justify-items-center">
-      <div className={isOver ? "" : "animate-bounce"}>
-        <UploadIcon />
-      </div>
+    <div
+      className={`gird justify-items-center ${CursorStyle.ready}`}
+      onClick={onButtonClick}
+    >
+      <UploadIcon />
 
       <div className="flex space-x-1 mb-4">
         <div className="font-roboto text-gray-900 text-s">
@@ -27,9 +29,7 @@ function FileUploadPrompt(props: FileUploadProps) {
           accept=".pdf"
           maxLength={1}
         />
-        <button className="text-stone-950 text-s" onClick={onButtonClick}>
-          Browse
-        </button>
+        <button className="text-stone-950 text-s">click to browse</button>
       </div>
 
       <div className="text-[#676767] text-xs flex justify-center">
@@ -70,7 +70,7 @@ export default function FileUpload() {
   });
 
   return (
-    <div className="w-4/5">
+    <div className="w-1/2">
       <div
         className="border border-dashed border-teal-950 bg-stone-100 rounded-md h-48 flex items-center justify-center"
         onDragOver={handleDragOver}

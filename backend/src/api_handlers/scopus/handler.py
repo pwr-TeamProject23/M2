@@ -52,14 +52,9 @@ class ScopusHandler:
 
         return self.rest_handler.request(
             method=HTTPMethod.GET,
-            url_path=f'/content/author/author_id/{author_id}',
-            params={
-                **params
-            },
-            headers={
-                'X-ELS-APIKey': SCOPUS_API_KEY,
-                'Accept': 'application/json'
-            },
+            url_path=f"/content/author/author_id/{author_id}",
+            params={**params},
+            headers={"X-ELS-APIKey": SCOPUS_API_KEY, "Accept": "application/json"},
         )
 
     def get_author_by_id(self, author_id: str, params: dict) -> dict:

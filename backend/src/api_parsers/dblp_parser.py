@@ -11,7 +11,7 @@ from src.api_parsers.exceptions import (
 
 
 class DBLPParser:
-    def __init__(self, keywords: str, min_year: int = 2010, max_authors: int = 10):
+    def __init__(self, keywords: str, min_year: int = 2010, max_authors: int = 100):
         self.keywords = keywords
         self.handler = DblpHandler()
         self.authors = []
@@ -36,15 +36,20 @@ class DBLPParser:
 
     def _parse_hit_dict(self, hit: dict) -> None:
         info = hit["info"]
-        year = info["year"]
-        if int(year) < self.min_year:
+        year = str(info["year"])
+        if "authors" not in info or not year.isdigit() or int(year) < self.min_year:
             return
+        venue = info.get("venue")
+        if type(venue) == list:
+            venue = venue[0]
         pub_data = {
+            "doi": info.get("doi"),
             "title": info["title"],
-            "abstract": "",
-            "citations": 0,
-            "year": year,
-            "source_api": Source.DBLP,
+            "year": int(year),
+            "venue": venue,
+            "abstract": None,
+            "citation_count": None,
+            "similarity_score": None,
         }
         publication = Publication(**pub_data)
         authors_list = info["authors"]["author"]
@@ -55,27 +60,25 @@ class DBLPParser:
             author_name = author["text"]
             split_name = author_name.split()
             first_name, last_name = split_name[0], " ".join(split_name[1:])
-            try:
-                affiliation = self._get_author_affiliation(
-                    author_name=author_name, author_id=author_id
-                )
-            except QuotaExceededException:
-                raise DBLPQuotaExceededException()
-            except NoAffiliationException:
-                continue
             auth_data = {
+                "author_external_id": author_id,
                 "first_name": first_name,
                 "last_name": last_name,
-                "api_id": author_id,
+                "affiliation": None,
+                "email": None,
+                "source": Source.DBLP,
                 "publication": publication,
-                "affiliation": affiliation,
             }
+            # print(Author(**auth_data).publication.year)
             self.authors.append(Author(**auth_data))
             if len(self.authors) >= self.max_authors:
                 raise MaxAuthorsReachedException()
 
-    def _get_author_affiliation(self, author_name: str, author_id: str) -> str:
-        author_response = self.handler.get_authors(author_name)
+    def get_author_affiliation(self, author_name: str, author_id: str) -> str:
+        try:
+            author_response = self.handler.get_authors(author_name)
+        except QuotaExceededException:
+            raise DBLPQuotaExceededException()
         for page in author_response:
             affiliation = _extract_affiliation(author_id, page)
             if affiliation is not None:

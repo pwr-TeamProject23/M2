@@ -68,7 +68,13 @@ services:
 
   worker:
     container_name: reviewed_app_worker
-    build: ./worker
+    build:
+      context: ./backend
+      dockerfile: Dockerfile-dev
+    command: ["celery", "-A", "src.worker.tasks", "worker"]
+    env_file:
+      - ./env/.env.postgres
+      - ./env/.env.redis
     environment:
       REDISSERVER: redis://cache:6379
       C_FORCE_ROOT: "true"

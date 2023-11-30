@@ -4,7 +4,7 @@ export interface Author {
   affiliation: string;
   src: string;
   year: string;
-  venue: string | null;
+  venues: string[] | null;
 }
 
 export type SuggestionsResponseModel = {

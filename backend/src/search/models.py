@@ -20,8 +20,7 @@ class AuthorResponseModel(BaseModel):
     src: str
     year: int
     title: str
-    affiliation: str
-    venue: Optional[str]
+    venues: Optional[list[str]]
 
 
 class SuggestionsResponseModel(BaseModel):

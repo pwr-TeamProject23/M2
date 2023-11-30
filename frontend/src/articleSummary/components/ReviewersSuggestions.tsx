@@ -16,21 +16,30 @@ enum TabOptions {
 }
 
 type DetailProps = {
-  text: string;
+  text?: string;
+  list?: string[];
   label: string;
 };
+
+function DetailText(props: { children: React.ReactNode }) {
+  return (
+    <div className="text-base text-stone-900 font-light">{props.children}</div>
+  );
+}
 
 function Detail(props: DetailProps) {
   return (
     <div className="mb-4">
       <div className="text-xs font-thin -mb-1"> {props.label} </div>
-      <div className="text-base text-stone-900 font-light"> {props.text} </div>
+      {props.text && <DetailText> {props.text} </DetailText>}
+      {props.list &&
+        props.list.map((elem, i) => <DetailText key={i}> {elem} </DetailText>)}
     </div>
   );
 }
 
 function AuthorDetails(props: Author & { isModalOpen: boolean }) {
-  const { name, affiliation, src, id, year, venue } = props;
+  const { name, affiliation, src, id, year, venues } = props;
   const [details, setDetails] = useState<DetailsResponseModel | undefined>(
     undefined,
   );
@@ -49,7 +58,9 @@ function AuthorDetails(props: Author & { isModalOpen: boolean }) {
       </div>
       <Detail label="Source" text={src} />
       <Detail label="Year of article publication" text={year} />
-      {venue !== null && <Detail label="Venue" text={venue} />}
+      {venues !== null && venues !== undefined && (
+        <Detail label="Venues" list={venues} />
+      )}
       {details?.affiliation !== undefined && (
         <Detail label="Affiliation" text={details.affiliation} />
       )}
@@ -58,7 +69,7 @@ function AuthorDetails(props: Author & { isModalOpen: boolean }) {
 }
 
 function AuthorRow(props: Author) {
-  const { name, affiliation, src, id, year, venue } = props;
+  const { name, affiliation, src, id, year } = props;
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
 
   return (
@@ -71,9 +82,7 @@ function AuthorRow(props: Author) {
         <div className="my-6">
           <div className="text-2xl text-stone-800">{name}</div>
           <div className="text-sm text-stone-900 font-light">{affiliation}</div>
-          <div className="text-stone-700 font-extralight text-sm">{`${src} ${year} ${
-            venue === null ? "" : venue
-          }`}</div>
+          <div className="text-stone-700 font-extralight text-sm">{`${src} ${year}`}</div>
         </div>
       </div>
       <Modal setOpen={setModalOpen} isOpen={isModalOpen}>
@@ -134,7 +143,9 @@ function filterAuthors(selectedOption: TabOptions, venue: string | undefined) {
     const isScopusTabSelected = TabOptions.scopus == selectedOption;
     const isVenueUnselected = venue === undefined;
     const venueMatches =
-      isVenueUnselected || isScopusTabSelected ? true : author.venue === venue;
+      isVenueUnselected || isScopusTabSelected
+        ? true
+        : author.venues?.includes(venue);
 
     if (selectedOption == TabOptions.smartSort) return true && venueMatches;
     return (author.src as TabOptions) === selectedOption && venueMatches;

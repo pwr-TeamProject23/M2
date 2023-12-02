@@ -62,7 +62,7 @@ class PublicationRepository(BaseRepository[Publication]):
         doi: str,
         title: str,
         year: int,
-        venue: str | None = None,
+        venues: str | None = None,
         citation_count: int | None = None,
         abstract: str | None = None,
     ):
@@ -71,7 +71,7 @@ class PublicationRepository(BaseRepository[Publication]):
             doi=doi,
             title=title,
             year=year,
-            venue=venue,
+            venues=venues,
             citation_count=citation_count,
             abstract=abstract,
         )

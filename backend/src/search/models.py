@@ -1,7 +1,6 @@
-from typing import Optional
-
 from pydantic import BaseModel
 from src.common.models import SearchTaskStatus
+from src.api_parsers.models import Source
 
 
 class HistoryEntity(BaseModel):
@@ -14,19 +13,28 @@ class HistoryEntity(BaseModel):
 HistoryResponseModel = list[HistoryEntity]
 
 
+class PublicationResponseModel(BaseModel):
+    doi: str | None
+    title: str
+    year: int
+    venues: list[str] | None
+    abstract: str | None
+    citationCount: int | None
+    similarityScore: float | None
+
+
 class AuthorResponseModel(BaseModel):
     id: int
-    name: str
-    src: str
-    year: int | None
-    title: str | None
-    affiliation: str | None
-    venue: Optional[str]
+    firstName: str
+    lastName: str
+    email: str | None
+    source: Source
+    publication: PublicationResponseModel
 
 
 class SuggestionsResponseModel(BaseModel):
     authors: list[AuthorResponseModel]
-    venues: list[Optional[str]]
+    venues: set[str] | None
 
 
 class DetailsResponseModel(BaseModel):

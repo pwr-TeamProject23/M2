@@ -2,6 +2,7 @@ from celery import states
 from celery.result import AsyncResult
 from fastapi import APIRouter, Depends, HTTPException, UploadFile
 from sqlalchemy.orm import Session
+
 from src.auth import is_authorized
 from src.common.models import SearchTaskStatus
 from src.common.postgres import get_db_session

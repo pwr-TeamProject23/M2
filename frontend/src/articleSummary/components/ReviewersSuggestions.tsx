@@ -16,7 +16,7 @@ enum TabOptions {
 }
 
 type DetailProps = {
-  text?: string;
+  text?: string | number;
   list?: string[];
   label: string;
 };
@@ -29,7 +29,7 @@ function DetailText(props: { children: React.ReactNode }) {
 
 function Detail(props: DetailProps) {
   return (
-    <div className="mb-4">
+    <div className="mb-2">
       <div className="text-xs font-thin -mb-1"> {props.label} </div>
       {props.text && <DetailText> {props.text} </DetailText>}
       {props.list &&
@@ -39,7 +39,9 @@ function Detail(props: DetailProps) {
 }
 
 function AuthorDetails(props: Author & { isModalOpen: boolean }) {
-  const { name, affiliation, src, id, year, venues } = props;
+  const { id, firstName, lastName, email, source, publication } = props;
+  const { doi, title, year, venues, citationCount, similarityScore } =
+    publication;
   const [details, setDetails] = useState<DetailsResponseModel | undefined>(
     undefined,
   );
@@ -47,44 +49,54 @@ function AuthorDetails(props: Author & { isModalOpen: boolean }) {
 
   useEffect(() => {
     if (props.isModalOpen && searchId && details === undefined)
-      getDetails(searchId, src, id).then(setDetails);
+      getDetails(searchId, source, id).then(setDetails);
   }, [props.isModalOpen]);
 
   return (
     <>
-      <div className="mb-8">
-        <div className="text-3xl text-stone-800">{name}</div>
-        <div className="text-base text-stone-900 font-light">{affiliation}</div>
-      </div>
-      <Detail label="Source" text={src} />
-      <Detail label="Year of article publication" text={year} />
+      <div className="text-5xl text-stone-800 mb-1">{`${firstName} ${lastName}`}</div>
+
+      {details?.affiliation !== undefined && (
+        <Detail label="Affiliation" text={details.affiliation} />
+      )}
+      <Detail label="Email" text={email} />
+      <Detail label="Source" text={source} />
+
+      <div className="text-4xl text-stone-800 mt-8 mb-1">{title}</div>
+
+      <Detail label="Article publication" text={year} />
       {venues !== null && venues !== undefined && (
         <Detail label="Venues" list={venues} />
       )}
-      {details?.affiliation !== undefined && (
-        <Detail label="Affiliation" text={details.affiliation} />
+      {doi && <Detail label="DOI" text={doi} />}
+      {citationCount && <Detail label="Citations count" text={citationCount} />}
+      {similarityScore && (
+        <Detail label="Similarity score" text={similarityScore} />
       )}
     </>
   );
 }
 
 function AuthorRow(props: Author) {
-  const { name, affiliation, src, id, year } = props;
+  const { id, firstName, lastName, email, source, publication } = props;
+  const { year, similarityScore } = publication;
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
 
   return (
     <>
       <div
-        className={`flex items-center h-min border-b border-stone-300 py-4 hover:bg-stone-100 ${CursorStyle.ready}`}
+        className={`py-6 flex justify-between items-center h-min border-b border-stone-300 py-4 hover:bg-stone-100 ${CursorStyle.ready}`}
         key={id}
         onClick={() => setModalOpen(true)}
       >
-        <div className="my-6">
-          <div className="text-2xl text-stone-800">{name}</div>
-          <div className="text-sm text-stone-900 font-light">{affiliation}</div>
-          <div className="text-stone-700 font-extralight text-sm">{`${src} ${year}`}</div>
+        <div>
+          <div className="text-2xl text-stone-800">{`${firstName} ${lastName}`}</div>
+          <div className="text-sm text-stone-900 font-light">{email}</div>
+          <div className="text-stone-700 font-extralight text-sm">{`${source} ${year}`}</div>
         </div>
+        <div className="text-xl text-stone-900">{similarityScore}</div>
       </div>
+
       <Modal setOpen={setModalOpen} isOpen={isModalOpen}>
         <AuthorDetails {...props} isModalOpen={isModalOpen} />
       </Modal>
@@ -145,10 +157,10 @@ function filterAuthors(selectedOption: TabOptions, venue: string | undefined) {
     const venueMatches =
       isVenueUnselected || isScopusTabSelected
         ? true
-        : author.venues?.includes(venue);
+        : author.publication.venues?.includes(venue);
 
     if (selectedOption == TabOptions.smartSort) return true && venueMatches;
-    return (author.src as TabOptions) === selectedOption && venueMatches;
+    return (author.source as TabOptions) === selectedOption && venueMatches;
   };
   return filter;
 }

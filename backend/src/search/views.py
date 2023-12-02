@@ -1,5 +1,3 @@
-from typing import BinaryIO
-
 from celery import states
 from celery.result import AsyncResult
 from fastapi import APIRouter, Depends, HTTPException, UploadFile
@@ -13,13 +11,10 @@ from src.search.models import (
     DetailsResponseModel,
     HistoryEntity,
     HistoryResponseModel,
-    StatusResponseModel,
     SearchTaskCreationResponseModel,
-    SearchTaskStatusResponseModel,
     StatusResponseModel,
     SuggestionsResponseModel,
 )
-from src.search.repositories import SearchRepository
 from src.search.repositories import (
     AuthorRepository,
     PublicationRepository,
@@ -58,7 +53,9 @@ async def create_search_task(
 
 
 @router.get("/search/{search_id}/status")
-async def get_search_status(search_id: int, db_session: Session):
+async def get_search_status(
+    search_id: int, db_session: Session = Depends(get_db_session)
+):
     try:
         search = SearchRepository.find_by_id(db_session, search_id)
         task_status = AsyncResult(search.task_id).status
@@ -122,7 +119,9 @@ async def get_history(
     user_id: int, db_session: Session = Depends(get_db_session)
 ) -> HistoryResponseModel:
     results = []
-    history = SearchRepository.find_all_by_value(db_session, "user_id", user_id)
+    history = SearchRepository.find_all_by_value(
+        db_session, "user_id", user_id, order_by_field="id", desc=True
+    )
     for search_index, search in enumerate(history):
         results.append(
             HistoryEntity(

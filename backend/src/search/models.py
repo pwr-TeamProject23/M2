@@ -37,9 +37,5 @@ class SearchTaskCreationResponseModel(BaseModel):
     filename: str
 
 
-class SearchTaskStatusResponseModel(BaseModel):
-    status: str
-
-
 class StatusResponseModel(BaseModel):
     status: SearchTaskStatus

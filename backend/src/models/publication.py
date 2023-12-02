@@ -1,4 +1,4 @@
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, ARRAY, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from src.models import BaseModel
 
@@ -11,7 +11,7 @@ class Publication(BaseModel):
     doi: Mapped[str | None]
     title: Mapped[str]
     year: Mapped[int]
-    venue: Mapped[str | None]
+    venues: Mapped[list[str] | None] = mapped_column(ARRAY(String), nullable=True)
     abstract: Mapped[str | None]
     citation_count: Mapped[int | None]
     similarity_score: Mapped[float | None]

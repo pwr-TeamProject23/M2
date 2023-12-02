@@ -12,6 +12,7 @@ from src.search.models import (
     DetailsResponseModel,
     HistoryEntity,
     HistoryResponseModel,
+    PublicationResponseModel,
     SearchTaskCreationResponseModel,
     StatusResponseModel,
     SuggestionsResponseModel,
@@ -90,7 +91,7 @@ async def get_results(
     search = SearchRepository.find_by_id(db_session, search_id)
     if search is None or search.status != SearchTaskStatus.READY:
         raise HTTPException(404, detail="Page not found.")
-    results = []
+    results, all_venues = [], []
     authors = AuthorRepository.find_all_by_value(db_session, "search_id", search_id)
     for author in authors:
         publication = PublicationRepository.find_first_by_value(
@@ -99,17 +100,26 @@ async def get_results(
         results.append(
             AuthorResponseModel(
                 id=author.id,
-                name=f"{author.first_name} {author.last_name}",
-                src=author.source,
-                year=publication.year if publication else None,
-                title=publication.title if publication else None,
-                affiliation=author.affiliation,
-                venue=publication.venue if publication else None,
+                firstName=author.first_name,
+                lastName=author.last_name,
+                email=author.email,
+                source=author.source,
+                publication=PublicationResponseModel(
+                    doi=publication.doi,
+                    title=publication.title,
+                    year=publication.year,
+                    venues=publication.venues,
+                    abstract=publication.abstract,
+                    citationCount=publication.citation_count,
+                    similarityScore=publication.similarity_score
+                )
             )
         )
+        if publication.venues:
+            all_venues.extend(publication.venues)
     return SuggestionsResponseModel(
         authors=results,
-        venues=set([author.venue for author in results if author.venue is not None]),
+        venues=set(all_venues),
     )
 
 

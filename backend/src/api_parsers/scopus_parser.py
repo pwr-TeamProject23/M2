@@ -52,7 +52,7 @@ class ScopusParser:
             "doi": entry.get("prism:doi"),
             "title": entry["dc:title"],
             "year": year,
-            "venue": None,
+            "venues": None,
             "abstract": entry.get("dc:description"),
             "citation_count": entry.get("citedby-count"),
             "similarity_score": None,

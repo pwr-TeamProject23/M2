@@ -12,7 +12,7 @@ class Publication(BaseModel):
     doi: str | None
     title: str
     year: int
-    venue: list[str] | None
+    venues: list[str] | None
     abstract: str | None
     citation_count: int | None
     similarity_score: float | None

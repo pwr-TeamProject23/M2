@@ -59,6 +59,8 @@ export default function useFileUpload(props: useFileUploadProps): Array<any> {
 
     if (validateExtension(droppedFiles[0])) {
       setFile(droppedFiles[0]);
+    } else {
+      setErrorName("File should be in PDF format");
     }
   };
 

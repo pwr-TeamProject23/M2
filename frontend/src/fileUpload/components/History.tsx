@@ -37,10 +37,10 @@ function SearchRow(props: SearchRowProps) {
           if (newStatus !== SearchStatus.pending) clearInterval(intervalId);
         });
       };
-      const interval = 5000;
+      const interval = 2500;
       const intervalId = setInterval(() => fetchData(), interval);
     }
-  }, []);
+  }, [status]);
 
   return (
     <div className="flex items-center justify-between h-full w-full ">

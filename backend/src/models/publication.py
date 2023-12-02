@@ -6,9 +6,9 @@ from src.models import BaseModel
 class Publication(BaseModel):
     __tablename__ = "publication"
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     author_id: Mapped[int] = mapped_column(ForeignKey("author.id"))
-    doi: Mapped[str]
+    doi: Mapped[str | None]
     title: Mapped[str]
     year: Mapped[int]
     venue: Mapped[str | None]

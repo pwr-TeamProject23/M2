@@ -28,10 +28,24 @@ class BaseRepository(Generic[T]):
 
     @classmethod
     def find_all_by_value(
-        cls, session: Session, lookup_field: str, lookup_value: any
+        cls,
+        session: Session,
+        lookup_field: str,
+        lookup_value: any,
+        *,
+        order_by_field: str | None = None,
+        desc: bool = False,
     ) -> list[T]:
         lookup_field: ColumnElement = getattr(cls.__model__, lookup_field)
-        return session.query(cls.__model__).where(lookup_field == lookup_value).all()
+        query = session.query(cls.__model__).where(lookup_field == lookup_value)
+        if order_by_field:
+            order_by_field: ColumnElement = getattr(cls.__model__, order_by_field)
+            query = (
+                query.order_by(order_by_field.desc())
+                if desc
+                else query.order_by(order_by_field)
+            )
+        return query.all()
 
     @classmethod
     def create(cls, session: Session, instance: T) -> T:

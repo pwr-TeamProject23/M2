@@ -1,19 +1,26 @@
-from typing import BinaryIO
-
 from celery import states
 from celery.result import AsyncResult
 from fastapi import APIRouter, Depends, HTTPException, UploadFile
 from sqlalchemy.orm import Session
 from src.auth import is_authorized
 from src.common.models import SearchTaskStatus
+from src.common.postgres import get_db_session
 from src.models.author import Source
 from src.search.models import (
+    AuthorResponseModel,
     DetailsResponseModel,
+    HistoryEntity,
     HistoryResponseModel,
+    SearchTaskCreationResponseModel,
     StatusResponseModel,
     SuggestionsResponseModel,
 )
-from src.search.repositories import SearchRepository
+from src.search.repositories import (
+    AuthorRepository,
+    PublicationRepository,
+    SearchRepository,
+)
+from src.worker import celery
 
 router = APIRouter()
 
@@ -26,20 +33,29 @@ async def root() -> dict:
 @router.post(
     "/search/file/{user_id}", status_code=200, dependencies=[Depends(is_authorized)]
 )
-async def create_search_task(file: UploadFile, user_id: int) -> dict:
+async def create_search_task(
+    file: UploadFile, user_id: int, db_session: Session = Depends(get_db_session)
+) -> SearchTaskCreationResponseModel:
     if file.content_type != "application/pdf":
         raise HTTPException(400, detail="Invalid document type.")
-
     try:
-        file_content: BinaryIO = file.file
+        file_contents = file.file.read()
+        search = SearchRepository.create_search(
+            db_session=db_session,
+            user_id=user_id,
+            file_name=file.filename,
+        )
+        task_result = celery.send_task("search", (file_contents, search.id))
+        SearchRepository.update(db_session, search, {"task_id": task_result.id})
     except Exception:
         raise HTTPException(500, detail="Internal server error.")
-
-    return {"message": "successful upload", "filename": file.filename}
+    return SearchTaskCreationResponseModel(filename=file.filename)
 
 
 @router.get("/search/{search_id}/status")
-async def get_search_status(search_id: int, db_session: Session):
+async def get_search_status(
+    search_id: int, db_session: Session = Depends(get_db_session)
+):
     try:
         search = SearchRepository.find_by_id(db_session, search_id)
         task_status = AsyncResult(search.task_id).status
@@ -67,93 +83,55 @@ async def get_search_status(search_id: int, db_session: Session):
     status_code=200,
     dependencies=[Depends(is_authorized)],
 )
-async def get_results(search_id: int) -> SuggestionsResponseModel:
-    result = [
-        {
-            "id": 1,
-            "name": "Wolfram Fenske",
-            "src": "DBLP",
-            "year": 2015,
-            "title": "When code smells twice as much: Metric-based detection of variability-aware code smells.",
-            "venues": ["International Conference on Software Engineering (ICSE)"],
-        },
-        {
-            "id": 2,
-            "name": "Yang Zhang",
-            "src": "Scopus",
-            "year": 2023,
-            "title": "MIRROR: multi-objective refactoring recommendation via correlation analysis",
-            "venues": None,
-        },
-        {
-            "id": 3,
-            "name": "Francesca Arcelli Fontana",
-            "src": "Google Scholar",
-            "year": 2012,
-            "title": "Evaluating the lifespan of code smells using software repository mining",
-            "venues": ["IEEE/ACM International Conference on Software Engineering (ICSE)"],
-        },
-        {
-            "id": 4,
-            "name": "Francesca Arcelli Fontana",
-            "src": "Google Scholar",
-            "year": 2014,
-            "title": "Evaluating the lifespan of code smells using software repository mining",
-            "venues": ["IEEE/ACM International Conference on Software Engineering (ICSE)", "Venue2"],
-        },
-        {
-            "id": 5,
-            "name": "John Doe",
-            "src": "Scopus",
-            "year": 2022,
-            "title": "Exploring the Future of Software Development",
-            "venues": None,
-        },
-    ]
-    
-    venues = []
-    
-    for author in result:
-        author_venues = author.get("venues")
-        
-        if author_venues == None:
-            continue
-        
-        for venue in author_venues:
-            venues.append(venue)
-
+async def get_results(
+    search_id: int, db_session: Session = Depends(get_db_session)
+) -> SuggestionsResponseModel:
+    search = SearchRepository.find_by_id(db_session, search_id)
+    if search is None or search.status != SearchTaskStatus.READY:
+        raise HTTPException(404, detail="Page not found.")
+    results = []
+    authors = AuthorRepository.find_all_by_value(db_session, "search_id", search_id)
+    for author in authors:
+        publication = PublicationRepository.find_first_by_value(
+            db_session, "author_id", author.id
+        )
+        results.append(
+            AuthorResponseModel(
+                id=author.id,
+                name=f"{author.first_name} {author.last_name}",
+                src=author.source,
+                year=publication.year if publication else None,
+                title=publication.title if publication else None,
+                affiliation=author.affiliation,
+                venue=publication.venue if publication else None,
+            )
+        )
     return SuggestionsResponseModel(
-        authors=result,
-        venues=set(
-            venues
-        ),
+        authors=results,
+        venues=set([author.venue for author in results if author.venue is not None]),
     )
 
 
 @router.get(
     "/search/history/{user_id}", status_code=200, dependencies=[Depends(is_authorized)]
 )
-async def get_history(user_id: int) -> HistoryResponseModel:
-    return [
-        {
-            "id": 1,
-            "index": 0,
-            "filename": "article about machine learning",
-            "status": SearchTaskStatus.PENDING,
-        },
-        {
-            "id": 5,
-            "index": 1,
-            "filename": "article about cloud computing",
-            "status": SearchTaskStatus.READY,
-        },
-        {
-            "id": 3,
-            "index": 2,
-            "filename": "article about something else",
-            "status": SearchTaskStatus.ERROR,
-        },
-    ]
+async def get_history(
+    user_id: int, db_session: Session = Depends(get_db_session)
+) -> HistoryResponseModel:
+    results = []
+    history = SearchRepository.find_all_by_value(
+        db_session, "user_id", user_id, order_by_field="id", desc=True
+    )
+    for search_index, search in enumerate(history):
+        results.append(
+            HistoryEntity(
+                id=search.id,
+                index=search_index,
+                filename=search.file_name,
+                status=search.status,
+            )
+        )
+    return results
 
 
 @router.get(

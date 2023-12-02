@@ -70,7 +70,7 @@ export default function FileUpload() {
   });
 
   return (
-    <div className="w-1/2">
+    <div className="xl:w-1/2 w-full">
       <div
         className="border border-dashed border-teal-950 bg-stone-100 rounded-md h-48 flex items-center justify-center"
         onDragOver={handleDragOver}

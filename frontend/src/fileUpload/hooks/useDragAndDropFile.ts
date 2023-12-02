@@ -9,16 +9,20 @@ import { getHistory } from "../components/api";
 export default function useFileUpload(props: useFileUploadProps): Array<any> {
   const { inputFileRef, acceptedFileExtension } = props;
   const [isOver, setIsOver] = useState(false);
-  const { file, setFile } = useFileUploadStore((state) => ({file: state.file, setFile: state.setFile}));
+  const { file, setFile } = useFileUploadStore((state) => ({
+    file: state.file,
+    setFile: state.setFile,
+  }));
   const setErrorName = useFileUploadStore((state) => state.setErrorMessage);
   const user = useAuthStore((state) => state.user);
   const setSearches = useHistoryStore((state) => state.setSearches);
 
   useEffect(() => {
     if (file != undefined && user != null) {
-      uploadArticle(file, user.user_id).then(setErrorName);
-      getHistory(user?.user_id).then(setSearches);
-
+      uploadArticle(file, user.user_id)
+        .then(setErrorName)
+        .then(() => getHistory(user?.user_id))
+        .then(setSearches);
     }
   }, [file, user]);
 

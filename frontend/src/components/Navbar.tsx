@@ -1,5 +1,6 @@
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import { logout } from "./api";
+import { useAuthStore } from "../store/AuthStore";
 
 function StyledLink({ to, display }: { to: string; display: string }) {
   return (
@@ -10,10 +11,12 @@ function StyledLink({ to, display }: { to: string; display: string }) {
 }
 
 export default function Navbar() {
+  const setUser = useAuthStore((state) => state.setUser)
   const navigate = useNavigate();
   function logoutAndRedirect() {
     navigate("/login");
     logout();
+    setUser(null);
   }
 
   return (

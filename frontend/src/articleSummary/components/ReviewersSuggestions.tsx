@@ -63,14 +63,18 @@ function AuthorDetails(props: Author & { isModalOpen: boolean }) {
       <Detail label="Email" text={email} />
       <Detail label="Source" text={source} />
 
-      <div className="text-2xl text-stone-800 mt-4 pt-4 mb-2 border-b border-stone-300">{title}</div>
+      <div className="text-2xl text-stone-800 mt-4 pt-4 mb-2 border-b border-stone-300">
+        {title}
+      </div>
 
       <Detail label="Article publication" text={year} />
       {venues !== null && venues !== undefined && (
         <Detail label="Venues" list={venues} />
       )}
       {doi && <Detail label="DOI" text={doi} />}
-      {citationCount!==null && <Detail label="Citations count" text={citationCount} />}
+      {citationCount !== null && (
+        <Detail label="Citations count" text={citationCount} />
+      )}
       {similarityScore && (
         <Detail label="Similarity score" text={similarityScore.toFixed(2)} />
       )}
@@ -95,7 +99,9 @@ function AuthorRow(props: Author) {
           <div className="text-sm text-stone-900 font-light">{email}</div>
           <div className="text-stone-700 font-extralight text-sm">{`${source} ${year}`}</div>
         </div>
-        {similarityScore && <CircularProgressBar progress={similarityScore}/> }
+        {similarityScore !== null && (
+          <CircularProgressBar progress={similarityScore} />
+        )}
       </div>
 
       <Modal setOpen={setModalOpen} isOpen={isModalOpen}>

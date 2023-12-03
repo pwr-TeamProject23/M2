@@ -20,4 +20,12 @@ class SimilarityEvaluator:
         vector = TfidfVectorizer(max_df=0.8, ngram_range=(1, 2))
         tfidf = vector.fit_transform([self.input_abstract] + abstracts_unique)
         cosine = list(cosine_similarity(tfidf, tfidf)[0][1:])
+        cosine = _scale_results(cosine)
         return dict(zip(abstracts, cosine))
+
+
+def _scale_results(cosine: list) -> list:
+    min_cos = min(cosine)
+    max_cos = max(cosine)
+    cosine = [(val - min_cos) / (max_cos - min_cos) for val in cosine]
+    return cosine

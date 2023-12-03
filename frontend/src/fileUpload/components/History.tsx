@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { ErrorIcon, PendingIcon } from "../../components/Icons";
 import { Search, SearchStatus } from "./models";
 import { getHistory, getSearchStatus } from "./api";

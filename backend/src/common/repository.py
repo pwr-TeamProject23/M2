@@ -48,6 +48,14 @@ class BaseRepository(Generic[T]):
         return query.all()
 
     @classmethod
+    def find_first_by_values(cls, session: Session, lookup: dict) -> T | None:
+        query = session.query(cls.__model__)
+        for field, value in lookup.items():
+            lookup_field: ColumnElement = getattr(cls.__model__, field)
+            query.filter(lookup_field == value)
+        return query.first()
+
+    @classmethod
     def create(cls, session: Session, instance: T) -> T:
         session.add(instance)
         session.commit()

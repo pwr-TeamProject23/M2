@@ -4,6 +4,7 @@ from logging import getLogger
 from src.api_parsers.dblp_parser import DBLPParser
 from src.api_parsers.exceptions import NoAuthorsException
 from src.api_parsers.scopus_parser import ScopusParser
+from src.api_parsers.scholar_parser import ScholarParser
 from src.articles_service.articles_parser import ArticleParser
 from src.common.models import SearchTaskStatus
 from src.common.postgres import SessionLocal
@@ -34,7 +35,7 @@ def search(self, file_contents: bytes, search_id: int) -> None:
             )
             try:
                 scopus_results = [
-                    (author, author.publication) for author in parser.get_authors()
+                    # (author, author.publication) for author in parser.get_authors()
                 ]
             except NoAuthorsException:
                 continue
@@ -49,6 +50,16 @@ def search(self, file_contents: bytes, search_id: int) -> None:
             except NoAuthorsException:
                 continue
             search_results.extend(dblp_results)
+
+        for keyword in keywords[1]:
+            parser = ScholarParser(keywords=keyword.replace("\n", " "), abstract=abstract, max_authors=15)
+            try:
+                scholar_results = [
+                    (author, author.publication) for author in parser.get_authors()
+                ]
+            except NoAuthorsException:
+                continue
+            search_results.extend(scholar_results)
 
         authors, publications = [], []
         for author, publication in search_results:

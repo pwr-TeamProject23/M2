@@ -38,7 +38,7 @@ class ScholarParser:
             "doi": None,
             "title": info["title"],
             "year": info["pub_year"],
-            "venues": [info["venues"]],
+            "venues": [info["venue"]],
             "abstract": info["abstract"],
             "citation_count": pub["num_citations"],
             "similarity_score": None,

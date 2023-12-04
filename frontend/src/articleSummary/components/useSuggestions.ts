@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Author, SuggestionsResponseModel } from "../models";
 import { useAuthStore } from "../../store/AuthStore";
 import { useParams } from "react-router-dom";
-import { getSuggestions } from "../api";
+import { getSuggestions, getFilename } from "../api";
 import { Option } from "./Select";
 
 export default function useSuggestions() {
@@ -10,6 +10,7 @@ export default function useSuggestions() {
   const { searchId } = useParams();
   const [authors, setAuthors] = useState<Author[]>([]);
   const [venueOptions, setVenueOptions] = useState<Option[]>([]);
+  const [filename, setFilename] = useState<string>();
 
   const setData = (data: SuggestionsResponseModel) => {
     setAuthors(data.authors);
@@ -18,6 +19,7 @@ export default function useSuggestions() {
 
   useEffect(() => {
     if (user != null && searchId) {
+      getFilename(searchId).then((r) => setFilename(r.file_name));
       getSuggestions(searchId).then(setData);
     }
   }, []);
@@ -25,5 +27,6 @@ export default function useSuggestions() {
   return {
     authors,
     venueOptions,
+    filename
   };
 }

@@ -12,7 +12,7 @@ export default function CircularProgressBar(props: Props) {
   const progressOffset = circumference - props.progress * circumference;
 
   return (
-    <div>
+    <div className="z-0">
       <svg
         height={side}
         width={side}

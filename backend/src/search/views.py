@@ -16,6 +16,7 @@ from src.search.models import (
     SearchTaskCreationResponseModel,
     StatusResponseModel,
     SuggestionsResponseModel,
+    FilenameResponseModel
 )
 from src.search.repositories import (
     AuthorRepository,
@@ -160,3 +161,10 @@ async def get_author_details(search_id: int, source: Source, author_id: int):
     }.get(author_id)
 
     return DetailsResponseModel(affiliation=affiliation)
+
+
+@router.get(
+    "/search/{search_id}/filename"
+)
+async def get_filename(search_id: int, db_session: Session = Depends(get_db_session)) -> FilenameResponseModel:
+    return SearchRepository.find_by_id(db_session, lookup_id=search_id)

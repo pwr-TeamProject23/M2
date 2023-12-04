@@ -47,3 +47,7 @@ class SearchTaskCreationResponseModel(BaseModel):
 
 class StatusResponseModel(BaseModel):
     status: SearchTaskStatus
+
+
+class FilenameResponseModel(BaseModel):
+    file_name: str

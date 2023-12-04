@@ -7,7 +7,7 @@ import { useFileUploadStore } from "../../store/FileUploadStore";
 import { CursorStyle } from "../../models/styling";
 
 function FileUploadPrompt(props: FileUploadProps) {
-  const { inputFileRef, handleFileChange, onButtonClick, isOver } = props;
+  const { inputFileRef, handleFileChange, onButtonClick } = props;
 
   return (
     <div
@@ -70,7 +70,7 @@ export default function FileUpload() {
   });
 
   return (
-    <div className="w-1/2">
+    <div className="xl:w-1/2 w-full">
       <div
         className="border border-dashed border-teal-950 bg-stone-100 rounded-md h-48 flex items-center justify-center"
         onDragOver={handleDragOver}

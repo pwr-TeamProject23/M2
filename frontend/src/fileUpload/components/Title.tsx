@@ -7,7 +7,7 @@ export default function Title() {
   const user = useAuthStore((state) => state.user);
 
   return (
-    <div className="w-1/2">
+    <div className="w-1/2 hidden xl:block">
       <div className="text-stone-900 text-3xl">{`Hello ${user?.email}!`}</div>
       <div className="text-stone-900 text-s font-extralight">
         {reviewedBanner}

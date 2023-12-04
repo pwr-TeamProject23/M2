@@ -39,14 +39,14 @@ class DBLPParser:
         year = str(info["year"])
         if "authors" not in info or not year.isdigit() or int(year) < self.min_year:
             return
-        venue = info.get("venue")
-        if type(venue) == list:
-            venue = venue[0]
+        venues = info.get("venue")
+        if venues and type(venues) != list:
+            venues = [venues]
         pub_data = {
             "doi": info.get("doi"),
             "title": info["title"],
             "year": int(year),
-            "venue": venue,
+            "venues": venues,
             "abstract": None,
             "citation_count": None,
             "similarity_score": None,
@@ -69,7 +69,6 @@ class DBLPParser:
                 "source": Source.DBLP,
                 "publication": publication,
             }
-            # print(Author(**auth_data).publication.year)
             self.authors.append(Author(**auth_data))
             if len(self.authors) >= self.max_authors:
                 raise MaxAuthorsReachedException()

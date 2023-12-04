@@ -76,7 +76,7 @@ function AuthorDetails(props: Author & { isModalOpen: boolean }) {
         <Detail label="Citations count" text={citationCount} />
       )}
       {similarityScore && (
-        <Detail label="Similarity score" text={similarityScore.toFixed(2)} />
+        <Detail label="Accuracy score" text={similarityScore.toFixed(2)} />
       )}
     </>
   );

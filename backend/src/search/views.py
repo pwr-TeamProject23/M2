@@ -2,27 +2,20 @@ from celery import states
 from celery.result import AsyncResult
 from fastapi import APIRouter, Depends, HTTPException, UploadFile
 from sqlalchemy.orm import Session
-
 from src.auth import is_authorized
 from src.common.models import SearchTaskStatus
 from src.common.postgres import get_db_session
 from src.models.author import Source
 from src.search.models import (
-    AuthorResponseModel,
     DetailsResponseModel,
     HistoryEntity,
     HistoryResponseModel,
-    PublicationResponseModel,
     SearchTaskCreationResponseModel,
     StatusResponseModel,
     SuggestionsResponseModel,
     FilenameResponseModel
 )
-from src.search.repositories import (
-    AuthorRepository,
-    PublicationRepository,
-    SearchRepository,
-)
+from src.search.repositories import AuthorRepository, SearchRepository
 from src.worker import celery
 
 router = APIRouter()
@@ -92,36 +85,12 @@ async def get_results(
     search = SearchRepository.find_by_id(db_session, search_id)
     if search is None or search.status != SearchTaskStatus.READY:
         raise HTTPException(404, detail="Page not found.")
-    results, all_venues = [], []
+    all_venues = []
     authors = AuthorRepository.find_all_by_value(db_session, "search_id", search_id)
     for author in authors:
-        publication = PublicationRepository.find_first_by_value(
-            db_session, "author_id", author.id
-        )
-        results.append(
-            AuthorResponseModel(
-                id=author.id,
-                firstName=author.first_name,
-                lastName=author.last_name,
-                email=author.email,
-                source=author.source,
-                publication=PublicationResponseModel(
-                    doi=publication.doi,
-                    title=publication.title,
-                    year=publication.year,
-                    venues=publication.venues,
-                    abstract=publication.abstract,
-                    citationCount=publication.citation_count,
-                    similarityScore=publication.similarity_score
-                )
-            )
-        )
-        if publication.venues:
-            all_venues.extend(publication.venues)
-    return SuggestionsResponseModel(
-        authors=results,
-        venues=set(all_venues),
-    )
+        if author.publication.venues:
+            all_venues.extend(author.publication.venues)
+    return SuggestionsResponseModel(authors=authors, venues=set(all_venues))
 
 
 @router.get(

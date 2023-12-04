@@ -2,7 +2,7 @@ from io import BytesIO
 from logging import getLogger
 
 from src.api_parsers.dblp_parser import DBLPParser
-from src.api_parsers.exceptions import NoAuthorsException
+from src.api_parsers.exceptions import NoAuthorsException, ScholarQuotaExceededException
 from src.api_parsers.scopus_parser import ScopusParser
 from src.api_parsers.scholar_parser import ScholarParser
 from src.articles_service.articles_parser import ArticleParser
@@ -58,6 +58,8 @@ def search(self, file_contents: bytes, search_id: int) -> None:
                 scholar_results = [
                     (author, author.publication) for author in parser.get_authors()
                 ]
+            except ScholarQuotaExceededException:
+                break
             except NoAuthorsException:
                 continue
             search_results.extend(scholar_results)

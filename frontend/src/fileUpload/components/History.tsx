@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ErrorIcon, PendingIcon } from "../../components/Icons";
+import { CheckmarkIcon, ErrorIcon, PendingIcon } from "../../components/Icons";
 import { Search, SearchStatus } from "./models";
 import { getHistory, getSearchStatus } from "./api";
 import { useAuthStore } from "../../store/AuthStore";
@@ -11,7 +11,7 @@ function StatusIcon(props: Pick<Search, "status">) {
 
   if (status == SearchStatus.error) return <ErrorIcon />;
   if (status == SearchStatus.pending) return <PendingIcon />;
-  if (status == SearchStatus.ready) return null;
+  if (status == SearchStatus.ready) return <CheckmarkIcon/>;
 }
 
 const getCursor = (status: string) => {

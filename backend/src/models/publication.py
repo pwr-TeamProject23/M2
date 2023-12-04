@@ -1,4 +1,4 @@
-from sqlalchemy import ForeignKey, ARRAY, String
+from sqlalchemy import ARRAY, ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from src.models import BaseModel
 
@@ -15,7 +15,7 @@ class Publication(BaseModel):
     abstract: Mapped[str | None]
     citation_count: Mapped[int | None]
     similarity_score: Mapped[float | None]
-    author: Mapped["Author"] = relationship(back_populates="publications")
+    author: Mapped["Author"] = relationship(back_populates="publication")
 
     def __repr__(self) -> str:
         return f"Publication<{self.title}>"

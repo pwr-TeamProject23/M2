@@ -11,7 +11,6 @@ export type Author = {
   id: number;
   firstName: string;
   lastName: string;
-  email: string;
   source: string;
   publication: Publication;
 };
@@ -19,8 +18,13 @@ export type Author = {
 export type SuggestionsResponseModel = {
   authors: Author[];
   venues: string[];
+  filename: string;
 };
 
 export type DetailsResponseModel = {
   affiliation: string;
 };
+
+export type FilenameResponseModel = {
+  file_name: string;
+}

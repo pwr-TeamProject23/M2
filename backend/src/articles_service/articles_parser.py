@@ -47,19 +47,32 @@ class ArticleParser:
 
     def get_abstract(self) -> str:
         abstract = re.findall("(?i)abstract:?\n?((?:.|\n)(?:.+\n)+)", self.text_main)
+        if len(abstract) == 0:
+            abstract = re.findall("(?i)background:?\n?((?:.|\n)(?:.+\n)+)", self.text_main)
+        if len(abstract) == 0:
+            abstract = re.findall("(?i)abstract:?\n?((?:.|\n)(?:.+\n)+)", self.text_authors)
+        if len(abstract) == 0:
+            abstract = re.findall("(?i)abstract\n*((?:.|\n)(?:.+\n)+)", self.text_main)
         if len(abstract) > 0:
             return format_text(abstract[0], False)
         raise AbstractParsingError()
 
     def get_keywords(self) -> list[str]:
         keywords = re.findall("(?i)keywords:\n?((?:.|\n)(?:.+\n)+)", self.text_main)
+        if len(keywords) == 0:
+            keywords = re.findall("(?i)keywords--\n?((?:.|\n)(?:.+\n)+)", self.text_main)
         if len(keywords) > 0:
             for i in range(len(keywords)):
                 keywords[i] = format_text(keywords[i], False)
                 keywords[i] = keywords[i].split(", ")
                 for a in range(len(keywords[i])):
                     keywords[i][a] = keywords[i][a].strip()
-            return keywords[0]
+                keywords = keywords[0]
+        keybert_keywords = self.get_keywords_keybert()
+        if len(keybert_keywords) > 0:
+            keywords.append(keybert_keywords[0])
+        if len(keywords) > 0:
+            return keywords
         raise KeywordParsingError()
 
     def get_keywords_keybert(self) -> list[str]:

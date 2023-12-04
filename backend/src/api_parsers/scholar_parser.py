@@ -1,7 +1,7 @@
 from scholarly import scholarly
 from scholarly._proxy_generator import MaxTriesExceededException
 from src.api_parsers.models import Source, Publication, Author
-from src.api_parsers.exceptions import MaxAuthorsReachedException, NoAuthorsException
+from src.api_parsers.exceptions import MaxAuthorsReachedException, NoAuthorsException, ScholarQuotaExceededException
 from src.similarity_eval.similarity_eval import SimilarityEvaluator
 
 
@@ -19,7 +19,7 @@ class ScholarParser:
         try:
             pub_generator = self._get_pubs()
         except MaxTriesExceededException:
-            raise NoAuthorsException(self.keywords)
+            raise ScholarQuotaExceededException()
         for pub in pub_generator:
             try:
                 self._parse_pub_dict(pub)

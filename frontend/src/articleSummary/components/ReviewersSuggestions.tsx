@@ -40,7 +40,7 @@ function Detail(props: DetailProps) {
 }
 
 function AuthorDetails(props: Author & { isModalOpen: boolean }) {
-  const { id, firstName, lastName, email, source, publication } = props;
+  const { id, firstName, lastName, source, publication } = props;
   const { doi, title, year, venues, citationCount, similarityScore } =
     publication;
   const [details, setDetails] = useState<DetailsResponseModel | undefined>(
@@ -49,7 +49,7 @@ function AuthorDetails(props: Author & { isModalOpen: boolean }) {
   const { searchId } = useParams();
 
   useEffect(() => {
-    if (props.isModalOpen && searchId && details === undefined)
+    if (props.isModalOpen && searchId && details === undefined) 
       getDetails(searchId, source, id).then(setDetails);
   }, [props.isModalOpen]);
 
@@ -60,10 +60,9 @@ function AuthorDetails(props: Author & { isModalOpen: boolean }) {
       {details?.affiliation !== undefined && (
         <Detail label="Affiliation" text={details.affiliation} />
       )}
-      <Detail label="Email" text={email} />
       <Detail label="Source" text={source} />
 
-      <div className="text-2xl text-stone-800 mt-4 pt-4 mb-2 border-b border-stone-300">
+      <div className="text-2xl text-stone-800 mt-4 pt-4 mb-2 border-t border-stone-300">
         {title}
       </div>
 
@@ -73,7 +72,7 @@ function AuthorDetails(props: Author & { isModalOpen: boolean }) {
       )}
       {doi && <Detail label="DOI" text={doi} />}
       {citationCount !== null && (
-        <Detail label="Citations count" text={citationCount} />
+        <Detail label="Citations count" text={citationCount.toString()} />
       )}
       {similarityScore && (
         <Detail label="Similarity score" text={similarityScore.toFixed(2)} />
@@ -83,7 +82,7 @@ function AuthorDetails(props: Author & { isModalOpen: boolean }) {
 }
 
 function AuthorRow(props: Author) {
-  const { id, firstName, lastName, email, source, publication } = props;
+  const { id, firstName, lastName, source, publication } = props;
   const { year, similarityScore } = publication;
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
 
@@ -96,7 +95,6 @@ function AuthorRow(props: Author) {
       >
         <div>
           <div className="text-2xl text-stone-800">{`${firstName} ${lastName}`}</div>
-          <div className="text-sm text-stone-900 font-light">{email}</div>
           <div className="text-stone-700 font-extralight text-sm">{`${source} ${year}`}</div>
         </div>
         {similarityScore !== null && (
@@ -112,17 +110,16 @@ function AuthorRow(props: Author) {
 }
 
 export default function ReviewersSuggestions() {
-  const getFileName = () => "some.pdf";
   const [selectedTab, setSelectedTab] = useState<TabOptions>(
     TabOptions.smartSort,
   );
   const [venue, setVenue] = useState<string | undefined>();
-  const { authors, venueOptions } = useSuggestions();
+  const { authors, venueOptions, filename } = useSuggestions();
 
   return (
     <div>
       <div className="pb-4 text-stone-900 font-light">
-        {`Suggested reviewers for ${getFileName()}`}
+        {`Suggested reviewers for ${filename}`}
       </div>
 
       <div className="flex justify-between border-b border-stone-300">

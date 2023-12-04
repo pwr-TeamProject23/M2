@@ -55,7 +55,7 @@ class ScopusParser:
             "venues": None,
             "abstract": entry.get("dc:description"),
             "citation_count": entry.get("citedby-count"),
-            "similarity_score": None,
+            "similarity_score": 0,
         }
         publication = Publication(**pub_data)
         if "author" not in entry:
@@ -66,6 +66,9 @@ class ScopusParser:
             last_name = author.get("surname")
             if first_name is None and last_name is None:
                 continue
+            if first_name is None:
+                first_name = last_name
+                last_name = ""
             author_id = author["authid"]
             auth_data = {
                 "author_external_id": author_id,

@@ -49,7 +49,7 @@ class DBLPParser:
             "venues": venues,
             "abstract": None,
             "citation_count": None,
-            "similarity_score": None,
+            "similarity_score": 0,
         }
         publication = Publication(**pub_data)
         authors_list = info["authors"]["author"]

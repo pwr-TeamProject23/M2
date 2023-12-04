@@ -15,6 +15,7 @@ from src.search.repositories import (
     PublicationRepository,
     SearchRepository,
 )
+from src.similarity_eval.similarity_eval import scale_scores
 from src.worker.core import celery
 
 logger = getLogger(__name__)
@@ -28,6 +29,8 @@ def search(self, file_contents: bytes, search_id: int) -> None:
         abstract = article_parser.get_abstract()
         keywords = article_parser.get_keywords()
         search_results = []
+        if len(keywords) < 2:
+            keywords.append(keywords[0])
 
         for keyword in keywords[0]:
             parser = ScopusParser(
@@ -35,7 +38,7 @@ def search(self, file_contents: bytes, search_id: int) -> None:
             )
             try:
                 scopus_results = [
-                    # (author, author.publication) for author in parser.get_authors()
+                    (author, author.publication) for author in parser.get_authors()
                 ]
             except NoAuthorsException:
                 continue
@@ -60,6 +63,8 @@ def search(self, file_contents: bytes, search_id: int) -> None:
             except NoAuthorsException:
                 continue
             search_results.extend(scholar_results)
+
+        search_results = scale_scores(search_results)
 
         authors, publications = [], []
         for author, publication in search_results:

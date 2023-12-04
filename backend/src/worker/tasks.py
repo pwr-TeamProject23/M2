@@ -35,7 +35,7 @@ def search(self, file_contents: bytes, search_id: int) -> None:
             )
             try:
                 scopus_results = [
-                    # (author, author.publication) for author in parser.get_authors()
+                    (author, author.publication) for author in parser.get_authors()
                 ]
             except NoAuthorsException:
                 continue

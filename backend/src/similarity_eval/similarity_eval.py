@@ -26,6 +26,8 @@ class SimilarityEvaluator:
 def _scale_results(vals: list) -> list:
     min_val = min(vals)
     max_val = max(vals)
+    if max_val == min_val:
+        return vals
     values = [(val - min_val) / (max_val - min_val) for val in vals]
     return values
 

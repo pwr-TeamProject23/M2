@@ -29,10 +29,8 @@ def search(self, file_contents: bytes, search_id: int) -> None:
         abstract = article_parser.get_abstract()
         keywords = article_parser.get_keywords()
         search_results = []
-        if len(keywords) < 2:
-            keywords.append(keywords[0])
 
-        for keyword in keywords[0]:
+        for keyword in keywords:
             parser = ScopusParser(
                 keywords=keyword.replace("\n", " "), abstract=abstract
             )
@@ -44,7 +42,7 @@ def search(self, file_contents: bytes, search_id: int) -> None:
                 continue
             search_results.extend(scopus_results)
 
-        for keyword in keywords[1]:
+        for keyword in keywords:
             parser = DBLPParser(keywords=keyword.replace("\n", " "))
             try:
                 dblp_results = [
@@ -54,7 +52,7 @@ def search(self, file_contents: bytes, search_id: int) -> None:
                 continue
             search_results.extend(dblp_results)
 
-        for keyword in keywords[1]:
+        for keyword in keywords:
             parser = ScholarParser(keywords=keyword.replace("\n", " "), abstract=abstract, max_authors=15)
             try:
                 scholar_results = [

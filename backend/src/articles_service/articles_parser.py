@@ -41,24 +41,25 @@ class AuthorParsingError(ArticleParsingError):
 class ArticleParser:
     def __init__(self, pdf_path):
         self.pdf_path = pdf_path
-        self.text = extract_text(self.pdf_path, maxpages=2)
+        self.text_authors = extract_text(self.pdf_path, maxpages=1)
+        self.text_main = extract_text(self.pdf_path, page_numbers={1})
         self.text_long = extract_text(self.pdf_path)
 
     def get_abstract(self) -> str:
-        abstract = re.findall("(?i)abstract:?\n?((?:.|\n)(?:.+\n)+)", self.text)
+        abstract = re.findall("(?i)abstract:?\n?((?:.|\n)(?:.+\n)+)", self.text_main)
         if len(abstract) > 0:
             return format_text(abstract[0], False)
         raise AbstractParsingError()
 
     def get_keywords(self) -> list[str]:
-        keywords = re.findall("(?i)keywords:\n?((?:.|\n)(?:.+\n)+)", self.text)
+        keywords = re.findall("(?i)keywords:\n?((?:.|\n)(?:.+\n)+)", self.text_main)
         if len(keywords) > 0:
             for i in range(len(keywords)):
                 keywords[i] = format_text(keywords[i], False)
                 keywords[i] = keywords[i].split(", ")
                 for a in range(len(keywords[i])):
                     keywords[i][a] = keywords[i][a].strip()
-            return keywords[len(keywords)-1]
+            return keywords[0]
         raise KeywordParsingError()
 
     def get_keywords_keybert(self) -> list[str]:
@@ -67,7 +68,7 @@ class ArticleParser:
         return [k[0] for k in keywords]
 
     def get_emails(self) -> list[str]:
-        emails = re.findall("[a-zA-Z]\S+@\S+[a-zA-Z]", self.text)
+        emails = re.findall("[a-zA-Z]\S+@\S+[a-zA-Z]", self.text_main)
         if len(emails) > 0:
             return emails
         return []
@@ -79,7 +80,7 @@ class ArticleParser:
 
     def get_authors(self) -> list[str]:
         authors = re.findall(
-            "(?i)complete list of authors:((?:.|\n)*?)keywords", self.text
+            "(?i)complete list of authors:((?:.|\n)*?)keywords", self.text_authors
         )
         if len(authors) > 0:
             authors = format_text(authors[0], False)

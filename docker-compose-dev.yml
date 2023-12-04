@@ -71,7 +71,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile-dev
-    command: ["celery", "-A", "src.worker.tasks", "worker"]
+    command: ["watchmedo", "auto-restart", "--directory=./", "--pattern=*.py", "--recursive", "--", "celery", "-A", "src.worker.tasks", "worker"]
     env_file:
       - ./env/.env.postgres
       - ./env/.env.redis
@@ -79,7 +79,7 @@ services:
       REDISSERVER: redis://cache:6379
       C_FORCE_ROOT: "true"
     volumes:
-      - ./worker/src:/celery_worker/src
+      - ./backend/src/worker:/app/src/worer
     depends_on:
       - cache
 

@@ -30,6 +30,7 @@ redis~=4.6.0
 
 # Worker
 celery~=5.3.5
+watchdog~=3.0.0
 
 # Google Scholar
 scholarly~=1.7.11

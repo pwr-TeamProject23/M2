@@ -80,7 +80,7 @@ services:
       REDIS_SERVER: redis://cache:6379
       C_FORCE_ROOT: "true"
     volumes:
-      - ./worker/src:/celery_worker/src
+      - ./backend/src/worker:/app/src/worer
     depends_on:
       - cache
 

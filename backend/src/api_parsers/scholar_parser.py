@@ -41,7 +41,7 @@ class ScholarParser:
             "venues": [info["venue"]],
             "abstract": info["abstract"],
             "citation_count": pub["num_citations"],
-            "similarity_score": None,
+            "similarity_score": 0,
         }
         publication = Publication(**pub_data)
         for author_id in author_ids:

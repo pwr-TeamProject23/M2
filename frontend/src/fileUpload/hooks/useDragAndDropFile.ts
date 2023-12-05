@@ -1,4 +1,4 @@
-import { DragEvent, useEffect, useState } from "react";
+import { DragEvent, useState } from "react";
 import { useFileUploadProps } from "../types/FileUploadTypes";
 import { useFileUploadStore } from "../../store/FileUploadStore";
 import { uploadArticle } from "./api";

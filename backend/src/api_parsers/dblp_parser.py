@@ -30,7 +30,10 @@ class DBLPParser:
         return self.authors
 
     def _parse_publications_page(self, page: dict) -> None:
-        hits = page["result"]["hits"]["hit"]
+        hits = page["result"]["hits"]
+        if hits.get("hit") is None:
+            raise MaxAuthorsReachedException
+        hits = hits["hit"]
         for hit in hits:
             self._parse_hit_dict(hit)
 

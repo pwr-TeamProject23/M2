@@ -48,12 +48,16 @@ class ScopusParser:
         year = int(entry["prism:coverDate"].split("-")[0])
         if year < self.min_year:
             return
+        if entry.get("dc:description") is None:
+            abstract = ""
+        else:
+            abstract = entry["dc:description"]
         pub_data = {
             "doi": entry.get("prism:doi"),
             "title": entry["dc:title"],
             "year": year,
             "venues": None,
-            "abstract": entry.get("dc:description"),
+            "abstract": abstract,
             "citation_count": entry.get("citedby-count"),
             "similarity_score": 0,
         }

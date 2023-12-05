@@ -17,15 +17,6 @@ export default function useFileUpload(props: useFileUploadProps): Array<any> {
   const user = useAuthStore((state) => state.user);
   const setSearches = useHistoryStore((state) => state.setSearches);
 
-  useEffect(() => {
-    if (file != undefined && user != null) {
-      uploadArticle(file, user.user_id)
-        .then(setErrorName)
-        .then(() => getHistory(user?.user_id))
-        .then(setSearches);
-    }
-  }, [file, user]);
-
   const validateExtension = (file: File) => {
     const extension = file.name.split(".").pop();
     return extension?.toLocaleLowerCase() === acceptedFileExtension;
@@ -33,7 +24,14 @@ export default function useFileUpload(props: useFileUploadProps): Array<any> {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      setFile(e.target.files[0]);
+      const file = e.target.files[0];
+      setFile(file);
+      if (file != undefined && user != null) {
+        uploadArticle(file, user.user_id)
+          .then(setErrorName)
+          .then(() => getHistory(user?.user_id))
+          .then(setSearches);
+      }
     }
   };
 
@@ -56,9 +54,15 @@ export default function useFileUpload(props: useFileUploadProps): Array<any> {
 
     setIsOver(false);
     const droppedFiles = Array.from(event.dataTransfer.files);
-
-    if (validateExtension(droppedFiles[0])) {
-      setFile(droppedFiles[0]);
+    const file = droppedFiles[0];
+    if (validateExtension(file)) {
+      setFile(file);
+      if (file != undefined && user != null) {
+        uploadArticle(file, user.user_id)
+          .then(setErrorName)
+          .then(() => getHistory(user?.user_id))
+          .then(setSearches);
+      }
     } else {
       setErrorName("File should be in PDF format");
     }

@@ -22,19 +22,21 @@ const getCursor = (status: string) => {
 };
 
 type SearchRowProps = {
-  update: (i: number, s: SearchStatus) => void;
   id: number;
+  callback: () => any;
 } & Pick<Search, "status" | "filename">;
 
 function SearchRow(props: SearchRowProps) {
-  const { update, id, status, filename } = props;
+  const { callback, id, status, filename } = props;
 
   useEffect(() => {
     if (status === SearchStatus.pending) {
       const fetchData = () => {
         getSearchStatus(id).then((newStatus: SearchStatus) => {
-          update(id, newStatus);
-          if (newStatus !== SearchStatus.pending) clearInterval(intervalId);
+          if (newStatus !== SearchStatus.pending) {
+            callback();
+            clearInterval(intervalId);
+          }
         });
       };
       const interval = 2500;
@@ -97,19 +99,9 @@ export default function History() {
 
   useEffect(() => {}, [searches]);
 
-  const updateSearches = (search_id: number, status: SearchStatus) => {
-    const updated = [
-      ...searches.map((val: Search) => {
-        if (val.id === search_id) {
-          let newSearch = { ...val };
-          newSearch.status = status;
-          return newSearch;
-        }
-        return val;
-      }),
-    ];
-    setSearches(updated);
-  };
+  const callback = () => {
+    if (user !== null) getHistory(user?.user_id).then(setSearches);
+  }
 
   if (searches.length == 0) {
     return (
@@ -125,7 +117,7 @@ export default function History() {
         id={upload.id}
         status={upload.status}
         filename={upload.filename}
-        update={updateSearches}
+        callback={callback}
       />
     </RowContainer>
   ));

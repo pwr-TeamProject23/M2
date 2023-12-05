@@ -112,7 +112,7 @@ export default function History() {
   }
 
   return searches.map((upload: Search) => (
-    <RowContainer key={upload.index} status={upload.status} id={upload.id}>
+    <RowContainer key={upload.id} status={upload.status} id={upload.id}>
       <SearchRow
         id={upload.id}
         status={upload.status}

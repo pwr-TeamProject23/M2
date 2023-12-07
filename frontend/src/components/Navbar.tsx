@@ -13,7 +13,7 @@ function StyledLink({ to, display }: { to: string; display: string }) {
 
 export default function Navbar() {
   const setUser = useAuthStore((state) => state.setUser);
-  const unsetFile = useFileUploadStore((state) => state.unsetFile)
+  const unsetFile = useFileUploadStore((state) => state.unsetFile);
   const navigate = useNavigate();
   function logoutAndRedirect() {
     navigate("/login");

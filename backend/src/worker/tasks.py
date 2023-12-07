@@ -25,9 +25,11 @@ logger = getLogger(__name__)
 def search(self, file_contents: bytes, search_id: int) -> None:
     db_session = SessionLocal()
     try:
+        logger.info("Starting search for {}".format(search_id))
         article_parser = ArticleParser(BytesIO(file_contents))
         abstract = article_parser.get_abstract()
         keywords = article_parser.get_keywords()
+        logger.info("Finished parsing PDF for {}".format(search_id))
         search_results = []
 
         for keyword in keywords:

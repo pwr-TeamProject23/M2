@@ -11,7 +11,7 @@ function StatusIcon(props: Pick<Search, "status">) {
 
   if (status == SearchStatus.error) return <ErrorIcon />;
   if (status == SearchStatus.pending) return <PendingIcon />;
-  if (status == SearchStatus.ready) return <CheckmarkIcon/>;
+  if (status == SearchStatus.ready) return <CheckmarkIcon />;
 }
 
 const getCursor = (status: string) => {
@@ -101,7 +101,7 @@ export default function History() {
 
   const callback = () => {
     if (user !== null) getHistory(user?.user_id).then(setSearches);
-  }
+  };
 
   if (searches.length == 0) {
     return (

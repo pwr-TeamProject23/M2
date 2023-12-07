@@ -9,6 +9,7 @@ export type Publication = {
 
 export type Author = {
   id: number;
+  authorExternalId: string;
   firstName: string;
   lastName: string;
   source: string;
@@ -27,4 +28,4 @@ export type DetailsResponseModel = {
 
 export type FilenameResponseModel = {
   file_name: string;
-}
+};

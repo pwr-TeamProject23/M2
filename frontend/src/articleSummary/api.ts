@@ -1,5 +1,9 @@
 import axios from "axios";
-import { SuggestionsResponseModel, DetailsResponseModel, FilenameResponseModel } from "./models";
+import {
+  SuggestionsResponseModel,
+  DetailsResponseModel,
+  FilenameResponseModel,
+} from "./models";
 
 export const getSuggestions = async (
   search_id: string,
@@ -13,19 +17,19 @@ export const getDetails = async (
   source: string,
   author_id: number,
 ): Promise<DetailsResponseModel | undefined> => {
-  try{
+  try {
     const response = await axios.get(
       `/search/${search_id}/source/${source}/author/${author_id}/details`,
     );
     return response.data;
   } catch {
-    return undefined 
+    return undefined;
   }
 };
 
 export const getFilename = async (
-  search_id: string
+  search_id: string,
 ): Promise<FilenameResponseModel> => {
-  const response = await axios.get(`/search/${search_id}/filename`)
+  const response = await axios.get(`/search/${search_id}/filename`);
   return response.data;
-}
+};

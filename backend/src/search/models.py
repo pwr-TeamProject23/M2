@@ -29,6 +29,7 @@ class AuthorResponseModel(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
     id: int
+    author_external_id: str = Field(..., serialization_alias="authorExternalId")
     first_name: str = Field(..., serialization_alias="firstName")
     last_name: str = Field(..., serialization_alias="lastName")
     email: str | None

@@ -23,7 +23,7 @@ from src.search.models import (
     StatusResponseModel,
     SuggestionsResponseModel,
 )
-from src.search.repositories import AuthorRepository, SearchRepository
+from src.search.repositories import AuthorRepository, SearchRepository, PublicationRepository
 from src.worker import celery
 
 router = APIRouter()
@@ -187,3 +187,31 @@ async def get_filename(
     search_id: int, db_session: Session = Depends(get_db_session)
 ) -> FilenameResponseModel:
     return SearchRepository.find_by_id(db_session, lookup_id=search_id)
+
+
+@router.delete("/search/{search_id}", status_code=200, dependencies=[Depends(is_authorized)])
+async def delete_search(
+    search_id: int,  db_session: Session = Depends(get_db_session)
+):
+    try:
+        search = SearchRepository.find_by_id(session=db_session, lookup_id=search_id)
+        authors = AuthorRepository.find_all_by_value(session=db_session, lookup_field="search_id", lookup_value=search_id)
+        publications = []
+        for author in authors:
+            publications.extend(PublicationRepository.find_all_by_value(session=db_session, lookup_field="author_id", lookup_value=author.id))
+    except:
+        raise HTTPException(
+            400,
+            detail="Search with given id does not exist",
+        )
+    
+    for author in authors:
+        AuthorRepository.delete(author)
+    
+    for publication in publications:
+        PublicationRepository.delete(publication)
+
+    SearchRepository.delete(session=db_session, instance=search)
+    
+    return {"info": f"deleted search with id {search_id}"}
+   

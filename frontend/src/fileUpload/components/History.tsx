@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { CheckmarkIcon, ErrorIcon, PendingIcon } from "../../components/Icons";
 import { Search, SearchStatus } from "./models";
-import { getHistory, getSearchStatus } from "./api";
+import { getHistory, getSearchStatus, deleteSearch } from "./api";
 import { useAuthStore } from "../../store/AuthStore";
 import { CursorStyle } from "../../models/styling";
 import { useHistoryStore } from "../HistoryStore";
@@ -29,6 +29,8 @@ type SearchRowProps = {
 function SearchRow(props: SearchRowProps) {
   const { callback, id, status, filename } = props;
 
+  const onDelete = () => deleteSearch(id).then(callback);
+ 
   useEffect(() => {
     if (status === SearchStatus.pending) {
       const fetchData = () => {
@@ -37,7 +39,7 @@ function SearchRow(props: SearchRowProps) {
             callback();
             clearInterval(intervalId);
           }
-        });
+        }).catch(() => clearInterval(intervalId));
       };
       const interval = 2500;
       const intervalId = setInterval(() => fetchData(), interval);
@@ -45,10 +47,13 @@ function SearchRow(props: SearchRowProps) {
   }, [status]);
 
   return (
-    <div className="flex items-center justify-between h-full w-full ">
+    <div className="flex items-center justify-between h-full w-full py-6">
       <div>{filename}</div>
-      <div className="pr-4">
-        <StatusIcon status={status} />
+      <div className="flex">
+        <button className="font-light" onClick={onDelete}>Delete</button>
+        <div className="pr-4 ml-12">
+          <StatusIcon status={status} />
+        </div>
       </div>
     </div>
   );
@@ -77,7 +82,7 @@ function RowContainer(props: RowContainerProps) {
 
   return (
     <ArticleRedirect {...props}>
-      <div className={`h-16 border-b border-stone-300 ${cursorStyle} ${hover}`}>
+      <div className={`border-b border-stone-300 ${cursorStyle} ${hover}`}>
         {props.children}
       </div>
     </ArticleRedirect>

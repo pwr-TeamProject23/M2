@@ -1,22 +1,21 @@
-import { DragEvent, useEffect, useState } from "react";
+import { DragEvent, useState } from "react";
 import { useFileUploadProps } from "../types/FileUploadTypes";
 import { useFileUploadStore } from "../../store/FileUploadStore";
 import { uploadArticle } from "./api";
 import { useAuthStore } from "../../store/AuthStore";
+import { useHistoryStore } from "../HistoryStore";
+import { getHistory } from "../components/api";
 
 export default function useFileUpload(props: useFileUploadProps): Array<any> {
   const { inputFileRef, acceptedFileExtension } = props;
   const [isOver, setIsOver] = useState(false);
-  const setFile = useFileUploadStore((state) => state.setFile);
-  const file = useFileUploadStore((state) => state.file);
+  const { file, setFile } = useFileUploadStore((state) => ({
+    file: state.file,
+    setFile: state.setFile,
+  }));
   const setErrorName = useFileUploadStore((state) => state.setErrorMessage);
   const user = useAuthStore((state) => state.user);
-
-  useEffect(() => {
-    if (file != undefined && user != null) {
-      uploadArticle(file, user.user_id).then(setErrorName);
-    }
-  }, [file, user]);
+  const setSearches = useHistoryStore((state) => state.setSearches);
 
   const validateExtension = (file: File) => {
     const extension = file.name.split(".").pop();
@@ -25,7 +24,14 @@ export default function useFileUpload(props: useFileUploadProps): Array<any> {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      setFile(e.target.files[0]);
+      const file = e.target.files[0];
+      setFile(file);
+      if (file != undefined && user != null) {
+        uploadArticle(file, user.user_id)
+          .then(setErrorName)
+          .then(() => getHistory(user?.user_id))
+          .then(setSearches);
+      }
     }
   };
 
@@ -48,9 +54,17 @@ export default function useFileUpload(props: useFileUploadProps): Array<any> {
 
     setIsOver(false);
     const droppedFiles = Array.from(event.dataTransfer.files);
-
-    if (validateExtension(droppedFiles[0])) {
-      setFile(droppedFiles[0]);
+    const file = droppedFiles[0];
+    if (validateExtension(file)) {
+      setFile(file);
+      if (file != undefined && user != null) {
+        uploadArticle(file, user.user_id)
+          .then(setErrorName)
+          .then(() => getHistory(user?.user_id))
+          .then(setSearches);
+      }
+    } else {
+      setErrorName("File should be in PDF format");
     }
   };
 

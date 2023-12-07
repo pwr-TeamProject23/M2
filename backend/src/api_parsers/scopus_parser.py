@@ -48,14 +48,18 @@ class ScopusParser:
         year = int(entry["prism:coverDate"].split("-")[0])
         if year < self.min_year:
             return
+        if entry.get("dc:description") is None:
+            abstract = ""
+        else:
+            abstract = entry["dc:description"]
         pub_data = {
             "doi": entry.get("prism:doi"),
             "title": entry["dc:title"],
             "year": year,
-            "venue": None,
-            "abstract": entry.get("dc:description"),
+            "venues": None,
+            "abstract": abstract,
             "citation_count": entry.get("citedby-count"),
-            "similarity_score": None,
+            "similarity_score": 0,
         }
         publication = Publication(**pub_data)
         if "author" not in entry:
@@ -66,6 +70,9 @@ class ScopusParser:
             last_name = author.get("surname")
             if first_name is None and last_name is None:
                 continue
+            if first_name is None:
+                first_name = last_name
+                last_name = ""
             author_id = author["authid"]
             auth_data = {
                 "author_external_id": author_id,

@@ -15,6 +15,11 @@ class DBLPQuotaExceededException(Exception):
         super().__init__("Quota exceeded.")
 
 
+class ScholarQuotaExceededException(Exception):
+    def __init__(self):
+        super().__init__("Quota exceeded.")
+
+
 class MaxAuthorsReachedException(Exception):
     def __init__(self):
         super().__init__("Max number of authors reached.")

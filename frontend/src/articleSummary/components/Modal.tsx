@@ -15,11 +15,11 @@ export default function Modal(props: Props) {
     <>
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
           onClick={close}
         >
           <div
-            className="bg-white p-8 shadow-lg w-1/3 h-2/3"
+            className="bg-white p-8 shadow-lg w-1/3 h-4/5 overflow-y-scroll"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-end">

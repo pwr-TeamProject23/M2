@@ -14,16 +14,16 @@ class Source(str, Enum):
 class Author(BaseModel):
     __tablename__ = "author"
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     search_id: Mapped[int] = mapped_column(ForeignKey("search.id"))
     author_external_id: Mapped[str]
     first_name: Mapped[str]
     last_name: Mapped[str]
-    affiliation: Mapped[str]
+    affiliation: Mapped[str | None]
     email: Mapped[str | None]
     source: Mapped[Source]
     search: Mapped["Search"] = relationship(back_populates="authors")
-    publications: Mapped[list["Publication"]] = relationship(back_populates="author")
+    publication: Mapped["Publication"] = relationship(back_populates="author")
 
     def __repr__(self) -> str:
         return f"Author<{self.first_name} {self.last_name}>"

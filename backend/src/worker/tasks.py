@@ -2,50 +2,88 @@ from io import BytesIO
 from logging import getLogger
 
 from src.api_parsers.dblp_parser import DBLPParser
-from src.api_parsers.exceptions import NoAuthorsException
+from src.api_parsers.exceptions import NoAuthorsException, ScholarQuotaExceededException
 from src.api_parsers.scopus_parser import ScopusParser
-from src.articles_service.articles_parser import ArticleParser, KeywordParsingError
-from src.common.postgres import get_db_session
+from src.api_parsers.scholar_parser import ScholarParser
+from src.articles_service.articles_parser import ArticleParser
+from src.common.models import SearchTaskStatus
+from src.common.postgres import SessionLocal
 from src.models.author import Author
-from src.search.repositories import AuthorRepository
+from src.models.publication import Publication
+from src.search.repositories import (
+    AuthorRepository,
+    PublicationRepository,
+    SearchRepository,
+)
+from src.similarity_eval.similarity_eval import scale_scores
 from src.worker.core import celery
-
 
 logger = getLogger(__name__)
 
 
 @celery.task(name="search", bind=True)
 def search(self, file_contents: bytes, search_id: int) -> None:
+    db_session = SessionLocal()
     try:
-        db_session = get_db_session()
         article_parser = ArticleParser(BytesIO(file_contents))
+        abstract = article_parser.get_abstract()
         keywords = article_parser.get_keywords()
-        authors = []
+        search_results = []
 
-        for keyword in keywords[0]:
-            parser = ScopusParser(keywords=keyword.replace("\n", " "))
+        for keyword in keywords:
+            parser = ScopusParser(
+                keywords=keyword.replace("\n", " "), abstract=abstract
+            )
             try:
-                scopus_authors = parser.get_authors()
+                scopus_results = [
+                    (author, author.publication) for author in parser.get_authors()
+                ]
             except NoAuthorsException:
                 continue
-            authors.extend(scopus_authors)
+            search_results.extend(scopus_results)
 
-        for keyword in keywords[1]:
+        for keyword in keywords:
             parser = DBLPParser(keywords=keyword.replace("\n", " "))
             try:
-                dblp_authors = parser.get_authors()
+                dblp_results = [
+                    (author, author.publication) for author in parser.get_authors()
+                ]
             except NoAuthorsException:
                 continue
-            authors.extend(dblp_authors)
+            search_results.extend(dblp_results)
 
-        authors = [
-            Author(search_id=search_id, **author.model_dump()) for author in authors
-        ]
+        for keyword in keywords:
+            parser = ScholarParser(keywords=keyword.replace("\n", " "), abstract=abstract, max_authors=15)
+            try:
+                scholar_results = [
+                    (author, author.publication) for author in parser.get_authors()
+                ]
+            except ScholarQuotaExceededException:
+                break
+            except NoAuthorsException:
+                continue
+            search_results.extend(scholar_results)
+
+        search_results = scale_scores(search_results)
+
+        authors, publications = [], []
+        for author, publication in search_results:
+            author = author.model_dump()
+            author.pop("publication")
+            author = Author(search_id=search_id, **author)
+            publication = Publication(author=author, **publication.model_dump())
+            authors.append(author)
+            publications.append(publication)
+
         AuthorRepository.create_all(db_session, authors)
-    except KeywordParsingError:
-        logger.error("Failed to parse keywords from article")
+        PublicationRepository.create_all(db_session, publications)
+        db_session.close()
+    except Exception as exc:
+        logger.error(
+            f"Encountered exception during search task, details: {exc}", exc_info=True
+        )
+        failed_search = SearchRepository.find_by_id(db_session, search_id)
+        SearchRepository.update(
+            db_session, failed_search, {"status": SearchTaskStatus.ERROR}
+        )
         raise
-    except:
-        logger.error("Encountered exception during search task")
-        raise
-

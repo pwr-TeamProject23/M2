@@ -30,7 +30,10 @@ class DBLPParser:
         return self.authors
 
     def _parse_publications_page(self, page: dict) -> None:
-        hits = page["result"]["hits"]["hit"]
+        hits = page["result"]["hits"]
+        if hits.get("hit") is None:
+            raise MaxAuthorsReachedException
+        hits = hits["hit"]
         for hit in hits:
             self._parse_hit_dict(hit)
 
@@ -39,17 +42,17 @@ class DBLPParser:
         year = str(info["year"])
         if "authors" not in info or not year.isdigit() or int(year) < self.min_year:
             return
-        venue = info.get("venue")
-        if type(venue) == list:
-            venue = venue[0]
+        venues = info.get("venue")
+        if venues and type(venues) != list:
+            venues = [venues]
         pub_data = {
             "doi": info.get("doi"),
             "title": info["title"],
             "year": int(year),
-            "venue": venue,
+            "venues": venues,
             "abstract": None,
             "citation_count": None,
-            "similarity_score": None,
+            "similarity_score": 0,
         }
         publication = Publication(**pub_data)
         authors_list = info["authors"]["author"]
@@ -69,7 +72,6 @@ class DBLPParser:
                 "source": Source.DBLP,
                 "publication": publication,
             }
-            # print(Author(**auth_data).publication.year)
             self.authors.append(Author(**auth_data))
             if len(self.authors) >= self.max_authors:
                 raise MaxAuthorsReachedException()

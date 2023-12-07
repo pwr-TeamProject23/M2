@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react";
-import { ErrorIcon, PendingIcon } from "../../components/Icons";
+import { useEffect } from "react";
+import { CheckmarkIcon, ErrorIcon, PendingIcon } from "../../components/Icons";
 import { Search, SearchStatus } from "./models";
 import { getHistory, getSearchStatus } from "./api";
 import { useAuthStore } from "../../store/AuthStore";
 import { CursorStyle } from "../../models/styling";
+import { useHistoryStore } from "../HistoryStore";
 
 function StatusIcon(props: Pick<Search, "status">) {
   const status = props.status;
 
   if (status == SearchStatus.error) return <ErrorIcon />;
   if (status == SearchStatus.pending) return <PendingIcon />;
-  if (status == SearchStatus.ready) return null;
+  if (status == SearchStatus.ready) return <CheckmarkIcon/>;
 }
 
 const getCursor = (status: string) => {
@@ -21,25 +22,27 @@ const getCursor = (status: string) => {
 };
 
 type SearchRowProps = {
-  update: (i: number, s: SearchStatus) => void;
   id: number;
+  callback: () => any;
 } & Pick<Search, "status" | "filename">;
 
 function SearchRow(props: SearchRowProps) {
-  const { update, id, status, filename } = props;
+  const { callback, id, status, filename } = props;
 
   useEffect(() => {
     if (status === SearchStatus.pending) {
       const fetchData = () => {
         getSearchStatus(id).then((newStatus: SearchStatus) => {
-          update(id, newStatus);
-          if (newStatus !== SearchStatus.pending) clearInterval(intervalId);
+          if (newStatus !== SearchStatus.pending) {
+            callback();
+            clearInterval(intervalId);
+          }
         });
       };
-      const interval = 5000;
+      const interval = 2500;
       const intervalId = setInterval(() => fetchData(), interval);
     }
-  }, []);
+  }, [status]);
 
   return (
     <div className="flex items-center justify-between h-full w-full ">
@@ -82,7 +85,10 @@ function RowContainer(props: RowContainerProps) {
 }
 
 export default function History() {
-  const [searches, setSearches] = useState<Search[]>([]);
+  const { searches, setSearches } = useHistoryStore((state) => ({
+    searches: state.searches,
+    setSearches: state.setSearches,
+  }));
   const user = useAuthStore((state) => state.user);
 
   useEffect(() => {
@@ -91,27 +97,27 @@ export default function History() {
     }
   }, []);
 
-  const updateSearches = (search_id: number, status: SearchStatus) => {
-    const updated = [
-      ...searches.map((val: Search) => {
-        if (val.id === search_id) {
-          let newSearch = { ...val };
-          newSearch.status = status;
-          return newSearch;
-        }
-        return val;
-      }),
-    ];
-    setSearches(updated);
-  };
+  useEffect(() => {}, [searches]);
+
+  const callback = () => {
+    if (user !== null) getHistory(user?.user_id).then(setSearches);
+  }
+
+  if (searches.length == 0) {
+    return (
+      <div className="w-100 flex justify-center text-3xl p-24 text-stone-300">
+        There are no searches in your history
+      </div>
+    );
+  }
 
   return searches.map((upload: Search) => (
-    <RowContainer key={upload.index} status={upload.status} id={upload.id}>
+    <RowContainer key={upload.id} status={upload.status} id={upload.id}>
       <SearchRow
         id={upload.id}
         status={upload.status}
         filename={upload.filename}
-        update={updateSearches}
+        callback={callback}
       />
     </RowContainer>
   ));

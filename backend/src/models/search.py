@@ -7,7 +7,7 @@ from src.models import BaseModel
 class Search(BaseModel):
     __tablename__ = "search"
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     user_id: Mapped[int] = mapped_column(ForeignKey("user.id"))
     file_name: Mapped[str]
     task_id: Mapped[str | None]

@@ -5,7 +5,7 @@ from src.models import BaseModel
 class User(BaseModel):
     __tablename__ = "user"
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     email: Mapped[str]
     password: Mapped[str]
     is_admin: Mapped[bool]

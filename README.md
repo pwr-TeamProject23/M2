@@ -25,16 +25,16 @@ TeamProject23/M2
 
     Then, create migration files.
 
-    `docker compose run backend alembic revision --autogenerate -m "revision message"`
+    `docker compose -f docker-compose-dev.yml run backend alembic revision --autogenerate -m "revision message"`
 
     For example
 
-    `docker compose run backend alembic revision --autogenerate -m "Add user table"`
+    `docker compose -f docker-compose-dev.yml run backend alembic revision --autogenerate -m "Add user table"`
 
 - Run migrations, it runs automatically before web server starts
 
 
-    `docker compose run backend alembic upgrade head`
+    `docker compose -f docker-compose-dev.yml run backend alembic upgrade head`
 
 
 - If you want to start fresh with migrations and database, run
@@ -52,4 +52,4 @@ TeamProject23/M2
 
 - While docker is running
 
-    `docker compose run backend python3 manage.py create_admin`
+    `docker compose -f docker-compose-dev.yml run backend python3 manage.py create_admin`

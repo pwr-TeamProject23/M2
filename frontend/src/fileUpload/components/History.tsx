@@ -48,7 +48,9 @@ function SearchRow(props: SearchRowProps) {
 
   return (
     <div className="flex items-center justify-between h-full w-full py-6">
-      <div>{filename}</div>
+      <ArticleRedirect {...props}>
+        <div>{filename}</div>
+      </ArticleRedirect>
       <div className="flex">
         <button className="font-light" onClick={onDelete}>Delete</button>
         <div className="pr-4 ml-12">
@@ -81,11 +83,9 @@ function RowContainer(props: RowContainerProps) {
   const cursorStyle = getCursor(props.status);
 
   return (
-    <ArticleRedirect {...props}>
       <div className={`border-b border-stone-300 ${cursorStyle} ${hover}`}>
         {props.children}
       </div>
-    </ArticleRedirect>
   );
 }
 

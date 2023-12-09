@@ -204,12 +204,12 @@ async def delete_search(
             400,
             detail="Search with given id does not exist",
         )
+        
+    for publication in publications:
+        PublicationRepository.delete(session=db_session, instance=publication)
     
     for author in authors:
-        AuthorRepository.delete(author)
-    
-    for publication in publications:
-        PublicationRepository.delete(publication)
+        AuthorRepository.delete(session=db_session, instance=author)
 
     SearchRepository.delete(session=db_session, instance=search)
     

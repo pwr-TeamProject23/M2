@@ -28,17 +28,39 @@ def search(self, file_contents: bytes, search_id: int) -> None:
         found_authors: list[ParsedAuthor] = []
         logger.error("Finished parsing PDF for {}".format(search_id))
 
-        scopus_parser = ScopusParser()
-        scopus_authors = scopus_parser.get_authors_and_publications(keywords=keywords)
-        found_authors.extend(scopus_authors)
+        try:
+            scopus_parser = ScopusParser()
+            scopus_authors = scopus_parser.get_authors_and_publications(
+                keywords=keywords
+            )
+            found_authors.extend(scopus_authors)
+        except Exception as exc:
+            logger.error(
+                f"Encountered exception while fetching data from Scopus, details: {exc}",
+                exc_info=True,
+            )
 
-        dblp_parser = DblpParser()
-        dblp_authors = dblp_parser.get_authors_and_publications(keywords=keywords)
-        found_authors.extend(dblp_authors)
+        try:
+            dblp_parser = DblpParser()
+            dblp_authors = dblp_parser.get_authors_and_publications(keywords=keywords)
+            found_authors.extend(dblp_authors)
+        except Exception as exc:
+            logger.error(
+                f"Encountered exception while fetching data from DBLP, details: {exc}",
+                exc_info=True,
+            )
 
-        scholar_parser = ScholarParser()
-        scholar_authors = scholar_parser.get_authors_and_publications(keywords=keywords)
-        found_authors.extend(scholar_authors)
+        try:
+            scholar_parser = ScholarParser()
+            scholar_authors = scholar_parser.get_authors_and_publications(
+                keywords=keywords
+            )
+            found_authors.extend(scholar_authors)
+        except Exception as exc:
+            logger.error(
+                f"Encountered exception while fetching data from Scholar, details: {exc}",
+                exc_info=True,
+            )
 
         if abstract:
             similarity_evaluator = SimilarityEvaluator()

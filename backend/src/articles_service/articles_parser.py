@@ -1,15 +1,13 @@
-from logging import getLogger
 import os
 import re
-import spacy
-from spacy.language import Language
 from collections import Counter
-from string import punctuation
+from logging import getLogger
 
+import spacy
 from pdfminer.high_level import extract_text
 
-
 logger = getLogger(__name__)
+
 
 def format_text(text, leave_paragraphs=True):
     text = re.sub("^.{1,2}$", "", text, flags=re.MULTILINE)
@@ -45,7 +43,7 @@ class AuthorParsingError(ArticleParsingError):
 
 
 class ArticleParser:
-    def __init__(self, pdf_path):
+    def __init__(self, pdf_path: str):
         self.pdf_path = pdf_path
         self.text_authors = extract_text(self.pdf_path, maxpages=1)
         self.text_main = extract_text(self.pdf_path, page_numbers={1})
@@ -54,19 +52,24 @@ class ArticleParser:
     def get_abstract(self) -> str:
         abstract = re.findall("(?i)abstract:?\n?((?:.|\n)(?:.+\n)+)", self.text_main)
         if len(abstract) == 0:
-            abstract = re.findall("(?i)background:?\n?((?:.|\n)(?:.+\n)+)", self.text_main)
+            abstract = re.findall(
+                "(?i)background:?\n?((?:.|\n)(?:.+\n)+)", self.text_main
+            )
         if len(abstract) == 0:
-            abstract = re.findall("(?i)abstract:?\n?((?:.|\n)(?:.+\n)+)", self.text_authors)
+            abstract = re.findall(
+                "(?i)abstract:?\n?((?:.|\n)(?:.+\n)+)", self.text_authors
+            )
         if len(abstract) == 0:
             abstract = re.findall("(?i)abstract\n*((?:.|\n)(?:.+\n)+)", self.text_main)
         if len(abstract) > 0:
             return format_text(abstract[0], False)
-        raise AbstractParsingError()
 
     def get_keywords(self) -> list[str]:
         keywords = re.findall("(?i)keywords:\n?((?:.|\n)(?:.+\n)+)", self.text_main)
         if len(keywords) == 0:
-            keywords = re.findall("(?i)keywords--\n?((?:.|\n)(?:.+\n)+)", self.text_main)
+            keywords = re.findall(
+                "(?i)keywords--\n?((?:.|\n)(?:.+\n)+)", self.text_main
+            )
         if len(keywords) > 0:
             for i in range(len(keywords)):
                 keywords[i] = format_text(keywords[i], False)
@@ -82,27 +85,19 @@ class ArticleParser:
             return keywords
         raise KeywordParsingError()
 
-    def get_hotwords(self, nlp: Language, text: str) -> list[str]:
-        result = []
-        pos_tag = ['ADJ', 'NOUN', 'VERB'] 
-        doc = nlp(text.lower())
-
-        for token in doc:
-            if token.text in nlp.Defaults.stop_words or token.text in punctuation:
-                continue
-            if token.pos_ in pos_tag:
-                result.append(token.text)
-
-        logger.info("SpaCy found keywords {}".format(result))
-        return result
-
-
-    def get_spacy_keywords(self, n_most_common=5) -> list[str]:
+    def get_spacy_keywords(self, n_most_common: int = 5) -> list[str]:
         nlp = spacy.load("en_core_web_sm")
-        output = set(self.get_hotwords(nlp, self.text_main))
-        most_common =  Counter(output).most_common(n_most_common)
+        doc = nlp(self.text_main.lower())
+        keywords = [
+            token.lemma_
+            for token in doc
+            if token.pos_ in ("NOUN", "ADJ", "VERB")
+            and not token.is_stop
+            and not token.is_punct
+        ]
+        logger.info(f"SpaCy found keywords: {keywords}")
+        most_common = Counter(keywords).most_common(n_most_common)
         return [counted[0] for counted in most_common]
-        
 
     def get_emails(self) -> list[str]:
         emails = re.findall("[a-zA-Z]\S+@\S+[a-zA-Z]", self.text_main)

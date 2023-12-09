@@ -204,7 +204,14 @@ async def delete_search(
             400,
             detail="Search with given id does not exist",
         )
-        
+
+    task_id = search.task_id
+    task = AsyncResult(task_id)
+    
+    if task.status.lower() == SearchTaskStatus.PENDING:
+        logger.info("Terminating pending task {}".format(task_id))
+        task.revoke(terminate=True)
+    
     for publication in publications:
         PublicationRepository.delete(session=db_session, instance=publication)
     

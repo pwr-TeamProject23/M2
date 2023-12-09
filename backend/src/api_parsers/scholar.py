@@ -25,14 +25,12 @@ class ScholarParser:
             response = scholarly.search_pubs(
                 query=" ".join(keywords), year_low=year_low
             )
-            print(response)
             parsed_authors = []
             for entry in islice(response, max_publications):
                 publication = self._parse_publication(entry)
                 if publication:
                     authors = self._parse_authors(entry, publication)
                     if authors:
-                        print(authors)
                         parsed_authors.extend(authors)
             return parsed_authors
         except MaxTriesExceededException as e:

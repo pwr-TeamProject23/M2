@@ -1,5 +1,5 @@
 from pydantic import BaseModel, ConfigDict, Field
-from src.api_parsers.models import Source
+from src.api_parsers.core.models import Source
 from src.common.models import SearchTaskStatus
 
 

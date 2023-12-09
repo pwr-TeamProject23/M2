@@ -45,7 +45,7 @@ function ExternalLink(props: ExternalLinkProps) {
     return `https://dblp.org/pid/${id}.html`;
   };
 
-  return <Link to={getLink()}>{linkToProfile}</Link>;
+  return <Link to={getLink()} target="_blank" rel="noopener noreferrer">{linkToProfile}</Link>;
 }
 
 function DetailText(props: { children: React.ReactNode }) {

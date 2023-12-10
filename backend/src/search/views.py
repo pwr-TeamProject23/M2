@@ -2,7 +2,8 @@ from logging import getLogger
 
 from celery import states
 from celery.result import AsyncResult
-from fastapi import APIRouter, Depends, HTTPException, UploadFile
+from src.auth.core import get_user_id
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, Request
 from sqlalchemy.orm import Session
 from src.api_parsers.dblp import DblpParser
 from src.api_parsers.scopus import ScopusParser
@@ -31,11 +32,11 @@ async def root() -> dict:
     return {"greeting": "hello"}
 
 
-@router.post(
-    "/search/file/{user_id}", status_code=200, dependencies=[Depends(is_authorized)]
-)
+@router.post("/search/file", status_code=200)
 async def create_search_task(
-    file: UploadFile, user_id: int, db_session: Session = Depends(get_db_session)
+    file: UploadFile,
+    db_session: Session = Depends(get_db_session),
+    user_id=Depends(get_user_id),
 ) -> SearchTaskCreationResponseModel:
     if file.content_type != "application/pdf":
         raise HTTPException(400, detail="Invalid document type.")
@@ -53,61 +54,71 @@ async def create_search_task(
     return SearchTaskCreationResponseModel(filename=file.filename)
 
 
-@router.get(
-    "/search/{search_id}/status", status_code=200, dependencies=[Depends(is_authorized)]
-)
+@router.get("/search/{search_id}/status", status_code=200)
 async def get_search_status(
-    search_id: int, db_session: Session = Depends(get_db_session)
+    search_id: int,
+    db_session: Session = Depends(get_db_session),
+    user_id=Depends(get_user_id),
 ):
-    try:
-        search = SearchRepository.find_by_id(db_session, search_id)
-        task_status = AsyncResult(search.task_id).status
-        if (
-            search.status != SearchTaskStatus.PENDING
-            or task_status in states.UNREADY_STATES
-        ):
-            return StatusResponseModel(status=search.status)
 
-        if task_status in states.EXCEPTION_STATES:
-            search = SearchRepository.update(
-                db_session, search, {"status": SearchTaskStatus.ERROR}
-            )
-        elif task_status == states.SUCCESS:
-            search = SearchRepository.update(
-                db_session, search, {"status": SearchTaskStatus.READY}
-            )
+    search = SearchRepository.find_by_id(db_session, search_id)
+
+    if search.user_id != user_id:
+        raise HTTPException(403, "Forbidden")
+
+    task_status = AsyncResult(search.task_id).status
+    if (
+        search.status != SearchTaskStatus.PENDING
+        or task_status in states.UNREADY_STATES
+    ):
         return StatusResponseModel(status=search.status)
-    except Exception:
-        raise HTTPException(500, detail="Internal server error.")
+
+    if task_status in states.EXCEPTION_STATES:
+        search = SearchRepository.update(
+            db_session, search, {"status": SearchTaskStatus.ERROR}
+        )
+    elif task_status == states.SUCCESS:
+        search = SearchRepository.update(
+            db_session, search, {"status": SearchTaskStatus.READY}
+        )
+    return StatusResponseModel(status=search.status)
 
 
 @router.get(
     "/search/{search_id}/results",
     status_code=200,
-    dependencies=[Depends(is_authorized)],
 )
 async def get_results(
-    search_id: int, db_session: Session = Depends(get_db_session)
+    search_id: int,
+    db_session: Session = Depends(get_db_session),
+    user_id=Depends(get_user_id),
 ) -> SuggestionsResponseModel:
     search = SearchRepository.find_by_id(db_session, search_id)
+
+    if search.user_id != user_id:
+        raise HTTPException(403, "Forbidden")
+
     if search is None or search.status != SearchTaskStatus.READY:
         raise HTTPException(404, detail="Page not found.")
+
     all_venues = []
     authors = AuthorRepository.find_all_by_value(db_session, "search_id", search_id)
     authors = sorted(
         authors, key=lambda a: a.publication.similarity_score, reverse=True
     )
+
     for author in authors:
         if author.publication.venues:
             all_venues.extend(author.publication.venues)
+
     return SuggestionsResponseModel(authors=authors, venues=set(all_venues))
 
 
-@router.get(
-    "/search/history/{user_id}", status_code=200, dependencies=[Depends(is_authorized)]
-)
+@router.get("/search/history", status_code=200)
 async def get_history(
-    user_id: int, db_session: Session = Depends(get_db_session)
+    request: Request,
+    db_session: Session = Depends(get_db_session),
+    user_id=Depends(get_user_id),
 ) -> HistoryResponseModel:
     results = []
     history = SearchRepository.find_all_by_value(
@@ -128,19 +139,29 @@ async def get_history(
 @router.get(
     "/search/source/{source}/author/{author_id}/details",
     status_code=200,
-    dependencies=[Depends(is_authorized)],
 )
 async def get_author_details(
     source: Source,
     author_id: str,
     session: Session = Depends(get_db_session),
+    user_id=Depends(get_user_id),
 ):
     author = AuthorRepository.find_first_by_value(
         session=session, lookup_field="id", lookup_value=author_id
     )
+
+    search = SearchRepository.find_first_by_value(
+        session=session, lookup_field="id", lookup_value=author.search_id
+    )
+
+    if search.user_id != user_id:
+        raise HTTPException(403, "Forbidden")
+
     if author is None:
         raise HTTPException(404, detail="No such author found in the database.")
+
     affiliation = author.affiliation
+
     if not affiliation:
         if source == Source.DBLP:
             dblp_parser = DblpParser()
@@ -167,20 +188,35 @@ async def get_author_details(
     dependencies=[Depends(is_authorized)],
 )
 async def get_filename(
-    search_id: int, db_session: Session = Depends(get_db_session)
+    search_id: int,
+    db_session: Session = Depends(get_db_session),
+    user_id=Depends(get_user_id),
 ) -> FilenameResponseModel:
-    return SearchRepository.find_by_id(db_session, lookup_id=search_id)
+    
+    search = SearchRepository.find_by_id(db_session, lookup_id=search_id)
+    
+    if search.user_id != user_id:
+        raise HTTPException(403, "Forbidden")
+    
+    return search
 
 
-@router.delete(
-    "/search/{search_id}", status_code=200, dependencies=[Depends(is_authorized)]
-)
-async def delete_search(search_id: int, db_session: Session = Depends(get_db_session)):
+@router.delete("/search/{search_id}", status_code=200)
+async def delete_search(
+    search_id: int,
+    db_session: Session = Depends(get_db_session),
+    user_id=Depends(get_user_id),
+):
     search = SearchRepository.find_by_id(session=db_session, lookup_id=search_id)
+
+    if search.user_id != user_id:
+        raise HTTPException(403, "Forbidden")
+
     if not search:
         raise HTTPException(
             status_code=404, detail=f"Search with id {search_id} does not exist."
         )
+
     task = AsyncResult(search.task_id)
     if task.status in states.UNREADY_STATES:
         logger.info(f"Terminating pending task {search.task_id}")

@@ -8,6 +8,7 @@ from src.common.exceptions import ForbiddenException, UnauthorizedException
 from src.common.postgres import get_db_session
 from src.config import TZ_INFO, USER_SESSION_DURATION_DAYS
 from src.models.user import User
+from src.models.session import UserSession
 
 
 def validate_credentials(db_session: Session, email: str, password: str) -> int:
@@ -53,7 +54,16 @@ def get_authorized_user_details(db_session: Session, user_session_id: str) -> Us
 
 def is_authorized(
     request: Request, db_session: Session = Depends(get_db_session)
-) -> bool:
+) -> None:
+    authorize(request, db_session)
+
+
+def get_user_id(request: Request, db_session: Session = Depends(get_db_session)) -> int:
+    user_session = authorize(request, db_session)
+    return user_session.user_id
+
+
+def authorize(request: Request, db_session: Session) -> UserSession:
     session_id = request.cookies.get("session_id")
     if not session_id:
         raise ForbiddenException
@@ -69,4 +79,5 @@ def is_authorized(
 
     if session_expiration_datetime < datetime.now():
         raise UnauthorizedException
-    return True
+
+    return user_session

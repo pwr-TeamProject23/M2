@@ -27,9 +27,9 @@ export default function useFileUpload(props: useFileUploadProps): Array<any> {
       const file = e.target.files[0];
       setFile(file);
       if (file != undefined && user != null) {
-        uploadArticle(file, user.user_id)
+        uploadArticle(file)
           .then(setErrorName)
-          .then(() => getHistory(user?.user_id))
+          .then(() => getHistory())
           .then(setSearches);
       }
     }
@@ -58,9 +58,9 @@ export default function useFileUpload(props: useFileUploadProps): Array<any> {
     if (validateExtension(file)) {
       setFile(file);
       if (file != undefined && user != null) {
-        uploadArticle(file, user.user_id)
+        uploadArticle(file)
           .then(setErrorName)
-          .then(() => getHistory(user?.user_id))
+          .then(() => getHistory())
           .then(setSearches);
       }
     } else {

@@ -29,6 +29,8 @@ COPY . /app/
 
 ARG PYTHONPATH=/src:$PYTHONPATH
 
+RUN python -m spacy download en_core_web_sm
+
 ENTRYPOINT ["bash", "scripts/launch.sh"]
 
 CMD ["uvicorn", "src.__main__:app", "--port=8000", "--host=0.0.0.0", "--proxy-headers"]

@@ -1,21 +1,17 @@
 from io import BytesIO
 from logging import getLogger
 
-from src.api_parsers.dblp_parser import DBLPParser
-from src.api_parsers.exceptions import NoAuthorsException, ScholarQuotaExceededException
-from src.api_parsers.scopus_parser import ScopusParser
-from src.api_parsers.scholar_parser import ScholarParser
+from src.api_parsers.core.models import ParsedAuthor
+from src.api_parsers.dblp import DblpParser
+from src.api_parsers.scholar import ScholarParser
+from src.api_parsers.scopus import ScopusParser
 from src.articles_service.articles_parser import ArticleParser
 from src.common.models import SearchTaskStatus
 from src.common.postgres import SessionLocal
 from src.models.author import Author
 from src.models.publication import Publication
-from src.search.repositories import (
-    AuthorRepository,
-    PublicationRepository,
-    SearchRepository,
-)
-from src.similarity_eval.similarity_eval import scale_scores
+from src.search.repositories import AuthorRepository, SearchRepository
+from src.similarity_eval.similarity_eval import SimilarityEvaluator, scale_scores
 from src.worker.core import celery
 
 logger = getLogger(__name__)
@@ -25,60 +21,61 @@ logger = getLogger(__name__)
 def search(self, file_contents: bytes, search_id: int) -> None:
     db_session = SessionLocal()
     try:
-        logger.info("Starting search for {}".format(search_id))
+        logger.error("Starting search for {}".format(search_id))
         article_parser = ArticleParser(BytesIO(file_contents))
         abstract = article_parser.get_abstract()
         keywords = article_parser.get_keywords()
-        logger.info("Finished parsing PDF for {}".format(search_id))
-        search_results = []
+        found_authors: list[ParsedAuthor] = []
+        logger.error("Finished parsing PDF for {}".format(search_id))
 
-        for keyword in keywords:
-            parser = ScopusParser(
-                keywords=keyword.replace("\n", " "), abstract=abstract
+        try:
+            scopus_parser = ScopusParser()
+            scopus_authors = scopus_parser.get_authors_and_publications(
+                keywords=keywords
             )
-            try:
-                scopus_results = [
-                    (author, author.publication) for author in parser.get_authors()
-                ]
-            except NoAuthorsException:
-                continue
-            search_results.extend(scopus_results)
+            found_authors.extend(scopus_authors)
+        except Exception as exc:
+            logger.error(
+                f"Encountered exception while fetching data from Scopus, details: {exc}",
+                exc_info=True,
+            )
 
-        for keyword in keywords:
-            parser = DBLPParser(keywords=keyword.replace("\n", " "))
-            try:
-                dblp_results = [
-                    (author, author.publication) for author in parser.get_authors()
-                ]
-            except NoAuthorsException:
-                continue
-            search_results.extend(dblp_results)
+        try:
+            dblp_parser = DblpParser()
+            dblp_authors = dblp_parser.get_authors_and_publications(keywords=keywords)
+            found_authors.extend(dblp_authors)
+        except Exception as exc:
+            logger.error(
+                f"Encountered exception while fetching data from DBLP, details: {exc}",
+                exc_info=True,
+            )
 
-        for keyword in keywords:
-            parser = ScholarParser(keywords=keyword.replace("\n", " "), abstract=abstract, max_authors=15)
-            try:
-                scholar_results = [
-                    (author, author.publication) for author in parser.get_authors()
-                ]
-            except ScholarQuotaExceededException:
-                break
-            except NoAuthorsException:
-                continue
-            search_results.extend(scholar_results)
+        try:
+            scholar_parser = ScholarParser()
+            scholar_authors = scholar_parser.get_authors_and_publications(
+                keywords=keywords
+            )
+            found_authors.extend(scholar_authors)
+        except Exception as exc:
+            logger.error(
+                f"Encountered exception while fetching data from Scholar, details: {exc}",
+                exc_info=True,
+            )
 
-        search_results = scale_scores(search_results)
+        if abstract:
+            similarity_evaluator = SimilarityEvaluator()
+            similarity_evaluator.update_author_similarities(abstract, found_authors)
+            scale_scores(found_authors)
 
-        authors, publications = [], []
-        for author, publication in search_results:
-            author = author.model_dump()
-            author.pop("publication")
-            author = Author(search_id=search_id, **author)
-            publication = Publication(author=author, **publication.model_dump())
+        authors = []
+        for found_author in found_authors:
+            author_dict = found_author.model_dump()
+            publication_dict = author_dict.pop("publication")
+            author = Author(search_id=search_id, **author_dict)
+            author.publication = Publication(author=author, **publication_dict)
             authors.append(author)
-            publications.append(publication)
 
         AuthorRepository.create_all(db_session, authors)
-        PublicationRepository.create_all(db_session, publications)
         db_session.close()
     except Exception as exc:
         logger.error(

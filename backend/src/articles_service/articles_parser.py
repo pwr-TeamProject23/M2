@@ -1,8 +1,12 @@
 import os
 import re
-from keybert import KeyBERT
+from collections import Counter
+from logging import getLogger
 
+import spacy
 from pdfminer.high_level import extract_text
+
+logger = getLogger(__name__)
 
 
 def format_text(text, leave_paragraphs=True):
@@ -39,7 +43,7 @@ class AuthorParsingError(ArticleParsingError):
 
 
 class ArticleParser:
-    def __init__(self, pdf_path):
+    def __init__(self, pdf_path: str):
         self.pdf_path = pdf_path
         self.text_authors = extract_text(self.pdf_path, maxpages=1)
         self.text_main = extract_text(self.pdf_path, page_numbers={1})
@@ -48,19 +52,24 @@ class ArticleParser:
     def get_abstract(self) -> str:
         abstract = re.findall("(?i)abstract:?\n?((?:.|\n)(?:.+\n)+)", self.text_main)
         if len(abstract) == 0:
-            abstract = re.findall("(?i)background:?\n?((?:.|\n)(?:.+\n)+)", self.text_main)
+            abstract = re.findall(
+                "(?i)background:?\n?((?:.|\n)(?:.+\n)+)", self.text_main
+            )
         if len(abstract) == 0:
-            abstract = re.findall("(?i)abstract:?\n?((?:.|\n)(?:.+\n)+)", self.text_authors)
+            abstract = re.findall(
+                "(?i)abstract:?\n?((?:.|\n)(?:.+\n)+)", self.text_authors
+            )
         if len(abstract) == 0:
             abstract = re.findall("(?i)abstract\n*((?:.|\n)(?:.+\n)+)", self.text_main)
         if len(abstract) > 0:
             return format_text(abstract[0], False)
-        raise AbstractParsingError()
 
     def get_keywords(self) -> list[str]:
         keywords = re.findall("(?i)keywords:\n?((?:.|\n)(?:.+\n)+)", self.text_main)
         if len(keywords) == 0:
-            keywords = re.findall("(?i)keywords--\n?((?:.|\n)(?:.+\n)+)", self.text_main)
+            keywords = re.findall(
+                "(?i)keywords--\n?((?:.|\n)(?:.+\n)+)", self.text_main
+            )
         if len(keywords) > 0:
             for i in range(len(keywords)):
                 keywords[i] = format_text(keywords[i], False)
@@ -68,17 +77,27 @@ class ArticleParser:
                 for a in range(len(keywords[i])):
                     keywords[i][a] = keywords[i][a].strip()
                 keywords = keywords[0]
-        keybert_keywords = self.get_keywords_keybert()
-        if len(keybert_keywords) > 0:
-            keywords.append(keybert_keywords[0])
+
+        spacy_keywords = self.get_spacy_keywords()
+        keywords.extend(spacy_keywords)
+
         if len(keywords) > 0:
             return keywords
         raise KeywordParsingError()
 
-    def get_keywords_keybert(self) -> list[str]:
-        kw_model = KeyBERT()
-        keywords = kw_model.extract_keywords(self.text_long, keyphrase_ngram_range=(1, 3), use_mmr=True, diversity=0.7)
-        return [k[0] for k in keywords]
+    def get_spacy_keywords(self, n_most_common: int = 5) -> list[str]:
+        nlp = spacy.load("en_core_web_sm")
+        doc = nlp(self.text_main.lower())
+        keywords = [
+            token.lemma_
+            for token in doc
+            if token.pos_ in ("NOUN", "ADJ", "VERB")
+            and not token.is_stop
+            and not token.is_punct
+        ]
+        logger.info(f"SpaCy found keywords: {keywords}")
+        most_common = Counter(keywords).most_common(n_most_common)
+        return [counted[0] for counted in most_common]
 
     def get_emails(self) -> list[str]:
         emails = re.findall("[a-zA-Z]\S+@\S+[a-zA-Z]", self.text_main)

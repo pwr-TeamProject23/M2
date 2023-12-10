@@ -6,7 +6,7 @@ import Select from "./Select";
 import useSuggestions from "./useSuggestions";
 import { CursorStyle } from "../../models/styling";
 import Modal from "./Modal";
-import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CircularProgressBar from "./CircularProgressBar";
 
 enum TabOptions {
@@ -21,6 +21,32 @@ type DetailProps = {
   list?: string[];
   label: string;
 };
+
+type Source = Omit<TabOptions, "smartSort">;
+
+type ExternalLinkProps = {
+  id: string;
+  source: Source;
+};
+
+function ExternalLink(props: ExternalLinkProps) {
+  const { id, source } = props;
+  const linkToProfile = "Link to profle";
+
+  const getLink = () => {
+    if (source == TabOptions.googleScholar) {
+      return `https://scholar.google.com/citations?hl=pl&user=${id}`;
+    }
+
+    if (source == TabOptions.scopus) {
+      return `https://www.scopus.com/authid/detail.uri?authorId=${id}`;
+    }
+
+    return `https://dblp.org/pid/${id}.html`;
+  };
+
+  return <Link to={getLink()} target="_blank" rel="noopener noreferrer">{linkToProfile}</Link>;
+}
 
 function DetailText(props: { children: React.ReactNode }) {
   return (
@@ -40,27 +66,32 @@ function Detail(props: DetailProps) {
 }
 
 function AuthorDetails(props: Author & { isModalOpen: boolean }) {
-  const { id, firstName, lastName, source, publication } = props;
+  const { id, authorExternalId, firstName, lastName, source, publication } =
+    props;
   const { doi, title, year, venues, citationCount, similarityScore } =
     publication;
   const [details, setDetails] = useState<DetailsResponseModel | undefined>(
     undefined,
   );
-  const { searchId } = useParams();
 
   useEffect(() => {
-    if (props.isModalOpen && searchId && details === undefined) 
-      getDetails(searchId, source, id).then(setDetails);
+    if (props.isModalOpen && details === undefined)
+      getDetails(source, id).then(setDetails);
   }, [props.isModalOpen]);
 
   return (
     <>
       <div className="text-5xl text-stone-800 mb-2">{`${firstName} ${lastName}`}</div>
 
-      {details?.affiliation !== undefined && (
+      <div className="underline font-thin text-stone-900 -mt-2 mb-2">
+        <ExternalLink id={authorExternalId} source={source} />
+      </div>
+
+      <Detail label="Source" text={source} />
+
+      {(details?.affiliation !== undefined && details?.affiliation !== null) && (
         <Detail label="Affiliation" text={details.affiliation} />
       )}
-      <Detail label="Source" text={source} />
 
       <div className="text-2xl text-stone-800 mt-4 pt-4 mb-2 border-t border-stone-300">
         {title}
@@ -77,6 +108,7 @@ function AuthorDetails(props: Author & { isModalOpen: boolean }) {
       {similarityScore && (
         <Detail label="Accuracy score" text={similarityScore.toFixed(2)} />
       )}
+      <Detail label="External id" text={authorExternalId} />
     </>
   );
 }

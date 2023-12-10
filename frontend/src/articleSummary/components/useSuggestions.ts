@@ -27,6 +27,6 @@ export default function useSuggestions() {
   return {
     authors,
     venueOptions,
-    filename
+    filename,
   };
 }

@@ -9,6 +9,7 @@ export type Publication = {
 
 export type Author = {
   id: number;
+  authorExternalId: string;
   firstName: string;
   lastName: string;
   source: string;
@@ -22,9 +23,9 @@ export type SuggestionsResponseModel = {
 };
 
 export type DetailsResponseModel = {
-  affiliation: string;
+  affiliation: string | null | undefined;
 };
 
 export type FilenameResponseModel = {
   file_name: string;
-}
+};

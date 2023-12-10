@@ -9,12 +9,9 @@ uvicorn[standard]~=0.23.2
 # Sending requests
 requests~=2.31.0
 
-# Web scraping
-beautifulsoup4~=4.12.2
-
 # PDF parsing
 pdfminer.six
-keybert~=0.8.3
+spacy~=3.7.2
 
 # Uploading files
 python-multipart~=0.0.6

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { CheckmarkIcon, ErrorIcon, PendingIcon } from "../../components/Icons";
 import { Search, SearchStatus } from "./models";
-import { getHistory, getSearchStatus } from "./api";
+import { getHistory, getSearchStatus, deleteSearch } from "./api";
 import { useAuthStore } from "../../store/AuthStore";
 import { CursorStyle } from "../../models/styling";
 import { useHistoryStore } from "../HistoryStore";
@@ -11,7 +11,7 @@ function StatusIcon(props: Pick<Search, "status">) {
 
   if (status == SearchStatus.error) return <ErrorIcon />;
   if (status == SearchStatus.pending) return <PendingIcon />;
-  if (status == SearchStatus.ready) return <CheckmarkIcon/>;
+  if (status == SearchStatus.ready) return <CheckmarkIcon />;
 }
 
 const getCursor = (status: string) => {
@@ -29,6 +29,8 @@ type SearchRowProps = {
 function SearchRow(props: SearchRowProps) {
   const { callback, id, status, filename } = props;
 
+  const onDelete = () => deleteSearch(id).then(callback);
+ 
   useEffect(() => {
     if (status === SearchStatus.pending) {
       const fetchData = () => {
@@ -37,7 +39,7 @@ function SearchRow(props: SearchRowProps) {
             callback();
             clearInterval(intervalId);
           }
-        });
+        }).catch(() => clearInterval(intervalId));
       };
       const interval = 2500;
       const intervalId = setInterval(() => fetchData(), interval);
@@ -45,10 +47,15 @@ function SearchRow(props: SearchRowProps) {
   }, [status]);
 
   return (
-    <div className="flex items-center justify-between h-full w-full ">
-      <div>{filename}</div>
-      <div className="pr-4">
-        <StatusIcon status={status} />
+    <div className="flex items-center justify-between h-full w-full">
+      <div className="w-full">
+        <ArticleRedirect {...props} filename={filename}/>
+      </div>
+      <div className="flex">
+        <button className="font-light" onClick={onDelete}>Delete</button>
+        <div className="pr-4 ml-12">
+          <StatusIcon status={status} />
+        </div>
       </div>
     </div>
   );
@@ -58,17 +65,21 @@ type RowContainerProps = {
   children: React.ReactNode;
 } & Pick<Search, "id" | "status">;
 
-function ArticleRedirect(props: RowContainerProps) {
+type ArticleRedirectProps = {
+  filename: string;
+} & Omit<RowContainerProps, "children">
+
+function ArticleRedirect(props: ArticleRedirectProps) {
   if (props.status == SearchStatus.ready) {
     const link = `/search/${props.id}`;
     return (
       <a href={link} target="_self">
-        {props.children}
+        <div className="py-6">{props.filename}</div>
       </a>
     );
   }
 
-  return props.children;
+  return <div className="py-6">{props.filename}</div>;
 }
 
 function RowContainer(props: RowContainerProps) {
@@ -76,11 +87,9 @@ function RowContainer(props: RowContainerProps) {
   const cursorStyle = getCursor(props.status);
 
   return (
-    <ArticleRedirect {...props}>
-      <div className={`h-16 border-b border-stone-300 ${cursorStyle} ${hover}`}>
+      <div className={`border-b border-stone-300 ${cursorStyle} ${hover}`}>
         {props.children}
       </div>
-    </ArticleRedirect>
   );
 }
 
@@ -101,7 +110,7 @@ export default function History() {
 
   const callback = () => {
     if (user !== null) getHistory(user?.user_id).then(setSearches);
-  }
+  };
 
   if (searches.length == 0) {
     return (

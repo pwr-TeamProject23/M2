@@ -5,7 +5,6 @@ import {
   faCheckCircle,
   faUser,
   faClock,
-  faRectangleXmark,
 } from "@fortawesome/free-regular-svg-icons";
 
 const accentColor = "#042F2E";

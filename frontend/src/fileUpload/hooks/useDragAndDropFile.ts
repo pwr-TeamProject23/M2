@@ -9,8 +9,7 @@ import { getHistory } from "../components/api";
 export default function useFileUpload(props: useFileUploadProps): Array<any> {
   const { inputFileRef, acceptedFileExtension } = props;
   const [isOver, setIsOver] = useState(false);
-  const { file, setFile } = useFileUploadStore((state) => ({
-    file: state.file,
+  const { setFile } = useFileUploadStore((state) => ({
     setFile: state.setFile,
   }));
   const setErrorName = useFileUploadStore((state) => state.setErrorMessage);

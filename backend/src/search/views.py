@@ -4,9 +4,9 @@ from celery import states
 from celery.result import AsyncResult
 from fastapi import APIRouter, Depends, HTTPException, UploadFile
 from sqlalchemy.orm import Session
-from src.auth import is_authorized
 from src.api_parsers.dblp import DblpParser
 from src.api_parsers.scopus import ScopusParser
+from src.auth import is_authorized
 from src.common.models import SearchTaskStatus
 from src.common.postgres import get_db_session
 from src.models.author import Source
@@ -19,7 +19,7 @@ from src.search.models import (
     StatusResponseModel,
     SuggestionsResponseModel,
 )
-from src.search.repositories import AuthorRepository, SearchRepository, PublicationRepository
+from src.search.repositories import AuthorRepository, SearchRepository
 from src.worker import celery
 
 router = APIRouter()
@@ -94,7 +94,9 @@ async def get_results(
         raise HTTPException(404, detail="Page not found.")
     all_venues = []
     authors = AuthorRepository.find_all_by_value(db_session, "search_id", search_id)
-    authors = sorted(authors, key=lambda a: a.publication.similarity_score, reverse=True)
+    authors = sorted(
+        authors, key=lambda a: a.publication.similarity_score, reverse=True
+    )
     for author in authors:
         if author.publication.venues:
             all_venues.extend(author.publication.venues)
@@ -137,7 +139,7 @@ async def get_author_details(
         session=session, lookup_field="id", lookup_value=author_id
     )
     if author is None:
-        raise HTTPException(400, detail="No such author found in the database.")
+        raise HTTPException(404, detail="No such author found in the database.")
     affiliation = author.affiliation
     if not affiliation:
         parser = (
@@ -170,36 +172,18 @@ async def get_filename(
     return SearchRepository.find_by_id(db_session, lookup_id=search_id)
 
 
-@router.delete("/search/{search_id}", status_code=200, dependencies=[Depends(is_authorized)])
-async def delete_search(
-    search_id: int,  db_session: Session = Depends(get_db_session)
-):
-    try:
-        search = SearchRepository.find_by_id(session=db_session, lookup_id=search_id)
-        authors = AuthorRepository.find_all_by_value(session=db_session, lookup_field="search_id", lookup_value=search_id)
-        publications = []
-        for author in authors:
-            publications.extend(PublicationRepository.find_all_by_value(session=db_session, lookup_field="author_id", lookup_value=author.id))
-    except:
+@router.delete(
+    "/search/{search_id}", status_code=200, dependencies=[Depends(is_authorized)]
+)
+async def delete_search(search_id: int, db_session: Session = Depends(get_db_session)):
+    search = SearchRepository.find_by_id(session=db_session, lookup_id=search_id)
+    if not search:
         raise HTTPException(
-            400,
-            detail="Search with given id does not exist",
+            status_code=404, detail=f"Search with id {search_id} does not exist."
         )
-
-    task_id = search.task_id
-    task = AsyncResult(task_id)
-    
-    if task.status.lower() == SearchTaskStatus.PENDING:
-        logger.info("Terminating pending task {}".format(task_id))
+    task = AsyncResult(search.task_id)
+    if task.status in states.UNREADY_STATES:
+        logger.info(f"Terminating pending task {search.task_id}")
         task.revoke(terminate=True)
-    
-    for publication in publications:
-        PublicationRepository.delete(session=db_session, instance=publication)
-    
-    for author in authors:
-        AuthorRepository.delete(session=db_session, instance=author)
-
     SearchRepository.delete(session=db_session, instance=search)
-    
-    return {"info": f"deleted search with id {search_id}"}
-   
+    return {"info": f"Deleted search with id {search_id}"}

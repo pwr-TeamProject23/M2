@@ -1,11 +1,11 @@
 from collections.abc import Iterator
 from http import HTTPMethod
 from logging import getLogger
-from requests import Response
 
+from requests import Response
 from src.api_handlers.core import BaseRestHandler
-from src.api_handlers.scopus.pagination import OffsetPagination
 from src.api_handlers.core.throttling import Throttling
+from src.api_handlers.scopus.pagination import OffsetPagination
 from src.config import SCOPUS_API_KEY, SCOPUS_LONG_PAGE_SIZE, SCOPUS_SHORT_PAGE_SIZE
 
 
@@ -49,7 +49,6 @@ class ScopusHandler:
 
     @Throttling("max_author_requests", "author_time_units", "X-RateLimit-Reset")
     def _get_author_by_id(self, author_id: str, params: dict) -> Response:
-
         return self.rest_handler.request(
             method=HTTPMethod.GET,
             url_path=f"/content/author/author_id/{author_id}",

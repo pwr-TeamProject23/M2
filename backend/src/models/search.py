@@ -13,7 +13,9 @@ class Search(BaseModel):
     task_id: Mapped[str | None]
     status: Mapped[SearchTaskStatus]
     user: Mapped["User"] = relationship(back_populates="searches")
-    authors: Mapped[list["Author"]] = relationship(back_populates="search")
+    authors: Mapped[list["Author"]] = relationship(
+        back_populates="search", cascade="all, delete-orphan"
+    )
 
     def __repr__(self) -> str:
         return f"Upload<{self.file_name}>"

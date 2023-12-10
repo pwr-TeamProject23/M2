@@ -142,15 +142,15 @@ async def get_author_details(
         raise HTTPException(404, detail="No such author found in the database.")
     affiliation = author.affiliation
     if not affiliation:
-        parser = (
-            DblpParser()
-            if source == Source.DBLP
-            else ScopusParser()
-            if source == Source.Scopus
-            else None
-        )
-        if parser:
-            affiliation = parser.get_author_affiliation(
+        if source == Source.DBLP:
+            dblp_parser = DblpParser()
+            affiliation = dblp_parser.get_author_affiliation(
+                author_name=f"{author.first_name} {author.last_name}",
+                author_id=author.author_external_id,
+            )
+        elif source == Source.Scopus:
+            scopus_parser = ScopusParser()
+            affiliation = scopus_parser.get_author_affiliation(
                 author_id=author.author_external_id
             )
     if affiliation and affiliation != author.affiliation:

@@ -94,6 +94,7 @@ async def get_results(
         raise HTTPException(404, detail="Page not found.")
     all_venues = []
     authors = AuthorRepository.find_all_by_value(db_session, "search_id", search_id)
+    authors = sorted(authors, key=lambda a: a.publication.similarity_score, reverse=True)
     for author in authors:
         if author.publication.venues:
             all_venues.extend(author.publication.venues)

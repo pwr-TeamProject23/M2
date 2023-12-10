@@ -52,7 +52,7 @@ class ScopusHandler:
         return self.rest_handler.request(
             method=HTTPMethod.GET,
             url_path=f"/content/author/author_id/{author_id}",
-            params={**params},
+            params=params,
             headers={"X-ELS-APIKey": SCOPUS_API_KEY, "Accept": "application/json"},
         )
 

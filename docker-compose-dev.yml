@@ -35,6 +35,7 @@ services:
       - ./backend/src:/app/src
       - ./backend/alembic:/app/alembic
     env_file:
+      - ./env/.env.backend
       - ./env/.env.postgres
       - ./env/.env.redis
     depends_on:
@@ -73,7 +74,7 @@ services:
       dockerfile: Dockerfile-dev
     command: ["celery", "-A", "src.worker.tasks", "worker"]
     env_file:
-      - ./env/.env.worker
+      - ./env/.env.backend
       - ./env/.env.postgres
       - ./env/.env.redis
     environment:

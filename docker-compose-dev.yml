@@ -73,10 +73,11 @@ services:
       dockerfile: Dockerfile-dev
     command: ["celery", "-A", "src.worker.tasks", "worker"]
     env_file:
+      - ./env/.env.worker
       - ./env/.env.postgres
       - ./env/.env.redis
     environment:
-      REDISSERVER: redis://cache:6379
+      REDIS_SERVER: redis://cache:6379
       C_FORCE_ROOT: "true"
     volumes:
       - ./worker/src:/celery_worker/src

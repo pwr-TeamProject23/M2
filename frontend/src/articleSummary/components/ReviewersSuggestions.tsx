@@ -45,7 +45,11 @@ function ExternalLink(props: ExternalLinkProps) {
     return `https://dblp.org/pid/${id}.html`;
   };
 
-  return <Link to={getLink()} target="_blank" rel="noopener noreferrer">{linkToProfile}</Link>;
+  return (
+    <Link to={getLink()} target="_blank" rel="noopener noreferrer">
+      {linkToProfile}
+    </Link>
+  );
 }
 
 function DetailText(props: { children: React.ReactNode }) {
@@ -89,7 +93,7 @@ function AuthorDetails(props: Author & { isModalOpen: boolean }) {
 
       <Detail label="Source" text={source} />
 
-      {(details?.affiliation !== undefined && details?.affiliation !== null) && (
+      {details?.affiliation !== undefined && details?.affiliation !== null && (
         <Detail label="Affiliation" text={details.affiliation} />
       )}
 
@@ -141,12 +145,20 @@ function AuthorRow(props: Author) {
   );
 }
 
+function EmptyResults() {
+  return <div className="w-100 flex justify-center text-3xl p-24 text-stone-300">
+        There are no results
+    </div>
+}
+
 export default function ReviewersSuggestions() {
   const [selectedTab, setSelectedTab] = useState<TabOptions>(
     TabOptions.smartSort,
   );
   const [venue, setVenue] = useState<string | undefined>();
   const { authors, venueOptions, filename } = useSuggestions();
+  const filteredAuthors = authors.filter(filterAuthors(selectedTab, venue));
+  const isFilteredEmpty = filteredAuthors.length == 0;
 
   return (
     <div>
@@ -179,9 +191,13 @@ export default function ReviewersSuggestions() {
         />
       </div>
 
-      {authors.filter(filterAuthors(selectedTab, venue)).map((author) => (
-        <AuthorRow key={author.id} {...author} />
-      ))}
+      {isFilteredEmpty ? (
+        <EmptyResults/> 
+      ) : (
+        filteredAuthors.map((author) => (
+          <AuthorRow key={author.id} {...author} />
+        ))
+      )}
     </div>
   );
 }

@@ -30,16 +30,18 @@ function SearchRow(props: SearchRowProps) {
   const { callback, id, status, filename } = props;
 
   const onDelete = () => deleteSearch(id).then(callback);
- 
+
   useEffect(() => {
     if (status === SearchStatus.pending) {
       const fetchData = () => {
-        getSearchStatus(id).then((newStatus: SearchStatus) => {
-          if (newStatus !== SearchStatus.pending) {
-            callback();
-            clearInterval(intervalId);
-          }
-        }).catch(() => clearInterval(intervalId));
+        getSearchStatus(id)
+          .then((newStatus: SearchStatus) => {
+            if (newStatus !== SearchStatus.pending) {
+              callback();
+              clearInterval(intervalId);
+            }
+          })
+          .catch(() => clearInterval(intervalId));
       };
       const interval = 2500;
       const intervalId = setInterval(() => fetchData(), interval);
@@ -49,10 +51,12 @@ function SearchRow(props: SearchRowProps) {
   return (
     <div className="flex items-center justify-between h-full w-full">
       <div className="w-full">
-        <ArticleRedirect {...props} filename={filename}/>
+        <ArticleRedirect {...props} filename={filename} />
       </div>
       <div className="flex">
-        <button className="font-light" onClick={onDelete}>Delete</button>
+        <button className="font-light" onClick={onDelete}>
+          Delete
+        </button>
         <div className="pr-4 ml-12">
           <StatusIcon status={status} />
         </div>
@@ -67,7 +71,7 @@ type RowContainerProps = {
 
 type ArticleRedirectProps = {
   filename: string;
-} & Omit<RowContainerProps, "children">
+} & Omit<RowContainerProps, "children">;
 
 function ArticleRedirect(props: ArticleRedirectProps) {
   if (props.status == SearchStatus.ready) {
@@ -87,9 +91,9 @@ function RowContainer(props: RowContainerProps) {
   const cursorStyle = getCursor(props.status);
 
   return (
-      <div className={`border-b border-stone-300 ${cursorStyle} ${hover}`}>
-        {props.children}
-      </div>
+    <div className={`border-b border-stone-300 ${cursorStyle} ${hover}`}>
+      {props.children}
+    </div>
   );
 }
 
@@ -102,14 +106,14 @@ export default function History() {
 
   useEffect(() => {
     if (user != null) {
-      getHistory(user?.user_id).then(setSearches);
+      getHistory().then(setSearches);
     }
   }, []);
 
   useEffect(() => {}, [searches]);
 
   const callback = () => {
-    if (user !== null) getHistory(user?.user_id).then(setSearches);
+    if (user !== null) getHistory().then(setSearches);
   };
 
   if (searches.length == 0) {

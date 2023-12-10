@@ -74,6 +74,7 @@ services:
       dockerfile: Dockerfile-prod
     command: ["celery", "-A", "src.worker.tasks", "worker"]
     env_file:
+      - ./env/.env.worker
       - ./env/.env.postgres
       - ./env/.env.redis
     environment:

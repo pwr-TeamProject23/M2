@@ -1,4 +1,7 @@
 -r requirements.txt
 
-# tests
+# Tests
 pytest~=7.4.3
+
+# Mock requests
+requests-mock~=1.11.0

@@ -90,7 +90,7 @@ function AuthorDetails(props: Author & { isModalOpen: boolean }) {
 
       <Detail label="Source" text={source} />
 
-      {details?.affiliation !== undefined && (
+      {(details?.affiliation !== undefined && details?.affiliation !== null) && (
         <Detail label="Affiliation" text={details.affiliation} />
       )}
 

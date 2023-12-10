@@ -13,13 +13,12 @@ export const getSuggestions = async (
 };
 
 export const getDetails = async (
-  search_id: string,
   source: string,
   author_id: number,
 ): Promise<DetailsResponseModel | undefined> => {
   try {
     const response = await axios.get(
-      `/search/${search_id}/source/${source}/author/${author_id}/details`,
+      `/search/source/${source}/author/${author_id}/details`,
     );
     return response.data;
   } catch {

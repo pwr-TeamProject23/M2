@@ -6,7 +6,7 @@ import Select from "./Select";
 import useSuggestions from "./useSuggestions";
 import { CursorStyle } from "../../models/styling";
 import Modal from "./Modal";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CircularProgressBar from "./CircularProgressBar";
 
 enum TabOptions {
@@ -73,11 +73,10 @@ function AuthorDetails(props: Author & { isModalOpen: boolean }) {
   const [details, setDetails] = useState<DetailsResponseModel | undefined>(
     undefined,
   );
-  const { searchId } = useParams();
 
   useEffect(() => {
-    if (props.isModalOpen && searchId && details === undefined)
-      getDetails(searchId, source, id).then(setDetails);
+    if (props.isModalOpen && details === undefined)
+      getDetails(source, id).then(setDetails);
   }, [props.isModalOpen]);
 
   return (

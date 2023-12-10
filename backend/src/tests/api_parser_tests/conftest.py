@@ -39,8 +39,16 @@ def scopus_pub_response():
     with open(scopus_data_path, "rb") as file:
         return json.load(file)
 
+
 @pytest.fixture
 def scopus_request(requests_mock, scopus_pub_response):
     scopus_pub_url = re.compile("https://api.elsevier.com/content/search/")
     requests_mock.get(scopus_pub_url, json=scopus_pub_response)
     return ScopusParser("mock", "mock", max_authors=100)
+
+
+@pytest.fixture
+def dblp_request(requests_mock, DBLP_pub_response):
+    scopus_pub_url = re.compile("https://dblp.org/search/publ/api")
+    requests_mock.get(scopus_pub_url, json=DBLP_pub_response)
+    return DBLPParser("mock", max_authors=100)

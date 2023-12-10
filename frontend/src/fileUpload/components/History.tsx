@@ -47,10 +47,10 @@ function SearchRow(props: SearchRowProps) {
   }, [status]);
 
   return (
-    <div className="flex items-center justify-between h-full w-full py-6">
-      <ArticleRedirect {...props}>
-        <div>{filename}</div>
-      </ArticleRedirect>
+    <div className="flex items-center justify-between h-full w-full">
+      <div className="w-full">
+        <ArticleRedirect {...props} filename={filename}/>
+      </div>
       <div className="flex">
         <button className="font-light" onClick={onDelete}>Delete</button>
         <div className="pr-4 ml-12">
@@ -65,17 +65,21 @@ type RowContainerProps = {
   children: React.ReactNode;
 } & Pick<Search, "id" | "status">;
 
-function ArticleRedirect(props: RowContainerProps) {
+type ArticleRedirectProps = {
+  filename: string;
+} & Omit<RowContainerProps, "children">
+
+function ArticleRedirect(props: ArticleRedirectProps) {
   if (props.status == SearchStatus.ready) {
     const link = `/search/${props.id}`;
     return (
       <a href={link} target="_self">
-        {props.children}
+        <div className="py-6">{props.filename}</div>
       </a>
     );
   }
 
-  return props.children;
+  return <div className="py-6">{props.filename}</div>;
 }
 
 function RowContainer(props: RowContainerProps) {

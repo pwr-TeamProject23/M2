@@ -23,7 +23,7 @@ export type SuggestionsResponseModel = {
 };
 
 export type DetailsResponseModel = {
-  affiliation: string;
+  affiliation: string | null | undefined;
 };
 
 export type FilenameResponseModel = {

@@ -4,16 +4,12 @@ from celery import states
 from celery.result import AsyncResult
 from fastapi import APIRouter, Depends, HTTPException, UploadFile
 from sqlalchemy.orm import Session
-from src.api_parsers.dblp_parser import DBLPParser
-from src.api_parsers.exceptions import (
-    DBLPQuotaExceededException,
-    NoAffiliationException,
-)
-from src.api_parsers.scopus_parser import ScopusParser
 from src.auth import is_authorized
+from src.api_parsers.dblp import DblpParser
+from src.api_parsers.scopus import ScopusParser
 from src.common.models import SearchTaskStatus
 from src.common.postgres import get_db_session
-from src.models.author import Author, Source
+from src.models.author import Source
 from src.search.models import (
     DetailsResponseModel,
     FilenameResponseModel,
@@ -127,54 +123,38 @@ async def get_history(
 
 
 @router.get(
-    "/search/{search_id}/source/{source}/author/{author_id}/details",
+    "/search/source/{source}/author/{author_id}/details",
     status_code=200,
     dependencies=[Depends(is_authorized)],
 )
 async def get_author_details(
-    search_id: int,
     source: Source,
     author_id: str,
     session: Session = Depends(get_db_session),
 ):
-    instance: Author = AuthorRepository.find_first_by_value(
+    author = AuthorRepository.find_first_by_value(
         session=session, lookup_field="id", lookup_value=author_id
     )
-    if instance is None:
-        raise HTTPException(
-            400,
-            detail="No such author found in the database.",
+    if author is None:
+        raise HTTPException(400, detail="No such author found in the database.")
+    affiliation = author.affiliation
+    if not affiliation:
+        parser = (
+            DblpParser()
+            if source == Source.DBLP
+            else ScopusParser()
+            if source == Source.Scopus
+            else None
         )
-    author_external_id = instance.author_external_id
-
-    if source == Source.DBLP:
-        dblp_parser = DBLPParser("")
-        author_first_name = instance.first_name
-        author_last_name = instance.last_name
-        author_name = " ".join([author_first_name, author_last_name])
-        try:
-            affiliation = dblp_parser.get_author_affiliation(
-                author_id=author_external_id, author_name=author_name
+        if parser:
+            affiliation = parser.get_author_affiliation(
+                author_id=author.author_external_id
             )
-        except NoAffiliationException:
-            logger.error(f"No affiliation for author_id {author_id}.", exc_info=False)
-            raise HTTPException(
-                500,
-                detail="This author is associated with no affiliation that exists in DBLP.",
-            )
-        except DBLPQuotaExceededException:
-            raise HTTPException(500, detail="DBLP quota exceeded.")
-    elif source == Source.Scopus:
-        scopus_parser = ScopusParser("", "")
-        affiliation = scopus_parser.get_author_affiliation(author_id=author_external_id)
-    else:
-        raise HTTPException(
-            400,
-            detail="Invalid source. Affiliation requests are available only for DBLP and Scopus.",
+    if affiliation and affiliation != author.affiliation:
+        update_data = {"affiliation": affiliation}
+        AuthorRepository.update(
+            session=session, instance=author, update_data=update_data
         )
-
-    update_data = {"affiliation": affiliation}
-    AuthorRepository.update(session=session, instance=instance, update_data=update_data)
     return DetailsResponseModel(affiliation=affiliation)
 
 

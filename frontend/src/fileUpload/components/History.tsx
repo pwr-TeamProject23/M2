@@ -1,10 +1,10 @@
-import { useEffect } from "react";
-import { CheckmarkIcon, ErrorIcon, PendingIcon } from "../../components/Icons";
-import { Search, SearchStatus } from "./models";
-import { getHistory, getSearchStatus, deleteSearch } from "./api";
-import { useAuthStore } from "../../store/AuthStore";
-import { CursorStyle } from "../../models/styling";
-import { useHistoryStore } from "../HistoryStore";
+import {useEffect} from "react";
+import {CheckmarkIcon, ErrorIcon, PendingIcon} from "../../components/Icons";
+import {Search, SearchStatus} from "./models";
+import {deleteSearch, getHistory, getSearchStatus} from "./api";
+import {useAuthStore} from "../../store/AuthStore";
+import {CursorStyle} from "../../models/styling";
+import {useHistoryStore} from "../HistoryStore";
 
 function StatusIcon(props: Pick<Search, "status">) {
   const status = props.status;
@@ -74,7 +74,7 @@ type ArticleRedirectProps = {
 } & Omit<RowContainerProps, "children">;
 
 function ArticleRedirect(props: ArticleRedirectProps) {
-  if (props.status == SearchStatus.ready) {
+  if (props.status != SearchStatus.error) {
     const link = `/search/${props.id}`;
     return (
       <a href={link} target="_self">

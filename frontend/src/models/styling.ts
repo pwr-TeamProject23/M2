@@ -1,5 +1,5 @@
 export const CursorStyle = {
-  pending: "cursor-progress",
+  pending: "cursor-pointer",
   error: "cursor-not-allowed",
   ready: "cursor-pointer",
   default: "cursor-default",

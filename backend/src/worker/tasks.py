@@ -28,6 +28,11 @@ def search(self, file_contents: bytes, search_id: int) -> None:
         found_authors: list[ParsedAuthor] = []
         logger.error("Finished parsing PDF for {}".format(search_id))
 
+        current_search = SearchRepository.find_by_id(db_session, search_id)
+        SearchRepository.update(
+            db_session, current_search, {"abstract": abstract, "keywords": keywords}
+        )
+
         try:
             scopus_parser = ScopusParser()
             scopus_authors = scopus_parser.get_authors_and_publications(
@@ -89,10 +94,15 @@ def search(self, file_contents: bytes, search_id: int) -> None:
 
 
 @celery.task(name="search_by_keywords", bind=True)
-def search_by_keywords(self, keywords: list[str], abstract: str | None, search_id: int) -> None:
+def search_by_keywords(
+    self, keywords: list[str], abstract: str | None, search_id: int
+) -> None:
     db_session = SessionLocal()
     try:
         found_authors: list[ParsedAuthor] = []
+
+        current_search = SearchRepository.find_by_id(db_session, search_id)
+        SearchRepository.update(db_session, current_search, {"keywords": keywords})
 
         try:
             scopus_parser = ScopusParser()

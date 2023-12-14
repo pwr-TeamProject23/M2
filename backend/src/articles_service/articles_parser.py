@@ -105,9 +105,9 @@ class ArticleParser:
             return emails
         return []
 
-    def get_title_filename(self) -> str:
-        title = os.path.basename(self.pdf_path).split("_")
-        title = title[1].split(".")
+    def get_title(self) -> str:
+        title = re.findall(
+            "(?i)e-Informatica Software Engineering Journal\n?((?:.|\n)(?:.+\n)+)\nJournal", self.text_authors)
         return title[0]
 
     def get_authors(self) -> list[str]:

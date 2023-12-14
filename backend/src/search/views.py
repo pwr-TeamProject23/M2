@@ -68,7 +68,15 @@ async def search_by_keywords(
     if search is None or search.status != SearchTaskStatus.READY:
         raise HTTPException(404, detail="Page not found.")
     try:
-        SearchRepository.update(db_session, search, {"keywords": keywords})
+        SearchRepository.update(
+            db_session,
+            search,
+            {
+                "status": SearchTaskStatus.PENDING,
+                "keywords": keywords.keywords,
+                "authors": None,
+            },
+        )
         task_result = celery.send_task(
             "search_by_keywords", (search.keywords, search.abstract, search.id)
         )

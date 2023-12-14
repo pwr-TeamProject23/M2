@@ -15,7 +15,7 @@ class Search(BaseModel):
     task_id: Mapped[str | None]
     status: Mapped[SearchTaskStatus]
     user: Mapped["User"] = relationship(back_populates="searches")
-    authors: Mapped[list["Author"]] = relationship(
+    authors: Mapped[list["Author"] | None] = relationship(
         back_populates="search", cascade="all, delete-orphan"
     )
 

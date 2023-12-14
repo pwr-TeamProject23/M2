@@ -74,12 +74,12 @@ async def search_by_keywords(
             {
                 "status": SearchTaskStatus.PENDING,
                 "keywords": keywords.keywords,
-                "authors": None,
             },
         )
         task_result = celery.send_task(
             "search_by_keywords", (search.keywords, search.abstract, search.id)
         )
+        AuthorRepository.delete_by_field(db_session, "search_id", search_id)
         SearchRepository.update(db_session, search, {"task_id": task_result.id})
     except Exception:
         raise HTTPException(500, detail="Internal server error.")

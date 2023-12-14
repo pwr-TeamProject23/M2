@@ -58,3 +58,7 @@ class StatusResponseModel(BaseModel):
 
 class FilenameResponseModel(BaseModel):
     file_name: str
+
+
+class Keywords(BaseModel):
+    keywords: list[str]

@@ -16,6 +16,7 @@ from src.search.models import (
     FilenameResponseModel,
     HistoryEntity,
     HistoryResponseModel,
+    Keywords,
     SearchTaskCreationResponseModel,
     StatusResponseModel,
     SuggestionsResponseModel,
@@ -56,7 +57,7 @@ async def create_search_task(
 
 @router.post("/search/keywords/{search_id}", status_code=200)
 async def search_by_keywords(
-    keywords: list[str],
+    keywords: Keywords,
     search_id: int,
     db_session: Session = Depends(get_db_session),
     user_id=Depends(get_user_id),
@@ -68,7 +69,9 @@ async def search_by_keywords(
         raise HTTPException(404, detail="Page not found.")
     try:
         SearchRepository.update(db_session, search, {"keywords": keywords})
-        task_result = celery.send_task("search_by_keywords", (search.keywords, search.abstract, search.id))
+        task_result = celery.send_task(
+            "search_by_keywords", (search.keywords, search.abstract, search.id)
+        )
         SearchRepository.update(db_session, search, {"task_id": task_result.id})
     except Exception:
         raise HTTPException(500, detail="Internal server error.")

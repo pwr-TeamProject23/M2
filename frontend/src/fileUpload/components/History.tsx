@@ -1,10 +1,10 @@
-import {useEffect} from "react";
-import {CheckmarkIcon, ErrorIcon, PendingIcon} from "../../components/Icons";
-import {Search, SearchStatus} from "./models";
-import {deleteSearch, getHistory, getSearchStatus} from "./api";
-import {useAuthStore} from "../../store/AuthStore";
-import {CursorStyle} from "../../models/styling";
-import {useHistoryStore} from "../HistoryStore";
+import { useEffect } from "react";
+import { CheckmarkIcon, ErrorIcon, PendingIcon } from "../../components/Icons";
+import { Search, SearchStatus } from "./models";
+import { deleteSearch, getHistory, getSearchStatus } from "./api";
+import { useAuthStore } from "../../store/AuthStore";
+import { CursorStyle } from "../../models/styling";
+import { useHistoryStore } from "../HistoryStore";
 
 function StatusIcon(props: Pick<Search, "status">) {
   const status = props.status;

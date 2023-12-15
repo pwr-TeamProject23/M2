@@ -149,7 +149,7 @@ function AuthorRow(props: Author) {
 
 function UserInfo(props: { text: string }) {
   return (
-    <div className="w-100 flex justify-center text-3xl p-24 text-stone-300">
+    <div className="w-100 flex justify-center text-3xl p-24 text-stone-500 font-light">
       {props.text}
     </div>
   );
@@ -178,7 +178,6 @@ function KeywordsForm(props: KeywordsFormProps) {
   const [keywords, setKeywords] = useState<string>("");
   const { searchId } = useParams();
   const isStatusPending = status === SearchStatus.pending;
-  const isSearchReady = status === SearchStatus.ready;
   const isDisabled = isLoading || isStatusPending;
   const emptyKeywords = keywords.length === 0;
 
@@ -189,7 +188,7 @@ function KeywordsForm(props: KeywordsFormProps) {
   }, []);
 
   useEffect(() => {
-    if (searchId !== undefined && isSearchReady) {
+    if (searchId !== undefined) {
       getKeywords(searchId).then((r) => setKeywords(r.join(",")));
     }
   }, [status]);
@@ -207,28 +206,30 @@ function KeywordsForm(props: KeywordsFormProps) {
       if (setPendingStatus!==undefined) setPendingStatus();
     }
   };
-  const isButtonDisabled = isLoading || emptyKeywords || isStatusPending;
+  const isButtonDisabled = isDisabled || emptyKeywords;
   const onHover = isButtonDisabled ? "" : "hover:bg-stone-400";
   const buttonBg = isButtonDisabled ? "bg-stone-100" : "bg-teal-950";
-  const inputBg =  isLoading ? "bg-stone-100" : "";
-  const inputBorder = isDisabled ? "border border-stone-400" : "";
-  const disabledText = isDisabled ? "text-stone-400" : "text-stone-900";
+  const disabledLabel = isDisabled ? "text-stone-300" : "";
+  const inputBg =  isDisabled ? "bg-stone-100" : "";
+  const inputBorder = isDisabled ? "border-none" : "";
+  const disabledButtonText = isDisabled ? "text-stone-400" : "text-white";
+  const disabledInputText = isDisabled ? "text-stone-400" : "";
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
     setKeywords(e.target.value);
   return (
     <>
-      <div className="pr-4">Keywords, comma separated</div>
+      <div className={`pr-4 ${disabledLabel}`}>Keywords, comma separated</div>
       <div className="w-full flex">
         <input
-          className={`${inputBg} ${inputBorder} ${disabledText} lg:w-11/12 w-9/12`}
+          className={`${inputBg} ${inputBorder} ${disabledInputText} lg:w-11/12 w-9/12`}
           type="text"
           value={keywords}
           onChange={handleChange}
           disabled={isDisabled}
         />
         <button
-          className={`ml-4 ${buttonBg} text-white ${onHover} ${disabledText} h-12 lg:w-1/12 w-3/12`}
+          className={`ml-4 ${buttonBg} ${onHover} ${disabledButtonText} h-12 lg:w-1/12 w-3/12`}
           onClick={handleSubmit}
           disabled={isButtonDisabled}
         >

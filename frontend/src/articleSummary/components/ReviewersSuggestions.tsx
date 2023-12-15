@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { getDetails, search, getKeywords } from "../api";
 import { Author, DetailsResponseModel } from "../models";
 import Tab from "./Tab";
@@ -207,7 +207,7 @@ function KeywordsForm(props: KeywordsFormProps) {
       if (setPendingStatus!==undefined) setPendingStatus();
     }
   };
-  const isButtonDisabled = isLoading || emptyKeywords;
+  const isButtonDisabled = isLoading || emptyKeywords || isStatusPending;
   const onHover = isButtonDisabled ? "" : "hover:bg-stone-400";
   const buttonBg = isButtonDisabled ? "bg-stone-100" : "bg-teal-950";
   const inputBg =  isLoading ? "bg-stone-100" : "";

@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
-import { getDetails } from "../api";
+import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { getDetails, search, getKeywords } from "../api";
 import { Author, DetailsResponseModel } from "../models";
 import Tab from "./Tab";
 import Select from "./Select";
 import useSuggestions from "./useSuggestions";
 import { CursorStyle } from "../../models/styling";
 import Modal from "./Modal";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import CircularProgressBar from "./CircularProgressBar";
+import { getSearchStatus } from "../../fileUpload/components/api";
+import { SearchStatus } from "../../fileUpload/components/models";
 
 enum TabOptions {
   smartSort = "Smart sort",
@@ -145,10 +147,106 @@ function AuthorRow(props: Author) {
   );
 }
 
-function EmptyResults() {
-  return <div className="w-100 flex justify-center text-3xl p-24 text-stone-300">
-        There are no results
+function UserInfo(props: { text: string }) {
+  return (
+    <div className="w-100 flex justify-center text-3xl p-24 text-stone-300">
+      {props.text}
     </div>
+  );
+}
+
+function SugestedReviewersBanner(props: { filename?: string }) {
+  if (props.filename === undefined) {
+    return null;
+  }
+  return (
+    <div className="pb-4 text-stone-900 font-light">
+      {`Suggested reviewers for ${props.filename}`}
+    </div>
+  );
+}
+
+type KeywordsFormProps = {
+  status?: SearchStatus;
+  setStatus: (s: SearchStatus) => void;
+  isLoading: boolean;
+  setPendingStatus?: () => void;
+};
+
+function KeywordsForm(props: KeywordsFormProps) {
+  const {status, setStatus, isLoading, setPendingStatus } = props;
+  const [keywords, setKeywords] = useState<string>("");
+  const { searchId } = useParams();
+  const isDisabled = isLoading || (status === SearchStatus.pending);
+  const emptyKeywords = keywords.length === 0;
+
+  useEffect(() => {
+    if (searchId !== undefined) {
+      getSearchStatus(parseInt(searchId)).then(setStatus);
+      getKeywords(searchId).then((r) => setKeywords(r.join(",")));
+    }
+  }, []);
+
+  const handleSubmit = () => {
+    if (searchId !== undefined && keywords !== "") {
+      search(
+        searchId,
+        keywords
+          .replace(/,\s*$/, "")
+          .split(",")
+          .map((item) => item.trim()),
+      );
+      getSearchStatus(parseInt(searchId)).then(setStatus);
+      if (setPendingStatus!==undefined) setPendingStatus();
+    }
+  };
+
+  const onHover = isLoading || emptyKeywords ? "" : "hover:bg-stone-400";
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
+    setKeywords(e.target.value);
+  return (
+    <>
+      <div className="pr-4">Keywords, comma separated</div>
+      <div className="w-full flex">
+        <input
+          className="w-11/12"
+          type="text"
+          value={keywords}
+          onChange={handleChange}
+          disabled={isDisabled}
+        />
+        <button
+          className={`ml-4 bg-stone-500 text-white ${onHover} h-12 w-1/12`}
+          onClick={handleSubmit}
+          disabled={isDisabled || emptyKeywords}
+        >
+          Search
+        </button>
+      </div>
+    </>
+  );
+}
+
+type ResultsProps = {
+  isLoading: boolean;
+  filteredAuthors: Author[];
+};
+
+function Results(props: ResultsProps) {
+  const { isLoading, filteredAuthors } = props;
+  const isFilteredEmpty = filteredAuthors.length == 0;
+  if (isLoading) return <UserInfo text="Results are loading, please wait" />;
+
+  if (isFilteredEmpty) return <UserInfo text="No results found" />;
+
+  return (
+    <>
+      {filteredAuthors.map((author) => (
+        <AuthorRow key={author.id} {...author} />
+      ))}
+    </>
+  );
 }
 
 export default function ReviewersSuggestions() {
@@ -156,16 +254,52 @@ export default function ReviewersSuggestions() {
     TabOptions.smartSort,
   );
   const [venue, setVenue] = useState<string | undefined>();
-  const { authors, venueOptions, filename } = useSuggestions();
+  const { authors, venueOptions, filename, isLoading, callback } = useSuggestions();
   const filteredAuthors = authors.filter(filterAuthors(selectedTab, venue));
-  const isFilteredEmpty = filteredAuthors.length == 0;
+  const { searchId } = useParams();
+  const [status, setStatus] = useState<SearchStatus>();
+  const setPendingStatus = () => setStatus(SearchStatus.pending);
+
+  useEffect(() => {
+    if (status === SearchStatus.pending && searchId !== undefined) {
+      const fetchData = () => {
+        getSearchStatus(parseInt(searchId))
+          .then((newStatus: SearchStatus) => {
+            if (newStatus !== SearchStatus.pending) {
+              clearInterval(intervalId);
+              setStatus(newStatus as SearchStatus);
+            }
+          })
+          .catch(() => clearInterval(intervalId));
+      };
+      const interval = 2500;
+      const intervalId = setInterval(() => fetchData(), interval);
+    }
+  }, [status]);
+
+  if (status == SearchStatus.pending) {
+    return (
+      <div>
+        <SugestedReviewersBanner filename={filename} />
+        <KeywordsForm {...{isLoading, setStatus, status}}/>
+        <UserInfo text="Please wait for the results" />
+      </div>
+    );
+  }
+
+  if (status == SearchStatus.error) {
+    return (
+      <div>
+        <SugestedReviewersBanner filename={filename} />
+        <UserInfo text="We are sorry, this search failed, please try again" />
+      </div>
+    );
+  }
 
   return (
     <div>
-      <div className="pb-4 text-stone-900 font-light">
-        {`Suggested reviewers for ${filename}`}
-      </div>
-
+      <SugestedReviewersBanner filename={filename} />
+      <KeywordsForm {...{isLoading, setStatus, setPendingStatus, status}}/>
       <div className="flex justify-between border-b border-stone-300">
         {Object.values(TabOptions).map((value) => {
           return (
@@ -190,14 +324,7 @@ export default function ReviewersSuggestions() {
           onChange={setVenue}
         />
       </div>
-
-      {isFilteredEmpty ? (
-        <EmptyResults/> 
-      ) : (
-        filteredAuthors.map((author) => (
-          <AuthorRow key={author.id} {...author} />
-        ))
-      )}
+      <Results {...{isLoading, filteredAuthors}}/>
     </div>
   );
 }

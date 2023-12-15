@@ -17,7 +17,7 @@ class DblpParser:
         self, keywords: list[str], max_pages: int = DBLP_SEARCH_MAX_PAGES
     ) -> list[ParsedAuthor]:
         try:
-            response = self.dblp_handler.get_publications(keywords[0])
+            response = self.dblp_handler.get_publications("+".join(keywords[:3]))
             parsed_authors = []
 
             for page in islice(response, max_pages):

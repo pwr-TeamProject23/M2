@@ -92,3 +92,9 @@ class BaseRepository(Generic[T]):
     def delete(cls, session: Session, instance: T) -> None:
         session.delete(instance)
         session.commit()
+
+    @classmethod
+    def delete_by_field(cls, session: Session, lookup_field: str, lookup_value: any):
+        lookup_field: ColumnElement = getattr(cls.__model__, lookup_field)
+        session.query(cls.__model__).where(lookup_field == lookup_value).delete()
+        session.commit()

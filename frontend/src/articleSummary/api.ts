@@ -32,3 +32,19 @@ export const getFilename = async (
   const response = await axios.get(`/search/${search_id}/filename`);
   return response.data;
 };
+
+export const search = async (
+  search_id: string,
+  keywords: string[],
+): Promise<void> => {
+  console.log(keywords);
+  await axios.post(`/search/keywords/${search_id}`, { keywords: keywords });
+};
+
+export const getKeywords = async (search_id: string): Promise<string[]> => {
+  const response = await axios.get(`/search/${search_id}/keywords`);
+  const keywords = response.data.keywords;
+
+  if (keywords===null) return [] as string[];
+  return keywords
+};

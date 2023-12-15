@@ -65,24 +65,27 @@ class ArticleParser:
             return format_text(abstract[0], False)
 
     def get_keywords(self) -> list[str]:
-        keywords = re.findall("(?i)keywords:\n?((?:.|\n)(?:.+\n)+)", self.text_main)
-        if len(keywords) == 0:
-            keywords = re.findall(
-                "(?i)keywords--\n?((?:.|\n)(?:.+\n)+)", self.text_main
+        keywords = self.get_spacy_keywords()
+        if not keywords:
+            parsed_keywords = re.findall(
+                "(?i)keywords:\n?((?:.|\n)(?:.+\n)+)", self.text_main
             )
-        if len(keywords) > 0:
-            for i in range(len(keywords)):
-                keywords[i] = format_text(keywords[i], False)
-                keywords[i] = keywords[i].split(", ")
-                for a in range(len(keywords[i])):
-                    keywords[i][a] = keywords[i][a].strip()
-                keywords = keywords[0]
+            if len(keywords) == 0:
+                parsed_keywords = re.findall(
+                    "(?i)keywords--\n?((?:.|\n)(?:.+\n)+)", self.text_main
+                )
+            if len(parsed_keywords) > 0:
+                for i in range(len(parsed_keywords)):
+                    parsed_keywords[i] = format_text(parsed_keywords[i], False)
+                    parsed_keywords[i] = parsed_keywords[i].split(", ")
+                    for a in range(len(parsed_keywords[i])):
+                        parsed_keywords[i][a] = parsed_keywords[i][a].strip()
+                    parsed_keywords = parsed_keywords[0]
 
-        spacy_keywords = self.get_spacy_keywords()
-        keywords.extend(spacy_keywords)
+            keywords.extend(parsed_keywords)
 
         if len(keywords) > 0:
-            return keywords
+            return list(set(keywords))
         raise KeywordParsingError()
 
     def get_spacy_keywords(self, n_most_common: int = 5) -> list[str]:
@@ -105,9 +108,11 @@ class ArticleParser:
             return emails
         return []
 
-    def get_title_filename(self) -> str:
-        title = os.path.basename(self.pdf_path).split("_")
-        title = title[1].split(".")
+    def get_title(self) -> str:
+        title = re.findall(
+            "(?i)e-Informatica Software Engineering Journal\n?((?:.|\n)(?:.+\n)+)\nJournal",
+            self.text_authors,
+        )
         return title[0]
 
     def get_authors(self) -> list[str]:

@@ -9,7 +9,7 @@ class UserSession(BaseModel):
     __tablename__ = "user_session"
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
-    user_id: Mapped[int] = mapped_column(ForeignKey("user.id"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("user.id", ondelete="CASCADE"))
     session_id: Mapped[str]
     expiration_datetime: Mapped[datetime]
     user: Mapped["User"] = relationship(back_populates="sessions")

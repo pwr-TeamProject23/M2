@@ -7,7 +7,7 @@ class Publication(BaseModel):
     __tablename__ = "publication"
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
-    author_id: Mapped[int] = mapped_column(ForeignKey("author.id"))
+    author_id: Mapped[int] = mapped_column(ForeignKey("author.id", ondelete="CASCADE"))
     doi: Mapped[str | None]
     title: Mapped[str]
     year: Mapped[int]

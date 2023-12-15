@@ -2,12 +2,12 @@ from logging import getLogger
 
 from celery import states
 from celery.result import AsyncResult
-from src.auth.core import get_user_id
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, Request
+from fastapi import APIRouter, Depends, HTTPException, Request, UploadFile
 from sqlalchemy.orm import Session
 from src.api_parsers.dblp import DblpParser
 from src.api_parsers.scopus import ScopusParser
 from src.auth import is_authorized
+from src.auth.core import get_user_id
 from src.common.models import SearchTaskStatus
 from src.common.postgres import get_db_session
 from src.models.author import Source
@@ -16,6 +16,7 @@ from src.search.models import (
     FilenameResponseModel,
     HistoryEntity,
     HistoryResponseModel,
+    Keywords,
     SearchTaskCreationResponseModel,
     StatusResponseModel,
     SuggestionsResponseModel,
@@ -54,13 +55,43 @@ async def create_search_task(
     return SearchTaskCreationResponseModel(filename=file.filename)
 
 
+@router.post("/search/keywords/{search_id}", status_code=200)
+async def search_by_keywords(
+    keywords: Keywords,
+    search_id: int,
+    db_session: Session = Depends(get_db_session),
+    user_id=Depends(get_user_id),
+) -> SearchTaskCreationResponseModel:
+    search = SearchRepository.find_by_id(db_session, search_id)
+    if search.user_id != user_id:
+        raise HTTPException(403, "Forbidden")
+    if search is None or search.status == SearchTaskStatus.ERROR:
+        raise HTTPException(404, detail="Page not found.")
+    try:
+        SearchRepository.update(
+            db_session,
+            search,
+            {
+                "status": SearchTaskStatus.PENDING,
+                "keywords": keywords.keywords,
+            },
+        )
+        AuthorRepository.delete_by_field(db_session, "search_id", search_id)
+        task_result = celery.send_task(
+            "search_by_keywords", (search.keywords, search.abstract, search.id)
+        )
+        SearchRepository.update(db_session, search, {"task_id": task_result.id})
+    except Exception as e:
+        raise HTTPException(500, detail=f"Internal server error, details: {e}")
+    return SearchTaskCreationResponseModel(filename=search.file_name)
+
+
 @router.get("/search/{search_id}/status", status_code=200)
 async def get_search_status(
     search_id: int,
     db_session: Session = Depends(get_db_session),
     user_id=Depends(get_user_id),
 ):
-
     search = SearchRepository.find_by_id(db_session, search_id)
 
     if search.user_id != user_id:
@@ -98,7 +129,7 @@ async def get_results(
     if search.user_id != user_id:
         raise HTTPException(403, "Forbidden")
 
-    if search is None or search.status != SearchTaskStatus.READY:
+    if search is None or search.status == SearchTaskStatus.ERROR:
         raise HTTPException(404, detail="Page not found.")
 
     all_venues = []
@@ -192,12 +223,11 @@ async def get_filename(
     db_session: Session = Depends(get_db_session),
     user_id=Depends(get_user_id),
 ) -> FilenameResponseModel:
-    
     search = SearchRepository.find_by_id(db_session, lookup_id=search_id)
-    
+
     if search.user_id != user_id:
         raise HTTPException(403, "Forbidden")
-    
+
     return search
 
 
@@ -223,3 +253,22 @@ async def delete_search(
         task.revoke(terminate=True)
     SearchRepository.delete(session=db_session, instance=search)
     return {"info": f"Deleted search with id {search_id}"}
+
+
+@router.get("/search/{search_id}/keywords")
+async def get_keywords(
+    search_id: int,
+    db_session: Session = Depends(get_db_session),
+    user_id=Depends(get_user_id),
+):
+    search = SearchRepository.find_by_id(session=db_session, lookup_id=search_id)
+
+    if search.user_id != user_id:
+        raise HTTPException(403, "Forbidden")
+
+    if not search:
+        raise HTTPException(
+            status_code=404, detail=f"Search with id {search_id} does not exist."
+        )
+
+    return {"keywords": search.keywords}

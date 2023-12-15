@@ -207,8 +207,10 @@ function KeywordsForm(props: KeywordsFormProps) {
       if (setPendingStatus!==undefined) setPendingStatus();
     }
   };
-
-  const onHover = isLoading || emptyKeywords ? "" : "hover:bg-stone-400";
+  const isButtonDisabled = isLoading || emptyKeywords;
+  const onHover = isButtonDisabled ? "" : "hover:bg-stone-400";
+  const buttonBg = isButtonDisabled ? "bg-stone-200" : "bg-teal-950";
+  const inputBg =  isLoading ? "bg-stone-200" : "";
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
     setKeywords(e.target.value);
@@ -217,16 +219,16 @@ function KeywordsForm(props: KeywordsFormProps) {
       <div className="pr-4">Keywords, comma separated</div>
       <div className="w-full flex">
         <input
-          className="w-11/12"
+          className={`${inputBg} lg:w-11/12 w-1/8`}
           type="text"
           value={keywords}
           onChange={handleChange}
           disabled={isDisabled}
         />
         <button
-          className={`ml-4 bg-stone-500 text-white ${onHover} h-12 w-1/12`}
+          className={`ml-4 ${buttonBg} text-white ${onHover} h-12 lg:w-1/12 w-7/8`}
           onClick={handleSubmit}
-          disabled={isDisabled || emptyKeywords}
+          disabled={isButtonDisabled}
         >
           Search
         </button>

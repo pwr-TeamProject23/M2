@@ -219,14 +219,14 @@ function KeywordsForm(props: KeywordsFormProps) {
       <div className="pr-4">Keywords, comma separated</div>
       <div className="w-full flex">
         <input
-          className={`${inputBg} lg:w-11/12 w-1/8`}
+          className={`${inputBg} lg:w-11/12 w-9/12`}
           type="text"
           value={keywords}
           onChange={handleChange}
           disabled={isDisabled}
         />
         <button
-          className={`ml-4 ${buttonBg} text-white ${onHover} h-12 lg:w-1/12 w-7/8`}
+          className={`ml-4 ${buttonBg} text-white ${onHover} h-12 lg:w-1/12 w-3/12`}
           onClick={handleSubmit}
           disabled={isButtonDisabled}
         >

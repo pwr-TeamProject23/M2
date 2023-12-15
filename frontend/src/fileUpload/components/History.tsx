@@ -108,7 +108,7 @@ export default function History() {
   const setHistory = (s: Search[]) => {
     setSearches(s);
     setIsLoading(false);
-  }
+  };
 
   useEffect(() => {
     if (user != null) {

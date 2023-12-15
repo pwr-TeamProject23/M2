@@ -1,8 +1,8 @@
 """Add database models
 
-Revision ID: 2351f3e17514
+Revision ID: 8b7340d6f81b
 Revises: 
-Create Date: 2023-12-14 17:47:53.383515
+Create Date: 2023-12-15 13:49:00.267642
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '2351f3e17514'
+revision: str = '8b7340d6f81b'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -35,7 +35,7 @@ def upgrade() -> None:
     sa.Column('abstract', sa.String(), nullable=True),
     sa.Column('task_id', sa.String(), nullable=True),
     sa.Column('status', sa.Enum('PENDING', 'READY', 'ERROR', name='searchtaskstatus'), nullable=False),
-    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('user_session',
@@ -43,7 +43,7 @@ def upgrade() -> None:
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('session_id', sa.String(), nullable=False),
     sa.Column('expiration_datetime', sa.DateTime(), nullable=False),
-    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('author',
@@ -55,7 +55,7 @@ def upgrade() -> None:
     sa.Column('affiliation', sa.String(), nullable=True),
     sa.Column('email', sa.String(), nullable=True),
     sa.Column('source', sa.Enum('DBLP', 'GoogleScholar', 'Scopus', name='source'), nullable=False),
-    sa.ForeignKeyConstraint(['search_id'], ['search.id'], ),
+    sa.ForeignKeyConstraint(['search_id'], ['search.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('publication',
@@ -68,7 +68,7 @@ def upgrade() -> None:
     sa.Column('abstract', sa.String(), nullable=True),
     sa.Column('citation_count', sa.Integer(), nullable=True),
     sa.Column('similarity_score', sa.Float(), nullable=True),
-    sa.ForeignKeyConstraint(['author_id'], ['author.id'], ),
+    sa.ForeignKeyConstraint(['author_id'], ['author.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###

@@ -177,15 +177,22 @@ function KeywordsForm(props: KeywordsFormProps) {
   const {status, setStatus, isLoading, setPendingStatus } = props;
   const [keywords, setKeywords] = useState<string>("");
   const { searchId } = useParams();
-  const isDisabled = isLoading || (status === SearchStatus.pending);
+  const isStatusPending = status === SearchStatus.pending;
+  const isSearchReady = status === SearchStatus.ready;
+  const isDisabled = isLoading || isStatusPending;
   const emptyKeywords = keywords.length === 0;
 
   useEffect(() => {
     if (searchId !== undefined) {
       getSearchStatus(parseInt(searchId)).then(setStatus);
-      getKeywords(searchId).then((r) => setKeywords(r.join(",")));
     }
   }, []);
+
+  useEffect(() => {
+    if (searchId !== undefined && isSearchReady) {
+      getKeywords(searchId).then((r) => setKeywords(r.join(",")));
+    }
+  }, [status]);
 
   const handleSubmit = () => {
     if (searchId !== undefined && keywords !== "") {
@@ -254,10 +261,10 @@ export default function ReviewersSuggestions() {
     TabOptions.smartSort,
   );
   const [venue, setVenue] = useState<string | undefined>();
-  const { authors, venueOptions, filename, isLoading, callback } = useSuggestions();
+  const [status, setStatus] = useState<SearchStatus>();
+  const { authors, venueOptions, filename, isLoading } = useSuggestions(status);
   const filteredAuthors = authors.filter(filterAuthors(selectedTab, venue));
   const { searchId } = useParams();
-  const [status, setStatus] = useState<SearchStatus>();
   const setPendingStatus = () => setStatus(SearchStatus.pending);
 
   useEffect(() => {
@@ -282,7 +289,7 @@ export default function ReviewersSuggestions() {
       <div>
         <SugestedReviewersBanner filename={filename} />
         <KeywordsForm {...{isLoading, setStatus, status}}/>
-        <UserInfo text="Please wait for the results" />
+        <UserInfo text="Search in progress. Please wait a moment for your results. Thank you!" />
       </div>
     );
   }
@@ -291,7 +298,7 @@ export default function ReviewersSuggestions() {
     return (
       <div>
         <SugestedReviewersBanner filename={filename} />
-        <UserInfo text="We are sorry, this search failed, please try again" />
+        <UserInfo text="We are sorry, this search failed, please try uploading another file" />
       </div>
     );
   }

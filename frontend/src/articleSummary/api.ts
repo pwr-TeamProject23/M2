@@ -43,5 +43,8 @@ export const search = async (
 
 export const getKeywords = async (search_id: string): Promise<string[]> => {
   const response = await axios.get(`/search/${search_id}/keywords`);
-  return response.data.keywords;
+  const keywords = response.data.keywords;
+
+  if (keywords===null) return [] as string[];
+  return keywords
 };

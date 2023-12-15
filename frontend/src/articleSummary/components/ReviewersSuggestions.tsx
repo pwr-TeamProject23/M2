@@ -84,17 +84,23 @@ function Detail(props: DetailProps) {
 function DoiLink(props: { doi: string }) {
   const { doi } = props;
   return (
+    <div className="underline text-base text-stone-900 font-light">
+    <Link
+      to={`https://doi.org/${doi}`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {doi}
+    </Link>
+  </div>
+  )
+}
+
+function DoiDetail(props: { doi: string }) {
+  return (
     <DetailContainer>
       <DetailLabelContainer> DOI </DetailLabelContainer>
-      <div className="underline text-base text-stone-900 font-light">
-        <Link
-          to={`https://doi.org/${doi}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {doi}
-        </Link>
-      </div>
+      <DoiLink {...props}/>
     </DetailContainer>
   );
 }
@@ -135,7 +141,7 @@ function AuthorDetails(props: Author & { isModalOpen: boolean }) {
       {venues !== null && venues !== undefined && (
         <Detail label="Venues" list={venues} />
       )}
-      {doi !== null && <DoiLink doi={doi} />}
+      {doi !== null && <DoiDetail doi={doi} />}
       {citationCount !== null && (
         <Detail label="Citations count" text={citationCount.toString()} />
       )}
@@ -160,7 +166,9 @@ function AuthorRow(props: Author) {
         onClick={() => setModalOpen(true)}
       >
         <div>
-          <div className="text-2xl text-stone-800">{`${firstName} ${lastName}`}</div>
+          <div className="text-md text-stone-800">{`${firstName} ${lastName}`}</div>
+          <div className="text-2xl text-stone-800">{publication.title}</div>
+          {publication.doi !== null && <DoiLink doi={publication.doi}/>}
           <div className="text-stone-700 font-extralight text-sm">{`${source} ${year}`}</div>
         </div>
         {similarityScore !== null && (

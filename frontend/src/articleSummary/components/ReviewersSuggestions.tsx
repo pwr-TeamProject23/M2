@@ -168,7 +168,6 @@ function AuthorRow(props: Author) {
         <div>
           <div className="text-md text-stone-800">{`${firstName} ${lastName}`}</div>
           <div className="text-2xl text-stone-800">{publication.title}</div>
-          {publication.doi !== null && <DoiLink doi={publication.doi}/>}
           <div className="text-stone-700 font-extralight text-sm">{`${source} ${year}`}</div>
         </div>
         {similarityScore !== null && (

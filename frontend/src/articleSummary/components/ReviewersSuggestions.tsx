@@ -170,11 +170,10 @@ type KeywordsFormProps = {
   status?: SearchStatus;
   setStatus: (s: SearchStatus) => void;
   isLoading: boolean;
-  setPendingStatus?: () => void;
 };
 
 function KeywordsForm(props: KeywordsFormProps) {
-  const {status, setStatus, isLoading, setPendingStatus } = props;
+  const {status, setStatus, isLoading } = props;
   const [keywords, setKeywords] = useState<string>("");
   const { searchId } = useParams();
   const isStatusPending = status === SearchStatus.pending;
@@ -202,8 +201,6 @@ function KeywordsForm(props: KeywordsFormProps) {
           .split(",")
           .map((item) => item.trim()),
       ).then(() => setStatus(SearchStatus.pending));
-      getSearchStatus(parseInt(searchId)).then(setStatus);
-      if (setPendingStatus!==undefined) setPendingStatus();
     }
   };
   const isButtonDisabled = isDisabled || emptyKeywords;
@@ -270,7 +267,6 @@ export default function ReviewersSuggestions() {
   const { authors, venueOptions, filename, isLoading } = useSuggestions(status);
   const filteredAuthors = authors.filter(filterAuthors(selectedTab, venue));
   const { searchId } = useParams();
-  const setPendingStatus = () => setStatus(SearchStatus.pending);
 
   useEffect(() => {
     if (status === SearchStatus.pending && searchId !== undefined) {
@@ -311,7 +307,7 @@ export default function ReviewersSuggestions() {
   return (
     <div>
       <SuggestedReviewersBanner filename={filename} />
-      <KeywordsForm {...{isLoading, setStatus, setPendingStatus, status}}/>
+      <KeywordsForm {...{isLoading, setStatus, status}}/>
       <div className="flex justify-between border-b border-stone-300">
         {Object.values(TabOptions).map((value) => {
           return (

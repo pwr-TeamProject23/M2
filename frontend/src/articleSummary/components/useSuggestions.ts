@@ -20,25 +20,24 @@ export default function useSuggestions(status?: SearchStatus) {
     setVenueOptions(data.venues.map((v: string) => ({ label: v, value: v })));
   };
 
-
   useEffect(() => {
     if (user != null && searchId) {
       getFilename(searchId).then((r) => setFilename(r.file_name));
       if (isUploadReady) {
         getSuggestions(searchId)
-        .then(setData)
-        .then(() => setLoading(false));
+          .then(setData)
+          .then(() => setLoading(false));
       }
     }
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     if (isUploadReady && searchId) {
       getSuggestions(searchId)
         .then(setData)
         .then(() => setLoading(false));
     }
-  }, [status])
+  }, [status]);
 
   return {
     authors,

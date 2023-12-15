@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { CheckmarkIcon, ErrorIcon, PendingIcon } from "../../components/Icons";
 import { Search, SearchStatus } from "./models";
 import { deleteSearch, getHistory, getSearchStatus } from "./api";
@@ -103,10 +103,16 @@ export default function History() {
     setSearches: state.setSearches,
   }));
   const user = useAuthStore((state) => state.user);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const setHistory = (s: Search[]) => {
+    setSearches(s);
+    setIsLoading(false);
+  };
 
   useEffect(() => {
     if (user != null) {
-      getHistory().then(setSearches);
+      getHistory().then(setHistory);
     }
   }, []);
 
@@ -115,6 +121,14 @@ export default function History() {
   const callback = () => {
     if (user !== null) getHistory().then(setSearches);
   };
+
+  if (isLoading) {
+    return (
+      <div className="w-100 flex justify-center text-3xl p-24 text-stone-300">
+        Loading your history, please wait
+      </div>
+    );
+  }
 
   if (searches.length == 0) {
     return (

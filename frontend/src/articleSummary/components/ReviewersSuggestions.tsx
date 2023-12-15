@@ -31,7 +31,7 @@ type ExternalLinkProps = {
   source: Source;
 };
 
-function ExternalLink(props: ExternalLinkProps) {
+function ExternalProfileLink(props: ExternalLinkProps) {
   const { id, source } = props;
   const linkToProfile = "Link to profle";
 
@@ -54,20 +54,48 @@ function ExternalLink(props: ExternalLinkProps) {
   );
 }
 
-function DetailText(props: { children: React.ReactNode }) {
+type ContainerProps = { children: React.ReactNode };
+
+function DetailText(props: ContainerProps) {
   return (
     <div className="text-base text-stone-900 font-light">{props.children}</div>
   );
 }
 
+function DetailContainer(props: ContainerProps) {
+  return <div className="mb-2">{props.children}</div>;
+}
+
+function DetailLabelContainer(props: ContainerProps) {
+  return <div className="text-xs font-thin -mb-1"> {props.children} </div>;
+}
+
 function Detail(props: DetailProps) {
   return (
-    <div className="mb-2">
-      <div className="text-xs font-thin -mb-1"> {props.label} </div>
+    <DetailContainer>
+      <DetailLabelContainer> {props.label} </DetailLabelContainer>
       {props.text && <DetailText> {props.text} </DetailText>}
       {props.list &&
         props.list.map((elem, i) => <DetailText key={i}> {elem} </DetailText>)}
-    </div>
+    </DetailContainer>
+  );
+}
+
+function DoiLink(props: { doi: string }) {
+  const { doi } = props;
+  return (
+    <DetailContainer>
+      <DetailLabelContainer> DOI </DetailLabelContainer>
+      <div className="underline text-base text-stone-900 font-light">
+        <Link
+          to={`https://doi.org/${doi}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {doi}
+        </Link>
+      </div>
+    </DetailContainer>
   );
 }
 
@@ -90,7 +118,7 @@ function AuthorDetails(props: Author & { isModalOpen: boolean }) {
       <div className="text-5xl text-stone-800 mb-2">{`${firstName} ${lastName}`}</div>
 
       <div className="underline font-thin text-stone-900 -mt-2 mb-2">
-        <ExternalLink id={authorExternalId} source={source} />
+        <ExternalProfileLink id={authorExternalId} source={source} />
       </div>
 
       <Detail label="Source" text={source} />
@@ -107,7 +135,7 @@ function AuthorDetails(props: Author & { isModalOpen: boolean }) {
       {venues !== null && venues !== undefined && (
         <Detail label="Venues" list={venues} />
       )}
-      {doi && <Detail label="DOI" text={doi} />}
+      {doi !== null && <DoiLink doi={doi} />}
       {citationCount !== null && (
         <Detail label="Citations count" text={citationCount.toString()} />
       )}
@@ -173,7 +201,7 @@ type KeywordsFormProps = {
 };
 
 function KeywordsForm(props: KeywordsFormProps) {
-  const {status, setStatus, isLoading } = props;
+  const { status, setStatus, isLoading } = props;
   const [keywords, setKeywords] = useState<string>("");
   const { searchId } = useParams();
   const isStatusPending = status === SearchStatus.pending;
@@ -207,7 +235,7 @@ function KeywordsForm(props: KeywordsFormProps) {
   const onHover = isButtonDisabled ? "" : "hover:bg-stone-400";
   const buttonBg = isButtonDisabled ? "bg-stone-100" : "bg-teal-950";
   const disabledLabel = isDisabled ? "text-stone-300" : "";
-  const inputBg =  isDisabled ? "bg-stone-100" : "";
+  const inputBg = isDisabled ? "bg-stone-100" : "";
   const inputBorder = isDisabled ? "border-none" : "";
   const disabledButtonText = isDisabled ? "text-stone-400" : "text-white";
   const disabledInputText = isDisabled ? "text-stone-400" : "";
@@ -289,7 +317,7 @@ export default function ReviewersSuggestions() {
     return (
       <div>
         <SuggestedReviewersBanner filename={filename} />
-        <KeywordsForm {...{isLoading, setStatus, status}}/>
+        <KeywordsForm {...{ isLoading, setStatus, status }} />
         <UserInfo text="Search in progress. Please wait a moment for your results. Thank you!" />
       </div>
     );
@@ -307,7 +335,7 @@ export default function ReviewersSuggestions() {
   return (
     <div>
       <SuggestedReviewersBanner filename={filename} />
-      <KeywordsForm {...{isLoading, setStatus, status}}/>
+      <KeywordsForm {...{ isLoading, setStatus, status }} />
       <div className="flex justify-between border-b border-stone-300">
         {Object.values(TabOptions).map((value) => {
           return (
@@ -332,7 +360,7 @@ export default function ReviewersSuggestions() {
           onChange={setVenue}
         />
       </div>
-      <Results {...{isLoading, filteredAuthors}}/>
+      <Results {...{ isLoading, filteredAuthors }} />
     </div>
   );
 }

@@ -201,7 +201,7 @@ function KeywordsForm(props: KeywordsFormProps) {
           .replace(/,\s*$/, "")
           .split(",")
           .map((item) => item.trim()),
-      );
+      ).then(() => setStatus(SearchStatus.pending));
       getSearchStatus(parseInt(searchId)).then(setStatus);
       if (setPendingStatus!==undefined) setPendingStatus();
     }

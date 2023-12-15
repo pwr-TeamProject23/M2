@@ -1,4 +1,4 @@
-from collections.abc import Iterator
+from itertools import islice
 from logging import getLogger
 
 from pydantic import ValidationError
@@ -19,13 +19,20 @@ class ScopusParser:
         keywords: list[str],
         min_pubyear: int = SCOPUS_SEARCH_MIN_PUBYEAR,
         max_pages: int = SCOPUS_SEARCH_MAX_PAGES,
-    ) -> Iterator[list[ParsedAuthor]]:
+    ) -> list[ParsedAuthor]:
+        and_keywords = " AND ".join(keywords)
+        or_keywords = " OR ".join(keywords)
+        print(keywords)
         query = GET_PUBLICATION_BY_MIN_PUBYEAR_AND_KEYWORDS.format(
-            max_pages=max_pages, min_pubyear=min_pubyear, keywords=" OR ".join(keywords)
+            max_pages=max_pages,
+            min_pubyear=min_pubyear,
+            keywords=f"{and_keywords} OR {or_keywords}",
         )
         return self._get_authors_and_publications(query=query)
 
-    def _get_authors_and_publications(self, query: str) -> list[ParsedAuthor]:
+    def _get_authors_and_publications(
+        self, query: str, max_pages: int = SCOPUS_SEARCH_MAX_PAGES
+    ) -> list[ParsedAuthor]:
         params = {"query": query, "view": "COMPLETE"}
         try:
             response = self.scopus_handler.get_abstracts_and_citations(params=params)
@@ -35,7 +42,7 @@ class ScopusParser:
             )
             raise
         parsed_authors = []
-        for page in response:
+        for page in islice(response, max_pages):
             for entry in page.get("search-results", {}).get("entry", []):
                 if "author" not in entry:
                     continue

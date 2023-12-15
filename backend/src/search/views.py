@@ -65,7 +65,7 @@ async def search_by_keywords(
     search = SearchRepository.find_by_id(db_session, search_id)
     if search.user_id != user_id:
         raise HTTPException(403, "Forbidden")
-    if search is None or search.status != SearchTaskStatus.READY:
+    if search is None or search.status == SearchTaskStatus.ERROR:
         raise HTTPException(404, detail="Page not found.")
     try:
         SearchRepository.update(
@@ -76,13 +76,13 @@ async def search_by_keywords(
                 "keywords": keywords.keywords,
             },
         )
+        AuthorRepository.delete_by_field(db_session, "search_id", search_id)
         task_result = celery.send_task(
             "search_by_keywords", (search.keywords, search.abstract, search.id)
         )
-        AuthorRepository.delete_by_field(db_session, "search_id", search_id)
         SearchRepository.update(db_session, search, {"task_id": task_result.id})
-    except Exception:
-        raise HTTPException(500, detail="Internal server error.")
+    except Exception as e:
+        raise HTTPException(500, detail=f"Internal server error, details: {e}")
     return SearchTaskCreationResponseModel(filename=search.file_name)
 
 
@@ -129,7 +129,7 @@ async def get_results(
     if search.user_id != user_id:
         raise HTTPException(403, "Forbidden")
 
-    if search is None or search.status != SearchTaskStatus.READY:
+    if search is None or search.status == SearchTaskStatus.ERROR:
         raise HTTPException(404, detail="Page not found.")
 
     all_venues = []

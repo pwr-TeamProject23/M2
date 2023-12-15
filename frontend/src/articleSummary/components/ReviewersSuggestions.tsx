@@ -155,7 +155,7 @@ function UserInfo(props: { text: string }) {
   );
 }
 
-function SugestedReviewersBanner(props: { filename?: string }) {
+function SuggestedReviewersBanner(props: { filename?: string }) {
   if (props.filename === undefined) {
     return null;
   }
@@ -292,7 +292,7 @@ export default function ReviewersSuggestions() {
   if (status == SearchStatus.pending) {
     return (
       <div>
-        <SugestedReviewersBanner filename={filename} />
+        <SuggestedReviewersBanner filename={filename} />
         <KeywordsForm {...{isLoading, setStatus, status}}/>
         <UserInfo text="Search in progress. Please wait a moment for your results. Thank you!" />
       </div>
@@ -302,7 +302,7 @@ export default function ReviewersSuggestions() {
   if (status == SearchStatus.error) {
     return (
       <div>
-        <SugestedReviewersBanner filename={filename} />
+        <SuggestedReviewersBanner filename={filename} />
         <UserInfo text="We are sorry, this search failed, please try uploading another file" />
       </div>
     );
@@ -310,7 +310,7 @@ export default function ReviewersSuggestions() {
 
   return (
     <div>
-      <SugestedReviewersBanner filename={filename} />
+      <SuggestedReviewersBanner filename={filename} />
       <KeywordsForm {...{isLoading, setStatus, setPendingStatus, status}}/>
       <div className="flex justify-between border-b border-stone-300">
         {Object.values(TabOptions).map((value) => {

@@ -37,7 +37,6 @@ export const search = async (
   search_id: string,
   keywords: string[],
 ): Promise<void> => {
-  console.log(keywords);
   await axios.post(`/search/keywords/${search_id}`, { keywords: keywords });
 };
 

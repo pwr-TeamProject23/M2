@@ -211,6 +211,7 @@ function KeywordsForm(props: KeywordsFormProps) {
   const onHover = isButtonDisabled ? "" : "hover:bg-stone-400";
   const buttonBg = isButtonDisabled ? "bg-stone-200" : "bg-teal-950";
   const inputBg =  isLoading ? "bg-stone-200" : "";
+  const inputBorder = isDisabled ? "border border-stone-300" : "";
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
     setKeywords(e.target.value);
@@ -219,7 +220,7 @@ function KeywordsForm(props: KeywordsFormProps) {
       <div className="pr-4">Keywords, comma separated</div>
       <div className="w-full flex">
         <input
-          className={`${inputBg} lg:w-11/12 w-9/12`}
+          className={`${inputBg} ${inputBorder} lg:w-11/12 w-9/12`}
           type="text"
           value={keywords}
           onChange={handleChange}

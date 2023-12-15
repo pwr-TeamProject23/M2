@@ -10,7 +10,7 @@ class Search(BaseModel):
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     user_id: Mapped[int] = mapped_column(ForeignKey("user.id", ondelete="CASCADE"))
     file_name: Mapped[str]
-    keywords: Mapped[int] = mapped_column(ARRAY(String), nullable=True)
+    keywords: Mapped[list[str] | None] = mapped_column(ARRAY(String), nullable=True)
     abstract: Mapped[str | None]
     task_id: Mapped[str | None]
     status: Mapped[SearchTaskStatus]

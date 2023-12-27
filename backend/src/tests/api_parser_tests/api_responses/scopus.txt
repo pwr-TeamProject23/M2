@@ -1,0 +1,3464 @@
+{
+    "search-results": {
+        "opensearch:totalResults": "1992",
+        "opensearch:startIndex": "100",
+        "opensearch:itemsPerPage": "25",
+        "opensearch:Query": {
+            "@role": "request",
+            "@searchTerms": "TITLE-ABS-KEY(code AND smells)",
+            "@startPage": "100"
+        },
+        "link": [
+            {
+                "@_fa": "true",
+                "@ref": "self",
+                "@href": "https://api.elsevier.com/content/search/scopus?start=100&count=25&query=TITLE-ABS-KEY%28code+AND+smells%29&apiKey=6a05277b1d5b44bd052a6a9b7304cab8&view=COMPLETE",
+                "@type": "application/json"
+            },
+            {
+                "@_fa": "true",
+                "@ref": "first",
+                "@href": "https://api.elsevier.com/content/search/scopus?start=0&count=25&query=TITLE-ABS-KEY%28code+AND+smells%29&apiKey=6a05277b1d5b44bd052a6a9b7304cab8&view=COMPLETE",
+                "@type": "application/json"
+            },
+            {
+                "@_fa": "true",
+                "@ref": "prev",
+                "@href": "https://api.elsevier.com/content/search/scopus?start=75&count=25&query=TITLE-ABS-KEY%28code+AND+smells%29&apiKey=6a05277b1d5b44bd052a6a9b7304cab8&view=COMPLETE",
+                "@type": "application/json"
+            },
+            {
+                "@_fa": "true",
+                "@ref": "next",
+                "@href": "https://api.elsevier.com/content/search/scopus?start=125&count=25&query=TITLE-ABS-KEY%28code+AND+smells%29&apiKey=6a05277b1d5b44bd052a6a9b7304cab8&view=COMPLETE",
+                "@type": "application/json"
+            },
+            {
+                "@_fa": "true",
+                "@ref": "last",
+                "@href": "https://api.elsevier.com/content/search/scopus?start=1967&count=25&query=TITLE-ABS-KEY%28code+AND+smells%29&apiKey=6a05277b1d5b44bd052a6a9b7304cab8&view=COMPLETE",
+                "@type": "application/json"
+            }
+        ],
+        "entry": [
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85172412372"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85172412372?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85172412372&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85172412372&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85172412372",
+                "dc:identifier": "SCOPUS_ID:85172412372",
+                "eid": "2-s2.0-85172412372",
+                "dc:title": "Scientific Workflow Management for Software Quality Assessment Replication: An Open Source Architecture",
+                "dc:creator": "dos Reis J.P.",
+                "prism:publicationName": "Communications in Computer and Information Science",
+                "prism:issn": "18650929",
+                "prism:eIssn": "18650937",
+                "prism:isbn": [
+                    {
+                        "@_fa": "true",
+                        "$": "9783031437021"
+                    }
+                ],
+                "prism:volume": "1871 CCIS",
+                "prism:pageRange": "1-14",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1007/978-3-031-43703-8_1",
+                "dc:description": "Replication of research experiments is important for establishing the validity and generalizability of findings, building a cumulative body of knowledge, and addressing issues of publication bias. The quest for replication led to the concept of scientific workflow, a structured and systematic process for carrying out research that defines a series of steps, methods, and tools needed to collect and analyze data, and generate results. In this study, we propose a cloud-based framework built upon open source software, which facilitates the construction and execution of workflows for the replication/reproduction of software quality studies. To demonstrate its feasibility, we describe the replication of a software quality experiment on automatically detecting code smells with machine learning techniques. The proposed framework can mitigate two types of validity threats in software quality experiments: (i) internal validity threats due to instrumentation, since the same measurement instruments can be used in replications, thus not affecting the validity of the results, and (ii) external validity threats due to reduced generalizability, since different researchers can more easily replicate experiments with different settings, populations, and contexts while reusing the same scientific workflow.",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60028300",
+                        "afid": "60028300",
+                        "affilname": "Iscte – Instituto Universitário de Lisboa",
+                        "affiliation-city": "Lisbon",
+                        "affiliation-country": "Portugal"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60003079",
+                        "afid": "60003079",
+                        "affilname": "Université Fédérale de Sergipe",
+                        "affiliation-city": "Sao Cristovao",
+                        "affiliation-country": "Brazil"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/127333596",
+                        "afid": "127333596",
+                        "affilname": "Instituto Superior de Tecnologias Avançadas – ISTEC",
+                        "affiliation-city": "Lisbon",
+                        "affiliation-country": "Portugal"
+                    }
+                ],
+                "prism:aggregationType": "Book Series",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "4",
+                    "$": "4"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57193424852",
+                        "authid": "57193424852",
+                        "authname": "dos Reis J.P.",
+                        "surname": "dos Reis",
+                        "given-name": "José Pereira",
+                        "initials": "J.P.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "127333596"
+                            },
+                            {
+                                "@_fa": "true",
+                                "$": "60028300"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57219054371",
+                        "authid": "57219054371",
+                        "authname": "Abreu F.B.e.",
+                        "surname": "Abreu",
+                        "given-name": "Fernando Brito e.",
+                        "initials": "F.B.e.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60028300"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "3",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58620604800",
+                        "authid": "58620604800",
+                        "authname": "de F. Carneiro G.",
+                        "surname": "de F. Carneiro",
+                        "given-name": "Glauco",
+                        "initials": "G.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60003079"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "4",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58620690300",
+                        "authid": "58620690300",
+                        "authname": "Almeida D.",
+                        "surname": "Almeida",
+                        "given-name": "Duarte",
+                        "initials": "D.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60028300"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "code smells | open source | quality assessment | replication | scientific workflow | software quality",
+                "source-id": "17700155007",
+                "fund-acr": "NAFOSTED",
+                "fund-no": "UIDB/04466/2020",
+                "fund-sponsor": "National Foundation for Science and Technology Development",
+                "openaccess": "0",
+                "openaccessFlag": false
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85172214134"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85172214134?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85172214134&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85172214134&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85172214134",
+                "dc:identifier": "SCOPUS_ID:85172214134",
+                "eid": "2-s2.0-85172214134",
+                "dc:title": "Code Smell Detection using Hybrid Machine Learning Algorithms",
+                "dc:creator": "Mahalakshmi D.",
+                "prism:publicationName": "Proceedings of the 5th International Conference on Inventive Research in Computing Applications, ICIRCA 2023",
+                "prism:isbn": [
+                    {
+                        "@_fa": "true",
+                        "$": "9798350321425"
+                    }
+                ],
+                "prism:pageRange": "633-638",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1109/ICIRCA57980.2023.10220911",
+                "dc:description": "Code smells frequently leads to the discovery of decreased code quality, drains on application resources, or even critical security vulnerabilities embedded within the application's code. While code smells may not always indicate a particularly serious problem, it do often lead to the discovery of these issues. Software's structural characteristics lead to a design issue that makes it challenging to manage and maintain code refactoring. The goal of the current research is to create methods for identifying code smells. The machine learning algorithm is a reliable method for individualized smell detection, but there aren't many studies on how well it works for different developers. In this proposed work used two different deep learning algorithms and five different machine learning ensembles to detect suspicious code. Investigation of the Data class, God class, Feature-envy, and Long-method datasets revealed that each contained various levels of code smells. Although there is room for improvement, the outcomes of prior publications' applications of machine learning and stacking ensemble learning methods to this dataset were satisfactory. A class balancing method (SMOTE) was implemented to address the problem of class imbalance within the datasets. While the Feature- envy dataset with the selected dozen metrics produced the lowest accuracy (91.45%) for the Max voting method, the Long-method dataset with the various chosen metrics produced the highest accuracy (100%) for all five methods.",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60271643",
+                        "afid": "60271643",
+                        "affilname": "Panimalar Engineering College",
+                        "affiliation-city": "Chennai",
+                        "affiliation-country": "India"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60109336",
+                        "afid": "60109336",
+                        "affilname": "Saveetha School of Engineering",
+                        "affiliation-city": "Chennai",
+                        "affiliation-country": "India"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60021176",
+                        "afid": "60021176",
+                        "affilname": "Anna University",
+                        "affiliation-city": "Chennai",
+                        "affiliation-country": "India"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/130246055",
+                        "afid": "130246055",
+                        "affilname": "Veltech Rangarajan Dr. Sagunthula R &amp; D Institute of Science and Technology",
+                        "affiliation-city": null,
+                        "affiliation-country": "India"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/127303332",
+                        "afid": "127303332",
+                        "affilname": "Lakshmi Bangaru Arts and Science College",
+                        "affiliation-city": "Melmaruvathur",
+                        "affiliation-country": "India"
+                    }
+                ],
+                "prism:aggregationType": "Conference Proceeding",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "6",
+                    "$": "6"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/56786311600",
+                        "authid": "56786311600",
+                        "authname": "Mahalakshmi D.",
+                        "surname": "Mahalakshmi",
+                        "given-name": "D.",
+                        "initials": "D.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60271643"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57760102000",
+                        "authid": "57760102000",
+                        "authname": "Kasinathan P.",
+                        "surname": "Kasinathan",
+                        "given-name": "Prabakaran",
+                        "initials": "P.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "130246055"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "3",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57191616149",
+                        "authid": "57191616149",
+                        "authname": "Elangovan D.",
+                        "surname": "Elangovan",
+                        "given-name": "D.",
+                        "initials": "D.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60271643"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "4",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58170034300",
+                        "authid": "58170034300",
+                        "authname": "Rohith Bhat C.",
+                        "surname": "Rohith Bhat",
+                        "given-name": "C.",
+                        "initials": "C.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60109336"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "5",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57208333593",
+                        "authid": "57208333593",
+                        "authname": "Balamurugan M.",
+                        "surname": "Balamurugan",
+                        "given-name": "M.",
+                        "initials": "M.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60021176"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "6",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57210921500",
+                        "authid": "57210921500",
+                        "authname": "Sivakumar S.",
+                        "surname": "Sivakumar",
+                        "given-name": "S.",
+                        "initials": "S.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "127303332"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "Code generation | Code smell | Deep Learning | ensemble Learning | feature selection and Machine Learning",
+                "source-id": "21101179085",
+                "fund-no": "undefined",
+                "openaccess": "0",
+                "openaccessFlag": false
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85172155478"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85172155478?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85172155478&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85172155478&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85172155478",
+                "dc:identifier": "SCOPUS_ID:85172155478",
+                "eid": "2-s2.0-85172155478",
+                "dc:title": "Formalization Quality in Isabelle",
+                "dc:creator": "Huch F.",
+                "prism:publicationName": "Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)",
+                "prism:issn": "03029743",
+                "prism:eIssn": "16113349",
+                "prism:isbn": [
+                    {
+                        "@_fa": "true",
+                        "$": "9783031427527"
+                    }
+                ],
+                "prism:volume": "14101 LNAI",
+                "prism:pageRange": "142-157",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1007/978-3-031-42753-4_10",
+                "dc:description": "Little is known about the quality of formalizations in interactive theorem proving. In this work, we analyze the relationship between static analysis warnings (lints) and maintenance effort for 6470 Isabelle theories, create models to predict lints based on structural features, and compare the results to a small ground-truth dataset collected with the help of domain experts. We find that for the majority of lints, there is a significant but low-strength correlation between frequency of occurrence and churn in maintenance change-sets. In particular, for proofs using tactic methods (which can be brittle), the Spearman correlation is highest with a strength of 0.16, p&lt; 0.005. Furthermore, when classifying theories as lint-prone based on their formal entity graphs (which capture the dependencies between underlying logical entities), random forests outperform even deep learning models on our data, achieving 58 % precision and 21 % recall. Finally, in our ground-truth dataset of 35 good and 35 problematic theories, our pre-defined criterion that identifies theories with more than one lint every 100 lines achieves 95 % precision and 51 % recall. Remarkably, this is very close to the optimal criterion, which we observe at one lint every 109 lines. Moreover, the random forest model trained for lint-proneness even achieves perfect accuracy at 43 % recall, providing additional evidence of its effectiveness.",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60119999",
+                        "afid": "60119999",
+                        "affilname": "Department of Computer Science and Technology",
+                        "affiliation-city": "Cambridge",
+                        "affiliation-country": "United Kingdom"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60019722",
+                        "afid": "60019722",
+                        "affilname": "Technische Universität München",
+                        "affiliation-city": "Munich",
+                        "affiliation-country": "Germany"
+                    }
+                ],
+                "prism:aggregationType": "Book Series",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "2",
+                    "$": "2"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57202601074",
+                        "authid": "57202601074",
+                        "orcid": "0000-0002-9418-1580",
+                        "authname": "Huch F.",
+                        "surname": "Huch",
+                        "given-name": "Fabian",
+                        "initials": "F.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60019722"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/54394250500",
+                        "authid": "54394250500",
+                        "authname": "Stathopoulos Y.",
+                        "surname": "Stathopoulos",
+                        "given-name": "Yiannos",
+                        "initials": "Y.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60119999"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "Change frequency | Code smell | Deep learning | Formalization quality | Isabelle | Linter | Machine learning | Static analysis",
+                "source-id": "25674",
+                "fund-acr": "NSF",
+                "fund-no": "313290/2021-0",
+                "fund-sponsor": "National Science Foundation",
+                "openaccess": "0",
+                "openaccessFlag": false
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85172023897"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85172023897?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85172023897&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85172023897&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85172023897",
+                "dc:identifier": "SCOPUS_ID:85172023897",
+                "eid": "2-s2.0-85172023897",
+                "dc:title": "Improved Flaky Test Detection with Black-Box Approach and Test Smells",
+                "dc:creator": "Carmo D.",
+                "prism:publicationName": "Proceedings - IEEE Symposium on Computers and Communications",
+                "prism:issn": "15301346",
+                "prism:isbn": [
+                    {
+                        "@_fa": "true",
+                        "$": "9798350300482"
+                    }
+                ],
+                "prism:volume": "2023-July",
+                "prism:pageRange": "245-251",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1109/ISCC58397.2023.10217934",
+                "dc:description": "Flaky tests can pose a challenge for software development, as they produce inconsistent results even when there are no changes to the code or test. This leads to unreliable results and makes it difficult to diagnose and troubleshoot any issues. In this study, we aim to identify flaky test cases in software development using a black-box approach. Flaky test cases are unreliable indicators of code quality and can cause issues in software development. Our proposed model, Fast-Flaky, achieved the best results in the cross-validation results. In the per-project validation, the results showed an overall increase in accuracy but decreased in other metrics. However, there were some projects where the results improved with the proposed pre-processing techniques. These results provide practitioners in software development with a method for identifying flaky test cases and may inspire further research on the effectiveness of different pre-processing techniques or the use of additional test smells.",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60001002",
+                        "afid": "60001002",
+                        "affilname": "Universidade da Beira Interior",
+                        "affiliation-city": "Covilha",
+                        "affiliation-country": "Portugal"
+                    }
+                ],
+                "prism:aggregationType": "Conference Proceeding",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "4",
+                    "$": "4"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58613911700",
+                        "authid": "58613911700",
+                        "authname": "Carmo D.",
+                        "surname": "Carmo",
+                        "given-name": "David",
+                        "initials": "D.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60001002"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58614058000",
+                        "authid": "58614058000",
+                        "authname": "Goncalves L.",
+                        "surname": "Goncalves",
+                        "given-name": "Luisa",
+                        "initials": "L.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60001002"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "3",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58431799700",
+                        "authid": "58431799700",
+                        "authname": "Dias A.",
+                        "surname": "Dias",
+                        "given-name": "Ana",
+                        "initials": "A.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60001002"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "4",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55389546100",
+                        "authid": "55389546100",
+                        "authname": "Pombo N.",
+                        "surname": "Pombo",
+                        "given-name": "Nuno",
+                        "initials": "N.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60001002"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "black-box | flaky test | software quality | test smells",
+                "source-id": "18707",
+                "fund-acr": "EC",
+                "fund-no": "UIDB/EEA/50008/2020",
+                "fund-sponsor": "European Commission",
+                "openaccess": "0",
+                "openaccessFlag": false
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85171803748"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85171803748?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85171803748&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85171803748&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85171803748",
+                "dc:identifier": "SCOPUS_ID:85171803748",
+                "eid": "2-s2.0-85171803748",
+                "dc:title": "Do the Test Smells Assertion Roulette and Eager Test Impact Students' Troubleshooting and Debugging Capabilities?",
+                "dc:creator": "Aljedaani W.",
+                "prism:publicationName": "Proceedings - International Conference on Software Engineering",
+                "prism:issn": "02705257",
+                "prism:isbn": [
+                    {
+                        "@_fa": "true",
+                        "$": "9798350322590"
+                    }
+                ],
+                "prism:pageRange": "29-39",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1109/ICSE-SEET58685.2023.00009",
+                "dc:description": "To ensure the quality of a software system, developers perform an activity known as unit testing, where they write code (known as test cases) that verifies the individual software units that make up the system. Like production code, test cases are subject to bad programming practices, known as test smells, that hurt maintenance activities. An essential part of most maintenance activities is program comprehension which involves developers reading the code to understand its behavior to fix issues or update features. In this study, we conduct a controlled experiment with 96 undergraduate computer science students to investigate the impact of two common types of test smells, namely Assertion Roulette and Eager Test, on a student's ability to debug and troubleshoot test case failures. Our findings show that students take longer to correct errors in production code when smells are present in their associated test cases, especially Assertion Roulette. We envision our findings supporting academia in better equipping students with the knowledge and resources in writing and maintaining high-quality test cases. Our experimental materials are available online11https://wajdialjedaani.github.io/testsmellstd/",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60024438",
+                        "afid": "60024438",
+                        "affilname": "University of North Texas",
+                        "affiliation-city": "Denton",
+                        "affiliation-country": "United States"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60013791",
+                        "afid": "60013791",
+                        "affilname": "University of Hawaiʻi at Mānoa",
+                        "affiliation-city": "Honolulu",
+                        "affiliation-country": "United States"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60001777",
+                        "afid": "60001777",
+                        "affilname": "Rochester Institute of Technology",
+                        "affiliation-city": "Rochester",
+                        "affiliation-country": "United States"
+                    }
+                ],
+                "prism:aggregationType": "Conference Proceeding",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "4",
+                    "$": "4"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57201557865",
+                        "authid": "57201557865",
+                        "authname": "Aljedaani W.",
+                        "surname": "Aljedaani",
+                        "given-name": "Wajdi",
+                        "initials": "W.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60024438"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55904259300",
+                        "authid": "55904259300",
+                        "authname": "Mkaouer M.W.",
+                        "surname": "Mkaouer",
+                        "given-name": "Mohamed Wiem",
+                        "initials": "M.W.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60001777"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "3",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57194647753",
+                        "authid": "57194647753",
+                        "authname": "Peruma A.",
+                        "surname": "Peruma",
+                        "given-name": "Anthony",
+                        "initials": "A.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60013791"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "4",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57204223407",
+                        "authid": "57204223407",
+                        "authname": "Ludi S.",
+                        "surname": "Ludi",
+                        "given-name": "Stephanie",
+                        "initials": "S.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60024438"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "computer science education | software engineering education | software testing | Test smells | unit testing",
+                "source-id": "19242",
+                "fund-no": "undefined",
+                "openaccess": "0",
+                "openaccessFlag": false,
+                "freetoread": {
+                    "value": [
+                        {
+                            "$": "all"
+                        },
+                        {
+                            "$": "repository"
+                        },
+                        {
+                            "$": "repositoryam"
+                        }
+                    ]
+                },
+                "freetoreadLabel": {
+                    "value": [
+                        {
+                            "$": "All Open Access"
+                        },
+                        {
+                            "$": "Green"
+                        }
+                    ]
+                }
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85171794856"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85171794856?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85171794856&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85171794856&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85171794856",
+                "dc:identifier": "SCOPUS_ID:85171794856",
+                "eid": "2-s2.0-85171794856",
+                "dc:title": "Comparing the Effectiveness of Machine Learning and Deep Learning Techniques for Feature Envy Detection in Software Systems",
+                "dc:creator": "Menshawy R.S.",
+                "prism:publicationName": "1st International Conference of Intelligent Methods, Systems and Applications, IMSA 2023",
+                "prism:isbn": [
+                    {
+                        "@_fa": "true",
+                        "$": "9798350335569"
+                    }
+                ],
+                "prism:pageRange": "470-475",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1109/IMSA58542.2023.10217458",
+                "dc:description": "Code smells are common in poorly designed software that can hinder code maintainability. Automatic detection of design flaws assists developers in identifying code smells in theirsoftware programs to avoid low-quality delivery. However, the interpretation of code smells is subjective, and existing machine learning-based detection tools are limited in their ability to capture complex semantic relationships in textual code. To address this limitation, the paper proposes a detection system that exploits machine learning and deep learning techniques and compares their effectiveness in identifying the feature envy code smell. The study applies six deep learning techniques based on code semantics features extracted from abstract syntax trees, and eleven machine learning techniques based on code structural features. The results show that both approaches are effective in detecting code smells, with Random Forest achieving exceptional performance among the machine learning classifiers.",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60273262",
+                        "afid": "60273262",
+                        "affilname": "Egypt University of Informatics",
+                        "affiliation-city": "Cairo",
+                        "affiliation-country": "Egypt"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60216991",
+                        "afid": "60216991",
+                        "affilname": "Faculty of Engineering Ain Shams University",
+                        "affiliation-city": "Cairo",
+                        "affiliation-country": "Egypt"
+                    }
+                ],
+                "prism:aggregationType": "Conference Proceeding",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "3",
+                    "$": "3"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57226381728",
+                        "authid": "57226381728",
+                        "authname": "Menshawy R.S.",
+                        "surname": "Menshawy",
+                        "given-name": "Rana S.",
+                        "initials": "R.S.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60216991"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57217371978",
+                        "authid": "57217371978",
+                        "authname": "Yousef A.H.",
+                        "surname": "Yousef",
+                        "given-name": "Ahmed H.",
+                        "initials": "A.H.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60273262"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "3",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/8717709900",
+                        "authid": "8717709900",
+                        "authname": "Salem A.",
+                        "surname": "Salem",
+                        "given-name": "Ashraf",
+                        "initials": "A.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60216991"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "Code smell | Deep Learning | Feature Envy | Machine Learning | Semantical feature | Structural feature",
+                "source-id": "21101178242",
+                "fund-no": "undefined",
+                "openaccess": "0",
+                "openaccessFlag": false
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85171786042"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85171786042?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85171786042&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85171786042&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85171786042",
+                "dc:identifier": "SCOPUS_ID:85171786042",
+                "eid": "2-s2.0-85171786042",
+                "dc:title": "Comparison and Evaluation of Clone Detection Techniques with Different Code Representations",
+                "dc:creator": "Wang Y.",
+                "prism:publicationName": "Proceedings - International Conference on Software Engineering",
+                "prism:issn": "02705257",
+                "prism:isbn": [
+                    {
+                        "@_fa": "true",
+                        "$": "9781665457019"
+                    }
+                ],
+                "prism:pageRange": "332-344",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1109/ICSE48619.2023.00039",
+                "dc:description": "As one of bad smells in code, code clones may increase the cost of software maintenance and the risk of vulnerability propagation. In the past two decades, numerous clone detection technologies have been proposed. They can be divided into text-based, token-based, tree-based, and graph-based approaches according to their code representations. Different code representations abstract the code details from different perspectives. However, it is unclear which code representation is more effective in detecting code clones and how to combine different code representations to achieve ideal performance. In this paper, we present an empirical study to compare the clone detection ability of different code representations. Specifically, we reproduce 12 clone detection algorithms and divide them into different groups according to their code representations. After analyzing the empirical results, we find that token and tree representations can perform better than graph representation when detecting simple code clones. However, when the code complexity of a code pair increases, graph representation becomes more effective. To make our findings more practical, we perform manual analysis on open-source projects to seek a possible distribution of different clone types in the open-source community. Through the results, we observe that most clone pairs belong to simple code clones. Based on this observation, we discard heavyweight graph-based clone detection algorithms and conduct combination experiments to find out a suitable combination of token-based and tree-based approaches for achieving scalable and effective code clone detection. We develop the suitable combination into a tool called TACC and evaluate it with other state-of-the-art code clone detectors. Experimental results indicate that TACC performs better and has the ability to detect large-scale code clones.",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60019118",
+                        "afid": "60019118",
+                        "affilname": "University of Science and Technology of China",
+                        "affiliation-city": "Hefei",
+                        "affiliation-country": "China"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60005510",
+                        "afid": "60005510",
+                        "affilname": "Nanyang Technological University",
+                        "affiliation-city": "Singapore City",
+                        "affiliation-country": "Singapore"
+                    }
+                ],
+                "prism:aggregationType": "Conference Proceeding",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "6",
+                    "$": "6"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58608969600",
+                        "authid": "58608969600",
+                        "authname": "Wang Y.",
+                        "surname": "Wang",
+                        "given-name": "Yuekun",
+                        "initials": "Y.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60019118"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58608635500",
+                        "authid": "58608635500",
+                        "authname": "Ye Y.",
+                        "surname": "Ye",
+                        "given-name": "Yuhang",
+                        "initials": "Y.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60019118"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "3",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57202109788",
+                        "authid": "57202109788",
+                        "authname": "Wu Y.",
+                        "surname": "Wu",
+                        "given-name": "Yueming",
+                        "initials": "Y.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60005510"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "4",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57203042605",
+                        "authid": "57203042605",
+                        "authname": "Zhang W.",
+                        "surname": "Zhang",
+                        "given-name": "Weiwei",
+                        "initials": "W.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60019118"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "5",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/35101120400",
+                        "authid": "35101120400",
+                        "authname": "Xue Y.",
+                        "surname": "Xue",
+                        "given-name": "Yinxing",
+                        "initials": "Y.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60019118"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "6",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/56911879800",
+                        "authid": "56911879800",
+                        "authname": "Liu Y.",
+                        "surname": "Liu",
+                        "given-name": "Yang",
+                        "initials": "Y.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60005510"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "Clone Detection | Code Representation | Empirical Study | Large Scale",
+                "source-id": "19242",
+                "fund-acr": "PMO",
+                "fund-no": "AISG2-RP-2020-019",
+                "fund-sponsor": "Prime Minister's Office Singapore",
+                "openaccess": "0",
+                "openaccessFlag": false
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85171777577"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85171777577?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85171777577&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85171777577&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85171777577",
+                "dc:identifier": "SCOPUS_ID:85171777577",
+                "eid": "2-s2.0-85171777577",
+                "dc:title": "SoK: Static Configuration Analysis in Infrastructure as Code Scripts",
+                "dc:creator": "Reddy Konala P.R.",
+                "prism:publicationName": "Proceedings of the 2023 IEEE International Conference on Cyber Security and Resilience, CSR 2023",
+                "prism:isbn": [
+                    {
+                        "@_fa": "true",
+                        "$": "9798350311709"
+                    }
+                ],
+                "prism:pageRange": "281-288",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1109/CSR57506.2023.10224925",
+                "dc:description": "This SoK paper presents findings from a survey conducted on the current state of tools and techniques used in the static configuration analysis of Infrastructure as Code (IaC). Our findings highlight the increasing importance of ensuring the quality of IaC scripts through techniques such as detecting code and security smells. Our findings reveal that regular expressions are widely used, but this may not be a long-term or fully automated solution for detecting smells. Additionally, our study found that the majority of the tools and techniques are developed for infrastructure provisioning, rather than configuration management and image building. This raises concerns because configuring software is a high-risk task, with malicious actors constantly targeting software systems. Therefore, it is crucial for researchers to develop efficient and advanced techniques for detecting defects in configuration management and image building. The aim of this paper is to provide a detailed overview of the current state of research in this field, and to identify areas for future development.",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60004424",
+                        "afid": "60004424",
+                        "affilname": "The University of Waikato",
+                        "affiliation-city": "Hamilton",
+                        "affiliation-country": "New Zealand"
+                    }
+                ],
+                "prism:aggregationType": "Conference Proceeding",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "3",
+                    "$": "3"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58608819200",
+                        "authid": "58608819200",
+                        "authname": "Reddy Konala P.R.",
+                        "surname": "Reddy Konala",
+                        "given-name": "Pandu Ranga",
+                        "initials": "P.R.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60004424"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55897237400",
+                        "authid": "55897237400",
+                        "authname": "Kumar V.",
+                        "surname": "Kumar",
+                        "given-name": "Vimal",
+                        "initials": "V.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60004424"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "3",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/8756864800",
+                        "authid": "8756864800",
+                        "authname": "Bainbridge D.",
+                        "surname": "Bainbridge",
+                        "given-name": "David",
+                        "initials": "D.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60004424"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "code | defects | devops | devsecops | empirical study | infrastructure as code | security | smells | sok | static configuration analysis | survey",
+                "source-id": "21101178243",
+                "fund-acr": "MBIE",
+                "fund-no": "UOWX1911",
+                "fund-sponsor": "Ministry of Business, Innovation and Employment",
+                "openaccess": "0",
+                "openaccessFlag": false
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85171768438"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85171768438?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85171768438&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85171768438&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85171768438",
+                "dc:identifier": "SCOPUS_ID:85171768438",
+                "eid": "2-s2.0-85171768438",
+                "dc:title": "The Smelly Eight: An Empirical Study on the Prevalence of Code Smells in Quantum Computing",
+                "dc:creator": "Chen Q.",
+                "prism:publicationName": "Proceedings - International Conference on Software Engineering",
+                "prism:issn": "02705257",
+                "prism:isbn": [
+                    {
+                        "@_fa": "true",
+                        "$": "9781665457019"
+                    }
+                ],
+                "prism:pageRange": "358-370",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1109/ICSE48619.2023.00041",
+                "dc:description": "Quantum Computing (QC) is a fast-growing field that has enhanced the emergence of new programming languages and frameworks. Furthermore, the increased availability of computational resources has also contributed to an influx in the development of quantum programs. Given that classical and QC are significantly different due to the intrinsic nature of quantum programs, several aspects of QC (e.g., performance, bugs) have been investigated, and novel approaches have been proposed. However, from a purely quantum perspective, maintenance, one of the major steps in a software development life-cycle, has not been considered by researchers yet. In this paper, we fill this gap and investigate the prevalence of code smells in quantum programs as an indicator of maintenance issues. We defined eight quantum-specific smells and validated them through a survey with 35 quantum developers. Since no tool specifically aims to detect quantum smells, we developed a tool called QSmell that supports the proposed quantum-specific smells. Finally, we conducted an empirical investigation to analyze the prevalence of quantum-specific smells in 15 open-source quantum programs. Our results showed that 11 programs (73.33%) contain at least one smell and, on average, a program has three smells. Furthermore, the long circuit is the most prevalent smell present in 53.33% of the programs.",
+                "citedby-count": "1",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60017375",
+                        "afid": "60017375",
+                        "affilname": "Instituto de Telecomunicações",
+                        "affiliation-city": "Aveiro",
+                        "affiliation-country": "Portugal"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60007278",
+                        "afid": "60007278",
+                        "affilname": "University of California, Irvine",
+                        "affiliation-city": "Irvine",
+                        "affiliation-country": "United States"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60007249",
+                        "afid": "60007249",
+                        "affilname": "Universidade do Porto",
+                        "affiliation-city": "Porto",
+                        "affiliation-country": "Portugal"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60002769",
+                        "afid": "60002769",
+                        "affilname": "Faculdade de Ciências, Universidade de Lisboa",
+                        "affiliation-city": "Lisbon",
+                        "affiliation-country": "Portugal"
+                    }
+                ],
+                "prism:aggregationType": "Conference Proceeding",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "5",
+                    "$": "5"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57844941000",
+                        "authid": "57844941000",
+                        "authname": "Chen Q.",
+                        "surname": "Chen",
+                        "given-name": "Qihong",
+                        "initials": "Q.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60007278"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58609496300",
+                        "authid": "58609496300",
+                        "authname": "Camara R.",
+                        "surname": "Camara",
+                        "given-name": "Ruben",
+                        "initials": "R.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60002769"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "3",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/35306564600",
+                        "authid": "35306564600",
+                        "authname": "Campos J.",
+                        "surname": "Campos",
+                        "given-name": "Jose",
+                        "initials": "J.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60002769"
+                            },
+                            {
+                                "@_fa": "true",
+                                "$": "60007249"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "4",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/22036474500",
+                        "authid": "22036474500",
+                        "authname": "Souto A.",
+                        "surname": "Souto",
+                        "given-name": "Andre",
+                        "initials": "A.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60002769"
+                            },
+                            {
+                                "@_fa": "true",
+                                "$": "60017375"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "5",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57209289155",
+                        "authid": "57209289155",
+                        "authname": "Ahmed I.",
+                        "surname": "Ahmed",
+                        "given-name": "Iftekhar",
+                        "initials": "I.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60007278"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "Empirical study | Quantum computing | Quantum software engineering | Quantum-specific code smell",
+                "source-id": "19242",
+                "fund-acr": "FCT",
+                "fund-no": "UIDB/50008/2020",
+                "fund-sponsor": "Fuel Cell Technologies Program",
+                "openaccess": "0",
+                "openaccessFlag": false
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85171387374"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85171387374?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85171387374&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85171387374&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85171387374",
+                "dc:identifier": "SCOPUS_ID:85171387374",
+                "eid": "2-s2.0-85171387374",
+                "dc:title": "On the Naming of Database Objects in the SQL Databases of Some Existing Software",
+                "dc:creator": "Eessaar E.",
+                "prism:publicationName": "Lecture Notes in Networks and Systems",
+                "prism:issn": "23673370",
+                "prism:eIssn": "23673389",
+                "prism:isbn": [
+                    {
+                        "@_fa": "true",
+                        "$": "9783031353109"
+                    }
+                ],
+                "prism:volume": "722 LNNS",
+                "prism:pageRange": "534-550",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1007/978-3-031-35311-6_51",
+                "dc:description": "Database users refer to database objects by using their identifiers, i.e., names. Good names of database objects facilitate understanding of the data in the database and its usage by human users. This in turn should make it easier to maintain and evolve the database and database applications. This paper presents the results of an investigation of naming of SQL database objects. It was made based on the PostgreSQL databases of four existing programs. The analysis was automated by the use of system-catalog based queries, which we have published (https://github.com/erki77/database-design-queries ). We present a catalog of 30 naming problems of SQL database objects, which is more extensive than the existing works about SQL naming problems. Many of the problems are about imprecision or inconsistency of names. Some of the problems are similar to those that exist in software source code. We demonstrate that queries based on system catalog are an effective way to analyze the naming problems of database objects.",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60068861",
+                        "afid": "60068861",
+                        "affilname": "Tallinna Tehnikaülikool",
+                        "affiliation-city": "Tallinn",
+                        "affiliation-country": "Estonia"
+                    }
+                ],
+                "prism:aggregationType": "Book Series",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "1",
+                    "$": "1"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/12790976800",
+                        "authid": "12790976800",
+                        "orcid": "0000-0001-5972-3412",
+                        "authname": "Eessaar E.",
+                        "surname": "Eessaar",
+                        "given-name": "Erki",
+                        "initials": "E.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60068861"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "Automated quality assessment | Identifiers | Lexicon bad smell | PostgreSQL | SQL",
+                "source-id": "21100901469",
+                "fund-no": "undefined",
+                "openaccess": "0",
+                "openaccessFlag": false
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85171336258"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85171336258?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85171336258&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85171336258&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85171336258",
+                "dc:identifier": "SCOPUS_ID:85171336258",
+                "eid": "2-s2.0-85171336258",
+                "dc:title": "Method-Level Code Smells Detection Using Machine Learning Models",
+                "dc:creator": "Dewangan S.",
+                "prism:publicationName": "Lecture Notes in Networks and Systems",
+                "prism:issn": "23673370",
+                "prism:eIssn": "23673389",
+                "prism:isbn": [
+                    {
+                        "@_fa": "true",
+                        "$": "9789819937332"
+                    }
+                ],
+                "prism:volume": "725 LNNS",
+                "prism:pageRange": "77-86",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1007/978-981-99-3734-9_7",
+                "dc:description": "Code smell detection is critical for calculating system quality and identifying issues that require more work and development. The technique of finding wrongly developed code components and implementing them is known as code smell detection. In this study, we used two method-level code smell datasets: the long parameter list and the switch statement, for detecting the code smells. A SMOTE class balancing approach is utilized to deal with the issue of class imbalance in datasets. A wrapper-based feature selection approach is used to choose the best features from each dataset. We applied three ensemble learning-based machine learning methods. To validate the model's accuracy, we utilized a fivefold cross-validation technique with five performance measurements (precision, recall, F-measure, AUC_Score, and accuracy). Using the max voting dataset, we obtained the best accuracy of 97.12% for the long parameter list dataset.",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60032346",
+                        "afid": "60032346",
+                        "affilname": "Guru Ghasidas Vishwavidyalaya",
+                        "affiliation-city": "Bilaspur",
+                        "affiliation-country": "India"
+                    }
+                ],
+                "prism:aggregationType": "Book Series",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "2",
+                    "$": "2"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57376332000",
+                        "authid": "57376332000",
+                        "authname": "Dewangan S.",
+                        "surname": "Dewangan",
+                        "given-name": "Seema",
+                        "initials": "S.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60032346"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/37059470800",
+                        "authid": "37059470800",
+                        "authname": "Rao R.S.",
+                        "surname": "Rao",
+                        "given-name": "Rajwant Singh",
+                        "initials": "R.S.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60032346"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "Feature selection technique | Machine learning | Method-level code smell detection | SMOTE class balancing technique",
+                "source-id": "21100901469",
+                "fund-no": "undefined",
+                "openaccess": "0",
+                "openaccessFlag": false
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85170715008"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85170715008?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85170715008&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85170715008&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85170715008",
+                "dc:identifier": "SCOPUS_ID:85170715008",
+                "eid": "2-s2.0-85170715008",
+                "dc:title": "Combined Shallow and Deep Learning Models for Malware Detection in Wsn",
+                "dc:creator": "Chandan M.",
+                "prism:publicationName": "International Journal of Image and Graphics",
+                "prism:issn": "02194678",
+                "prism:eIssn": "17936756",
+                "prism:pageRange": null,
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1142/S0219467825500342",
+                "dc:description": "Due to the major operating restrictions, ensuring security is the fundamental problem of Wireless Sensor Networks (WSNs). Because of their inadequate security mechanisms, WSNs are indeed a simple point for malware (worms, viruses, malicious code, etc.). According to the epidemic nature of worm propagation, it is critical to develop a worm defense mechanism in the network. This concept aims to establish novel malware detection in WSN that consists of several phases: \"(i) Preprocessing, (ii) feature extraction, as well as (iii) detection\". At first, the input data is subjected for preprocessing phase. Then, the feature extraction takes place, in which principal component analysis (PCA), improved linear discriminant analysis (LDA), and autoencoder-based characteristics are retrieved. Moreover, the retrieved characteristics are subjected to the detection phase. The detection is performed employing combined shallow learning and DL. Further, the shallow learning includes decision tree (DT), logistic regression (LR), and Naive Bayes (NB); the deep learning (DL) includes deep neural network (DNN), convolutional neural network (CNN), and recurrent neural network (RNN). Here, the DT output is given to the DNN, LR output is subjected to CNN, and the NB output is given to the RNN, respectively. Eventually, the DNN, CNN, and RNN outputs are averaged to generate a successful outcome. The combination can be thought of as an Ensemble classifier. The weight of the RNN is optimally tuned through the Self Improved Shark Smell Optimization with Opposition Learning (SISSOOL) model to improve detection precision and accuracy. Lastly, the outcomes of the suggested approach are computed in terms of different measures.",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60115621",
+                        "afid": "60115621",
+                        "affilname": "Gudlavalleru Engineering College",
+                        "affiliation-city": "Krishna",
+                        "affiliation-country": "India"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60027171",
+                        "afid": "60027171",
+                        "affilname": "Annamalai University",
+                        "affiliation-city": "Chidambaram",
+                        "affiliation-country": "India"
+                    }
+                ],
+                "prism:aggregationType": "Journal",
+                "subtype": "ar",
+                "subtypeDescription": "Article",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "3",
+                    "$": "3"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57196037975",
+                        "authid": "57196037975",
+                        "authname": "Chandan M.",
+                        "surname": "Chandan",
+                        "given-name": "Madhavarapu",
+                        "initials": "M.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60027171"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57210403333",
+                        "authid": "57210403333",
+                        "authname": "Santhi S.G.",
+                        "surname": "Santhi",
+                        "given-name": "S. G.",
+                        "initials": "S.G.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60027171"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "3",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/56964881700",
+                        "authid": "56964881700",
+                        "authname": "Srinivasa Rao T.",
+                        "surname": "Srinivasa Rao",
+                        "given-name": "T.",
+                        "initials": "T.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60115621"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "deep learning | Malware | optimization | shallow learning | WSN",
+                "article-number": "2550034",
+                "source-id": "21100869464",
+                "fund-no": "undefined",
+                "openaccess": "0",
+                "openaccessFlag": false
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85170540796"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85170540796?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85170540796&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85170540796&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85170540796",
+                "dc:identifier": "SCOPUS_ID:85170540796",
+                "eid": "2-s2.0-85170540796",
+                "dc:title": "Evaluation of Software Quality Through Refactoring Commit-Impact Analysis",
+                "prism:publicationName": "2023 International Conference on Next-Generation Computing, IoT and Machine Learning, NCIM 2023",
+                "prism:isbn": [
+                    {
+                        "@_fa": "true",
+                        "$": "9798350316001"
+                    }
+                ],
+                "prism:pageRange": null,
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1109/NCIM59001.2023.10212462",
+                "dc:description": "The aim of this study is to conduct an empirical analysis of the correlation between code modifications and software quality. This will be achieved by examining the effects of changes made before and after each refactoring commit, using software metrics such as size, complexity, code smells, vulnerability, and bug detection. The objective is to conduct static code analysis on open-source software from GitHub repositories using various repository mining and static code analysis tools. Our approach involves formulating research-based questions and utilizing the specified tools to obtain results that will enable us to resolve the case study. The obtained results have been summarised and further analyzed using tables and graphs to achieve the objective.",
+                "citedby-count": "0",
+                "prism:aggregationType": "Conference Proceeding",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "0"
+                },
+                "authkeywords": "gitHub repositories | refactoring commit | software metrics",
+                "source-id": "21101176784",
+                "fund-no": "undefined",
+                "openaccess": "0",
+                "openaccessFlag": false
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85170065234"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85170065234?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85170065234&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85170065234&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85170065234",
+                "dc:identifier": "SCOPUS_ID:85170065234",
+                "eid": "2-s2.0-85170065234",
+                "dc:title": "A Review of Methods for Identifying Extract Method Refactoring",
+                "dc:creator": "Tiwari O.",
+                "prism:publicationName": "Proceedings of the International Conference on Software Engineering and Knowledge Engineering, SEKE",
+                "prism:issn": "23259000",
+                "prism:eIssn": "23259086",
+                "prism:volume": "2023-July",
+                "prism:pageRange": "203-208",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.18293/SEKE2023-199",
+                "dc:description": "Extract method is one of the most popular and versatile refactoring. It is primarily applied to improve the design of methods by mitigating code smells such as long method, code clone, and feature envy. In recent past, various methods for identifying extract method refactoring have been proposed. However, an established performance hierarchy among them is lacking as the proposed approaches have been evaluated on different benchmarks. This paper evaluates the approaches in a common setting to identify various parameters and their impact on performance, with a goal to help users to identify a tool best suited to their requirement and aid researchers to make an informed decision while designing and evaluating a new approach. Existing approaches are evaluated over a common benchmark consisting of five open-source software studies with a focus on understanding the impact of evaluation settings over performance of approaches. Our experiment shows that standardization in value selection for evaluation parameters is crucial. It is observed that most of the approaches are sensitive to top-n suggestions parameter. Further, tolerance parameter used is not generalized. Our finding in performance trend measured in precision, recall, and F-measure deviate from the earlier results.",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60032358",
+                        "afid": "60032358",
+                        "affilname": "Indian Institute of Information Technology, Allahabad",
+                        "affiliation-city": "Allahabad",
+                        "affiliation-country": "India"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/123385339",
+                        "afid": "123385339",
+                        "affilname": "IIIT",
+                        "affiliation-city": "Nagpur",
+                        "affiliation-country": "India"
+                    }
+                ],
+                "prism:aggregationType": "Conference Proceeding",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "2",
+                    "$": "2"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57216156458",
+                        "authid": "57216156458",
+                        "authname": "Tiwari O.",
+                        "surname": "Tiwari",
+                        "given-name": "Omkarendra",
+                        "initials": "O.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60032358"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57220701599",
+                        "authid": "57220701599",
+                        "authname": "Yadav V.",
+                        "surname": "Yadav",
+                        "given-name": "Vrinda",
+                        "initials": "V.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "123385339"
+                            }
+                        ]
+                    }
+                ],
+                "source-id": "21100400011",
+                "fund-no": "undefined",
+                "openaccess": "1",
+                "openaccessFlag": true,
+                "freetoread": {
+                    "value": [
+                        {
+                            "$": "all"
+                        },
+                        {
+                            "$": "publisherfree2read"
+                        }
+                    ]
+                },
+                "freetoreadLabel": {
+                    "value": [
+                        {
+                            "$": "All Open Access"
+                        },
+                        {
+                            "$": "Bronze"
+                        }
+                    ]
+                }
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85170050119"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85170050119?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85170050119&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85170050119&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85170050119",
+                "dc:identifier": "SCOPUS_ID:85170050119",
+                "eid": "2-s2.0-85170050119",
+                "dc:title": "An Efficient Design Smell Detection Approach with Inter-class Relation",
+                "dc:creator": "Zhu H.",
+                "prism:publicationName": "Proceedings of the International Conference on Software Engineering and Knowledge Engineering, SEKE",
+                "prism:issn": "23259000",
+                "prism:eIssn": "23259086",
+                "prism:volume": "2023-July",
+                "prism:pageRange": "181-186",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.18293/SEKE2023-208",
+                "dc:description": "Code smell indicates the potential designed problems and quality of source code affecting the software maintenance and readability. Hence, detecting code smells in a timely and effective manner can provide guides for developers in refactoring. Existing methods generally treat these code smells from different granularities equally by merely extracting tokens-based or abstract syntax tree(AST)-based code representation, which does not take the diversity of code smells into account, especially when fewer researches concern design smells. To tackle this challenge, we propose Design Smell Detection through Inter-class Relation, which leverages the corresponding design smells features for code smell detection. More specifically, we employ AST-tokens instead of traditional word-tokens or AST to obtain code syntax information from the deep dimension. Meanwhile, we analyze the common structural feature of design smells and propose the inter-class relation among different class files contained in the same package. Moreover, to verify the effectiveness of our proposed method, we carry out extensive experiments with various settings on our new dataset and the results demonstrate that our method outperforms state-of-the-art methods by up to 31% in terms of F1-measure of all code smells. The code is available at: https://github.com/xzb777/designSmellUML.",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60010432",
+                        "afid": "60010432",
+                        "affilname": "Soochow University",
+                        "affiliation-city": "Suzhou",
+                        "affiliation-country": "China"
+                    }
+                ],
+                "prism:aggregationType": "Conference Proceeding",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "4",
+                    "$": "4"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58566009500",
+                        "authid": "58566009500",
+                        "authname": "Zhu H.",
+                        "surname": "Zhu",
+                        "given-name": "Hao",
+                        "initials": "H.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60010432"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58609835100",
+                        "authid": "58609835100",
+                        "authname": "Li Y.",
+                        "surname": "Li",
+                        "given-name": "Yichen",
+                        "initials": "Y.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60010432"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "3",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57216663495",
+                        "authid": "57216663495",
+                        "authname": "Li J.",
+                        "surname": "Li",
+                        "given-name": "Jie",
+                        "initials": "J.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60010432"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "4",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/56461460000",
+                        "authid": "56461460000",
+                        "authname": "Zhang X.",
+                        "surname": "Zhang",
+                        "given-name": "Xiaofang",
+                        "initials": "X.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60010432"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "code representation | Code smell | deep learning | inter-class relation",
+                "source-id": "21100400011",
+                "fund-acr": "NSFC",
+                "fund-no": "22KJA520008",
+                "fund-sponsor": "National Natural Science Foundation of China",
+                "openaccess": "1",
+                "openaccessFlag": true,
+                "freetoread": {
+                    "value": [
+                        {
+                            "$": "all"
+                        },
+                        {
+                            "$": "publisherfree2read"
+                        }
+                    ]
+                },
+                "freetoreadLabel": {
+                    "value": [
+                        {
+                            "$": "All Open Access"
+                        },
+                        {
+                            "$": "Bronze"
+                        }
+                    ]
+                }
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85170045263"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85170045263?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85170045263&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85170045263&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85170045263",
+                "dc:identifier": "SCOPUS_ID:85170045263",
+                "eid": "2-s2.0-85170045263",
+                "dc:title": "Mining the Relationship between Object-Relational Mapping Performance Anti-patterns and Code Clones",
+                "dc:creator": "Xu Z.",
+                "prism:publicationName": "Proceedings of the International Conference on Software Engineering and Knowledge Engineering, SEKE",
+                "prism:issn": "23259000",
+                "prism:eIssn": "23259086",
+                "prism:volume": "2023-July",
+                "prism:pageRange": "136-141",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.18293/SEKE2023-161",
+                "dc:description": "The use of Object-Relational Mapping (ORM) in software development has become increasingly popular due to its superiority to simplify database interactions. Despite the prosperous development of ORM code smells detection tools for general code smell problems related to coupling and cohesion, these tools do not capture issues that are specific to ORM code statement context. In this work, we fill the gap wit h the potential performance anti-patterns of repetitive ORM code by heuristic analysis and code clone analysis on 6 open source ORM systems in Java and Python (Saler, Wagtail, Zulip, Taiga, Protal, and Roller). For each occurrence of this code smell, we distinguished problematic instances that potentially require further fixes among justifiable ones. Through our research, we identified four antipatterns associated with repetitive ORM code and proposed fix strategy for each of these anti-patterns. Additionally, our study delves into the relationship between repetitive ORM code anti-patterns and code clone, which reveals that a substantial proportion of repetitive ORM statements can be found in cloned code. Experiments show that repetitive ORM code can lead to a waste of system performance. This research highlights the impact of ORM code context on the proper use of ORM frameworks and emphasizes that copying ORM code without context evaluation can be detrimental to system performance.",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60027363",
+                        "afid": "60027363",
+                        "affilname": "University of Chinese Academy of Sciences",
+                        "affiliation-city": "Beijing",
+                        "affiliation-country": "China"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60025256",
+                        "afid": "60025256",
+                        "affilname": "Institute of Software Chinese Academy of Sciences",
+                        "affiliation-city": "Beijing",
+                        "affiliation-country": "China"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/127864625",
+                        "afid": "127864625",
+                        "affilname": "Sinosoft Company Limited",
+                        "affiliation-city": "Beijing",
+                        "affiliation-country": "China"
+                    }
+                ],
+                "prism:aggregationType": "Conference Proceeding",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "4",
+                    "$": "4"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58565162300",
+                        "authid": "58565162300",
+                        "authname": "Xu Z.",
+                        "surname": "Xu",
+                        "given-name": "Zeshan",
+                        "initials": "Z.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60025256"
+                            },
+                            {
+                                "@_fa": "true",
+                                "$": "60027363"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57425641800",
+                        "authid": "57425641800",
+                        "authname": "Zhu J.",
+                        "surname": "Zhu",
+                        "given-name": "Jie",
+                        "initials": "J.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60025256"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "3",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57208731132",
+                        "authid": "57208731132",
+                        "authname": "Yang L.",
+                        "surname": "Yang",
+                        "given-name": "Li",
+                        "initials": "L.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60025256"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "4",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/35876113700",
+                        "authid": "35876113700",
+                        "authname": "Zuo C.",
+                        "surname": "Zuo",
+                        "given-name": "Chun",
+                        "initials": "C.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "127864625"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "anti-pattern | code clone | code smell | empirical study | object-relational mapping | static analysis",
+                "source-id": "21100400011",
+                "fund-acr": "NKRDPC",
+                "fund-no": "KY201906007",
+                "fund-sponsor": "National Key Research and Development Program of China",
+                "openaccess": "1",
+                "openaccessFlag": true,
+                "freetoread": {
+                    "value": [
+                        {
+                            "$": "all"
+                        },
+                        {
+                            "$": "publisherfree2read"
+                        }
+                    ]
+                },
+                "freetoreadLabel": {
+                    "value": [
+                        {
+                            "$": "All Open Access"
+                        },
+                        {
+                            "$": "Bronze"
+                        }
+                    ]
+                }
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85169815330"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85169815330?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85169815330&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85169815330&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85169815330",
+                "dc:identifier": "SCOPUS_ID:85169815330",
+                "eid": "2-s2.0-85169815330",
+                "dc:title": "Thurstonian models for three variants (specified, unspecified, and unspecified with forgiveness) of the Two-Out-of-Five method",
+                "dc:creator": "Bi J.",
+                "prism:publicationName": "Journal of Sensory Studies",
+                "prism:issn": "08878250",
+                "prism:eIssn": "1745459X",
+                "prism:pageRange": null,
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1111/joss.12878",
+                "dc:description": "The Two-Out-of-Five method is one of the basic sensory discrimination methods. It is a special case of the ‘M+N’ method with M = 3 and N = 2. Three variants of the method are discussed in the paper: specified, unspecified, and unspecified with forgiveness. Analytical and simulation-derived psychometric functions for all three variants of the Two-Out-of-Five method are derived and produced. The performance of the method in both difference and similarity/equivalence tests are explored. It is shown that both difference and similarity/equivalence testing powers for the specified Two-Out-of-Five are larger than those for the 2-AFC and 3-AFC. Both difference and similarity/equivalence testing powers for the unspecified Two-Out-of-Five are larger than those for the Triangle and Duo-trio. Both difference and similarity/equivalence testing powers for the unspecified with forgiveness Two-Out-of-Five are larger than those for the conventional unspecified Two-Out-of-Five and unspecified Tetrads. Tables and R codes are presented and provided for estimations of the probability of correct response, Pc, Thurstonian discriminal distance (Formula presented.) or d', and the B value for estimating the variance of d' for the three variants of the Two-Out-of-Five method. Practical Applications: The Two-Out-of-Five method is a powerful sensory discrimination method. However, this method has not been used widely in sensory and consumer research, partly since the method has not been explored adequately in the literature. This paper explores the Two-Out-of-Five method and shows that the method has potential for wide application. The Two-Out-of-Five method involves a larger number of samples (5) and sensory fatigue may be of concern. Hence, the method may not be suitable for taste and smell tests with strong stimuli. The method is particularly suitable for manual and visual inspection testing where sensory fatigue is of a lesser concern.",
+                "citedby-count": "1",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60019574",
+                        "afid": "60019574",
+                        "affilname": "Sensometrics Research and Service",
+                        "affiliation-city": "Richmond",
+                        "affiliation-country": "United States"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/129074966",
+                        "afid": "129074966",
+                        "affilname": "LLC",
+                        "affiliation-city": "Richland",
+                        "affiliation-country": "United States"
+                    }
+                ],
+                "prism:aggregationType": "Journal",
+                "subtype": "ar",
+                "subtypeDescription": "Article",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "2",
+                    "$": "2"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/35866583200",
+                        "authid": "35866583200",
+                        "orcid": "0000-0002-0195-2922",
+                        "authname": "Bi J.",
+                        "surname": "Bi",
+                        "given-name": "Jian",
+                        "initials": "J.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60019574"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/24289359200",
+                        "authid": "24289359200",
+                        "orcid": "0000-0001-7285-4222",
+                        "authname": "Kuesten C.",
+                        "surname": "Kuesten",
+                        "given-name": "Carla",
+                        "initials": "C.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "129074966"
+                            }
+                        ]
+                    }
+                ],
+                "source-id": "16818",
+                "fund-no": "undefined",
+                "openaccess": "1",
+                "openaccessFlag": true,
+                "freetoread": {
+                    "value": [
+                        {
+                            "$": "all"
+                        },
+                        {
+                            "$": "publisherfree2read"
+                        }
+                    ]
+                },
+                "freetoreadLabel": {
+                    "value": [
+                        {
+                            "$": "All Open Access"
+                        },
+                        {
+                            "$": "Bronze"
+                        }
+                    ]
+                }
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85169792573"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85169792573?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85169792573&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85169792573&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85169792573",
+                "dc:identifier": "SCOPUS_ID:85169792573",
+                "eid": "2-s2.0-85169792573",
+                "dc:title": "OWL-Sharp: Source Code Semantic Generator",
+                "dc:creator": "Da Silva A.S.",
+                "prism:publicationName": "Iberian Conference on Information Systems and Technologies, CISTI",
+                "prism:issn": "21660727",
+                "prism:eIssn": "21660735",
+                "prism:isbn": [
+                    {
+                        "@_fa": "true",
+                        "$": "9789893347928"
+                    }
+                ],
+                "prism:volume": "2023-June",
+                "prism:pageRange": null,
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.23919/CISTI58278.2023.10212057",
+                "dc:description": "The use of ontologies in Software Engineering has great potential for the progress of software construction processes. Ontologies can provide the inference of new knowledge and the retrieval of information in a more expressive way with the use of queries, making the evaluation of relevant knowledge effective for the context of the application. In this article, we present the OWL-Sharp tool, a semantic source code generator for solutions coded in the C Sharp programming language. We evaluated the performance of OWL-Sharp in 23 relevant opensource software solutions and performed the experiments obtaining metrics of processing of the artifacts and the execution time of each solution. To evaluate the semantic generation of the project, we performed code smell detection using semantic queries in SPARQL. The results show that the tool achieves significant results.",
+                "citedby-count": "1",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60006028",
+                        "afid": "60006028",
+                        "affilname": "Universidade Estadual Paulista \"Júlio de Mesquita Filho\"",
+                        "affiliation-city": "Sao Paulo",
+                        "affiliation-country": "Brazil"
+                    }
+                ],
+                "prism:aggregationType": "Conference Proceeding",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "3",
+                    "$": "3"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58562561000",
+                        "authid": "58562561000",
+                        "authname": "Da Silva A.S.",
+                        "surname": "Da Silva",
+                        "given-name": "Alisson Solitto",
+                        "initials": "A.S.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60006028"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/10045184700",
+                        "authid": "10045184700",
+                        "authname": "Garcia R.E.",
+                        "surname": "Garcia",
+                        "given-name": "Rogerio Eduardo",
+                        "initials": "R.E.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60006028"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "3",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/24824120800",
+                        "authid": "24824120800",
+                        "authname": "Botega L.C.",
+                        "surname": "Botega",
+                        "given-name": "Leonardo Castro",
+                        "initials": "L.C.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60006028"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "Applied Ontology | Code Smell Detection | Semantic Web | Software Engineering | Source Code",
+                "source-id": "21100219921",
+                "fund-no": "undefined",
+                "openaccess": "0",
+                "openaccessFlag": false
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85169568597"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85169568597?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85169568597&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85169568597&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85169568597",
+                "dc:identifier": "SCOPUS_ID:85169568597",
+                "eid": "2-s2.0-85169568597",
+                "dc:title": "Evaluating test quality of Python libraries for IoT applications at the network edge",
+                "dc:creator": "Chen Z.",
+                "prism:publicationName": "Wireless Networks",
+                "prism:issn": "10220038",
+                "prism:eIssn": "15728196",
+                "prism:pageRange": null,
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1007/s11276-023-03479-2",
+                "dc:description": "The Internet of Things (IoT) frequently exchange data through the Internet by comprising a complex network of smart devices. However, various vulnerabilities of IoT applications are observed which shall keep IoT as a technology in danger. Therefore, IoT applications should go through rigorous testing at the network edge. Python is widely used for programming IoT devices as well as developing the corresponding back-end at the network edge. Due to the difficulty of static program analysis on dynamic languages, the quality of test code in Python libraries for IoT development faces a serious threat, which in turn affects the performance of IoT applications. In order to evaluate test quality of Python libraries for IoT applications, we propose a test analysis framework named Pysta. It uses a hybrid analysis engine to support the multi-dimensional evaluation of Python test code. Based on Pysta, we then conduct an empirical study on test quality in eight Python libraries which are widely used for IoT development to investigate test code composition, test objects, test co-evolution, and test code smells. The study results reveal the major problems and challenge in the tests of Python libraries for IoT applications, including low naming consistency, single form of assertion, lacking edge tests, low test coverage in large-scale projects, delaying test co-evolution, and various code smells in tests. This work can inspire researchers and developers on how to improve test quality of IoT applications and further reduce security risks associated with IoT systems.",
+                "citedby-count": "1",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60033100",
+                        "afid": "60033100",
+                        "affilname": "Nanjing University",
+                        "affiliation-city": "Nanjing",
+                        "affiliation-country": "China"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60010080",
+                        "afid": "60010080",
+                        "affilname": "Nanjing University of Science and Technology",
+                        "affiliation-city": "Nanjing",
+                        "affiliation-country": "China"
+                    }
+                ],
+                "prism:aggregationType": "Journal",
+                "subtype": "ar",
+                "subtypeDescription": "Article",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "3",
+                    "$": "3"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55884919800",
+                        "authid": "55884919800",
+                        "orcid": "0000-0002-3475-6979",
+                        "authname": "Chen Z.",
+                        "surname": "Chen",
+                        "given-name": "Zhifei",
+                        "initials": "Z.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60010080"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58560513700",
+                        "authid": "58560513700",
+                        "authname": "Jia C.",
+                        "surname": "Jia",
+                        "given-name": "Chiheng",
+                        "initials": "C.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60033100"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "3",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57189042207",
+                        "authid": "57189042207",
+                        "authname": "Chen L.",
+                        "surname": "Chen",
+                        "given-name": "Lin",
+                        "initials": "L.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60033100"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "Internet of Things | Network edge | Python library | Test quality",
+                "source-id": "17569",
+                "fund-acr": "NKRDPC",
+                "fund-no": "BK20220937",
+                "fund-sponsor": "Natural Science Foundation of Jiangsu Province",
+                "openaccess": "0",
+                "openaccessFlag": false
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85169480537"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85169480537?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85169480537&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85169480537&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85169480537",
+                "dc:identifier": "SCOPUS_ID:85169480537",
+                "eid": "2-s2.0-85169480537",
+                "dc:title": "Long Method Detection Using Graph Convolutional Networks",
+                "dc:creator": "Zhang H.",
+                "prism:publicationName": "Journal of Information Processing",
+                "prism:eIssn": "18826652",
+                "prism:volume": "31",
+                "prism:pageRange": "469-477",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.2197/ipsjjip.31.469",
+                "dc:description": "Long Method is a code smell that frequently happens in software development, which refers to the com-plex method with multiple functions. Detecting and refactoring such problems has been a popular topic in software refactoring, and many detection approaches have been proposed. In past years, the approaches based on metrics or rules have been the leading way in long method detection. However, the approach based on deep learning has also attracted extensive attention in recent studies. In this paper, we propose a graph-based deep learning approach to de-tect Long Method. The key point of our approach is that we extended the PDG (Program Dependency Graph) into a Directed-Heterogeneous Graph as the input graph and used the GCN (Graph Convolutional Network) to build a graph neural network for Long Method detection. Moreover, to get substantial data samples for the deep learning task, we propose a novel semi-automatic approach to generate a large number of data samples. Finally, to prove the validity of our approach, we compared our approach with the existing approaches based on five groups of datasets manually reviewed. The evaluation result shows that our approach achieved a good performance in Long Method detection.",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60104165",
+                        "afid": "60104165",
+                        "affilname": "Inner Mongolia University of Science and Technology",
+                        "affiliation-city": "Baotou",
+                        "affiliation-country": "China"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60023462",
+                        "afid": "60023462",
+                        "affilname": "Waseda University",
+                        "affiliation-city": "Tokyo",
+                        "affiliation-country": "Japan"
+                    }
+                ],
+                "prism:aggregationType": "Journal",
+                "subtype": "ar",
+                "subtypeDescription": "Article",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "2",
+                    "$": "2"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58558739200",
+                        "authid": "58558739200",
+                        "authname": "Zhang H.",
+                        "surname": "Zhang",
+                        "given-name": "Hanyu",
+                        "initials": "H.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60104165"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/7201965912",
+                        "authid": "7201965912",
+                        "authname": "Kishi T.",
+                        "surname": "Kishi",
+                        "given-name": "Tomoji",
+                        "initials": "T.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60023462"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "code smell | deep learning | graph convolutional networks | Long Method | software refactoring",
+                "source-id": "32853",
+                "fund-no": "undefined",
+                "openaccess": "1",
+                "openaccessFlag": true,
+                "freetoread": {
+                    "value": [
+                        {
+                            "$": "all"
+                        },
+                        {
+                            "$": "publisherfree2read"
+                        }
+                    ]
+                },
+                "freetoreadLabel": {
+                    "value": [
+                        {
+                            "$": "All Open Access"
+                        },
+                        {
+                            "$": "Bronze"
+                        }
+                    ]
+                }
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85169297922"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85169297922?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85169297922&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85169297922&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85169297922",
+                "dc:identifier": "SCOPUS_ID:85169297922",
+                "eid": "2-s2.0-85169297922",
+                "dc:title": "Enhanced Machine Learning-Based Code Smell Detection Through Hyper-Parameter Optimization",
+                "dc:creator": "Sukkasem P.",
+                "prism:publicationName": "Proceedings of JCSSE 2023 - 20th International Joint Conference on Computer Science and Software Engineering",
+                "prism:isbn": [
+                    {
+                        "@_fa": "true",
+                        "$": "9798350300505"
+                    }
+                ],
+                "prism:pageRange": "297-302",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1109/JCSSE58229.2023.10202124",
+                "dc:description": "To preserve software quality and maintainability, machine learning-based code smell detection has been proposed, and the results are promising. This research proposes an enhanced version of machine learning-based code smell detection. We improve the performance of machine learning-based code smell classifiers by applying hyper-parameter optimization techniques in Particle swarm optimization and Bayesian optimization to decision tree and random forest. The models were trained and evaluated on 74 open source projects to identify god class, data class, feature envy, and long method. The experimental results confirm that the optimized machine learning classifiers c an achieve up to 99.183% and 99.155% of accuracy for both class-level and function-level code smell classification, respectively. In term of recall, the enhanced machine learning-based code smell classifiers achieved 9 9.514% when identifying data class and 98.806% for long method. The comparison results also indicated that the enhanced machine learning classifiers outperform the original versions in the code smell detection context.",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60017165",
+                        "afid": "60017165",
+                        "affilname": "Khon Kaen University",
+                        "affiliation-city": "Khon Kaen",
+                        "affiliation-country": "Thailand"
+                    }
+                ],
+                "prism:aggregationType": "Conference Proceeding",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "2",
+                    "$": "2"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58556717300",
+                        "authid": "58556717300",
+                        "authname": "Sukkasem P.",
+                        "surname": "Sukkasem",
+                        "given-name": "Peeradon",
+                        "initials": "P.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60017165"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/36024421200",
+                        "authid": "36024421200",
+                        "authname": "Soomlek C.",
+                        "surname": "Soomlek",
+                        "given-name": "Chitsutha",
+                        "initials": "C.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60017165"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "bayesian optimization | code smell detection | hyper-parameter optimization | machine learning | particle swarm optimization",
+                "source-id": "21101174364",
+                "fund-acr": "KKU",
+                "fund-no": "undefined",
+                "fund-sponsor": "College of Computing",
+                "openaccess": "0",
+                "openaccessFlag": false
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85168955414"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85168955414?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85168955414&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85168955414&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85168955414",
+                "dc:identifier": "SCOPUS_ID:85168955414",
+                "eid": "2-s2.0-85168955414",
+                "dc:title": "Developing algorithmic business resource optimization model for code smells detection: an applied case insight from enterprise level software management system",
+                "dc:creator": "Gupta P.",
+                "prism:publicationName": "Annals of Operations Research",
+                "prism:issn": "02545330",
+                "prism:eIssn": "15729338",
+                "prism:pageRange": null,
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1007/s10479-023-05536-7",
+                "dc:description": "The art of business process optimization and resolution through advanced analytics have gained popularity across all business sectors in recent years. An emerging stream of modern analytics methods have focused on analyzing software development firms and their approach to coding and software development, with a view to optimize key processes through data to enhance organizational value. Despite systematic developments within the field, many high throughput software suffers from incomprehensible bad program structure that results in imbalanced performance throughout its lifecycle. This phenomenon is widely known as “Code Smells, i.e., design flaws”. A series of AI and ML based algorithms and mathematical tools were developed to tackle the problem in the past. However, at the business and decision-making level there are large uncertainties on how to optimize resource allocation towards each code smell class to maximize benefit of the process. In this paper we propose a novel mathematical business model that will help business and operational managers to optimize budget and resource allocation towards detection of maximum number of smells within a system, with increased output efficiency. Our proposed model benefits from a real life validation of code smell dataset, along with detailed prescription of optimal resource allocation along with reasoning.",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60170469",
+                        "afid": "60170469",
+                        "affilname": "School of Management",
+                        "affiliation-city": "Swansea",
+                        "affiliation-country": "United Kingdom"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60116071",
+                        "afid": "60116071",
+                        "affilname": "Audencia",
+                        "affiliation-city": "Nantes",
+                        "affiliation-country": "France"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60115108",
+                        "afid": "60115108",
+                        "affilname": "Symbiosis Institute of Business Management, Pune",
+                        "affiliation-city": "Pune",
+                        "affiliation-country": "India"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60029284",
+                        "afid": "60029284",
+                        "affilname": "University of Delhi",
+                        "affiliation-city": "New Delhi",
+                        "affiliation-country": "India"
+                    }
+                ],
+                "prism:aggregationType": "Journal",
+                "subtype": "ar",
+                "subtypeDescription": "Article",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "5",
+                    "$": "5"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57212473601",
+                        "authid": "57212473601",
+                        "authname": "Gupta P.",
+                        "surname": "Gupta",
+                        "given-name": "Priyanka",
+                        "initials": "P.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60029284"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/56647624300",
+                        "authid": "56647624300",
+                        "orcid": "0000-0003-2733-3967",
+                        "authname": "Anand A.",
+                        "surname": "Anand",
+                        "given-name": "Adarsh",
+                        "initials": "A.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60029284"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "3",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57939803900",
+                        "authid": "57939803900",
+                        "authname": "Das R.",
+                        "surname": "Das",
+                        "given-name": "Ronnie",
+                        "initials": "R.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60116071"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "4",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57205405210",
+                        "authid": "57205405210",
+                        "authname": "Hughes L.",
+                        "surname": "Hughes",
+                        "given-name": "Laurie",
+                        "initials": "L.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60170469"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "5",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/35239818900",
+                        "authid": "35239818900",
+                        "authname": "Dwivedi Y.K.",
+                        "surname": "Dwivedi",
+                        "given-name": "Yogesh K.",
+                        "initials": "Y.K.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60170469"
+                            },
+                            {
+                                "@_fa": "true",
+                                "$": "60115108"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "Optimization models | Resource allocation decision model | Software code smells | Software reliability",
+                "source-id": "23090",
+                "fund-no": "undefined",
+                "openaccess": "0",
+                "openaccessFlag": false
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85168917445"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85168917445?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85168917445&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85168917445&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85168917445",
+                "dc:identifier": "SCOPUS_ID:85168917445",
+                "eid": "2-s2.0-85168917445",
+                "dc:title": "Assessing and Improving the Quality of Generated Tests in the Context of Maintenance Tasks",
+                "dc:creator": "Herculano W.B.R.",
+                "prism:publicationName": "Proceedings - International Computer Software and Applications Conference",
+                "prism:issn": "07303157",
+                "prism:isbn": [
+                    {
+                        "@_fa": "true",
+                        "$": "9798350326970"
+                    }
+                ],
+                "prism:volume": "2023-June",
+                "prism:pageRange": "500-501",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1109/COMPSAC57700.2023.00072",
+                "dc:description": "Maintenance tasks often rely on failing test cases, highlighting the importance of well-designed tests for their success. While automatically generated tests can provide higher code coverage and detect faults, it is unclear whether they can be effective in guiding maintenance tasks or if developers fully accept them. In our recent work, we presented the results of a series of empirical studies that evaluated the practical support of generated tests. Our studies with 126 developers showed that automatically generated tests can effectively identify faults during maintenance tasks. Developers were equally effective in creating bug fixes when using manually-written, Evosuite, and Randoop tests. However, developers perceived generated tests as not well-designed and preferred refactored versions of Randoop tests. We plan to enhance Evosuite tests and propose an approach/tool that assesses the quality of generated tests and automatically enhances them. Our research may impact the design and use of generated tests in the context of maintenance tasks.",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/109601578",
+                        "afid": "109601578",
+                        "affilname": "UFCG",
+                        "affiliation-city": "Patos",
+                        "affiliation-country": "Brazil"
+                    }
+                ],
+                "prism:aggregationType": "Conference Proceeding",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "3",
+                    "$": "3"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57221534884",
+                        "authid": "57221534884",
+                        "authname": "Herculano W.B.R.",
+                        "surname": "Herculano",
+                        "given-name": "Wesley B.R.",
+                        "initials": "W.B.R.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "109601578"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/35185930600",
+                        "authid": "35185930600",
+                        "authname": "Alves E.L.G.",
+                        "surname": "Alves",
+                        "given-name": "Everton L.G.",
+                        "initials": "E.L.G.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "109601578"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "3",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/54395969100",
+                        "authid": "54395969100",
+                        "authname": "Mongiovi M.",
+                        "surname": "Mongiovi",
+                        "given-name": "Melina",
+                        "initials": "M.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "109601578"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "Evosuite | generated tests | maintenance tasks | Randoop | refactoring | test smells",
+                "source-id": "18705",
+                "fund-acr": "CNPq",
+                "fund-no": "429250/2018-5",
+                "fund-sponsor": "Conselho Nacional de Desenvolvimento Científico e Tecnológico",
+                "openaccess": "0",
+                "openaccessFlag": false
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85168912358"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85168912358?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85168912358&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85168912358&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85168912358",
+                "dc:identifier": "SCOPUS_ID:85168912358",
+                "eid": "2-s2.0-85168912358",
+                "dc:title": "Revisiting \"code smell severity classification using machine learning techniques\"",
+                "dc:creator": "Hu W.",
+                "prism:publicationName": "Proceedings - International Computer Software and Applications Conference",
+                "prism:issn": "07303157",
+                "prism:isbn": [
+                    {
+                        "@_fa": "true",
+                        "$": "9798350326970"
+                    }
+                ],
+                "prism:volume": "2023-June",
+                "prism:pageRange": "840-849",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1109/COMPSAC57700.2023.00113",
+                "dc:description": "In the context of limited maintenance resources, predicting the severity of code smells is more practically useful than simply detecting them. Fontana et al. first empirically investigated some classification algorithms and some regression algorithms, for severity prediction. Their results showed that random forest and decision tree performed well on Mean Absolute Error (MAE), Mean Squared Error (MSE), and Spearman and Kendall rank correlation coefficients. However, they did not consider the issue of imbalanced data distribution in the severity dataset, and used inappropriate performance evaluation metrics. Therefore, we revisit the effectiveness of 10 classification methods and 11 regression methods, for code severity prediction using Cumulative Lift Chart (CLC) and Severity@20% as the primary performance metrics and Accuracy as the secondary performance indicator. The results show that the Gradient Boosting Regression (GBR) method performs the best in terms of these metrics.",
+                "citedby-count": "1",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60031991",
+                        "afid": "60031991",
+                        "affilname": "Chongqing University of Technology",
+                        "affiliation-city": "Chongqing",
+                        "affiliation-country": "China"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60030270",
+                        "afid": "60030270",
+                        "affilname": "Guangxi University",
+                        "affiliation-city": "Nanning",
+                        "affiliation-country": "China"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60022414",
+                        "afid": "60022414",
+                        "affilname": "Wuhan University of Technology",
+                        "affiliation-city": "Wuhan",
+                        "affiliation-country": "China"
+                    }
+                ],
+                "prism:aggregationType": "Conference Proceeding",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "7",
+                    "$": "7"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57196483557",
+                        "authid": "57196483557",
+                        "authname": "Hu W.",
+                        "surname": "Hu",
+                        "given-name": "Wenhua",
+                        "initials": "W.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60022414"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58605103800",
+                        "authid": "58605103800",
+                        "authname": "Liu L.",
+                        "surname": "Liu",
+                        "given-name": "Lei",
+                        "initials": "L.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60022414"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "3",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58354077600",
+                        "authid": "58354077600",
+                        "authname": "Yang P.",
+                        "surname": "Yang",
+                        "given-name": "Peixin",
+                        "initials": "P.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60022414"
+                            },
+                            {
+                                "@_fa": "true",
+                                "$": "60022414"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "4",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58348790600",
+                        "authid": "58348790600",
+                        "authname": "Zou K.",
+                        "surname": "Zou",
+                        "given-name": "Kuan",
+                        "initials": "K.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60030270"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "5",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57739463200",
+                        "authid": "57739463200",
+                        "authname": "Li J.",
+                        "surname": "Li",
+                        "given-name": "Jiajun",
+                        "initials": "J.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60022414"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "6",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/57782354400",
+                        "authid": "57782354400",
+                        "authname": "Lin G.",
+                        "surname": "Lin",
+                        "given-name": "Guancheng",
+                        "initials": "G.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60022414"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "7",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/7201547065",
+                        "authid": "7201547065",
+                        "authname": "Xiang J.",
+                        "surname": "Xiang",
+                        "given-name": "Jianwen",
+                        "initials": "J.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60022414"
+                            },
+                            {
+                                "@_fa": "true",
+                                "$": "60031991"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "Code Smell | Empirical Study | Machine Learning | Severity Level",
+                "source-id": "18705",
+                "fund-acr": "NSFC",
+                "fund-no": "61806151",
+                "fund-sponsor": "National Natural Science Foundation of China",
+                "openaccess": "0",
+                "openaccessFlag": false
+            },
+            {
+                "@_fa": "true",
+                "link": [
+                    {
+                        "@_fa": "true",
+                        "@ref": "self",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85168546045"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "author-affiliation",
+                        "@href": "https://api.elsevier.com/content/abstract/scopus_id/85168546045?field=author,affiliation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus",
+                        "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85168546045&origin=inward"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@ref": "scopus-citedby",
+                        "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85168546045&origin=inward"
+                    }
+                ],
+                "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85168546045",
+                "dc:identifier": "SCOPUS_ID:85168546045",
+                "eid": "2-s2.0-85168546045",
+                "dc:title": "Automatic Generation of Smell-free Unit Tests",
+                "dc:creator": "Afonso J.",
+                "prism:publicationName": "Proceedings - 2023 IEEE/ACM International Workshop on Search-Based and Fuzz Testing, SBFT 2023",
+                "prism:isbn": [
+                    {
+                        "@_fa": "true",
+                        "$": "9798350301823"
+                    }
+                ],
+                "prism:pageRange": "9-16",
+                "prism:coverDate": "2023-01-01",
+                "prism:coverDisplayDate": "2023",
+                "prism:doi": "10.1109/SBFT59156.2023.00013",
+                "dc:description": "Automated test generation tools, such as EvoSuite, typically aim to generate tests that maximize code coverage and do not adequately consider non-coverage aspects that may be relevant for developers, e.g., test's code quality. Hence, automatically generated tests are often affected by test-specific bad programming practices, i.e., test smells, that may hinder the quality of the test's source code and, ultimately, the quality of the code under test. Although EvoSuite uses secondary criteria and a post-processing procedure to optimize non-coverage aspects and improve the readability of the tests, it does not explicitly consider the usage of good programming practices. Thus, in this paper, we propose a novel approach to assist EvoSuite's search algorithm in generating smell-free tests out of the box. To this aim, we first compile a set of 54 test smell metrics from several sources. Secondly, we systematically identify 30 smells that do not affect the tests generated by EvoSuite and eight smells that cannot be automatically computed. Thirdly, we incorporate the remaining 16 test smells as metrics into EvoSuite and empirically identify that only 14 smells affect the tests generated by the tool (e.g., Indirect Testing). Fourthly, we describe and integrate an approach to optimize test smell metrics into EvoSuite. Finally, we conduct an empirical study to (i) understand to what extend EvoSuite's default mechanisms leads to the generation of fewer smelly tests. (ii) to assess whether our approach leads to the generation of fewer smelly tests. And (iii) how our approach affects the coverage and fault detection effectiveness of the generated tests. Our results report that our approach can generate 8.58% fewer smelly tests without significantly compromising their coverage or fault detection effectiveness.",
+                "citedby-count": "0",
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60007249",
+                        "afid": "60007249",
+                        "affilname": "Universidade do Porto",
+                        "affiliation-city": "Porto",
+                        "affiliation-country": "Portugal"
+                    },
+                    {
+                        "@_fa": "true",
+                        "affiliation-url": "https://api.elsevier.com/content/affiliation/affiliation_id/60002769",
+                        "afid": "60002769",
+                        "affilname": "Faculdade de Ciências, Universidade de Lisboa",
+                        "affiliation-city": "Lisbon",
+                        "affiliation-country": "Portugal"
+                    }
+                ],
+                "prism:aggregationType": "Conference Proceeding",
+                "subtype": "cp",
+                "subtypeDescription": "Conference Paper",
+                "author-count": {
+                    "@limit": "100",
+                    "@total": "2",
+                    "$": "2"
+                },
+                "author": [
+                    {
+                        "@_fa": "true",
+                        "@seq": "1",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/58545182500",
+                        "authid": "58545182500",
+                        "authname": "Afonso J.",
+                        "surname": "Afonso",
+                        "given-name": "Joao",
+                        "initials": "J.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60002769"
+                            }
+                        ]
+                    },
+                    {
+                        "@_fa": "true",
+                        "@seq": "2",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/35306564600",
+                        "authid": "35306564600",
+                        "authname": "Campos J.",
+                        "surname": "Campos",
+                        "given-name": "Jose",
+                        "initials": "J.",
+                        "afid": [
+                            {
+                                "@_fa": "true",
+                                "$": "60002769"
+                            },
+                            {
+                                "@_fa": "true",
+                                "$": "60007249"
+                            }
+                        ]
+                    }
+                ],
+                "authkeywords": "Automated Test Generation | Empirical Study | Software Testing | Test Smells",
+                "source-id": "21101172907",
+                "fund-acr": "FCT",
+                "fund-no": "UIDB/00408/2020",
+                "fund-sponsor": "Fundação para a Ciência e a Tecnologia",
+                "openaccess": "0",
+                "openaccessFlag": false,
+                "freetoread": {
+                    "value": [
+                        {
+                            "$": "all"
+                        },
+                        {
+                            "$": "repository"
+                        },
+                        {
+                            "$": "repositoryam"
+                        }
+                    ]
+                },
+                "freetoreadLabel": {
+                    "value": [
+                        {
+                            "$": "All Open Access"
+                        },
+                        {
+                            "$": "Green"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

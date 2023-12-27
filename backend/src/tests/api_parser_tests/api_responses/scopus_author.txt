@@ -1,0 +1,900 @@
+{
+    "author-retrieval-response": [
+        {
+            "@status": "found",
+            "@_fa": "true",
+            "coredata": {
+                "prism:url": "http://api.elsevier.com/content/author/author_id/55816561700",
+                "dc:identifier": "AUTHOR_ID:55816561700",
+                "historical-identifier": [
+                    {
+                        "@_fa": "true",
+                        "$": "author_id:56242860600"
+                    },
+                    {
+                        "@_fa": "true",
+                        "$": "author_id:57193072815"
+                    },
+                    {
+                        "@_fa": "true",
+                        "$": "author_id:57202223806"
+                    },
+                    {
+                        "@_fa": "true",
+                        "$": "author_id:57216697645"
+                    },
+                    {
+                        "@_fa": "true",
+                        "$": "author_id:57205696963"
+                    },
+                    {
+                        "@_fa": "true",
+                        "$": "author_id:51462495600"
+                    }
+                ],
+                "eid": "9-s2.0-55816561700",
+                "document-count": "49",
+                "cited-by-count": "236",
+                "citation-count": "271",
+                "link": [
+                    {
+                        "@href": "https://www.scopus.com/authid/detail.uri?partnerID=HzOxMe3b&authorId=55816561700&origin=inward",
+                        "@rel": "scopus-author",
+                        "@_fa": "true"
+                    },
+                    {
+                        "@href": "http://api.elsevier.com/content/author/author_id/55816561700",
+                        "@rel": "self",
+                        "@_fa": "true"
+                    },
+                    {
+                        "@href": "http://api.elsevier.com/content/search/scopus?query=au-id%2855816561700%29",
+                        "@rel": "search",
+                        "@_fa": "true"
+                    },
+                    {
+                        "@href": "http://api.elsevier.com/content/search/author?co-author=55816561700",
+                        "@rel": "coauthor-search",
+                        "@_fa": "true"
+                    }
+                ]
+            },
+            "h-index": "8",
+            "coauthor-count": "69",
+            "affiliation-current": {
+                "@id": "107932237",
+                "@href": "http://api.elsevier.com/content/affiliation/affiliation_id/107932237"
+            },
+            "affiliation-history": {
+                "affiliation": [
+                    {
+                        "@_fa": "true",
+                        "@id": "128961494",
+                        "@href": "http://api.elsevier.com/content/affiliation/affiliation_id/128961494"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@id": "60025094",
+                        "@href": "http://api.elsevier.com/content/affiliation/affiliation_id/60025094"
+                    }
+                ]
+            },
+            "subject-areas": {
+                "subject-area": [
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "COMP",
+                        "@code": "1705",
+                        "$": "Computer Networks and Communications"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "ENGI",
+                        "@code": "2200",
+                        "$": "Engineering (all)"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "ENGI",
+                        "@code": "2214",
+                        "$": "Media Technology"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "CENG",
+                        "@code": "1507",
+                        "$": "Fluid Flow and Transfer Processes"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "COMP",
+                        "@code": "1710",
+                        "$": "Information Systems"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "ENGI",
+                        "@code": "2207",
+                        "$": "Control and Systems Engineering"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "PHYS",
+                        "@code": "3105",
+                        "$": "Instrumentation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "COMP",
+                        "@code": "1703",
+                        "$": "Computational Theory and Mathematics"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "DECI",
+                        "@code": "1802",
+                        "$": "Information Systems and Management"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "COMP",
+                        "@code": "1708",
+                        "$": "Hardware and Architecture"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "ENGI",
+                        "@code": "2211",
+                        "$": "Mechanics of Materials"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "NEUR",
+                        "@code": "2805",
+                        "$": "Cognitive Neuroscience"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "BUSI",
+                        "@code": "1404",
+                        "$": "Management Information Systems"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "COMP",
+                        "@code": "1701",
+                        "$": "Computer Science (miscellaneous)"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "COMP",
+                        "@code": "1706",
+                        "$": "Computer Science Applications"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "ENGI",
+                        "@code": "2213",
+                        "$": "Safety, Risk, Reliability and Quality"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "CENG",
+                        "@code": "1508",
+                        "$": "Process Chemistry and Technology"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "COMP",
+                        "@code": "1712",
+                        "$": "Software"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "ENGI",
+                        "@code": "2208",
+                        "$": "Electrical and Electronic Engineering"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "MATH",
+                        "@code": "2614",
+                        "$": "Theoretical Computer Science"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "SOCI",
+                        "@code": "3304",
+                        "$": "Education"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "COMP",
+                        "@code": "1704",
+                        "$": "Computer Graphics and Computer-Aided Design"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "ENGI",
+                        "@code": "2210",
+                        "$": "Mechanical Engineering"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "COMP",
+                        "@code": "1702",
+                        "$": "Artificial Intelligence"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "MATE",
+                        "@code": "2500",
+                        "$": "Materials Science (all)"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "COMP",
+                        "@code": "1700",
+                        "$": "Computer Science (all)"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "MATH",
+                        "@code": "2611",
+                        "$": "Modeling and Simulation"
+                    },
+                    {
+                        "@_fa": "true",
+                        "@abbrev": "COMP",
+                        "@code": "1707",
+                        "$": "Computer Vision and Pattern Recognition"
+                    }
+                ]
+            },
+            "author-profile": {
+                "status": "update",
+                "date-created": {
+                    "@day": "16",
+                    "@month": "08",
+                    "@year": "2013"
+                },
+                "preferred-name": {
+                    "@source": "internal-ani",
+                    "initials": "Y.",
+                    "indexed-name": "Zhang Y.",
+                    "surname": "Zhang",
+                    "given-name": "Yang"
+                },
+                "name-variant": {
+                    "@doc-count": "2",
+                    "@source": "internal-ani",
+                    "initials": "Z.",
+                    "indexed-name": "Yang Z.",
+                    "surname": "Yang",
+                    "given-name": "Zhang"
+                },
+                "classificationgroup": {
+                    "classifications": {
+                        "@type": "ASJC",
+                        "classification": [
+                            {
+                                "@frequency": "5",
+                                "$": "1705"
+                            },
+                            {
+                                "@frequency": "16",
+                                "$": "2200"
+                            },
+                            {
+                                "@frequency": "1",
+                                "$": "2214"
+                            },
+                            {
+                                "@frequency": "1",
+                                "$": "1507"
+                            },
+                            {
+                                "@frequency": "1",
+                                "$": "1710"
+                            },
+                            {
+                                "@frequency": "1",
+                                "$": "2207"
+                            },
+                            {
+                                "@frequency": "1",
+                                "$": "3105"
+                            },
+                            {
+                                "@frequency": "3",
+                                "$": "1703"
+                            },
+                            {
+                                "@frequency": "1",
+                                "$": "1802"
+                            },
+                            {
+                                "@frequency": "6",
+                                "$": "1708"
+                            },
+                            {
+                                "@frequency": "1",
+                                "$": "2211"
+                            },
+                            {
+                                "@frequency": "1",
+                                "$": "2805"
+                            },
+                            {
+                                "@frequency": "1",
+                                "$": "1404"
+                            },
+                            {
+                                "@frequency": "1",
+                                "$": "1701"
+                            },
+                            {
+                                "@frequency": "6",
+                                "$": "1706"
+                            },
+                            {
+                                "@frequency": "2",
+                                "$": "2213"
+                            },
+                            {
+                                "@frequency": "1",
+                                "$": "1508"
+                            },
+                            {
+                                "@frequency": "22",
+                                "$": "1712"
+                            },
+                            {
+                                "@frequency": "3",
+                                "$": "2208"
+                            },
+                            {
+                                "@frequency": "3",
+                                "$": "2614"
+                            },
+                            {
+                                "@frequency": "2",
+                                "$": "3304"
+                            },
+                            {
+                                "@frequency": "1",
+                                "$": "1704"
+                            },
+                            {
+                                "@frequency": "2",
+                                "$": "2210"
+                            },
+                            {
+                                "@frequency": "7",
+                                "$": "1702"
+                            },
+                            {
+                                "@frequency": "10",
+                                "$": "2500"
+                            },
+                            {
+                                "@frequency": "12",
+                                "$": "1700"
+                            },
+                            {
+                                "@frequency": "2",
+                                "$": "2611"
+                            },
+                            {
+                                "@frequency": "3",
+                                "$": "1707"
+                            }
+                        ]
+                    }
+                },
+                "publication-range": {
+                    "@end": "2024",
+                    "@start": "2005"
+                },
+                "affiliation-current": {
+                    "affiliation": [
+                        {
+                            "@affiliation-id": "107932237",
+                            "@parent": "60025094",
+                            "@source": "internal-ani",
+                            "ip-doc": {
+                                "@id": "107932237",
+                                "@type": "dept",
+                                "@relationship": "author",
+                                "afdispname": "Hebei University of Science and Technology, School of Information Science and Engineering",
+                                "preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "School of Information Science and Engineering"
+                                },
+                                "parent-preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Hebei University of Science and Technology"
+                                },
+                                "sort-name": "School of Information Science and Engineering",
+                                "address": {
+                                    "@country": "chn",
+                                    "address-part": "No. 26 Yuxiang Street",
+                                    "city": "Shijiazhuang",
+                                    "state": "Hebei",
+                                    "postal-code": "050018",
+                                    "country": "China"
+                                },
+                                "org-domain": "english.hebust.edu.cn",
+                                "org-URL": "https://english.hebust.edu.cn/"
+                            }
+                        },
+                        {
+                            "@affiliation-id": "128961494",
+                            "@source": "internal-ani",
+                            "ip-doc": {
+                                "@id": "128961494",
+                                "@type": "parent",
+                                "@relationship": "author",
+                                "afnameid": "Hebei Technology Innovation Center of Intelligent IoT#128961494",
+                                "afdispname": "Hebei Technology Innovation Center of Intelligent IoT",
+                                "preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Hebei Technology Innovation Center of Intelligent IoT"
+                                },
+                                "sort-name": "Hebei Technology Innovation Center of Intelligent IoT",
+                                "address": {
+                                    "@country": "chn",
+                                    "address-part": "Hebei",
+                                    "city": "Shijiazhuang",
+                                    "postal-code": "050018",
+                                    "country": "China"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "affiliation-history": {
+                    "affiliation": [
+                        {
+                            "@affiliation-id": "128961494",
+                            "@source": "internal-ani",
+                            "ip-doc": {
+                                "@id": "128961494",
+                                "@type": "parent",
+                                "@relationship": "author",
+                                "afnameid": "Hebei Technology Innovation Center of Intelligent IoT#128961494",
+                                "afdispname": "Hebei Technology Innovation Center of Intelligent IoT",
+                                "preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Hebei Technology Innovation Center of Intelligent IoT"
+                                },
+                                "sort-name": "Hebei Technology Innovation Center of Intelligent IoT",
+                                "address": {
+                                    "@country": "chn",
+                                    "address-part": "Hebei",
+                                    "city": "Shijiazhuang",
+                                    "postal-code": "050018",
+                                    "country": "China"
+                                }
+                            }
+                        },
+                        {
+                            "@affiliation-id": "107932237",
+                            "@parent": "60025094",
+                            "@source": "internal-ani",
+                            "ip-doc": {
+                                "@id": "107932237",
+                                "@type": "dept",
+                                "@relationship": "author",
+                                "afdispname": "Hebei University of Science and Technology, School of Information Science and Engineering",
+                                "preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "School of Information Science and Engineering"
+                                },
+                                "parent-preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Hebei University of Science and Technology"
+                                },
+                                "sort-name": "School of Information Science and Engineering",
+                                "address": {
+                                    "@country": "chn",
+                                    "address-part": "No. 26 Yuxiang Street",
+                                    "city": "Shijiazhuang",
+                                    "state": "Hebei",
+                                    "postal-code": "050018",
+                                    "country": "China"
+                                },
+                                "org-domain": "english.hebust.edu.cn",
+                                "org-URL": "https://english.hebust.edu.cn/"
+                            }
+                        },
+                        {
+                            "@affiliation-id": "113047801",
+                            "@parent": "60025094",
+                            "@source": "internal-ani",
+                            "ip-doc": {
+                                "@id": "113047801",
+                                "@type": "dept",
+                                "@relationship": "author",
+                                "afdispname": "Hebei University of Science and Technology, College of Information Science and Engineering",
+                                "preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "College of Information Science and Engineering"
+                                },
+                                "parent-preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Hebei University of Science and Technology"
+                                },
+                                "sort-name": "College of Information Science and Engineering",
+                                "address": {
+                                    "@country": "chn",
+                                    "address-part": "No. 26 Yuxiang Street",
+                                    "city": "Shijiazhuang",
+                                    "state": "Hebei",
+                                    "postal-code": "050018",
+                                    "country": "China"
+                                },
+                                "org-domain": "english.hebust.edu.cn",
+                                "org-URL": "https://english.hebust.edu.cn/"
+                            }
+                        },
+                        {
+                            "@affiliation-id": "60025094",
+                            "@source": "internal-ani",
+                            "ip-doc": {
+                                "@id": "60025094",
+                                "@type": "parent",
+                                "@relationship": "author",
+                                "afnameid": "Hebei University of Science and Technology#60025094",
+                                "afdispname": "Hebei University of Science and Technology",
+                                "preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Hebei University of Science and Technology"
+                                },
+                                "sort-name": "Hebei University of Science and Technology",
+                                "address": {
+                                    "@country": "chn",
+                                    "address-part": "No. 26 Yuxiang Street",
+                                    "city": "Shijiazhuang",
+                                    "state": "Hebei",
+                                    "postal-code": "050018",
+                                    "country": "China"
+                                },
+                                "org-domain": "english.hebust.edu.cn",
+                                "org-URL": "https://english.hebust.edu.cn/"
+                            }
+                        },
+                        {
+                            "@affiliation-id": "123121425",
+                            "@parent": "60025094",
+                            "@source": "internal-ani",
+                            "ip-doc": {
+                                "@id": "123121425",
+                                "@type": "dept",
+                                "@relationship": "author",
+                                "afdispname": "Hebei University of Science and Technology, Shijiazhuang",
+                                "preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Shijiazhuang"
+                                },
+                                "parent-preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Hebei University of Science and Technology"
+                                },
+                                "sort-name": "Shijiazhuang",
+                                "address": {
+                                    "@country": "chn",
+                                    "address-part": "No. 26 Yuxiang Street",
+                                    "city": "Shijiazhuang",
+                                    "state": "Hebei",
+                                    "postal-code": "050018",
+                                    "country": "China"
+                                },
+                                "org-domain": "english.hebust.edu.cn",
+                                "org-URL": "https://english.hebust.edu.cn/"
+                            }
+                        },
+                        {
+                            "@affiliation-id": "110066834",
+                            "@parent": "60025094",
+                            "@source": "internal-ani",
+                            "ip-doc": {
+                                "@id": "110066834",
+                                "@type": "dept",
+                                "@relationship": "author",
+                                "afdispname": "Hebei University of Science and Technology, School of Information Science and Technology",
+                                "preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "School of Information Science and Technology"
+                                },
+                                "parent-preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Hebei University of Science and Technology"
+                                },
+                                "sort-name": "School of Information Science and Technology",
+                                "address": {
+                                    "@country": "chn",
+                                    "address-part": "No. 26 Yuxiang Street",
+                                    "city": "Shijiazhuang",
+                                    "state": "Hebei",
+                                    "postal-code": "050018",
+                                    "country": "China"
+                                },
+                                "org-domain": "english.hebust.edu.cn",
+                                "org-URL": "https://english.hebust.edu.cn/"
+                            }
+                        },
+                        {
+                            "@affiliation-id": "118014101",
+                            "@parent": "60025094",
+                            "@source": "internal-ani",
+                            "ip-doc": {
+                                "@id": "118014101",
+                                "@type": "dept",
+                                "@relationship": "author",
+                                "afdispname": "Hebei University of Science and Technology, Department of Computer Science",
+                                "preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Department of Computer Science"
+                                },
+                                "parent-preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Hebei University of Science and Technology"
+                                },
+                                "sort-name": "Department of Computer Science",
+                                "address": {
+                                    "@country": "chn",
+                                    "address-part": "No. 26 Yuxiang Street",
+                                    "city": "Shijiazhuang",
+                                    "state": "Hebei",
+                                    "postal-code": "050018",
+                                    "country": "China"
+                                },
+                                "org-domain": "english.hebust.edu.cn",
+                                "org-URL": "https://english.hebust.edu.cn/"
+                            }
+                        },
+                        {
+                            "@affiliation-id": "108066863",
+                            "@parent": "60016835",
+                            "@source": "internal-ani",
+                            "ip-doc": {
+                                "@id": "108066863",
+                                "@type": "dept",
+                                "@relationship": "author",
+                                "afdispname": "Beijing Institute of Technology, School of Information Science and Technology",
+                                "preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "School of Information Science and Technology"
+                                },
+                                "parent-preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Beijing Institute of Technology"
+                                },
+                                "sort-name": "School of Information Science and Technology",
+                                "address": {
+                                    "@country": "chn",
+                                    "address-part": "5 South Zhongguancun Street, Haidian District",
+                                    "city": "Beijing",
+                                    "postal-code": "100081",
+                                    "country": "China"
+                                },
+                                "org-domain": "english.bit.edu.cn",
+                                "org-URL": "https://english.bit.edu.cn/"
+                            }
+                        },
+                        {
+                            "@affiliation-id": "108430511",
+                            "@parent": "60016835",
+                            "@source": "internal-ani",
+                            "ip-doc": {
+                                "@id": "108430511",
+                                "@type": "dept",
+                                "@relationship": "author",
+                                "afdispname": "Beijing Institute of Technology, School of Computer Science and Technology",
+                                "preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "School of Computer Science and Technology"
+                                },
+                                "parent-preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Beijing Institute of Technology"
+                                },
+                                "sort-name": "School of Computer Science and Technology",
+                                "address": {
+                                    "@country": "chn",
+                                    "address-part": "5 South Zhongguancun Street, Haidian District",
+                                    "city": "Beijing",
+                                    "postal-code": "100081",
+                                    "country": "China"
+                                },
+                                "org-domain": "english.bit.edu.cn",
+                                "org-URL": "https://english.bit.edu.cn/"
+                            }
+                        },
+                        {
+                            "@affiliation-id": "108120801",
+                            "@parent": "60025094",
+                            "@source": "internal-ani",
+                            "ip-doc": {
+                                "@id": "108120801",
+                                "@type": "dept",
+                                "@relationship": "author",
+                                "afdispname": "Hebei University of Science and Technology, College of Information Science and Engineering",
+                                "preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "College of Information Science and Engineering"
+                                },
+                                "parent-preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Hebei University of Science and Technology"
+                                },
+                                "sort-name": "College of Information Science and Engineering",
+                                "address": {
+                                    "@country": "chn",
+                                    "address-part": "No. 26 Yuxiang Street",
+                                    "city": "Shijiazhuang",
+                                    "state": "Hebei",
+                                    "postal-code": "050018",
+                                    "country": "China"
+                                },
+                                "org-domain": "english.hebust.edu.cn",
+                                "org-URL": "https://english.hebust.edu.cn/"
+                            }
+                        },
+                        {
+                            "@affiliation-id": "105110227",
+                            "@parent": "60025094",
+                            "@source": "internal-ani",
+                            "ip-doc": {
+                                "@id": "105110227",
+                                "@type": "dept",
+                                "@relationship": "author",
+                                "afdispname": "Hebei University of Science and Technology, School of Electrical Engineering and Information Science",
+                                "preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "School of Electrical Engineering and Information Science"
+                                },
+                                "parent-preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Hebei University of Science and Technology"
+                                },
+                                "sort-name": "School of Electrical Engineering and Information Science",
+                                "address": {
+                                    "@country": "chn",
+                                    "address-part": "No. 26 Yuxiang Street",
+                                    "city": "Shijiazhuang",
+                                    "state": "Hebei",
+                                    "postal-code": "050018",
+                                    "country": "China"
+                                },
+                                "org-domain": "english.hebust.edu.cn",
+                                "org-URL": "https://english.hebust.edu.cn/"
+                            }
+                        },
+                        {
+                            "@affiliation-id": "105718969",
+                            "@parent": "60025094",
+                            "@source": "internal-ani",
+                            "ip-doc": {
+                                "@id": "105718969",
+                                "@type": "dept",
+                                "@relationship": "author",
+                                "afdispname": "Hebei University of Science and Technology, College of Information Science and Engineering",
+                                "preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "College of Information Science and Engineering"
+                                },
+                                "parent-preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Hebei University of Science and Technology"
+                                },
+                                "sort-name": "College of Information Science and Engineering",
+                                "address": {
+                                    "@country": "chn",
+                                    "address-part": "No. 26 Yuxiang Street",
+                                    "city": "Shijiazhuang",
+                                    "state": "Hebei",
+                                    "postal-code": "050018",
+                                    "country": "China"
+                                },
+                                "org-domain": "english.hebust.edu.cn",
+                                "org-URL": "https://english.hebust.edu.cn/"
+                            }
+                        },
+                        {
+                            "@affiliation-id": "104269053",
+                            "@parent": "60025094",
+                            "@source": "internal-ani",
+                            "ip-doc": {
+                                "@id": "104269053",
+                                "@type": "dept",
+                                "@relationship": "author",
+                                "afdispname": "Hebei University of Science and Technology, College of Material Science and Engineering",
+                                "preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "College of Material Science and Engineering"
+                                },
+                                "parent-preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Hebei University of Science and Technology"
+                                },
+                                "sort-name": "College of Material Science and Engineering",
+                                "address": {
+                                    "@country": "chn",
+                                    "address-part": "No. 26 Yuxiang Street",
+                                    "city": "Shijiazhuang",
+                                    "state": "Hebei",
+                                    "postal-code": "050018",
+                                    "country": "China"
+                                },
+                                "org-domain": "english.hebust.edu.cn",
+                                "org-URL": "https://english.hebust.edu.cn/"
+                            }
+                        },
+                        {
+                            "@affiliation-id": "104269129",
+                            "@parent": "60025094",
+                            "@source": "internal-ani",
+                            "ip-doc": {
+                                "@id": "104269129",
+                                "@type": "dept",
+                                "@relationship": "author",
+                                "afdispname": "Hebei University of Science and Technology, College of Network Technology",
+                                "preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "College of Network Technology"
+                                },
+                                "parent-preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Hebei University of Science and Technology"
+                                },
+                                "sort-name": "College of Network Technology",
+                                "address": {
+                                    "@country": "chn",
+                                    "address-part": "No. 26 Yuxiang Street",
+                                    "city": "Shijiazhuang",
+                                    "state": "Hebei",
+                                    "postal-code": "050018",
+                                    "country": "China"
+                                },
+                                "org-domain": "english.hebust.edu.cn",
+                                "org-URL": "https://english.hebust.edu.cn/"
+                            }
+                        },
+                        {
+                            "@affiliation-id": "106435833",
+                            "@parent": "60088081",
+                            "@source": "internal-ani",
+                            "ip-doc": {
+                                "@id": "106435833",
+                                "@type": "dept",
+                                "@relationship": "author",
+                                "afdispname": "Hebei University of Engineering, School of Information and Electrical Engineering",
+                                "preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "School of Information and Electrical Engineering"
+                                },
+                                "parent-preferred-name": {
+                                    "@source": "internal-ani",
+                                    "$": "Hebei University of Engineering"
+                                },
+                                "sort-name": "School of Information and Electrical Engineering",
+                                "address": {
+                                    "@country": "chn",
+                                    "address-part": "No. 19 Taiji Road, Handan Economic and Technological Development Zone",
+                                    "city": "Handan",
+                                    "state": "Hebei",
+                                    "postal-code": "056038",
+                                    "country": "China"
+                                },
+                                "org-domain": "hebeu.edu.cn",
+                                "org-URL": "https://www.hebeu.edu.cn/"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

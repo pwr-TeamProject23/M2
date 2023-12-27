@@ -1,0 +1,4068 @@
+{
+    "result": {
+        "query": "black* holes*",
+        "status": {
+            "@code": "200",
+            "text": "OK"
+        },
+        "time": {
+            "@unit": "msecs",
+            "text": "6.77"
+        },
+        "completions": {
+            "@total": "1",
+            "@computed": "1",
+            "@sent": "1",
+            "c": {
+                "@sc": "124",
+                "@dc": "123",
+                "@oc": "124",
+                "@id": "52419389",
+                "text": "holes"
+            }
+        },
+        "hits": {
+            "@total": "123",
+            "@computed": "123",
+            "@sent": "123",
+            "@first": "0",
+            "hit": [
+                {
+                    "@score": "4",
+                    "@id": "2211126",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "184/2510",
+                                    "text": "Christian Corda"
+                                },
+                                {
+                                    "@pid": "269/3800",
+                                    "text": "Mehdi Fatehi Nia"
+                                },
+                                {
+                                    "@pid": "19/2940",
+                                    "text": "MohammadReza Molaei"
+                                },
+                                {
+                                    "@pid": "215/2318",
+                                    "text": "Yamin Sayyari"
+                                }
+                            ]
+                        },
+                        "title": "Entropy of Iterated Function Systems and Their Relations with Black Holes and Bohr-Like Black Holes Entropies.",
+                        "venue": "Entropy",
+                        "volume": "20",
+                        "number": "1",
+                        "pages": "56",
+                        "year": "2018",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/CordaFMS18",
+                        "doi": "10.3390/E20010056",
+                        "ee": "https://doi.org/10.3390/e20010056",
+                        "url": "https://dblp.org/rec/journals/entropy/CordaFMS18"
+                    },
+                    "url": "URL#2211126"
+                },
+                {
+                    "@score": "4",
+                    "@id": "4022985",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "31/2687",
+                                    "text": "Tiejun Gao"
+                                },
+                                {
+                                    "@pid": "60/4729",
+                                    "text": "Karin Strauss"
+                                },
+                                {
+                                    "@pid": "b/StephenMBlackburn",
+                                    "text": "Stephen M. Blackburn"
+                                },
+                                {
+                                    "@pid": "m/KSMcKinley",
+                                    "text": "Kathryn S. McKinley"
+                                },
+                                {
+                                    "@pid": "b/DougBurger",
+                                    "text": "Doug Burger"
+                                },
+                                {
+                                    "@pid": "l/JamesRLarus",
+                                    "text": "James R. Larus"
+                                }
+                            ]
+                        },
+                        "title": "Using managed runtime systems to tolerate holes in wearable memories.",
+                        "venue": "PLDI",
+                        "pages": "297-308",
+                        "year": "2013",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/pldi/GaoSBMBL13",
+                        "doi": "10.1145/2491956.2462171",
+                        "ee": "https://doi.org/10.1145/2491956.2462171",
+                        "url": "https://dblp.org/rec/conf/pldi/GaoSBMBL13"
+                    },
+                    "url": "URL#4022985"
+                },
+                {
+                    "@score": "2",
+                    "@id": "23148",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "86/7269",
+                                    "text": "Muhammad Yasir"
+                                },
+                                {
+                                    "@pid": "356/4645",
+                                    "text": "X. Tiecheng"
+                                },
+                                {
+                                    "@pid": "356/4395",
+                                    "text": "A. Ditta"
+                                }
+                            ]
+                        },
+                        "title": "Analysis of thermal geometries on slowly rotating black holes in 4D Gauss-Bonnet gravity.",
+                        "venue": "Astron. Comput.",
+                        "volume": "44",
+                        "pages": "100733",
+                        "year": "2023",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/ascom/YasirTD23",
+                        "doi": "10.1016/J.ASCOM.2023.100733",
+                        "ee": "https://doi.org/10.1016/j.ascom.2023.100733",
+                        "url": "https://dblp.org/rec/journals/ascom/YasirTD23"
+                    },
+                    "url": "URL#23148"
+                },
+                {
+                    "@score": "2",
+                    "@id": "24092",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "160/4376",
+                                    "text": "Safiqul Islam"
+                                },
+                                {
+                                    "@pid": "347/4109",
+                                    "text": "Farook Rahaman"
+                                }
+                            ]
+                        },
+                        "title": "A Comparison of Hořava-Lifshitz Gravity and Einstein Gravity through the Gravitational Deflection of Massive Body around Black Holes.",
+                        "venue": "Axioms",
+                        "volume": "12",
+                        "number": "4",
+                        "pages": "364",
+                        "year": "2023",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/axioms/IslamR23",
+                        "doi": "10.3390/AXIOMS12040364",
+                        "ee": "https://doi.org/10.3390/axioms12040364",
+                        "url": "https://dblp.org/rec/journals/axioms/IslamR23"
+                    },
+                    "url": "URL#24092"
+                },
+                {
+                    "@score": "2",
+                    "@id": "51317",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "350/2943",
+                                    "text": "Mou Xu"
+                                },
+                                {
+                                    "@pid": "14/7763",
+                                    "text": "Jianbo Lu"
+                                },
+                                {
+                                    "@pid": "350/2482",
+                                    "text": "Shining Yang"
+                                },
+                                {
+                                    "@pid": "121/9789",
+                                    "text": "Hongnan Jiang"
+                                }
+                            ]
+                        },
+                        "title": "Properties of Spherically Symmetric Black Holes in the Generalized Brans-Dicke Modified Gravitational Theory.",
+                        "venue": "Entropy",
+                        "volume": "25",
+                        "number": "5",
+                        "pages": "814",
+                        "year": "2023",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/XuLYJ23",
+                        "doi": "10.3390/E25050814",
+                        "ee": "https://doi.org/10.3390/e25050814",
+                        "url": "https://dblp.org/rec/journals/entropy/XuLYJ23"
+                    },
+                    "url": "URL#51317"
+                },
+                {
+                    "@score": "2",
+                    "@id": "136379",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "271/3987",
+                                    "text": "Irina Aref&apos;eva"
+                                },
+                                {
+                                    "@pid": "271/3997",
+                                    "text": "Igor Volovich"
+                                }
+                            ]
+                        },
+                        "title": "Complete Evaporation of Black Holes and Page Curves.",
+                        "venue": "Symmetry",
+                        "volume": "15",
+                        "number": "1",
+                        "pages": "170",
+                        "year": "2023",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/ArefevaV23",
+                        "doi": "10.3390/SYM15010170",
+                        "ee": "https://doi.org/10.3390/sym15010170",
+                        "url": "https://dblp.org/rec/journals/symmetry/ArefevaV23"
+                    },
+                    "url": "URL#136379"
+                },
+                {
+                    "@score": "2",
+                    "@id": "136419",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "350/8261",
+                                "text": "Cosimo Bambi"
+                            }
+                        },
+                        "title": "X-ray Tests of General Relativity with Black Holes.",
+                        "venue": "Symmetry",
+                        "volume": "15",
+                        "number": "6",
+                        "pages": "1277",
+                        "year": "2023",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/Bambi23",
+                        "doi": "10.3390/SYM15061277",
+                        "ee": "https://doi.org/10.3390/sym15061277",
+                        "url": "https://dblp.org/rec/journals/symmetry/Bambi23"
+                    },
+                    "url": "URL#136419"
+                },
+                {
+                    "@score": "2",
+                    "@id": "136583",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "122/0075",
+                                    "text": "Irina Dymnikova"
+                                },
+                                {
+                                    "@pid": "235/9599",
+                                    "text": "Anna Dobosz"
+                                }
+                            ]
+                        },
+                        "title": "Orbits of Particles and Photons around Regular Rotating Black Holes and Solitons.",
+                        "venue": "Symmetry",
+                        "volume": "15",
+                        "number": "2",
+                        "pages": "273",
+                        "year": "2023",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/DymnikovaD23",
+                        "doi": "10.3390/SYM15020273",
+                        "ee": "https://doi.org/10.3390/sym15020273",
+                        "url": "https://dblp.org/rec/journals/symmetry/DymnikovaD23"
+                    },
+                    "url": "URL#136583"
+                },
+                {
+                    "@score": "2",
+                    "@id": "136645",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "61/10879",
+                                "text": "Timothy Ganesan"
+                            }
+                        },
+                        "title": "Two-Dimensional Symmetry Breaking at the Event Horizon of Black Holes.",
+                        "venue": "Symmetry",
+                        "volume": "15",
+                        "number": "3",
+                        "pages": "728",
+                        "year": "2023",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/Ganesan23",
+                        "doi": "10.3390/SYM15030728",
+                        "ee": "https://doi.org/10.3390/sym15030728",
+                        "url": "https://dblp.org/rec/journals/symmetry/Ganesan23"
+                    },
+                    "url": "URL#136645"
+                },
+                {
+                    "@score": "2",
+                    "@id": "136805",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "346/4643",
+                                    "text": "Sara Kanzi"
+                                },
+                                {
+                                    "@pid": "346/5360",
+                                    "text": "Izzet Sakalli"
+                                },
+                                {
+                                    "@pid": "346/4892",
+                                    "text": "Behnam Pourhassan"
+                                }
+                            ]
+                        },
+                        "title": "Superradiant (In)stability, Greybody Radiation, and Quasinormal Modes of Rotating Black Holes in Non-Linear Maxwell f(R) Gravity.",
+                        "venue": "Symmetry",
+                        "volume": "15",
+                        "number": "4",
+                        "pages": "873",
+                        "year": "2023",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/KanziSP23",
+                        "doi": "10.3390/SYM15040873",
+                        "ee": "https://doi.org/10.3390/sym15040873",
+                        "url": "https://dblp.org/rec/journals/symmetry/KanziSP23"
+                    },
+                    "url": "URL#136805"
+                },
+                {
+                    "@score": "2",
+                    "@id": "137065",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "330/8406",
+                                    "text": "Bakhtiyor Narzilloev"
+                                },
+                                {
+                                    "@pid": "330/7848",
+                                    "text": "Bobomurat Ahmedov"
+                                }
+                            ]
+                        },
+                        "title": "Observational and Energetic Properties of Astrophysical and Galactic Black Holes.",
+                        "venue": "Symmetry",
+                        "volume": "15",
+                        "number": "2",
+                        "pages": "293",
+                        "year": "2023",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/NarzilloevA23",
+                        "doi": "10.3390/SYM15020293",
+                        "ee": "https://doi.org/10.3390/sym15020293",
+                        "url": "https://dblp.org/rec/journals/symmetry/NarzilloevA23"
+                    },
+                    "url": "URL#137065"
+                },
+                {
+                    "@score": "2",
+                    "@id": "137266",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "340/9007",
+                                    "text": "Gangqi Shen"
+                                },
+                                {
+                                    "@pid": "02/5889",
+                                    "text": "Yu Wang"
+                                },
+                                {
+                                    "@pid": "340/7960",
+                                    "text": "Houjun Lü"
+                                }
+                            ]
+                        },
+                        "title": "Space-Time Properties of Extreme RN Black Holes in Static Triangular Distribution.",
+                        "venue": "Symmetry",
+                        "volume": "15",
+                        "number": "2",
+                        "pages": "505",
+                        "year": "2023",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/ShenWL23",
+                        "doi": "10.3390/SYM15020505",
+                        "ee": "https://doi.org/10.3390/sym15020505",
+                        "url": "https://dblp.org/rec/journals/symmetry/ShenWL23"
+                    },
+                    "url": "URL#137266"
+                },
+                {
+                    "@score": "2",
+                    "@id": "137387",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "02/5889",
+                                    "text": "Yu Wang"
+                                },
+                                {
+                                    "@pid": "340/9007",
+                                    "text": "Gangqi Shen"
+                                },
+                                {
+                                    "@pid": "20/3535",
+                                    "text": "Xin Sun"
+                                }
+                            ]
+                        },
+                        "title": "The Space-Time Properties of Three Static Black Holes.",
+                        "venue": "Symmetry",
+                        "volume": "15",
+                        "number": "3",
+                        "pages": "702",
+                        "year": "2023",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/WangSS23",
+                        "doi": "10.3390/SYM15030702",
+                        "ee": "https://doi.org/10.3390/sym15030702",
+                        "url": "https://dblp.org/rec/journals/symmetry/WangSS23"
+                    },
+                    "url": "URL#137387"
+                },
+                {
+                    "@score": "2",
+                    "@id": "163405",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "31/11512",
+                                    "text": "Marco Polverini"
+                                },
+                                {
+                                    "@pid": "26/6925",
+                                    "text": "Antonio Cianfrani"
+                                },
+                                {
+                                    "@pid": "88/1887",
+                                    "text": "Marco Listanti"
+                                },
+                                {
+                                    "@pid": "342/3567",
+                                    "text": "Giulio Siano"
+                                },
+                                {
+                                    "@pid": "164/3483",
+                                    "text": "Francesco Giacinto Lavacca"
+                                },
+                                {
+                                    "@pid": "342/4574",
+                                    "text": "Carlo Candeloro Campanile"
+                                }
+                            ]
+                        },
+                        "title": "Investigating on Black Holes in Segment Routing Networks: Identification and Detection.",
+                        "venue": "IEEE Trans. Netw. Serv. Manag.",
+                        "volume": "20",
+                        "number": "1",
+                        "pages": "14-29",
+                        "year": "2023",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/tnsm/PolveriniCLSLC23",
+                        "doi": "10.1109/TNSM.2022.3197453",
+                        "ee": "https://doi.org/10.1109/TNSM.2022.3197453",
+                        "url": "https://dblp.org/rec/journals/tnsm/PolveriniCLSLC23"
+                    },
+                    "url": "URL#163405"
+                },
+                {
+                    "@score": "2",
+                    "@id": "273619",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "21/7271",
+                                "text": "Alessio Ferrari 0001"
+                            }
+                        },
+                        "title": "Artificial Intelligence in Engineering and Society: Blue Skies, Black Holes, and the Job of Requirements Engineers (Keynote).",
+                        "venue": "REW",
+                        "pages": "67",
+                        "year": "2023",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/re/Ferrari23",
+                        "doi": "10.1109/REW57809.2023.00018",
+                        "ee": "https://doi.org/10.1109/REW57809.2023.00018",
+                        "url": "https://dblp.org/rec/conf/re/Ferrari23"
+                    },
+                    "url": "URL#273619"
+                },
+                {
+                    "@score": "2",
+                    "@id": "295993",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "337/1374",
+                                    "text": "Seyed Sajad Tabasi"
+                                },
+                                {
+                                    "@pid": "337/1693",
+                                    "text": "Reyhaneh Vojoudi Salmani"
+                                },
+                                {
+                                    "@pid": "310/1887",
+                                    "text": "Pouriya Khaliliyan"
+                                },
+                                {
+                                    "@pid": "310/1633",
+                                    "text": "Javad T. Firouzjaee"
+                                }
+                            ]
+                        },
+                        "title": "Modeling the Central Supermassive Black Holes Mass of Quasars via LSTM Approach.",
+                        "venue": "CoRR",
+                        "volume": "abs/2301.01459",
+                        "year": "2023",
+                        "type": "Informal and Other Publications",
+                        "access": "open",
+                        "key": "journals/corr/abs-2301-01459",
+                        "doi": "10.48550/ARXIV.2301.01459",
+                        "ee": "https://doi.org/10.48550/arXiv.2301.01459",
+                        "url": "https://dblp.org/rec/journals/corr/abs-2301-01459"
+                    },
+                    "url": "URL#295993"
+                },
+                {
+                    "@score": "2",
+                    "@id": "314627",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "241/7007",
+                                "text": "Ryan-Rhys Griffiths"
+                            }
+                        },
+                        "title": "Applications of Gaussian Processes at Extreme Lengthscales: From Molecules to Black Holes.",
+                        "venue": "CoRR",
+                        "volume": "abs/2303.14291",
+                        "year": "2023",
+                        "type": "Informal and Other Publications",
+                        "access": "open",
+                        "key": "journals/corr/abs-2303-14291",
+                        "doi": "10.48550/ARXIV.2303.14291",
+                        "ee": "https://doi.org/10.48550/arXiv.2303.14291",
+                        "url": "https://dblp.org/rec/journals/corr/abs-2303-14291"
+                    },
+                    "url": "URL#314627"
+                },
+                {
+                    "@score": "2",
+                    "@id": "341329",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "13/2662",
+                                    "text": "Pranav Kumar"
+                                },
+                                {
+                                    "@pid": "350/1431",
+                                    "text": "Taniya Mandal"
+                                },
+                                {
+                                    "@pid": "350/1629",
+                                    "text": "Swapnamay Mondal"
+                                }
+                            ]
+                        },
+                        "title": "Black holes and the loss landscape in machine learning.",
+                        "venue": "CoRR",
+                        "volume": "abs/2306.14817",
+                        "year": "2023",
+                        "type": "Informal and Other Publications",
+                        "access": "open",
+                        "key": "journals/corr/abs-2306-14817",
+                        "doi": "10.48550/ARXIV.2306.14817",
+                        "ee": "https://doi.org/10.48550/arXiv.2306.14817",
+                        "url": "https://dblp.org/rec/journals/corr/abs-2306-14817"
+                    },
+                    "url": "URL#341329"
+                },
+                {
+                    "@score": "2",
+                    "@id": "442112",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "122/0100",
+                                    "text": "Mariano Cadoni"
+                                },
+                                {
+                                    "@pid": "275/4212",
+                                    "text": "Andrea P. Sanna"
+                                }
+                            ]
+                        },
+                        "title": "Unitarity and Page Curve for Evaporation of 2D AdS Black Holes.",
+                        "venue": "Entropy",
+                        "volume": "24",
+                        "number": "1",
+                        "pages": "101",
+                        "year": "2022",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/CadoniS22",
+                        "doi": "10.3390/E24010101",
+                        "ee": "https://doi.org/10.3390/e24010101",
+                        "url": "https://dblp.org/rec/journals/entropy/CadoniS22"
+                    },
+                    "url": "URL#442112"
+                },
+                {
+                    "@score": "2",
+                    "@id": "442645",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "320/1777",
+                                    "text": "Xiangqing Kong"
+                                },
+                                {
+                                    "@pid": "12/5838",
+                                    "text": "Tao Wang"
+                                },
+                                {
+                                    "@pid": "328/8964",
+                                    "text": "Zeyuan Gao"
+                                },
+                                {
+                                    "@pid": "14/9541",
+                                    "text": "Liu Zhao"
+                                }
+                            ]
+                        },
+                        "title": "Restricted Phased Space Thermodynamics for Black Holes in Higher Dimensions and Higher Curvature Gravities.",
+                        "venue": "Entropy",
+                        "volume": "24",
+                        "number": "8",
+                        "pages": "1131",
+                        "year": "2022",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/KongWGZ22",
+                        "doi": "10.3390/E24081131",
+                        "ee": "https://doi.org/10.3390/e24081131",
+                        "url": "https://dblp.org/rec/journals/entropy/KongWGZ22"
+                    },
+                    "url": "URL#442645"
+                },
+                {
+                    "@score": "2",
+                    "@id": "525156",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "312/3545",
+                                    "text": "Iuliana Bubuianu"
+                                },
+                                {
+                                    "@pid": "167/1635",
+                                    "text": "Sergiu I. Vacaru"
+                                },
+                                {
+                                    "@pid": "116/6291",
+                                    "text": "Elsen Veli Veliev"
+                                }
+                            ]
+                        },
+                        "title": "Quantum geometric information flows and relativistic generalizations of G. Perelman thermodynamics for nonholonomic Einstein systems with black holes and stationary solitonic hierarchies.",
+                        "venue": "Quantum Inf. Process.",
+                        "volume": "21",
+                        "number": "2",
+                        "pages": "51",
+                        "year": "2022",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/qip/BubuianuVV22",
+                        "doi": "10.1007/S11128-021-03287-7",
+                        "ee": "https://doi.org/10.1007/s11128-021-03287-7",
+                        "url": "https://dblp.org/rec/journals/qip/BubuianuVV22"
+                    },
+                    "url": "URL#525156"
+                },
+                {
+                    "@score": "2",
+                    "@id": "556124",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "271/3987",
+                                    "text": "Irina Aref&apos;eva"
+                                },
+                                {
+                                    "@pid": "271/3997",
+                                    "text": "Igor Volovich"
+                                }
+                            ]
+                        },
+                        "title": "Quantum Explosions of Black Holes and Thermal Coordinates.",
+                        "venue": "Symmetry",
+                        "volume": "14",
+                        "number": "11",
+                        "pages": "2298",
+                        "year": "2022",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/ArefevaV22",
+                        "doi": "10.3390/SYM14112298",
+                        "ee": "https://doi.org/10.3390/sym14112298",
+                        "url": "https://dblp.org/rec/journals/symmetry/ArefevaV22"
+                    },
+                    "url": "URL#556124"
+                },
+                {
+                    "@score": "2",
+                    "@id": "556147",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "04/2200",
+                                    "text": "Andy T. Augousti"
+                                },
+                                {
+                                    "@pid": "227/9323",
+                                    "text": "Pawel Gusin"
+                                },
+                                {
+                                    "@pid": "227/9350",
+                                    "text": "Andrzej Radosz"
+                                },
+                                {
+                                    "@pid": "324/1651",
+                                    "text": "Romuald J. Sciborski"
+                                }
+                            ]
+                        },
+                        "title": "Unbounded Energy Collisions inside and outside Black Holes.",
+                        "venue": "Symmetry",
+                        "volume": "14",
+                        "number": "6",
+                        "pages": "1242",
+                        "year": "2022",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/AugoustiGRS22",
+                        "doi": "10.3390/SYM14061242",
+                        "ee": "https://doi.org/10.3390/sym14061242",
+                        "url": "https://dblp.org/rec/journals/symmetry/AugoustiGRS22"
+                    },
+                    "url": "URL#556147"
+                },
+                {
+                    "@score": "2",
+                    "@id": "557097",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "287/0910",
+                                "text": "Sergey Il&apos;ich Kruglov"
+                            }
+                        },
+                        "title": "AdS Black Holes in the Framework of Nonlinear Electrodynamics, Thermodynamics, and Joule-Thomson Expansion.",
+                        "venue": "Symmetry",
+                        "volume": "14",
+                        "number": "8",
+                        "pages": "1597",
+                        "year": "2022",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/Kruglov22",
+                        "doi": "10.3390/SYM14081597",
+                        "ee": "https://doi.org/10.3390/sym14081597",
+                        "url": "https://dblp.org/rec/journals/symmetry/Kruglov22"
+                    },
+                    "url": "URL#557097"
+                },
+                {
+                    "@score": "2",
+                    "@id": "557279",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "37/4873",
+                                    "text": "Yi Ling"
+                                },
+                                {
+                                    "@pid": "333/1734",
+                                    "text": "Meng-He Wu"
+                                }
+                            ]
+                        },
+                        "title": "The Shadows of Regular Black Holes with Asymptotic Minkowski Cores.",
+                        "venue": "Symmetry",
+                        "volume": "14",
+                        "number": "11",
+                        "pages": "2415",
+                        "year": "2022",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/LingW22",
+                        "doi": "10.3390/SYM14112415",
+                        "ee": "https://doi.org/10.3390/sym14112415",
+                        "url": "https://dblp.org/rec/journals/symmetry/LingW22"
+                    },
+                    "url": "URL#557279"
+                },
+                {
+                    "@score": "2",
+                    "@id": "557770",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "330/8064",
+                                    "text": "Javlon Rayimbaev"
+                                },
+                                {
+                                    "@pid": "330/7848",
+                                    "text": "Bobomurat Ahmedov"
+                                },
+                                {
+                                    "@pid": "330/8026",
+                                    "text": "Eldor Karimbaev"
+                                }
+                            ]
+                        },
+                        "title": "Electromagnetic Fields around Black Holes in Einstein Æther Gravity.",
+                        "venue": "Symmetry",
+                        "volume": "14",
+                        "number": "9",
+                        "pages": "1809",
+                        "year": "2022",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/RayimbaevAK22",
+                        "doi": "10.3390/SYM14091809",
+                        "ee": "https://doi.org/10.3390/sym14091809",
+                        "url": "https://dblp.org/rec/journals/symmetry/RayimbaevAK22"
+                    },
+                    "url": "URL#557770"
+                },
+                {
+                    "@score": "2",
+                    "@id": "557899",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "250/5825",
+                                    "text": "Muhammad Umair Shahzad"
+                                },
+                                {
+                                    "@pid": "126/2164",
+                                    "text": "Hamood Ur Rehman"
+                                },
+                                {
+                                    "@pid": "264/1734",
+                                    "text": "Aziz Ullah Awan"
+                                },
+                                {
+                                    "@pid": "301/5059",
+                                    "text": "Elsayed M. Tag El Din"
+                                },
+                                {
+                                    "@pid": "127/2090",
+                                    "text": "Attiq Ur Rehman"
+                                }
+                            ]
+                        },
+                        "title": "Motion of Particles around Time Conformal Dilaton Black Holes.",
+                        "venue": "Symmetry",
+                        "volume": "14",
+                        "number": "10",
+                        "pages": "2033",
+                        "year": "2022",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/ShahzadRADR22",
+                        "doi": "10.3390/SYM14102033",
+                        "ee": "https://doi.org/10.3390/sym14102033",
+                        "url": "https://dblp.org/rec/journals/symmetry/ShahzadRADR22"
+                    },
+                    "url": "URL#557899"
+                },
+                {
+                    "@score": "2",
+                    "@id": "558088",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "314/3270",
+                                    "text": "Alexey V. Toporensky"
+                                },
+                                {
+                                    "@pid": "314/3164",
+                                    "text": "Oleg B. Zaslavskii"
+                                }
+                            ]
+                        },
+                        "title": "Regular Frames for Spherically Symmetric Black Holes Revisited.",
+                        "venue": "Symmetry",
+                        "volume": "14",
+                        "number": "1",
+                        "pages": "40",
+                        "year": "2022",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/ToporenskyZ22",
+                        "doi": "10.3390/SYM14010040",
+                        "ee": "https://doi.org/10.3390/sym14010040",
+                        "url": "https://dblp.org/rec/journals/symmetry/ToporenskyZ22"
+                    },
+                    "url": "URL#558088"
+                },
+                {
+                    "@score": "2",
+                    "@id": "558110",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "258/7438",
+                                    "text": "Arman Tursunov"
+                                },
+                                {
+                                    "@pid": "319/1120",
+                                    "text": "Martin Kolos"
+                                },
+                                {
+                                    "@pid": "297/0594",
+                                    "text": "Zdenek Stuchlík"
+                                }
+                            ]
+                        },
+                        "title": "Constraints on Cosmic Ray Acceleration Capabilities of Black Holes in X-ray Binaries and Active Galactic Nuclei.",
+                        "venue": "Symmetry",
+                        "volume": "14",
+                        "number": "3",
+                        "pages": "482",
+                        "year": "2022",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/TursunovKS22",
+                        "doi": "10.3390/SYM14030482",
+                        "ee": "https://doi.org/10.3390/sym14030482",
+                        "url": "https://dblp.org/rec/journals/symmetry/TursunovKS22"
+                    },
+                    "url": "URL#558110"
+                },
+                {
+                    "@score": "2",
+                    "@id": "804930",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "321/1799",
+                                "text": "Alexey Milekhin"
+                            }
+                        },
+                        "title": "Black holes and cryptocurrencies.",
+                        "venue": "CoRR",
+                        "volume": "abs/2205.12995",
+                        "year": "2022",
+                        "type": "Informal and Other Publications",
+                        "access": "open",
+                        "key": "journals/corr/abs-2205-12995",
+                        "doi": "10.48550/ARXIV.2205.12995",
+                        "ee": "https://doi.org/10.48550/arXiv.2205.12995",
+                        "url": "https://dblp.org/rec/journals/corr/abs-2205-12995"
+                    },
+                    "url": "URL#804930"
+                },
+                {
+                    "@score": "2",
+                    "@id": "842912",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "192/5187",
+                                    "text": "Cheryl J. Flynn"
+                                },
+                                {
+                                    "@pid": "209/4880",
+                                    "text": "Aritra Guha"
+                                },
+                                {
+                                    "@pid": "163/9977",
+                                    "text": "Subhabrata Majumdar"
+                                },
+                                {
+                                    "@pid": "s/DiveshSrivastava",
+                                    "text": "Divesh Srivastava"
+                                },
+                                {
+                                    "@pid": "166/5104",
+                                    "text": "Zhengyi Zhou"
+                                }
+                            ]
+                        },
+                        "title": "Towards Algorithmic Fairness in Space-Time: Filling in Black Holes.",
+                        "venue": "CoRR",
+                        "volume": "abs/2211.04568",
+                        "year": "2022",
+                        "type": "Informal and Other Publications",
+                        "access": "open",
+                        "key": "journals/corr/abs-2211-04568",
+                        "doi": "10.48550/ARXIV.2211.04568",
+                        "ee": "https://doi.org/10.48550/arXiv.2211.04568",
+                        "url": "https://dblp.org/rec/journals/corr/abs-2211-04568"
+                    },
+                    "url": "URL#842912"
+                },
+                {
+                    "@score": "2",
+                    "@id": "915085",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "297/6981",
+                                    "text": "Dongshan He"
+                                },
+                                {
+                                    "@pid": "201/9762",
+                                    "text": "Qingyu Cai"
+                                }
+                            ]
+                        },
+                        "title": "Area Entropy and Quantized Mass of Black Holes from Information Theory.",
+                        "venue": "Entropy",
+                        "volume": "23",
+                        "number": "7",
+                        "pages": "858",
+                        "year": "2021",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/HeC21",
+                        "doi": "10.3390/E23070858",
+                        "ee": "https://doi.org/10.3390/e23070858",
+                        "url": "https://dblp.org/rec/journals/entropy/HeC21"
+                    },
+                    "url": "URL#915085"
+                },
+                {
+                    "@score": "2",
+                    "@id": "1015108",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "g/FredericGreen",
+                                "text": "Frederic Green"
+                            }
+                        },
+                        "title": "Review of Three Lectures on Complexity and Black Holes by Leonard Susskind.",
+                        "venue": "SIGACT News",
+                        "volume": "52",
+                        "number": "4",
+                        "pages": "6-10",
+                        "year": "2021",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/sigact/Green21e",
+                        "doi": "10.1145/3510382.3510385",
+                        "ee": "https://doi.org/10.1145/3510382.3510385",
+                        "url": "https://dblp.org/rec/journals/sigact/Green21e"
+                    },
+                    "url": "URL#1015108"
+                },
+                {
+                    "@score": "2",
+                    "@id": "1022561",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "277/6198",
+                                    "text": "Yves Brihaye"
+                                },
+                                {
+                                    "@pid": "284/6709",
+                                    "text": "Felipe Console"
+                                },
+                                {
+                                    "@pid": "284/6765",
+                                    "text": "Betti Hartmann"
+                                }
+                            ]
+                        },
+                        "title": "Inflation inside Non-Topological Defects and Scalar Black Holes.",
+                        "venue": "Symmetry",
+                        "volume": "13",
+                        "number": "1",
+                        "pages": "2",
+                        "year": "2021",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/BrihayeCH21",
+                        "doi": "10.3390/SYM13010002",
+                        "ee": "https://doi.org/10.3390/sym13010002",
+                        "url": "https://dblp.org/rec/journals/symmetry/BrihayeCH21"
+                    },
+                    "url": "URL#1022561"
+                },
+                {
+                    "@score": "2",
+                    "@id": "1282705",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "277/1693",
+                                    "text": "Joshua Yao-Yu Lin"
+                                },
+                                {
+                                    "@pid": "279/6237",
+                                    "text": "Sneh Pandya"
+                                },
+                                {
+                                    "@pid": "279/6548",
+                                    "text": "Devanshi Pratap"
+                                },
+                                {
+                                    "@pid": "76/1820",
+                                    "text": "Xin Liu"
+                                },
+                                {
+                                    "@pid": "139/0788",
+                                    "text": "Matias Carrasco Kind"
+                                },
+                                {
+                                    "@pid": "70/536",
+                                    "text": "Volodymyr V. Kindratenko"
+                                }
+                            ]
+                        },
+                        "title": "AGNet: Weighing Black Holes with Deep Learning.",
+                        "venue": "CoRR",
+                        "volume": "abs/2108.07749",
+                        "year": "2021",
+                        "type": "Informal and Other Publications",
+                        "access": "open",
+                        "key": "journals/corr/abs-2108-07749",
+                        "ee": "https://arxiv.org/abs/2108.07749",
+                        "url": "https://dblp.org/rec/journals/corr/abs-2108-07749"
+                    },
+                    "url": "URL#1282705"
+                },
+                {
+                    "@score": "2",
+                    "@id": "1347318",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "263/2312",
+                                "text": "Grigoris Panotopoulos"
+                            }
+                        },
+                        "title": "Quasinormal Modes of Charged Black Holes in Higher-Dimensional Einstein-Power-Maxwell Theory.",
+                        "venue": "Axioms",
+                        "volume": "9",
+                        "number": "1",
+                        "pages": "33",
+                        "year": "2020",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/axioms/Panotopoulos20",
+                        "doi": "10.3390/AXIOMS9010033",
+                        "ee": "https://doi.org/10.3390/axioms9010033",
+                        "url": "https://dblp.org/rec/journals/axioms/Panotopoulos20"
+                    },
+                    "url": "URL#1347318"
+                },
+                {
+                    "@score": "2",
+                    "@id": "1373322",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "262/7741",
+                                    "text": "Lawrence Crowell"
+                                },
+                                {
+                                    "@pid": "184/2510",
+                                    "text": "Christian Corda"
+                                }
+                            ]
+                        },
+                        "title": "Quantum Hair on Colliding Black Holes.",
+                        "venue": "Entropy",
+                        "volume": "22",
+                        "number": "3",
+                        "pages": "301",
+                        "year": "2020",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/CrowellC20",
+                        "doi": "10.3390/E22030301",
+                        "ee": "https://doi.org/10.3390/e22030301",
+                        "url": "https://dblp.org/rec/journals/entropy/CrowellC20"
+                    },
+                    "url": "URL#1373322"
+                },
+                {
+                    "@score": "2",
+                    "@id": "1381044",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "09/9663",
+                                    "text": "Qiliang Liu"
+                                },
+                                {
+                                    "@pid": "147/6720",
+                                    "text": "Zhihui Wu"
+                                },
+                                {
+                                    "@pid": "31/6260",
+                                    "text": "Min Deng"
+                                },
+                                {
+                                    "@pid": "95/224",
+                                    "text": "Wenkai Liu"
+                                },
+                                {
+                                    "@pid": "87/7622",
+                                    "text": "Yaolin Liu"
+                                }
+                            ]
+                        },
+                        "title": "Network-constrained bivariate clustering method for detecting urban black holes and volcanoes.",
+                        "venue": "Int. J. Geogr. Inf. Sci.",
+                        "volume": "34",
+                        "number": "10",
+                        "pages": "1903-1929",
+                        "year": "2020",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/gis/LiuWDLL20",
+                        "doi": "10.1080/13658816.2020.1720027",
+                        "ee": "https://doi.org/10.1080/13658816.2020.1720027",
+                        "url": "https://dblp.org/rec/journals/gis/LiuWDLL20"
+                    },
+                    "url": "URL#1381044"
+                },
+                {
+                    "@score": "2",
+                    "@id": "1469689",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "243/9247",
+                                    "text": "Ivan Arraut"
+                                },
+                                {
+                                    "@pid": "136/2135",
+                                    "text": "Diana Diaz"
+                                }
+                            ]
+                        },
+                        "title": "On the Loss of Learning Capability Inside an Arrangement of Neural Networks: The Bottleneck Effect in Black-Holes.",
+                        "venue": "Symmetry",
+                        "volume": "12",
+                        "number": "9",
+                        "pages": "1484",
+                        "year": "2020",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/ArrautD20",
+                        "doi": "10.3390/SYM12091484",
+                        "ee": "https://doi.org/10.3390/sym12091484",
+                        "url": "https://dblp.org/rec/journals/symmetry/ArrautD20"
+                    },
+                    "url": "URL#1469689"
+                },
+                {
+                    "@score": "2",
+                    "@id": "1469708",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "04/2200",
+                                    "text": "Andy T. Augousti"
+                                },
+                                {
+                                    "@pid": "227/9350",
+                                    "text": "Andrzej Radosz"
+                                },
+                                {
+                                    "@pid": "227/9323",
+                                    "text": "Pawel Gusin"
+                                },
+                                {
+                                    "@pid": "268/3055",
+                                    "text": "Aleksander Kaczmarek"
+                                }
+                            ]
+                        },
+                        "title": "The Symmetry of the Interior and Exterior of Schwarzschild and Reissner-Nordstrom Black Holes - Sphere vs. Cylinder.",
+                        "venue": "Symmetry",
+                        "volume": "12",
+                        "number": "5",
+                        "pages": "859",
+                        "year": "2020",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/AugoustiRGK20",
+                        "doi": "10.3390/SYM12050859",
+                        "ee": "https://doi.org/10.3390/sym12050859",
+                        "url": "https://dblp.org/rec/journals/symmetry/AugoustiRGK20"
+                    },
+                    "url": "URL#1469708"
+                },
+                {
+                    "@score": "2",
+                    "@id": "1469819",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "193/7355",
+                                    "text": "Jose Luis Blázquez-Salcedo"
+                                },
+                                {
+                                    "@pid": "282/0970",
+                                    "text": "Sarah Kahlen"
+                                },
+                                {
+                                    "@pid": "181/3374",
+                                    "text": "Jutta Kunz"
+                                }
+                            ]
+                        },
+                        "title": "Critical Solutions of Scalarized Black Holes.",
+                        "venue": "Symmetry",
+                        "volume": "12",
+                        "number": "12",
+                        "pages": "2057",
+                        "year": "2020",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/Blazquez-Salcedo20",
+                        "doi": "10.3390/SYM12122057",
+                        "ee": "https://doi.org/10.3390/sym12122057",
+                        "url": "https://dblp.org/rec/journals/symmetry/Blazquez-Salcedo20"
+                    },
+                    "url": "URL#1469819"
+                },
+                {
+                    "@score": "2",
+                    "@id": "1527536",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "31/11512",
+                                    "text": "Marco Polverini"
+                                },
+                                {
+                                    "@pid": "26/6925",
+                                    "text": "Antonio Cianfrani"
+                                },
+                                {
+                                    "@pid": "88/1887",
+                                    "text": "Marco Listanti"
+                                }
+                            ]
+                        },
+                        "title": "Snoop Through Traffic Counters to Detect Black Holes in Segment Routing Networks.",
+                        "venue": "ChinaCom",
+                        "pages": "337-350",
+                        "year": "2020",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/chinacom/PolveriniCL20",
+                        "doi": "10.1007/978-3-030-67720-6_23",
+                        "ee": "https://doi.org/10.1007/978-3-030-67720-6_23",
+                        "url": "https://dblp.org/rec/conf/chinacom/PolveriniCL20"
+                    },
+                    "url": "URL#1527536"
+                },
+                {
+                    "@score": "2",
+                    "@id": "1730546",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "29/528",
+                                "text": "Eric Bruneton"
+                            }
+                        },
+                        "title": "Real-time High-Quality Rendering of Non-Rotating Black Holes.",
+                        "venue": "CoRR",
+                        "volume": "abs/2010.08735",
+                        "year": "2020",
+                        "type": "Informal and Other Publications",
+                        "access": "open",
+                        "key": "journals/corr/abs-2010-08735",
+                        "ee": "https://arxiv.org/abs/2010.08735",
+                        "url": "https://dblp.org/rec/journals/corr/abs-2010-08735"
+                    },
+                    "url": "URL#1730546"
+                },
+                {
+                    "@score": "2",
+                    "@id": "1740258",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "277/1693",
+                                    "text": "Joshua Yao-Yu Lin"
+                                },
+                                {
+                                    "@pid": "279/6237",
+                                    "text": "Sneh Pandya"
+                                },
+                                {
+                                    "@pid": "279/6548",
+                                    "text": "Devanshi Pratap"
+                                },
+                                {
+                                    "@pid": "76/1820",
+                                    "text": "Xin Liu"
+                                },
+                                {
+                                    "@pid": "139/0788",
+                                    "text": "Matias Carrasco Kind"
+                                }
+                            ]
+                        },
+                        "title": "AGNet: Weighing Black Holes with Machine Learning.",
+                        "venue": "CoRR",
+                        "volume": "abs/2011.15095",
+                        "year": "2020",
+                        "type": "Informal and Other Publications",
+                        "access": "open",
+                        "key": "journals/corr/abs-2011-15095",
+                        "ee": "https://arxiv.org/abs/2011.15095",
+                        "url": "https://dblp.org/rec/journals/corr/abs-2011-15095"
+                    },
+                    "url": "URL#1740258"
+                },
+                {
+                    "@score": "2",
+                    "@id": "1803888",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "211/5930",
+                                "text": "Bogeun Gwak"
+                            }
+                        },
+                        "title": "Coalescence of Kerr Black Holes - Binary Systems from GW150914 to GW170814.",
+                        "venue": "Entropy",
+                        "volume": "21",
+                        "number": "10",
+                        "pages": "1017",
+                        "year": "2019",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/Gwak19",
+                        "doi": "10.3390/E21101017",
+                        "ee": "https://doi.org/10.3390/e21101017",
+                        "url": "https://dblp.org/rec/journals/entropy/Gwak19"
+                    },
+                    "url": "URL#1803888"
+                },
+                {
+                    "@score": "2",
+                    "@id": "1804525",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "246/4512",
+                                    "text": "Rudolf A. Treumann"
+                                },
+                                {
+                                    "@pid": "246/4427",
+                                    "text": "Wolfgang Baumjohann"
+                                }
+                            ]
+                        },
+                        "title": "A Note on the Entropy Force in Kinetic Theory and Black Holes.",
+                        "venue": "Entropy",
+                        "volume": "21",
+                        "number": "7",
+                        "pages": "716",
+                        "year": "2019",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/TreumannB19",
+                        "doi": "10.3390/E21070716",
+                        "ee": "https://doi.org/10.3390/e21070716",
+                        "url": "https://dblp.org/rec/journals/entropy/TreumannB19"
+                    },
+                    "url": "URL#1804525"
+                },
+                {
+                    "@score": "2",
+                    "@id": "1890329",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "243/9035",
+                                    "text": "Riasat Ali"
+                                },
+                                {
+                                    "@pid": "122/0037",
+                                    "text": "Kazuharu Bamba"
+                                },
+                                {
+                                    "@pid": "35/7499",
+                                    "text": "Syed Asif Ali Shah"
+                                }
+                            ]
+                        },
+                        "title": "Effect of Quantum Gravity on the Stability of Black Holes.",
+                        "venue": "Symmetry",
+                        "volume": "11",
+                        "number": "5",
+                        "pages": "631",
+                        "year": "2019",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/AliBS19",
+                        "doi": "10.3390/SYM11050631",
+                        "ee": "https://doi.org/10.3390/sym11050631",
+                        "url": "https://dblp.org/rec/journals/symmetry/AliBS19"
+                    },
+                    "url": "URL#1890329"
+                },
+                {
+                    "@score": "2",
+                    "@id": "1891404",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "248/2027",
+                                    "text": "Anton Sheykin"
+                                },
+                                {
+                                    "@pid": "219/4037",
+                                    "text": "Dmitry Solovyev"
+                                },
+                                {
+                                    "@pid": "248/2981",
+                                    "text": "Sergey Paston"
+                                }
+                            ]
+                        },
+                        "title": "Global Embeddings of BTZ and Schwarzschild-ADS Type Black Holes in a Flat Space.",
+                        "venue": "Symmetry",
+                        "volume": "11",
+                        "number": "7",
+                        "pages": "841",
+                        "year": "2019",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/SheykinSP19",
+                        "doi": "10.3390/SYM11070841",
+                        "ee": "https://doi.org/10.3390/sym11070841",
+                        "url": "https://dblp.org/rec/journals/symmetry/SheykinSP19"
+                    },
+                    "url": "URL#1891404"
+                },
+                {
+                    "@score": "2",
+                    "@id": "2211667",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "224/6530",
+                                "text": "George Ruppeiner"
+                            }
+                        },
+                        "title": "Thermodynamic Black Holes.",
+                        "venue": "Entropy",
+                        "volume": "20",
+                        "number": "6",
+                        "pages": "460",
+                        "year": "2018",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/Ruppeiner18",
+                        "doi": "10.3390/E20060460",
+                        "ee": "https://doi.org/10.3390/e20060460",
+                        "url": "https://dblp.org/rec/journals/entropy/Ruppeiner18"
+                    },
+                    "url": "URL#2211667"
+                },
+                {
+                    "@score": "2",
+                    "@id": "2229478",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "88/9114",
+                                    "text": "Mohamed Elhadi Rahmani"
+                                },
+                                {
+                                    "@pid": "83/7709",
+                                    "text": "Abdelmalek Amine"
+                                },
+                                {
+                                    "@pid": "11/9113",
+                                    "text": "Reda Mohamed Hamou"
+                                }
+                            ]
+                        },
+                        "title": "Sonar Data Classification Using a New Algorithm Inspired from Black Holes Phenomenon.",
+                        "venue": "Int. J. Inf. Retr. Res.",
+                        "volume": "8",
+                        "number": "2",
+                        "pages": "25-39",
+                        "year": "2018",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/ijirr/RahmaniAH18",
+                        "doi": "10.4018/IJIRR.2018040102",
+                        "ee": "https://doi.org/10.4018/IJIRR.2018040102",
+                        "url": "https://dblp.org/rec/journals/ijirr/RahmaniAH18"
+                    },
+                    "url": "URL#2229478"
+                },
+                {
+                    "@score": "2",
+                    "@id": "2314386",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "160/8229",
+                                    "text": "Ali Dorri"
+                                },
+                                {
+                                    "@pid": "227/4287",
+                                    "text": "Soroush Vaseghi"
+                                },
+                                {
+                                    "@pid": "227/4927",
+                                    "text": "Omid Gharib"
+                                }
+                            ]
+                        },
+                        "title": "DEBH: detecting and eliminating black holes in mobile ad hoc network.",
+                        "venue": "Wirel. Networks",
+                        "volume": "24",
+                        "number": "8",
+                        "pages": "2943-2955",
+                        "year": "2018",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/winet/DorriVG18",
+                        "doi": "10.1007/S11276-017-1516-Z",
+                        "ee": "https://doi.org/10.1007/s11276-017-1516-z",
+                        "url": "https://dblp.org/rec/journals/winet/DorriVG18"
+                    },
+                    "url": "URL#2314386"
+                },
+                {
+                    "@score": "2",
+                    "@id": "2372004",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "50/7561",
+                                    "text": "Qussai M. Yaseen"
+                                },
+                                {
+                                    "@pid": "38/5057",
+                                    "text": "Monther Aldwairi"
+                                }
+                            ]
+                        },
+                        "title": "An Enhanced AODV Protocol for Avoiding Black Holes in MANET.",
+                        "venue": "FNC/MobiSPC",
+                        "pages": "371-376",
+                        "year": "2018",
+                        "type": "Conference and Workshop Papers",
+                        "access": "open",
+                        "key": "conf/fnc/YaseenA18",
+                        "doi": "10.1016/J.PROCS.2018.07.196",
+                        "ee": "https://doi.org/10.1016/j.procs.2018.07.196",
+                        "url": "https://dblp.org/rec/conf/fnc/YaseenA18"
+                    },
+                    "url": "URL#2372004"
+                },
+                {
+                    "@score": "2",
+                    "@id": "2457512",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "220/7432",
+                                "text": "Matteo Bugli"
+                            }
+                        },
+                        "title": "ECHO-3DHPC: Relativistic Accretion Disks onto Black Holes.",
+                        "venue": "PDP",
+                        "pages": "674-681",
+                        "year": "2018",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/pdp/Bugli18",
+                        "doi": "10.1109/PDP2018.2018.00112",
+                        "ee": "https://doi.org/10.1109/PDP2018.2018.00112",
+                        "url": "https://dblp.org/rec/conf/pdp/Bugli18"
+                    },
+                    "url": "URL#2457512"
+                },
+                {
+                    "@score": "2",
+                    "@id": "2547907",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "01/8759",
+                                "text": "Katherine Louise Bouman"
+                            }
+                        },
+                        "title": "Extreme imaging via physical model inversion: seeing around corners and imaging black holes.",
+                        "year": "2017",
+                        "type": "Books and Theses",
+                        "access": "closed",
+                        "key": "phd/ndltd/Bouman17",
+                        "ee": "https://hdl.handle.net/1721.1/113998",
+                        "url": "https://dblp.org/rec/phd/ndltd/Bouman17"
+                    },
+                    "url": "URL#2547907"
+                },
+                {
+                    "@score": "2",
+                    "@id": "2579864",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "193/7355",
+                                "text": "Jose Luis Blázquez-Salcedo"
+                            }
+                        },
+                        "title": "Radially Excited AdS5 Black Holes in Einstein-Maxwell-Chern-Simons Theory.",
+                        "venue": "Entropy",
+                        "volume": "19",
+                        "number": "10",
+                        "pages": "567",
+                        "year": "2017",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/Blazquez-Salcedo17",
+                        "doi": "10.3390/E19100567",
+                        "ee": "https://doi.org/10.3390/e19100567",
+                        "url": "https://dblp.org/rec/journals/entropy/Blazquez-Salcedo17"
+                    },
+                    "url": "URL#2579864"
+                },
+                {
+                    "@score": "2",
+                    "@id": "2580020",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "211/5930",
+                                    "text": "Bogeun Gwak"
+                                },
+                                {
+                                    "@pid": "211/6139",
+                                    "text": "Daeho Ro"
+                                }
+                            ]
+                        },
+                        "title": "Spin Interaction under the Collision of Two Kerr-(Anti-)de Sitter Black Holes.",
+                        "venue": "Entropy",
+                        "volume": "19",
+                        "number": "12",
+                        "pages": "691",
+                        "year": "2017",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/GwakR17",
+                        "doi": "10.3390/E19120691",
+                        "ee": "https://doi.org/10.3390/e19120691",
+                        "url": "https://dblp.org/rec/journals/entropy/GwakR17"
+                    },
+                    "url": "URL#2580020"
+                },
+                {
+                    "@score": "2",
+                    "@id": "2580370",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "207/4355",
+                                    "text": "Fabrizio Tamburini"
+                                },
+                                {
+                                    "@pid": "160/1510",
+                                    "text": "Mariafelicia Laurentis"
+                                },
+                                {
+                                    "@pid": "09/9007",
+                                    "text": "Ignazio Licata"
+                                },
+                                {
+                                    "@pid": "29/2353",
+                                    "text": "Bo Thidé"
+                                }
+                            ]
+                        },
+                        "title": "Twisted Soft Photon Hair Implants on Black Holes.",
+                        "venue": "Entropy",
+                        "volume": "19",
+                        "number": "9",
+                        "pages": "458",
+                        "year": "2017",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/TamburiniLLT17",
+                        "doi": "10.3390/E19090458",
+                        "ee": "https://doi.org/10.3390/e19090458",
+                        "url": "https://dblp.org/rec/journals/entropy/TamburiniLLT17"
+                    },
+                    "url": "URL#2580370"
+                },
+                {
+                    "@score": "2",
+                    "@id": "2608197",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "66/9687",
+                                    "text": "Kevin Black"
+                                },
+                                {
+                                    "@pid": "b/FBlanchetSadri",
+                                    "text": "Francine Blanchet-Sadri"
+                                },
+                                {
+                                    "@pid": "209/9012",
+                                    "text": "Ian Coley"
+                                },
+                                {
+                                    "@pid": "130/7600",
+                                    "text": "Brent Woodhouse"
+                                },
+                                {
+                                    "@pid": "66/8668",
+                                    "text": "Andrew Zemke"
+                                }
+                            ]
+                        },
+                        "title": "Pattern Avoidance in Partial Words Dense with Holes.",
+                        "venue": "J. Autom. Lang. Comb.",
+                        "volume": "22",
+                        "number": "4",
+                        "pages": "209-241",
+                        "year": "2017",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/jalc/BlackBCWZ17",
+                        "doi": "10.25596/JALC-2017-209",
+                        "ee": "https://doi.org/10.25596/jalc-2017-209",
+                        "url": "https://dblp.org/rec/journals/jalc/BlackBCWZ17"
+                    },
+                    "url": "URL#2608197"
+                },
+                {
+                    "@score": "2",
+                    "@id": "2877770",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "205/3072",
+                                "text": "Stanislav Fort"
+                            }
+                        },
+                        "title": "Towards understanding feedback from supermassive black holes using convolutional neural networks.",
+                        "venue": "CoRR",
+                        "volume": "abs/1712.00523",
+                        "year": "2017",
+                        "type": "Informal and Other Publications",
+                        "access": "open",
+                        "key": "journals/corr/abs-1712-00523",
+                        "ee": "http://arxiv.org/abs/1712.00523",
+                        "url": "https://dblp.org/rec/journals/corr/abs-1712-00523"
+                    },
+                    "url": "URL#2877770"
+                },
+                {
+                    "@score": "2",
+                    "@id": "2910187",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "96/7958",
+                                "text": "Stephen P. Jordan"
+                            }
+                        },
+                        "title": "Black holes, quantum mechanics, and the limits of polynomial-time computability.",
+                        "venue": "XRDS",
+                        "volume": "23",
+                        "number": "1",
+                        "pages": "30-33",
+                        "year": "2016",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/crossroads/Jordan16",
+                        "doi": "10.1145/2983539",
+                        "ee": "https://doi.org/10.1145/2983539",
+                        "url": "https://dblp.org/rec/journals/crossroads/Jordan16"
+                    },
+                    "url": "URL#2910187"
+                },
+                {
+                    "@score": "2",
+                    "@id": "2910226",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "187/3164",
+                                "text": "Brian Swingle"
+                            }
+                        },
+                        "title": "Black holes and the limits of quantum information processing.",
+                        "venue": "XRDS",
+                        "volume": "23",
+                        "number": "1",
+                        "pages": "52-56",
+                        "year": "2016",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/crossroads/Swingle16",
+                        "doi": "10.1145/2983549",
+                        "ee": "https://doi.org/10.1145/2983549",
+                        "url": "https://dblp.org/rec/journals/crossroads/Swingle16"
+                    },
+                    "url": "URL#2910226"
+                },
+                {
+                    "@score": "2",
+                    "@id": "2916583",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "193/7355",
+                                    "text": "Jose Luis Blázquez-Salcedo"
+                                },
+                                {
+                                    "@pid": "181/3374",
+                                    "text": "Jutta Kunz"
+                                },
+                                {
+                                    "@pid": "193/6956",
+                                    "text": "Francisco Navarro-Lérida"
+                                },
+                                {
+                                    "@pid": "181/3458",
+                                    "text": "Eugen Radu"
+                                }
+                            ]
+                        },
+                        "title": "Static Einstein-Maxwell Magnetic Solitons and Black Holes in an Odd Dimensional AdS Spacetime.",
+                        "venue": "Entropy",
+                        "volume": "18",
+                        "number": "12",
+                        "pages": "438",
+                        "year": "2016",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/Blazquez-Salcedo16",
+                        "doi": "10.3390/E18120438",
+                        "ee": "https://doi.org/10.3390/e18120438",
+                        "url": "https://dblp.org/rec/journals/entropy/Blazquez-Salcedo16"
+                    },
+                    "url": "URL#2916583"
+                },
+                {
+                    "@score": "2",
+                    "@id": "2916648",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "206/7126",
+                                    "text": "Lenin F. Escamilla-Herrera"
+                                },
+                                {
+                                    "@pid": "198/6185",
+                                    "text": "Eri A. Mena-Barboza"
+                                },
+                                {
+                                    "@pid": "206/6609",
+                                    "text": "José Torres-Arenas"
+                                }
+                            ]
+                        },
+                        "title": "Thermodynamics of Noncommutative Quantum Kerr Black Holes.",
+                        "venue": "Entropy",
+                        "volume": "18",
+                        "number": "11",
+                        "pages": "406",
+                        "year": "2016",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/Escamilla-Herrera16",
+                        "doi": "10.3390/E18110406",
+                        "ee": "https://doi.org/10.3390/e18110406",
+                        "url": "https://dblp.org/rec/journals/entropy/Escamilla-Herrera16"
+                    },
+                    "url": "URL#2916648"
+                },
+                {
+                    "@score": "2",
+                    "@id": "2916814",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "189/7555",
+                                "text": "Trevor W. Marshall"
+                            }
+                        },
+                        "title": "The Shell Collapsar - A Possible Alternative to Black Holes.",
+                        "venue": "Entropy",
+                        "volume": "18",
+                        "number": "10",
+                        "pages": "363",
+                        "year": "2016",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/Marshall16",
+                        "doi": "10.3390/E18100363",
+                        "ee": "https://doi.org/10.3390/e18100363",
+                        "url": "https://dblp.org/rec/journals/entropy/Marshall16"
+                    },
+                    "url": "URL#2916814"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3030993",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "42/1899",
+                                    "text": "Li Jin"
+                                },
+                                {
+                                    "@pid": "129/4053",
+                                    "text": "Zhuonan Feng"
+                                },
+                                {
+                                    "@pid": "58/4464",
+                                    "text": "Ling Feng"
+                                }
+                            ]
+                        },
+                        "title": "A Context-aware Collaborative Filtering Approach for Urban Black Holes Detection.",
+                        "venue": "CIKM",
+                        "pages": "2137-2142",
+                        "year": "2016",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/cikm/JinFF16",
+                        "doi": "10.1145/2983323.2983655",
+                        "ee": "https://doi.org/10.1145/2983323.2983655",
+                        "url": "https://dblp.org/rec/conf/cikm/JinFF16"
+                    },
+                    "url": "URL#3030993"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3059493",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "17/11478",
+                                    "text": "Loïc Salmon"
+                                },
+                                {
+                                    "@pid": "r/CyrilRay",
+                                    "text": "Cyril Ray"
+                                },
+                                {
+                                    "@pid": "c/CClaramunt",
+                                    "text": "Christophe Claramunt"
+                                }
+                            ]
+                        },
+                        "title": "Continuous detection of black holes for moving objects at sea.",
+                        "venue": "IWGS@SIGSPATIAL",
+                        "pages": "2:1-2:10",
+                        "year": "2016",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/gis/SalmonRC16",
+                        "doi": "10.1145/3003421.3003423",
+                        "ee": "https://doi.org/10.1145/3003421.3003423",
+                        "url": "https://dblp.org/rec/conf/gis/SalmonRC16"
+                    },
+                    "url": "URL#3059493"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3059619",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "67/10953",
+                                "text": "Anna Barnacka"
+                            }
+                        },
+                        "title": "Signal processing enables the first localization of gamma rays from supermassive black holes.",
+                        "venue": "GlobalSIP",
+                        "pages": "30-34",
+                        "year": "2016",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/globalsip/Barnacka16",
+                        "doi": "10.1109/GLOBALSIP.2016.7905797",
+                        "ee": "https://doi.org/10.1109/GlobalSIP.2016.7905797",
+                        "url": "https://dblp.org/rec/conf/globalsip/Barnacka16"
+                    },
+                    "url": "URL#3059619"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3083191",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "45/4645-2",
+                                    "text": "Michael Cohen 0002"
+                                },
+                                {
+                                    "@pid": "188/6501",
+                                    "text": "Yousuke Nagayama"
+                                },
+                                {
+                                    "@pid": "156/8650",
+                                    "text": "Bektur Ryskeldiev"
+                                }
+                            ]
+                        },
+                        "title": "Metering &quot;black holes&quot;: networking stand-alone applications for distributed multimodal synchronization.",
+                        "venue": "ICMI",
+                        "pages": "396-397",
+                        "year": "2016",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/icmi/CohenNR16",
+                        "doi": "10.1145/2993148.2998530",
+                        "ee": "https://doi.org/10.1145/2993148.2998530",
+                        "url": "https://dblp.org/rec/conf/icmi/CohenNR16"
+                    },
+                    "url": "URL#3083191"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3127000",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "33/8156",
+                                    "text": "Ekaterina Shutova"
+                                },
+                                {
+                                    "@pid": "136/9140",
+                                    "text": "Douwe Kiela"
+                                },
+                                {
+                                    "@pid": "166/1970",
+                                    "text": "Jean Maillard"
+                                }
+                            ]
+                        },
+                        "title": "Black Holes and White Rabbits: Metaphor Identification with Visual Features.",
+                        "venue": "HLT-NAACL",
+                        "pages": "160-170",
+                        "year": "2016",
+                        "type": "Conference and Workshop Papers",
+                        "access": "open",
+                        "key": "conf/naacl/ShutovaKM16",
+                        "doi": "10.18653/V1/N16-1020",
+                        "ee": "https://doi.org/10.18653/v1/n16-1020",
+                        "url": "https://dblp.org/rec/conf/naacl/ShutovaKM16"
+                    },
+                    "url": "URL#3127000"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3171908",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "56/1358",
+                                "text": "Scott Aaronson"
+                            }
+                        },
+                        "title": "The Complexity of Quantum States and Transformations: From Quantum Money to Black Holes.",
+                        "venue": "CoRR",
+                        "volume": "abs/1607.05256",
+                        "year": "2016",
+                        "type": "Informal and Other Publications",
+                        "access": "open",
+                        "key": "journals/corr/Aaronson16",
+                        "ee": "http://arxiv.org/abs/1607.05256",
+                        "url": "https://dblp.org/rec/journals/corr/Aaronson16"
+                    },
+                    "url": "URL#3171908"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3177453",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "160/8229",
+                                "text": "Ali Dorri"
+                            }
+                        },
+                        "title": "DEBH: Detection and Elimination Black Holes in Mobile Ad Hoc Network.",
+                        "venue": "CoRR",
+                        "volume": "abs/1608.05830",
+                        "year": "2016",
+                        "type": "Informal and Other Publications",
+                        "access": "open",
+                        "key": "journals/corr/Dorri16",
+                        "ee": "http://arxiv.org/abs/1608.05830",
+                        "url": "https://dblp.org/rec/journals/corr/Dorri16"
+                    },
+                    "url": "URL#3177453"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3194958",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "56/1358",
+                                "text": "Scott Aaronson"
+                            }
+                        },
+                        "title": "The Complexity of Quantum States and Transformations: From Quantum Money to Black Holes.",
+                        "venue": "Electron. Colloquium Comput. Complex.",
+                        "volume": "TR16",
+                        "year": "2016",
+                        "type": "Informal and Other Publications",
+                        "access": "open",
+                        "key": "journals/eccc/Aaronson16",
+                        "ee": "https://eccc.weizmann.ac.il/report/2016/109",
+                        "url": "https://dblp.org/rec/journals/eccc/Aaronson16"
+                    },
+                    "url": "URL#3194958"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3230596",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "122/0214",
+                                    "text": "Roberto Casadio"
+                                },
+                                {
+                                    "@pid": "170/4521",
+                                    "text": "Andrea Giugno"
+                                },
+                                {
+                                    "@pid": "170/4421",
+                                    "text": "Octavian Micu"
+                                },
+                                {
+                                    "@pid": "88/4537",
+                                    "text": "Alessio Orlandi"
+                                }
+                            ]
+                        },
+                        "title": "Thermal BEC Black Holes.",
+                        "venue": "Entropy",
+                        "volume": "17",
+                        "number": "10",
+                        "pages": "6893-6924",
+                        "year": "2015",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/CasadioGMO15",
+                        "doi": "10.3390/E17106893",
+                        "ee": "https://doi.org/10.3390/e17106893",
+                        "url": "https://dblp.org/rec/journals/entropy/CasadioGMO15"
+                    },
+                    "url": "URL#3230596"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3230625",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "165/7165",
+                                    "text": "Guido Cognola"
+                                },
+                                {
+                                    "@pid": "165/7154",
+                                    "text": "Massimiliano Rinaldi"
+                                },
+                                {
+                                    "@pid": "165/7274",
+                                    "text": "Luciano Vanzo"
+                                }
+                            ]
+                        },
+                        "title": "Scale-Invariant Rotating Black Holes in Quadratic Gravity.",
+                        "venue": "Entropy",
+                        "volume": "17",
+                        "number": "8",
+                        "pages": "5145-5156",
+                        "year": "2015",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/CognolaRV15",
+                        "doi": "10.3390/E17085145",
+                        "ee": "https://doi.org/10.3390/e17085145",
+                        "url": "https://dblp.org/rec/journals/entropy/CognolaRV15"
+                    },
+                    "url": "URL#3230625"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3230693",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "174/3056",
+                                    "text": "Robie A. Hennigar"
+                                },
+                                {
+                                    "@pid": "174/3057",
+                                    "text": "Robert B. Mann"
+                                }
+                            ]
+                        },
+                        "title": "Reentrant Phase Transitions and van der Waals Behaviour for Hairy Black Holes.",
+                        "venue": "Entropy",
+                        "volume": "17",
+                        "number": "12",
+                        "pages": "8056-8072",
+                        "year": "2015",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/HennigarM15",
+                        "doi": "10.3390/E17127862",
+                        "ee": "https://doi.org/10.3390/e17127862",
+                        "url": "https://dblp.org/rec/journals/entropy/HennigarM15"
+                    },
+                    "url": "URL#3230693"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3294371",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "136/8986",
+                                    "text": "David Jou"
+                                },
+                                {
+                                    "@pid": "17/9266",
+                                    "text": "Michele Sciacca"
+                                },
+                                {
+                                    "@pid": "44/6936",
+                                    "text": "Maria Stella Mongiovì"
+                                }
+                            ]
+                        },
+                        "title": "Three Duality Symmetries between Photons and Cosmic String Loops, and Macro and Micro Black Holes.",
+                        "venue": "Symmetry",
+                        "volume": "7",
+                        "number": "4",
+                        "pages": "2134-2149",
+                        "year": "2015",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/symmetry/JouSM15",
+                        "doi": "10.3390/SYM7042134",
+                        "ee": "https://doi.org/10.3390/sym7042134",
+                        "url": "https://dblp.org/rec/journals/symmetry/JouSM15"
+                    },
+                    "url": "URL#3294371"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3298738",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "32/9764",
+                                    "text": "Mattia D&apos;Emidio"
+                                },
+                                {
+                                    "@pid": "f/DanieleFrigioni",
+                                    "text": "Daniele Frigioni"
+                                },
+                                {
+                                    "@pid": "n/AlfredoNavarra",
+                                    "text": "Alfredo Navarra"
+                                }
+                            ]
+                        },
+                        "title": "Explore and repair graphs with black holes using mobile entities.",
+                        "venue": "Theor. Comput. Sci.",
+                        "volume": "605",
+                        "pages": "129-145",
+                        "year": "2015",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/tcs/DEmidioFN15",
+                        "doi": "10.1016/J.TCS.2015.09.002",
+                        "ee": "https://doi.org/10.1016/j.tcs.2015.09.002",
+                        "url": "https://dblp.org/rec/journals/tcs/DEmidioFN15"
+                    },
+                    "url": "URL#3298738"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3362580",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "29/4141",
+                                    "text": "Doina Bucur"
+                                },
+                                {
+                                    "@pid": "69/9200",
+                                    "text": "Giovanni Iacca"
+                                },
+                                {
+                                    "@pid": "80/276",
+                                    "text": "Giovanni Squillero"
+                                },
+                                {
+                                    "@pid": "60/4714",
+                                    "text": "Alberto Paolo Tonda"
+                                }
+                            ]
+                        },
+                        "title": "Black Holes and Revelations: Using Evolutionary Algorithms to Uncover Vulnerabilities in Disruption-Tolerant Networks.",
+                        "venue": "EvoApplications",
+                        "pages": "29-41",
+                        "year": "2015",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/evoW/BucurIST15",
+                        "doi": "10.1007/978-3-319-16549-3_3",
+                        "ee": "https://doi.org/10.1007/978-3-319-16549-3_3",
+                        "url": "https://dblp.org/rec/conf/evoW/BucurIST15"
+                    },
+                    "url": "URL#3362580"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3368735",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "92/399",
+                                    "text": "Liang Hong"
+                                },
+                                {
+                                    "@pid": "87/1585-4",
+                                    "text": "Yu Zheng 0004"
+                                },
+                                {
+                                    "@pid": "51/9582",
+                                    "text": "Duncan Yung"
+                                },
+                                {
+                                    "@pid": "151/3145",
+                                    "text": "Jingbo Shang"
+                                },
+                                {
+                                    "@pid": "81/3390-1",
+                                    "text": "Lei Zou 0001"
+                                }
+                            ]
+                        },
+                        "title": "Detecting urban black holes based on human mobility data.",
+                        "venue": "SIGSPATIAL/GIS",
+                        "pages": "35:1-35:10",
+                        "year": "2015",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/gis/HongZYSZ15",
+                        "doi": "10.1145/2820783.2820811",
+                        "ee": "https://doi.org/10.1145/2820783.2820811",
+                        "url": "https://dblp.org/rec/conf/gis/HongZYSZ15"
+                    },
+                    "url": "URL#3368735"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3531873",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "156/0867",
+                                    "text": "Miguel Ángel García-Ariza"
+                                },
+                                {
+                                    "@pid": "156/0881",
+                                    "text": "Merced Montesinos"
+                                },
+                                {
+                                    "@pid": "156/0899",
+                                    "text": "Gerardo F. Torres del Castillo"
+                                }
+                            ]
+                        },
+                        "title": "Geometric Thermodynamics: Black Holes and the Meaning of the Scalar Curvature.",
+                        "venue": "Entropy",
+                        "volume": "16",
+                        "number": "12",
+                        "pages": "6515-6523",
+                        "year": "2014",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/Garcia-ArizaMC14",
+                        "doi": "10.3390/E16126515",
+                        "ee": "https://doi.org/10.3390/e16126515",
+                        "url": "https://dblp.org/rec/journals/entropy/Garcia-ArizaMC14"
+                    },
+                    "url": "URL#3531873"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3561939",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "203/6673",
+                                    "text": "J. Manoranjini"
+                                },
+                                {
+                                    "@pid": "134/9288-2",
+                                    "text": "A. Chandrasekar 0002"
+                                }
+                            ]
+                        },
+                        "title": "Dedicated Trustee detector of Black Holes in MANETs.",
+                        "venue": "J. Comput. Sci.",
+                        "volume": "10",
+                        "number": "9",
+                        "pages": "1608-1616",
+                        "year": "2014",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/jcsci/ManoranjiniC14",
+                        "doi": "10.3844/JCSSP.2014.1608.1616",
+                        "ee": "https://doi.org/10.3844/jcssp.2014.1608.1616",
+                        "url": "https://dblp.org/rec/journals/jcsci/ManoranjiniC14"
+                    },
+                    "url": "URL#3561939"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3810279",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "89/11358",
+                                    "text": "Manuel D. Serrat Olmos"
+                                },
+                                {
+                                    "@pid": "24/6240",
+                                    "text": "Enrique Hernández-Orallo"
+                                },
+                                {
+                                    "@pid": "03/697",
+                                    "text": "Juan-Carlos Cano"
+                                },
+                                {
+                                    "@pid": "93/2912",
+                                    "text": "Carlos Miguel Tavares Calafate"
+                                },
+                                {
+                                    "@pid": "22/2967",
+                                    "text": "Pietro Manzoni"
+                                }
+                            ]
+                        },
+                        "title": "A novel approach for the fast detection of black holes in mobile ad hoc networks.",
+                        "venue": "Concurr. Eng. Res. Appl.",
+                        "volume": "21",
+                        "number": "3",
+                        "pages": "177-185",
+                        "year": "2013",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/cera/OlmosHCCM13",
+                        "doi": "10.1177/1063293X13493448",
+                        "ee": "https://doi.org/10.1177/1063293X13493448",
+                        "url": "https://dblp.org/rec/journals/cera/OlmosHCCM13"
+                    },
+                    "url": "URL#3810279"
+                },
+                {
+                    "@score": "2",
+                    "@id": "3849671",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "91/6332",
+                                "text": "Constantin Udriste"
+                            }
+                        },
+                        "title": "Optimal control on nonholonomic black holes.",
+                        "venue": "J. Comput. Methods Sci. Eng.",
+                        "volume": "13",
+                        "number": "1-2",
+                        "pages": "271-278",
+                        "year": "2013",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/jcmse/Udriste13",
+                        "doi": "10.3233/JCM-120465",
+                        "ee": "https://doi.org/10.3233/JCM-120465",
+                        "url": "https://dblp.org/rec/journals/jcmse/Udriste13"
+                    },
+                    "url": "URL#3849671"
+                },
+                {
+                    "@score": "2",
+                    "@id": "4021692",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "125/1824",
+                                    "text": "Yepang Liu 0001"
+                                },
+                                {
+                                    "@pid": "97/2966-1",
+                                    "text": "Chang Xu 0001"
+                                },
+                                {
+                                    "@pid": "c/SCCheung",
+                                    "text": "S. C. Cheung 0001"
+                                }
+                            ]
+                        },
+                        "title": "Where has my battery gone? Finding sensor related energy black holes in smartphone applications.",
+                        "venue": "PerCom",
+                        "pages": "2-10",
+                        "year": "2013",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/percom/LiuXC13",
+                        "doi": "10.1109/PERCOM.2013.6526708",
+                        "ee": "https://doi.org/10.1109/PerCom.2013.6526708",
+                        "url": "https://dblp.org/rec/conf/percom/LiuXC13"
+                    },
+                    "url": "URL#4021692"
+                },
+                {
+                    "@score": "2",
+                    "@id": "4038722",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "39/7061",
+                                    "text": "Peter Berczik"
+                                },
+                                {
+                                    "@pid": "30/2833",
+                                    "text": "Rainer Spurzem"
+                                },
+                                {
+                                    "@pid": "130/7434",
+                                    "text": "Shiyan Zhong"
+                                },
+                                {
+                                    "@pid": "68/4459-14",
+                                    "text": "Long Wang 0014"
+                                },
+                                {
+                                    "@pid": "84/7552",
+                                    "text": "Keigo Nitadori"
+                                },
+                                {
+                                    "@pid": "61/5903",
+                                    "text": "Tsuyoshi Hamada"
+                                },
+                                {
+                                    "@pid": "130/7445",
+                                    "text": "Alexander Veles"
+                                }
+                            ]
+                        },
+                        "title": "Up to 700k GPU Cores, Kepler, and the Exascale Future for Simulations of Star Clusters Around Black Holes.",
+                        "venue": "ISC",
+                        "pages": "13-25",
+                        "year": "2013",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/supercomputer/BerczikSZWNHV13",
+                        "doi": "10.1007/978-3-642-38750-0_2",
+                        "ee": "https://doi.org/10.1007/978-3-642-38750-0_2",
+                        "url": "https://dblp.org/rec/conf/supercomputer/BerczikSZWNHV13"
+                    },
+                    "url": "URL#4038722"
+                },
+                {
+                    "@score": "2",
+                    "@id": "4060669",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "17/8035",
+                                "text": "Laszlo Gyongyosi"
+                            }
+                        },
+                        "title": "A Statistical Model of Information Evaporation of Perfectly Reflecting Black Holes.",
+                        "venue": "CoRR",
+                        "volume": "abs/1311.3598",
+                        "year": "2013",
+                        "type": "Informal and Other Publications",
+                        "access": "open",
+                        "key": "journals/corr/Gyongyosi13c",
+                        "ee": "http://arxiv.org/abs/1311.3598",
+                        "url": "https://dblp.org/rec/journals/corr/Gyongyosi13c"
+                    },
+                    "url": "URL#4060669"
+                },
+                {
+                    "@score": "2",
+                    "@id": "4081324",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "10/6785",
+                                "text": "Helmut Prodinger"
+                            }
+                        },
+                        "title": "Set partitions, words, and approximate counting with black holes.",
+                        "venue": "Australas. J Comb.",
+                        "volume": "54",
+                        "pages": "303-",
+                        "year": "2012",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/ajc/Prodinger12",
+                        "ee": "http://ajc.maths.uq.edu.au/pdf/54/ajc_v54_p303.pdf",
+                        "url": "https://dblp.org/rec/journals/ajc/Prodinger12"
+                    },
+                    "url": "URL#4081324"
+                },
+                {
+                    "@score": "2",
+                    "@id": "4101954",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "121/9970",
+                                    "text": "Stefano Bellucci"
+                                },
+                                {
+                                    "@pid": "122/0179",
+                                    "text": "Bhupendra Nath Tiwari"
+                                }
+                            ]
+                        },
+                        "title": "Thermodynamic Geometry and Topological Einstein-Yang-Mills Black Holes.",
+                        "venue": "Entropy",
+                        "volume": "14",
+                        "number": "6",
+                        "pages": "1045-1078",
+                        "year": "2012",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/BellucciT12",
+                        "doi": "10.3390/E14061045",
+                        "ee": "https://doi.org/10.3390/e14061045",
+                        "url": "https://dblp.org/rec/journals/entropy/BellucciT12"
+                    },
+                    "url": "URL#4101954"
+                },
+                {
+                    "@score": "2",
+                    "@id": "4101973",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "122/0033",
+                                    "text": "Alvaro de la Cruz-Dombriz"
+                                },
+                                {
+                                    "@pid": "226/5857",
+                                    "text": "Diego Sáez-Chillón Gómez"
+                                }
+                            ]
+                        },
+                        "title": "Black Holes, Cosmological Solutions, Future Singularities, and Their Thermodynamical Properties in Modified Gravity Theories.",
+                        "venue": "Entropy",
+                        "volume": "14",
+                        "number": "9",
+                        "pages": "1717-1770",
+                        "year": "2012",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/Cruz-DombrizS12",
+                        "doi": "10.3390/E14091717",
+                        "ee": "https://doi.org/10.3390/e14091717",
+                        "url": "https://dblp.org/rec/journals/entropy/Cruz-DombrizS12"
+                    },
+                    "url": "URL#4101973"
+                },
+                {
+                    "@score": "2",
+                    "@id": "4142930",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "96/778",
+                                    "text": "Paola Flocchini"
+                                },
+                                {
+                                    "@pid": "07/7433",
+                                    "text": "Matthew Kellett"
+                                },
+                                {
+                                    "@pid": "27/7441",
+                                    "text": "Peter C. Mason"
+                                },
+                                {
+                                    "@pid": "s/NicolaSantoro",
+                                    "text": "Nicola Santoro"
+                                }
+                            ]
+                        },
+                        "title": "Searching for Black Holes in Subways.",
+                        "venue": "Theory Comput. Syst.",
+                        "volume": "50",
+                        "number": "1",
+                        "pages": "158-184",
+                        "year": "2012",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/mst/FlocchiniKMS12",
+                        "doi": "10.1007/S00224-011-9341-8",
+                        "ee": "https://doi.org/10.1007/s00224-011-9341-8",
+                        "url": "https://dblp.org/rec/journals/mst/FlocchiniKMS12"
+                    },
+                    "url": "URL#4142930"
+                },
+                {
+                    "@score": "2",
+                    "@id": "4202336",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "15/10956",
+                                    "text": "Carlos Rodrigo Aponte"
+                                },
+                                {
+                                    "@pid": "11/3015",
+                                    "text": "Stephan Bohacek"
+                                }
+                            ]
+                        },
+                        "title": "OLSR and approximate distance routing: Loops, black holes, and path stretch.",
+                        "venue": "COMSNETS",
+                        "pages": "1-10",
+                        "year": "2012",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/comsnets/AponteB12",
+                        "doi": "10.1109/COMSNETS.2012.6151347",
+                        "ee": "https://doi.org/10.1109/COMSNETS.2012.6151347",
+                        "url": "https://dblp.org/rec/conf/comsnets/AponteB12"
+                    },
+                    "url": "URL#4202336"
+                },
+                {
+                    "@score": "2",
+                    "@id": "4223227",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "72/9379",
+                                    "text": "Ludovic Jacquin"
+                                },
+                                {
+                                    "@pid": "78/36",
+                                    "text": "Vincent Roca"
+                                },
+                                {
+                                    "@pid": "71/5612",
+                                    "text": "Mohamed Ali Kâafar"
+                                },
+                                {
+                                    "@pid": "129/1026",
+                                    "text": "Fabrice Schuler"
+                                },
+                                {
+                                    "@pid": "82/5170",
+                                    "text": "Jean-Louis Roch"
+                                }
+                            ]
+                        },
+                        "title": "IBTrack: An ICMP black holes tracker.",
+                        "venue": "GLOBECOM",
+                        "pages": "2827-2833",
+                        "year": "2012",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/globecom/JacquinRKSR12",
+                        "doi": "10.1109/GLOCOM.2012.6503545",
+                        "ee": "https://doi.org/10.1109/GLOCOM.2012.6503545",
+                        "url": "https://dblp.org/rec/conf/globecom/JacquinRKSR12"
+                    },
+                    "url": "URL#4223227"
+                },
+                {
+                    "@score": "2",
+                    "@id": "4250737",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "89/11358",
+                                    "text": "Manuel D. Serrat Olmos"
+                                },
+                                {
+                                    "@pid": "24/6240",
+                                    "text": "Enrique Hernández-Orallo"
+                                },
+                                {
+                                    "@pid": "03/697",
+                                    "text": "Juan-Carlos Cano"
+                                },
+                                {
+                                    "@pid": "93/2912",
+                                    "text": "Carlos Miguel Tavares Calafate"
+                                },
+                                {
+                                    "@pid": "22/2967",
+                                    "text": "Pietro Manzoni"
+                                }
+                            ]
+                        },
+                        "title": "A Collaborative Bayesian Watchdog for Detecting Black Holes in MANETs.",
+                        "venue": "IDC",
+                        "pages": "221-230",
+                        "year": "2012",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/idc/OlmosHCCM12",
+                        "doi": "10.1007/978-3-642-32524-3_28",
+                        "ee": "https://doi.org/10.1007/978-3-642-32524-3_28",
+                        "url": "https://dblp.org/rec/conf/idc/OlmosHCCM12"
+                    },
+                    "url": "URL#4250737"
+                },
+                {
+                    "@score": "2",
+                    "@id": "4313169",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "89/11358",
+                                    "text": "Manuel D. Serrat Olmos"
+                                },
+                                {
+                                    "@pid": "24/6240",
+                                    "text": "Enrique Hernández-Orallo"
+                                },
+                                {
+                                    "@pid": "03/697",
+                                    "text": "Juan-Carlos Cano"
+                                },
+                                {
+                                    "@pid": "93/2912",
+                                    "text": "Carlos Miguel Tavares Calafate"
+                                },
+                                {
+                                    "@pid": "22/2967",
+                                    "text": "Pietro Manzoni"
+                                }
+                            ]
+                        },
+                        "title": "Accurate detection of black holes in MANETs using collaborative bayesian watchdogs.",
+                        "venue": "Wireless Days",
+                        "pages": "1-6",
+                        "year": "2012",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/wd/OlmosHCCM12",
+                        "doi": "10.1109/WD.2012.6402811",
+                        "ee": "https://doi.org/10.1109/WD.2012.6402811",
+                        "url": "https://dblp.org/rec/conf/wd/OlmosHCCM12"
+                    },
+                    "url": "URL#4313169"
+                },
+                {
+                    "@score": "2",
+                    "@id": "4364298",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "122/0214",
+                                    "text": "Roberto Casadio"
+                                },
+                                {
+                                    "@pid": "122/0016",
+                                    "text": "Benjamin Harms"
+                                }
+                            ]
+                        },
+                        "title": "Microcanonical Description of (Micro) Black Holes.",
+                        "venue": "Entropy",
+                        "volume": "13",
+                        "number": "2",
+                        "pages": "502-517",
+                        "year": "2011",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/CasadioH11",
+                        "doi": "10.3390/E13020502",
+                        "ee": "https://doi.org/10.3390/e13020502",
+                        "url": "https://dblp.org/rec/journals/entropy/CasadioH11"
+                    },
+                    "url": "URL#4364298"
+                },
+                {
+                    "@score": "2",
+                    "@id": "4364313",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "122/0075",
+                                    "text": "Irina Dymnikova"
+                                },
+                                {
+                                    "@pid": "120/3040",
+                                    "text": "Michal Korpusik"
+                                }
+                            ]
+                        },
+                        "title": "Thermodynamics of Regular Cosmological Black Holes with the de Sitter Interior.",
+                        "venue": "Entropy",
+                        "volume": "13",
+                        "number": "12",
+                        "pages": "1967-1991",
+                        "year": "2011",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/DymnikovaK11",
+                        "doi": "10.3390/E13121967",
+                        "ee": "https://doi.org/10.3390/e13121967",
+                        "url": "https://dblp.org/rec/journals/entropy/DymnikovaK11"
+                    },
+                    "url": "URL#4364313"
+                },
+                {
+                    "@score": "2",
+                    "@id": "4530868",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "b/FBlanchetSadri",
+                                    "text": "Francine Blanchet-Sadri"
+                                },
+                                {
+                                    "@pid": "66/9687",
+                                    "text": "Kevin Black"
+                                },
+                                {
+                                    "@pid": "66/8668",
+                                    "text": "Andrew Zemke"
+                                }
+                            ]
+                        },
+                        "title": "Unary Pattern Avoidance in Partial Words Dense with Holes.",
+                        "venue": "LATA",
+                        "pages": "155-166",
+                        "year": "2011",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/lata/Blanchet-SadriBZ11",
+                        "doi": "10.1007/978-3-642-21254-3_11",
+                        "ee": "https://doi.org/10.1007/978-3-642-21254-3_11",
+                        "url": "https://dblp.org/rec/conf/lata/Blanchet-SadriBZ11"
+                    },
+                    "url": "URL#4530868"
+                },
+                {
+                    "@score": "2",
+                    "@id": "4613655",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "122/0100",
+                                    "text": "Mariano Cadoni"
+                                },
+                                {
+                                    "@pid": "122/0265",
+                                    "text": "Maurizio Melis"
+                                }
+                            ]
+                        },
+                        "title": "Entanglement Entropy of AdS Black Holes.",
+                        "venue": "Entropy",
+                        "volume": "12",
+                        "number": "11",
+                        "pages": "2244-2267",
+                        "year": "2010",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/CadoniM10",
+                        "doi": "10.3390/E12112244",
+                        "ee": "https://doi.org/10.3390/e12112244",
+                        "url": "https://dblp.org/rec/journals/entropy/CadoniM10"
+                    },
+                    "url": "URL#4613655"
+                },
+                {
+                    "@score": "2",
+                    "@id": "4842087",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "118/1266",
+                                    "text": "Sergio Mendoza"
+                                },
+                                {
+                                    "@pid": "79/3134",
+                                    "text": "Xavier Hernández"
+                                },
+                                {
+                                    "@pid": "122/1048",
+                                    "text": "Pablo L. Rendón"
+                                },
+                                {
+                                    "@pid": "168/9170",
+                                    "text": "Cesar S. Lopez-Monsalvo"
+                                },
+                                {
+                                    "@pid": "122/1091",
+                                    "text": "Roberto Velasco-Segura"
+                                }
+                            ]
+                        },
+                        "title": "The Connection Between Entropy and the Absorption Spectra of Schwarzschild Black Holes for Light and Massless Scalar Fields.",
+                        "venue": "Entropy",
+                        "volume": "11",
+                        "number": "1",
+                        "pages": "17-31",
+                        "year": "2009",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/MendozaHRLV09",
+                        "doi": "10.3390/E11010017",
+                        "ee": "https://doi.org/10.3390/e11010017",
+                        "url": "https://dblp.org/rec/journals/entropy/MendozaHRLV09"
+                    },
+                    "url": "URL#4842087"
+                },
+                {
+                    "@score": "2",
+                    "@id": "4876016",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "d/JODurandLose",
+                                "text": "Jérôme Durand-Lose"
+                            }
+                        },
+                        "title": "Abstract geometrical computation 3: black holes for classical and analog computing.",
+                        "venue": "Nat. Comput.",
+                        "volume": "8",
+                        "number": "3",
+                        "pages": "455-472",
+                        "year": "2009",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/nc/Durand-Lose09",
+                        "doi": "10.1007/S11047-009-9117-0",
+                        "ee": "https://doi.org/10.1007/s11047-009-9117-0",
+                        "url": "https://dblp.org/rec/journals/nc/Durand-Lose09"
+                    },
+                    "url": "URL#4876016"
+                },
+                {
+                    "@score": "2",
+                    "@id": "4996865",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "k/AdrianKosowski",
+                                    "text": "Adrian Kosowski"
+                                },
+                                {
+                                    "@pid": "n/AlfredoNavarra",
+                                    "text": "Alfredo Navarra"
+                                },
+                                {
+                                    "@pid": "p/MCPinotti",
+                                    "text": "Maria Cristina Pinotti"
+                                }
+                            ]
+                        },
+                        "title": "Synchronization Helps Robots to Detect Black Holes in Directed Graphs.",
+                        "venue": "OPODIS",
+                        "pages": "86-98",
+                        "year": "2009",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/opodis/KosowskiNP09",
+                        "doi": "10.1007/978-3-642-10877-8_9",
+                        "ee": "https://doi.org/10.1007/978-3-642-10877-8_9",
+                        "url": "https://dblp.org/rec/conf/opodis/KosowskiNP09"
+                    },
+                    "url": "URL#4996865"
+                },
+                {
+                    "@score": "2",
+                    "@id": "5063614",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "121/9970",
+                                    "text": "Stefano Bellucci"
+                                },
+                                {
+                                    "@pid": "122/0997",
+                                    "text": "Sergio Ferrara"
+                                },
+                                {
+                                    "@pid": "122/0925",
+                                    "text": "Alessio Marrani"
+                                },
+                                {
+                                    "@pid": "122/0892",
+                                    "text": "Armen Yeranyan"
+                                }
+                            ]
+                        },
+                        "title": "stu Black Holes Unveiled.",
+                        "venue": "Entropy",
+                        "volume": "10",
+                        "number": "4",
+                        "pages": "507-555",
+                        "year": "2008",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/BellucciFMY08",
+                        "doi": "10.3390/E10040507",
+                        "ee": "https://doi.org/10.3390/e10040507",
+                        "url": "https://dblp.org/rec/journals/entropy/BellucciFMY08"
+                    },
+                    "url": "URL#5063614"
+                },
+                {
+                    "@score": "2",
+                    "@id": "5099205",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "68/779",
+                                    "text": "Teviet Creighton"
+                                },
+                                {
+                                    "@pid": "27/218",
+                                    "text": "Richard H. Price"
+                                }
+                            ]
+                        },
+                        "title": "Black holes.",
+                        "venue": "Scholarpedia",
+                        "volume": "3",
+                        "number": "1",
+                        "pages": "4277",
+                        "year": "2008",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/scholarpedia/CreightonP08",
+                        "doi": "10.4249/SCHOLARPEDIA.4277",
+                        "ee": "https://doi.org/10.4249/scholarpedia.4277",
+                        "url": "https://dblp.org/rec/journals/scholarpedia/CreightonP08"
+                    },
+                    "url": "URL#5099205"
+                },
+                {
+                    "@score": "2",
+                    "@id": "5159576",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "57/3188",
+                                    "text": "S. Sankara Gomathi"
+                                },
+                                {
+                                    "@pid": "76/6494",
+                                    "text": "Preethi Murali"
+                                }
+                            ]
+                        },
+                        "title": "Performance Improvements of Power Efficient MANET Routing Based on Load Balancing and Multiple Black Holes Attack.",
+                        "venue": "HPCNCS",
+                        "pages": "133-140",
+                        "year": "2008",
+                        "type": "Conference and Workshop Papers",
+                        "access": "unavailable",
+                        "key": "conf/hpcncs/GomathiM08",
+                        "url": "https://dblp.org/rec/conf/hpcncs/GomathiM08"
+                    },
+                    "url": "URL#5159576"
+                },
+                {
+                    "@score": "2",
+                    "@id": "5169090",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "122/1934",
+                                    "text": "Sanjeev Kumar Sharma"
+                                },
+                                {
+                                    "@pid": "53/1512",
+                                    "text": "Manpreet Singh"
+                                }
+                            ]
+                        },
+                        "title": "Defending Wireless Ad Hoc Network from Single and Cooperative Black Holes.",
+                        "venue": "ICETET",
+                        "pages": "134-139",
+                        "year": "2008",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/icetet/SharmaS08",
+                        "doi": "10.1109/ICETET.2008.56",
+                        "ee": "https://doi.org/10.1109/ICETET.2008.56",
+                        "url": "https://dblp.org/rec/conf/icetet/SharmaS08"
+                    },
+                    "url": "URL#5169090"
+                },
+                {
+                    "@score": "2",
+                    "@id": "5191562",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "70/462",
+                                    "text": "Guangyue Han"
+                                },
+                                {
+                                    "@pid": "95/927",
+                                    "text": "Brian H. Marcus"
+                                }
+                            ]
+                        },
+                        "title": "Asymptotics of entropy rate of hidden Markov chains at weak Black Holes.",
+                        "venue": "ISIT",
+                        "pages": "2629-2633",
+                        "year": "2008",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/isit/HanM08",
+                        "doi": "10.1109/ISIT.2008.4595468",
+                        "ee": "https://doi.org/10.1109/ISIT.2008.4595468",
+                        "url": "https://dblp.org/rec/conf/isit/HanM08"
+                    },
+                    "url": "URL#5191562"
+                },
+                {
+                    "@score": "2",
+                    "@id": "5206261",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "66/2080",
+                                    "text": "Ethan Katz-Bassett"
+                                },
+                                {
+                                    "@pid": "45/2026",
+                                    "text": "Harsha V. Madhyastha"
+                                },
+                                {
+                                    "@pid": "12/1518",
+                                    "text": "John P. John"
+                                },
+                                {
+                                    "@pid": "k/AKrishnamurthy",
+                                    "text": "Arvind Krishnamurthy"
+                                },
+                                {
+                                    "@pid": "w/DavidWetherall",
+                                    "text": "David Wetherall"
+                                },
+                                {
+                                    "@pid": "a/ThomasEAnderson",
+                                    "text": "Thomas E. Anderson"
+                                }
+                            ]
+                        },
+                        "title": "Studying Black Holes in the Internet with Hubble.",
+                        "venue": "NSDI",
+                        "pages": "247-262",
+                        "year": "2008",
+                        "type": "Conference and Workshop Papers",
+                        "access": "open",
+                        "key": "conf/nsdi/Katz-BassettMJKWA08",
+                        "ee": "http://www.usenix.org/events/nsdi08/tech/full_papers/katz-bassett/katz-bassett.pdf",
+                        "url": "https://dblp.org/rec/conf/nsdi/Katz-BassettMJKWA08"
+                    },
+                    "url": "URL#5206261"
+                },
+                {
+                    "@score": "2",
+                    "@id": "5260444",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "202/9408",
+                                    "text": "Marco Cavaglià"
+                                },
+                                {
+                                    "@pid": "74/4951",
+                                    "text": "R. Godang"
+                                },
+                                {
+                                    "@pid": "33/1033",
+                                    "text": "L. Cremaldi"
+                                },
+                                {
+                                    "@pid": "21/1596",
+                                    "text": "D. Summers"
+                                }
+                            ]
+                        },
+                        "title": "Catfish: A Monte Carlo simulator for black holes at the LHC.",
+                        "venue": "Comput. Phys. Commun.",
+                        "volume": "177",
+                        "number": "6",
+                        "pages": "506-517",
+                        "year": "2007",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/cphysics/CavagliaGCS07",
+                        "doi": "10.1016/J.CPC.2007.05.011",
+                        "ee": "https://doi.org/10.1016/j.cpc.2007.05.011",
+                        "url": "https://dblp.org/rec/journals/cphysics/CavagliaGCS07"
+                    },
+                    "url": "URL#5260444"
+                },
+                {
+                    "@score": "2",
+                    "@id": "5272583",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "10/1784",
+                                    "text": "Alexandre V. Borovik"
+                                },
+                                {
+                                    "@pid": "47/2636",
+                                    "text": "Alexei G. Myasnikov"
+                                },
+                                {
+                                    "@pid": "46/3416",
+                                    "text": "Vladimir N. Remeslennikov"
+                                }
+                            ]
+                        },
+                        "title": "The Conjugacy Problem in Amalgamated Products I: Regular Elements and Black Holes.",
+                        "venue": "Int. J. Algebra Comput.",
+                        "volume": "17",
+                        "number": "7",
+                        "pages": "1299-1333",
+                        "year": "2007",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/ijac/BorovikMR07a",
+                        "doi": "10.1142/S0218196707003652",
+                        "ee": "https://doi.org/10.1142/S0218196707003652",
+                        "url": "https://dblp.org/rec/journals/ijac/BorovikMR07a"
+                    },
+                    "url": "URL#5272583"
+                },
+                {
+                    "@score": "2",
+                    "@id": "5380233",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "98/2327",
+                                    "text": "Ramana Rao Kompella"
+                                },
+                                {
+                                    "@pid": "y/JenniferYates",
+                                    "text": "Jennifer Yates"
+                                },
+                                {
+                                    "@pid": "g/AlbertGGreenberg",
+                                    "text": "Albert G. Greenberg"
+                                },
+                                {
+                                    "@pid": "s/AlexCSnoeren",
+                                    "text": "Alex C. Snoeren"
+                                }
+                            ]
+                        },
+                        "title": "Detection and Localization of Network Black Holes.",
+                        "venue": "INFOCOM",
+                        "pages": "2180-2188",
+                        "year": "2007",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/infocom/KompellaYGS07",
+                        "doi": "10.1109/INFCOM.2007.252",
+                        "ee": "https://doi.org/10.1109/INFCOM.2007.252",
+                        "url": "https://dblp.org/rec/conf/infocom/KompellaYGS07"
+                    },
+                    "url": "URL#5380233"
+                },
+                {
+                    "@score": "2",
+                    "@id": "5430734",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "79/1716",
+                                    "text": "Erik Schnetter"
+                                },
+                                {
+                                    "@pid": "128/3795",
+                                    "text": "Christian D. Ott"
+                                },
+                                {
+                                    "@pid": "70/4755",
+                                    "text": "Gabrielle Allen"
+                                },
+                                {
+                                    "@pid": "96/5617",
+                                    "text": "Peter Diener"
+                                },
+                                {
+                                    "@pid": "63/4036",
+                                    "text": "Tom Goodale"
+                                },
+                                {
+                                    "@pid": "90/2852",
+                                    "text": "Thomas Radke"
+                                },
+                                {
+                                    "@pid": "55/4602",
+                                    "text": "Edward Seidel"
+                                },
+                                {
+                                    "@pid": "40/2197",
+                                    "text": "John Shalf"
+                                }
+                            ]
+                        },
+                        "title": "Cactus Framework: Black Holes to Gamma Ray Bursts",
+                        "venue": "CoRR",
+                        "volume": "abs/0707.1607",
+                        "year": "2007",
+                        "type": "Informal and Other Publications",
+                        "access": "open",
+                        "key": "journals/corr/abs-0707-1607",
+                        "ee": "http://arxiv.org/abs/0707.1607",
+                        "url": "https://dblp.org/rec/journals/corr/abs-0707-1607"
+                    },
+                    "url": "URL#5430734"
+                },
+                {
+                    "@score": "2",
+                    "@id": "5479275",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "61/7916",
+                                    "text": "Sushmita Datta"
+                                },
+                                {
+                                    "@pid": "52/9178",
+                                    "text": "Balasrinivasa Rao Sajja"
+                                },
+                                {
+                                    "@pid": "91/4626",
+                                    "text": "Renjie He"
+                                },
+                                {
+                                    "@pid": "37/4457",
+                                    "text": "Jerry S. Wolinsky"
+                                },
+                                {
+                                    "@pid": "149/8014",
+                                    "text": "Rakesh K. Gupta"
+                                },
+                                {
+                                    "@pid": "83/6347",
+                                    "text": "Ponnada A. Narayana"
+                                }
+                            ]
+                        },
+                        "title": "Segmentation and quantification of black holes in multiple sclerosis.",
+                        "venue": "NeuroImage",
+                        "volume": "29",
+                        "number": "2",
+                        "pages": "467-474",
+                        "year": "2006",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/neuroimage/DattaSHWGN06",
+                        "doi": "10.1016/J.NEUROIMAGE.2005.07.042",
+                        "ee": "https://doi.org/10.1016/j.neuroimage.2005.07.042",
+                        "url": "https://dblp.org/rec/journals/neuroimage/DattaSHWGN06"
+                    },
+                    "url": "URL#5479275"
+                },
+                {
+                    "@score": "2",
+                    "@id": "5596191",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "d/JODurandLose",
+                                "text": "Jérôme Durand-Lose"
+                            }
+                        },
+                        "title": "Forecasting Black Holes in Abstract Geometrical Computation is Highly Unpredictable.",
+                        "venue": "TAMC",
+                        "pages": "644-653",
+                        "year": "2006",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/tamc/Durand-Lose06",
+                        "doi": "10.1007/11750321_61",
+                        "ee": "https://doi.org/10.1007/11750321_61",
+                        "url": "https://dblp.org/rec/conf/tamc/Durand-Lose06"
+                    },
+                    "url": "URL#5596191"
+                },
+                {
+                    "@score": "2",
+                    "@id": "5719586",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "20/1534",
+                                    "text": "Sanjay Ramaswamy"
+                                },
+                                {
+                                    "@pid": "80/6954",
+                                    "text": "Huirong Fu"
+                                },
+                                {
+                                    "@pid": "20/47",
+                                    "text": "Kendall E. Nygard"
+                                }
+                            ]
+                        },
+                        "title": "Simulation Study of Multiple Black Holes Attack on Mobile Ad Hoc Networks.",
+                        "venue": "ICWN",
+                        "pages": "595-604",
+                        "year": "2005",
+                        "type": "Conference and Workshop Papers",
+                        "access": "unavailable",
+                        "key": "conf/icwn/RamaswamyFN05",
+                        "url": "https://dblp.org/rec/conf/icwn/RamaswamyFN05"
+                    },
+                    "url": "URL#5719586"
+                },
+                {
+                    "@score": "2",
+                    "@id": "5767383",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "16/5633",
+                                "text": "Prashant"
+                            }
+                        },
+                        "title": "Internet Protocol Black Holes: A E-Security Threat",
+                        "venue": "CoRR",
+                        "volume": "abs/cs/0511031",
+                        "year": "2005",
+                        "type": "Informal and Other Publications",
+                        "access": "open",
+                        "key": "journals/corr/abs-cs-0511031",
+                        "ee": "http://arxiv.org/abs/cs/0511031",
+                        "url": "https://dblp.org/rec/journals/corr/abs-cs-0511031"
+                    },
+                    "url": "URL#5767383"
+                },
+                {
+                    "@score": "2",
+                    "@id": "6032480",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "122/1100",
+                                    "text": "Laura Andrianopoli"
+                                },
+                                {
+                                    "@pid": "122/1042",
+                                    "text": "Riccardo D&apos;Auria"
+                                }
+                            ]
+                        },
+                        "title": "Extremal Black Holes in Supergravity and the Bekenstein-Hawking Entropy.",
+                        "venue": "Entropy",
+                        "volume": "4",
+                        "number": "3",
+                        "pages": "65-127",
+                        "year": "2002",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/AndrianopoliD02",
+                        "doi": "10.3390/E4030065",
+                        "ee": "https://doi.org/10.3390/e4030065",
+                        "url": "https://dblp.org/rec/journals/entropy/AndrianopoliD02"
+                    },
+                    "url": "URL#6032480"
+                },
+                {
+                    "@score": "2",
+                    "@id": "6032485",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "122/1000",
+                                    "text": "Alfredo Iorio"
+                                },
+                                {
+                                    "@pid": "122/1121",
+                                    "text": "Gaetano Lambiase"
+                                },
+                                {
+                                    "@pid": "54/5827",
+                                    "text": "Giuseppe Vitiello"
+                                }
+                            ]
+                        },
+                        "title": "Entropy of Black Holes: A Quantum Algebraic Approach.",
+                        "venue": "Entropy",
+                        "volume": "4",
+                        "number": "6",
+                        "pages": "168-182",
+                        "year": "2002",
+                        "type": "Journal Articles",
+                        "access": "open",
+                        "key": "journals/entropy/IorioLV02",
+                        "doi": "10.3390/E4060168",
+                        "ee": "https://doi.org/10.3390/e4060168",
+                        "url": "https://dblp.org/rec/journals/entropy/IorioLV02"
+                    },
+                    "url": "URL#6032485"
+                },
+                {
+                    "@score": "2",
+                    "@id": "6144944",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "m/BartonPMiller",
+                                    "text": "Barton P. Miller"
+                                },
+                                {
+                                    "@pid": "64/4993",
+                                    "text": "Mihai Christodorescu"
+                                },
+                                {
+                                    "@pid": "15/2358",
+                                    "text": "Robert Iverson"
+                                },
+                                {
+                                    "@pid": "29/3036",
+                                    "text": "Tevfik Kosar"
+                                },
+                                {
+                                    "@pid": "46/54",
+                                    "text": "Alexander Mirgorodskii"
+                                },
+                                {
+                                    "@pid": "34/1202",
+                                    "text": "Florentina I. Popovici"
+                                }
+                            ]
+                        },
+                        "title": "Playing Inside the Black Box: Using Dynamic Instrumentation to Create Security Holes.",
+                        "venue": "Parallel Process. Lett.",
+                        "volume": "11",
+                        "number": "2/3",
+                        "pages": "267-280",
+                        "year": "2001",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/ppl/MillerCIKMP01",
+                        "doi": "10.1142/S0129626401000579",
+                        "ee": "https://doi.org/10.1142/S0129626401000579",
+                        "url": "https://dblp.org/rec/journals/ppl/MillerCIKMP01"
+                    },
+                    "url": "URL#6144944"
+                },
+                {
+                    "@score": "2",
+                    "@id": "6278044",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "13/431",
+                                    "text": "Junichiro Makino"
+                                },
+                                {
+                                    "@pid": "10/1306",
+                                    "text": "Toshiyuki Fukushige"
+                                },
+                                {
+                                    "@pid": "39/4861",
+                                    "text": "Masaki Koga"
+                                }
+                            ]
+                        },
+                        "title": "A 1.349 Tflops Simulation of Black Holes in a Galactic Center on GRAPE-6.",
+                        "venue": "SC",
+                        "pages": "43",
+                        "year": "2000",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/sc/MakinoFK00",
+                        "doi": "10.1109/SC.2000.10042",
+                        "ee": "https://doi.org/10.1109/SC.2000.10042",
+                        "url": "https://dblp.org/rec/conf/sc/MakinoFK00"
+                    },
+                    "url": "URL#6278044"
+                },
+                {
+                    "@score": "2",
+                    "@id": "6405202",
+                    "info": {
+                        "authors": {
+                            "author": {
+                                "@pid": "r/AlastairReid",
+                                "text": "Alastair Reid 0001"
+                            }
+                        },
+                        "title": "Putting the Spine Back in the Spineless Tagless G-Machine: An Implementation of Resumable Black-Holes.",
+                        "venue": "IFL",
+                        "pages": "186-199",
+                        "year": "1998",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/ifl/Reid98",
+                        "doi": "10.1007/3-540-48515-5_12",
+                        "ee": "https://doi.org/10.1007/3-540-48515-5_12",
+                        "url": "https://dblp.org/rec/conf/ifl/Reid98"
+                    },
+                    "url": "URL#6405202"
+                },
+                {
+                    "@score": "2",
+                    "@id": "6527328",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "172/1995",
+                                    "text": "Gregory Foss"
+                                },
+                                {
+                                    "@pid": "172/1974",
+                                    "text": "Anjana Kar"
+                                }
+                            ]
+                        },
+                        "title": "Formation of accretion disks and jets around black holes.",
+                        "venue": "SIGGRAPH Visual Proceedings",
+                        "pages": "184",
+                        "year": "1996",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/siggraph/FossK96",
+                        "doi": "10.1145/253607.253977",
+                        "ee": "https://doi.org/10.1145/253607.253977",
+                        "url": "https://dblp.org/rec/conf/siggraph/FossK96"
+                    },
+                    "url": "URL#6527328"
+                },
+                {
+                    "@score": "2",
+                    "@id": "6756726",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "94/6531",
+                                    "text": "Stuart L. Shapiro"
+                                },
+                                {
+                                    "@pid": "87/3558",
+                                    "text": "Saul A. Teukolsky"
+                                }
+                            ]
+                        },
+                        "title": "Building black holes, gravitational waves, and relativistic fluid flows: supercomputer cinema.",
+                        "venue": "SC",
+                        "pages": "805-814",
+                        "year": "1990",
+                        "type": "Conference and Workshop Papers",
+                        "access": "closed",
+                        "key": "conf/sc/ShapiroT90",
+                        "doi": "10.1109/SUPERC.1990.130104",
+                        "ee": "https://doi.org/10.1109/SUPERC.1990.130104",
+                        "url": "https://dblp.org/rec/conf/sc/ShapiroT90"
+                    },
+                    "url": "URL#6756726"
+                },
+                {
+                    "@score": "2",
+                    "@id": "6764268",
+                    "info": {
+                        "authors": {
+                            "author": [
+                                {
+                                    "@pid": "60/1648",
+                                    "text": "Larry Smarr"
+                                },
+                                {
+                                    "@pid": "175/8079",
+                                    "text": "David Hobill"
+                                },
+                                {
+                                    "@pid": "24/634",
+                                    "text": "David Bernstein"
+                                }
+                            ]
+                        },
+                        "title": "Shedding light on black holes.",
+                        "venue": "Future Gener. Comput. Syst.",
+                        "volume": "5",
+                        "number": "2-3",
+                        "pages": "225-242",
+                        "year": "1989",
+                        "type": "Journal Articles",
+                        "access": "closed",
+                        "key": "journals/fgcs/SmarrHB89",
+                        "doi": "10.1016/0167-739X(89)90043-5",
+                        "ee": "https://doi.org/10.1016/0167-739X(89)90043-5",
+                        "url": "https://dblp.org/rec/journals/fgcs/SmarrHB89"
+                    },
+                    "url": "URL#6764268"
+                }
+            ]
+        }
+    }
+}

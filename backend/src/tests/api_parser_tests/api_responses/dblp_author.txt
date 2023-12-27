@@ -1,0 +1,75 @@
+{
+    "result": {
+        "query": "Vincent* Poor*",
+        "status": {
+            "@code": "200",
+            "text": "OK"
+        },
+        "time": {
+            "@unit": "msecs",
+            "text": "0.40"
+        },
+        "completions": {
+            "@total": "2",
+            "@computed": "2",
+            "@sent": "2",
+            "c": [
+                {
+                    "@sc": "1",
+                    "@dc": "1",
+                    "@oc": "2",
+                    "@id": "18536201",
+                    "text": "poor"
+                },
+                {
+                    "@sc": "1",
+                    "@dc": "1",
+                    "@oc": "1",
+                    "@id": "18536299",
+                    "text": "poorten"
+                }
+            ]
+        },
+        "hits": {
+            "@total": "2",
+            "@computed": "2",
+            "@sent": "2",
+            "@first": "0",
+            "hit": [
+                {
+                    "@score": "3",
+                    "@id": "2299084",
+                    "info": {
+                        "author": "H. Vincent Poor",
+                        "aliases": {
+                            "alias": "Harold Vincent Poor"
+                        },
+                        "notes": {
+                            "note": [
+                                {
+                                    "@type": "affiliation",
+                                    "text": "Princeton University, School of Engineering and Applied Science, NJ, USA"
+                                },
+                                {
+                                    "@type": "award",
+                                    "text": "IEEE James H. Mulligan, Jr. Education Medal"
+                                }
+                            ]
+                        },
+                        "url": "https://dblp.org/pid/p/HVincentPoor"
+                    },
+                    "url": "URL#2299084"
+                },
+                {
+                    "@score": "2",
+                    "@id": "2299223",
+                    "info": {
+                        "author": "Vincent Vander Poorten",
+                        "url": "https://dblp.org/pid/34/2066"
+                    },
+                    "url": "URL#2299223"
+                }
+            ]
+        }
+    }
+}
